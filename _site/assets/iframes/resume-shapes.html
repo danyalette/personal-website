@@ -1,0 +1,145 @@
+<!doctype html>
+<html>
+<head>
+	<style>
+	body{
+		overflow:hidden;
+	}
+	svg{
+		-webkit-transition:opacity 0.5s linear; 
+		-moz-transition:opacity 0.5s linear; 
+		-o-transition:opacity 0.5s linear; 
+		transition:opacity 0.5s linear; 
+	}
+	#pp
+	{
+		font-size:12px;
+		position:absolute;
+		top:220px;
+		cursor:pointer;
+	}
+	</style>
+</head>
+
+<body>
+
+
+<svg version="1.1" id="svg1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="340px" height="333px" viewBox="0 0 340 333" enable-background="new 0 0 340 333" xml:space="preserve" >
+  <path class="path" id='path2' fill="none" stroke="#000" stroke-width="1" transform="" stroke-miterlimit="10" d="M0 100" />
+  <path class="path" id='path' fill="none" stroke="#000000" stroke-width="1" transform="" stroke-miterlimit="10" d="M0 100" />
+
+</svg>
+<div id='pp'>stop</div>
+<script>
+
+var shape1 = [[10,100],[105,169],[41,30],[200,60],[140,169]]; 
+var shape2 = [[100,160],[141,81],[15,189],[95,19],[0,100]]; 
+var shape3 = [[5,169],[105,169],[15,81],[00,100],[141,11]]; 
+var shape4 = [[141,81],[05,69],[95,169],[60,30],[59,81]]; 
+var shape5 = [[05,169],[81,81],[59,81],[15,19],[100,100]];
+var shape6 = [[141,81],[105,169],[95,69],[30,30],[59,181]]; 
+var shape7 = [[110,00],[5,69],[141,30],[100,160],[40,69]]; 
+
+var allShapes = [shape1, shape2, shape3, shape4, shape5, shape6, shape7]; 
+
+var path = document.getElementById('path');
+var path2 = document.getElementById('path2');
+var svg = document.getElementsByTagName('svg')[0];
+var index = 0;
+
+document.getElementById('pp').onclick = function(){
+	cancelAnimationFrame(frame);
+}
+
+animateBeta({start: allShapes[0], end: allShapes[1], segments:70}); 
+
+function animateNext(){
+	var startShape = allShapes[1];
+	var endShape = allShapes[2];
+	animateBeta({start: startShape, end: endShape, segments:70}); 
+	queueShapes(); 	
+}
+
+
+function queueShapes(){
+	allShapes.push(allShapes.shift());
+};
+
+function animateBeta(object){
+	
+	var start = object.start;
+	var end = object.end;
+	var segments = object.segments;
+	
+	var thisInterval = determineInterval(start, end, segments);
+	startAnimationLoop(start, thisInterval, segments);
+
+}
+
+function determineInterval(start, end, segments){ 
+	var intervals = [];
+	for(i=0; i<start.length;i++){
+		intervals[i] = []; 
+		intervals[i][0] = -(start[i][0] - end[i][0])/segments;
+		intervals[i][1] = -(start[i][1] - end[i][1])/segments;
+	}
+	return intervals; 
+}
+
+function startAnimationLoop(start,interval,segments){
+	var currentPosition = start; 
+	var so_far = 0; 
+	function loopBeta(){
+		draw(currentPosition);
+		currentPosition = getNextPosition(currentPosition, interval);
+		frame = requestAnimationFrame(loopBeta);
+		if(so_far > segments) {
+			cancelAnimationFrame(frame); 
+			animateNext();
+		}
+		so_far++;
+		
+		
+	}
+	requestAnimationFrame(loopBeta);
+	
+} 
+
+function draw(array){
+	var pathString1 = arrayToPath(array)[0];
+	path.setAttribute("d", pathString1);
+	
+	var pathString2 = arrayToPath(array)[1];
+	path2.setAttribute("d", pathString2);
+	
+}
+
+function getNextPosition(currentPosition, interval){
+	var position = [];
+	for(i=0; i<currentPosition.length; i++){
+		position[i] = [];
+		position[i][0] = currentPosition[i][0] + interval[i][0]; 
+		position[i][1] = currentPosition[i][1] + interval[i][1]; 
+	}
+	return position;
+}
+
+function arrayToPath(arg){
+	var a = []; 
+	arg.forEach(function(item){
+		a.push(" " + item.join(" "));
+	}); 
+	
+	var string1 = "M" + a[0] + "L" + a[1] + "L" + a[2] + "L" + a[3] + "L" + a[4] + "Z"; 
+	var string2 = "M" + a[0] + "L" + a[3] + "L" + a[1] + "L" + a[4] + "L" + a[2] + "Z"; 
+	
+	return [string1, string2]; 
+}
+
+
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<html>
+<head>
+	<style>
+	body{
+		overflow:hidden;
+	}
+	</style>
+</head>
+
+<body>
+<svg height="400" width="400" viewBox='-50 -50 810 900'>
+<path class='parse-path' id='path1'
+d="	M227 275h223q11 0 7 12l-119 306l-119 -308q-3 -10 8 -10zM134 66q-2 -6 -2 -13.5t8 -17t22 -10.5l22 -2q13 -2 13 -13q0 -14 -15 -14l-87 4l-91 -4q-14 0 -14 13.5t11 13.5l19 2q43 5 58 41l257 633q4 12 23.5 12t24.5 -12l256 -633q13 -37 57 -41l21 -2q4 0 7 -4t3 -8q0 -15 -14 -15l-115 4l-103 -4q-14 0 -14 12q0 14 12 15l23 2q13 1 21.5 10t8.5 17t-3 14l-59 153q-3 10 -16 10h-259q-12 0 -16 -10z" stroke-width='30' stroke='coral' fill='none' />
+<path id='path2' class='parse-path' stroke-width='18' stroke='grey'
+d="" fill='none'/>
+<path id='path3' class='parse-path' stroke-width='10' stroke='pink' fill='none'
+d=""/>
+<path id='path4' class='parse-path' stroke-width='3' stroke='yellow' fill='none'
+d="" />
+</svg>
+<script src='SVGPathInfo.js'></script>
+<script>
+var info = new SVGPathInfo(path1); 
+document.getElementById('path2').setAttribute("d", info.getRelativePath()); 
+document.getElementById('path3').setAttribute("d", info.getAbsolutePath()); 
+document.getElementById('path4').setAttribute("d", info.getGlobalCubicBezier()); 
+</script>
+</body>

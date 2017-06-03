@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+<head>
+	<link href='https://fonts.googleapis.com/css?family=Lustria' rel='stylesheet' type='text/css'>
+	<style>
+	body{
+		overflow:hidden;
+	}
+	svg{
+		position:relative;
+		left:30px;
+		top:0px;
+	}
+	.p
+	{
+		font-size:12px;
+		position:absolute;
+		top:20px;
+		cursor:pointer;
+		font-family:sans-serif;
+		border:2px outset #ccc;
+		padding:3px;
+		background:#eee;
+		border-radius:3px;
+		color:#333;
+	}
+	.p:hover{
+		border:2px inset #ccc;
+		background:#ddd;
+	}
+	#rot{
+		height:200px;
+		width:300px;
+		position:absolute;
+		left:50px;
+		top:50px;
+		font-family:lustria;
+		font-size:50px;
+		color:#ddd;
+		font-weight:bold;
+	}
+	</style>
+</head>
+
+<body>
+<div id='rot'>largearc 1 <br />sweepflag 1</div>
+
+<svg version="1.1" id="svg1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="500" height="500" viewBox="-270 -200 1000 1000" xml:space="preserve" >
+  <path class="path" id='path' fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" d="M0 0a180 80 0 1 1 100 50" />
+	<circle cx='0' cy='0' r='7' />
+	<circle cx='100' cy='50' r='7' />
+</svg>
+<div class='p' id='s'>start</div>
+<script>
+var s = document.getElementById('s');
+var rot = document.getElementById('rot')
+var ds = ["M0 0a180 80 0 1 1 100 50", "M0 0a180 80 0 0 0 100 50", "M0 0a180 80 0 0 1 100 50", "M0 0a180 80 0 1 0 100 50"]
+var interval; 
+s.onclick = function(){
+	s.innerHTML = "stop"; 
+	path.setAttribute("d", ds[0]); 
+	rot.innerHTML = "largearc " + ds[0].split(" ")[4] + "<br />sweepflag " + ds[0].split(" ")[5]; 
+	ds.push(ds.shift());
+	
+	interval = setInterval(function(){
+		path.setAttribute("d", ds[0]);
+		rot.innerHTML = "largearc " + ds[0].split(" ")[4] + "<br />sweepflag " + ds[0].split(" ")[5];
+		ds.push(ds.shift());
+		
+		
+	}, 800);
+	s.onclick = function(){
+		clearInterval(interval); 	
+	}
+}
+
+
+</script>
+
+</body>
+
+</html>

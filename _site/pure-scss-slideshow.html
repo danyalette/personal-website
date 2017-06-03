@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Pure Scss Slideshow</title>
+  <meta name="description" content="The performance of this snippet is not great in chrome, but nonetheless…">
+  <meta property=”og:image” content="" />
+
+  
+  
+  <link rel="stylesheet" href="http://localhost:4000/assets/style.css">
+  <link rel="stylesheet" href="http://localhost:4000/assets/highlight.css">
+
+  <link rel="canonical" href="http://localhost:4000/pure-scss-slideshow">
+  <link rel="alternate" type="application/rss+xml" title="Danya Lette" href="http://localhost:4000/feed.xml">
+
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+</head>
+
+
+  <body>
+
+    <header class="border-bottom-thick px-2 clearfix">
+  <div class="left sm-width-full py-1 mt-1 mt-lg-0">
+    <a class="align-middle link-primary text-accent" href="/">
+      Danya Lette
+    </a>
+  </div>
+  <div class="right sm-width-full">
+    <ul class="list-reset mt-lg-1 mb-2 mb-lg-1">
+      
+        
+        <li class="inline-block">
+          <a class="align-middle link-primary mr-2 mr-lg-0 ml-lg-2" href="/blog/">
+            Blog
+          </a>
+        </li>
+        
+      
+        
+      
+        
+      
+        
+      
+    </ul>
+  </div>
+</header>
+
+
+    <div>
+      <article class="container px-2 mx-auto mb4" itemscope itemtype="http://schema.org/BlogPosting">
+  <h1 class="h0 col-9 sm-width-full py-4 mt-3 inline-block" itemprop="name headline">Pure Scss Slideshow</h1>
+  <div class="col-4 sm-width-full mt-1 border-top-thin ">
+    <p class="mb-3 py-2 bold h4"><time datetime="2017-02-18T20:40:50-05:00" itemprop="datePublished">Feb 19, 2017</time></p>
+  </div>
+  
+  <div class="prose" itemprop="articleBody">
+      <p>The performance of this snippet is not great in chrome, but nonetheless…</p>
+
+<p>Here you go!</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><a href="https://gist.github.com/danyalette/0c32184b9a86a31e061c785e114f2528" target="_blank">gist</a></td>
+      <td><a href="https://codepen.io/danyalette/pen/RKmXGQ" target="_blank">codepen</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<!--more-->
+
+<div class="language-scss highlighter-rouge"><pre class="highlight"><code><span class="nv">$images</span><span class="p">:</span> <span class="s2">"/images/fun.jpg"</span><span class="o">,</span> <span class="s2">"/images/yay.jpg"</span><span class="o">,</span>  <span class="s2">"/images/wow.jpg"</span><span class="p">;</span>
+<span class="nv">$slide_duration</span><span class="p">:</span> <span class="m">1s</span><span class="p">;</span>
+
+<span class="c1">//preload images
+</span><span class="nt">body</span><span class="nd">:before</span> <span class="p">{</span>
+  <span class="nv">$urls</span><span class="p">:</span> <span class="sx">url('')</span><span class="p">;</span>
+  <span class="k">@each</span> <span class="nv">$image</span> <span class="n">in</span> <span class="nv">$images</span> <span class="p">{</span>
+    <span class="nv">$urls</span><span class="p">:</span> <span class="nv">$urls</span> <span class="o">+</span> <span class="sx">url(</span><span class="si">#{</span><span class="nv">$image</span><span class="si">}</span><span class="sx">)</span> <span class="p">;</span>
+  <span class="p">}</span>
+  <span class="nl">display</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
+  <span class="nl">content</span><span class="p">:</span> <span class="nv">$urls</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">@keyframes</span> <span class="nt">slideshow</span> <span class="p">{</span>
+  <span class="nv">$current_percentage</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
+  <span class="nv">$increment</span><span class="p">:</span> <span class="m">100</span><span class="o">/</span><span class="nf">length</span><span class="p">(</span><span class="nv">$images</span><span class="p">);</span>
+  <span class="k">@each</span> <span class="nv">$image</span> <span class="n">in</span> <span class="nv">$images</span> <span class="p">{</span>
+    <span class="si">#{</span><span class="nv">$current_percentage</span><span class="si">}</span><span class="nv">%</span> <span class="p">{</span> <span class="nl">background-image</span><span class="p">:</span> <span class="sx">url($image)</span><span class="p">;</span> <span class="p">}</span>
+    <span class="nv">$current_percentage</span><span class="p">:</span> <span class="nv">$current_percentage</span> <span class="o">+</span> <span class="nv">$increment</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nc">.slideshow-image</span> <span class="p">{</span>
+  <span class="nl">animation-name</span><span class="p">:</span> <span class="n">slideshow</span><span class="p">;</span>
+  <span class="nl">animation-timing-function</span><span class="p">:</span> <span class="n">step-end</span><span class="p">;</span>
+  <span class="nl">animation-fill-mode</span><span class="p">:</span> <span class="n">forwards</span><span class="p">;</span>
+  <span class="nl">animation-duration</span><span class="p">:</span> <span class="nv">$slide_duration</span> <span class="o">*</span> <span class="nf">length</span><span class="p">(</span><span class="nv">$images</span><span class="p">);</span>
+  <span class="nl">animation-iteration-count</span><span class="p">:</span> <span class="n">infinite</span><span class="p">;</span>
+
+  <span class="nl">background-size</span><span class="p">:</span> <span class="n">cover</span><span class="p">;</span>
+  <span class="nl">background-position</span><span class="p">:</span> <span class="nb">center</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+  </div>
+
+</article>
+
+<div class="container mx-auto px-2 py-2 clearfix">
+  <!-- Use if you want to show previous and next for all posts. -->
+
+
+<div class="previous-next">
+  
+    <div class="previous">
+      <a class="no-underline border-top-thin py-1 block" href="http://localhost:4000/old-sites">
+        <span class="h5 bold text-accent">Previous</span>
+        <p class="bold h3 link-primary mb-1">Old Sites</p>
+        <p>i’m redoing my personal website and feeling super nostalgic for my websites of yore. first site second site third site...</p>
+      </a>
+    </div>
+    
+    
+    <div class="next">
+      <a class="no-underline border-top-thin py-1 block" href="http://localhost:4000/building-themeable-web-apps">
+        <span class="h5 bold text-accent">Next</span>
+        <p class="bold h3 link-primary mb-1">Building Themeable Web Apps</p>
+        <p>I recently worked on an app that was intended to be themeable – a “white label” app that had a...</p>
+      </a>
+    </div>
+  
+</div>
+
+</div>
+
+    </div>
+
+    
+
+  </body>
+
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Circle w/ Cubic Bézier</title>
+  <meta name="description" content="&nbsp;">
+  <meta property=”og:image” content="" />
+
+  
+  
+  <link rel="stylesheet" href="http://localhost:4000/assets/style.css">
+  <link rel="stylesheet" href="http://localhost:4000/assets/highlight.css">
+
+  <link rel="canonical" href="http://localhost:4000/circle-w-cubic-bezier">
+  <link rel="alternate" type="application/rss+xml" title="Danya Lette" href="http://localhost:4000/feed.xml">
+
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+</head>
+
+
+  <body>
+
+    <header class="border-bottom-thick px-2 clearfix">
+  <div class="left sm-width-full py-1 mt-1 mt-lg-0">
+    <a class="align-middle link-primary text-accent" href="/">
+      Danya Lette
+    </a>
+  </div>
+  <div class="right sm-width-full">
+    <ul class="list-reset mt-lg-1 mb-2 mb-lg-1">
+      
+        
+        <li class="inline-block">
+          <a class="align-middle link-primary mr-2 mr-lg-0 ml-lg-2" href="/blog/">
+            Blog
+          </a>
+        </li>
+        
+      
+        
+      
+        
+      
+        
+      
+    </ul>
+  </div>
+</header>
+
+
+    <div>
+      <article class="container px-2 mx-auto mb4" itemscope itemtype="http://schema.org/BlogPosting">
+  <h1 class="h0 col-9 sm-width-full py-4 mt-3 inline-block" itemprop="name headline">Circle w/ Cubic Bézier</h1>
+  <div class="col-4 sm-width-full mt-1 border-top-thin ">
+    <p class="mb-3 py-2 bold h4"><time datetime="2014-09-03T14:14:57-04:00" itemprop="datePublished">Sep 3, 2014</time></p>
+  </div>
+  
+  <div class="prose" itemprop="articleBody">
+      <iframe src="/assets/iframes/bezier-circle.html" height="150" width="170" frameborder="0"></iframe>
+<div>&nbsp;</div>
+
+<p><a href="http://spencermortensen.com/articles/bezier-circle/">This paper</a> demonstrates an extremely accurate approximation of a circle using cubic bezier curves.</p>
+
+<p>It takes 4 curves, one for each 90° circle arc.
+As you can see above, I’ve implemented that approximation. The black dots represent the start (<code class="highlighter-rouge">P_0</code>) and end (<code class="highlighter-rouge">P_3</code>) of each segment, and the red dots represent the control points (<code class="highlighter-rouge">P_1</code> &amp; <code class="highlighter-rouge">P_2</code>).</p>
+
+<!--more-->
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">c</span> <span class="o">=</span> <span class="mf">0.551915024494</span>
+
+<span class="c1">// curve 1</span>
+<span class="nx">P_0</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="nx">P_1</span> <span class="o">=</span> <span class="p">(</span><span class="nx">c</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="nx">P_2</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nx">c</span><span class="p">),</span> <span class="nx">P_3</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="c1">// curve 2</span>
+<span class="nx">P_0</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="nx">P_1</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="nx">c</span><span class="p">),</span> <span class="nx">P_2</span> <span class="o">=</span> <span class="p">(</span><span class="nx">c</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="nx">P_3</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1">// curve 3</span>
+<span class="nx">P_0</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="nx">P_1</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="nx">c</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="nx">P_3</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="nx">c</span><span class="p">),</span> <span class="nx">P_4</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="c1">// curve 4</span>
+<span class="nx">P_0</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="nx">P_1</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="nx">c</span><span class="p">),</span> <span class="nx">P_2</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="nx">c</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="nx">P_3</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<p>For a circle with a radius of 100, those relationships result in the following SVG path:</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">d</span> <span class="o">=</span><span class="s2">"M0 100C55.1915 100 100 55.1915 100 0C100 -55.1915 55.1915 -100 0 -100C-55.1915 -100 -100 -55.1915 -100 0C-100 55.1915 -55.1915 100 0 100"</span>
+</code></pre>
+</div>
+
+<p>Note that the resultant circle is centered around <code class="highlighter-rouge">[0,0]</code>. So, if you’re planning on using this yourself, you’ll have to translate your path or modify your svg viewport in order to be able to see the segments that are in the negative quadrants. For instance, you might simply apply <code class="highlighter-rouge">transform="translate(100,100)</code> to your <code class="highlighter-rouge">&lt;path&gt;</code> elem.</p>
+
+  </div>
+
+</article>
+
+<div class="container mx-auto px-2 py-2 clearfix">
+  <!-- Use if you want to show previous and next for all posts. -->
+
+
+<div class="previous-next">
+  
+    <div class="previous">
+      <a class="no-underline border-top-thin py-1 block" href="http://localhost:4000/60s-french-pop">
+        <span class="h5 bold text-accent">Previous</span>
+        <p class="bold h3 link-primary mb-1">60&#8217;s French Pop</p>
+        <p>60’s french pop is extremely cute: anna karina Roller Girl clothilde Saperlipopette Fallait Pas Écraser La Queue Du Chat brigitte...</p>
+      </a>
+    </div>
+    
+    
+    <div class="next">
+      <a class="no-underline border-top-thin py-1 block" href="http://localhost:4000/graph-theory">
+        <span class="h5 bold text-accent">Next</span>
+        <p class="bold h3 link-primary mb-1">Graph Theory</p>
+        <p>&nbsp; &nbsp; I’m currently reading a book on graph theory. A graph, in the mathematical sense, is a completely abstract...</p>
+      </a>
+    </div>
+  
+</div>
+
+</div>
+
+    </div>
+
+    
+
+  </body>
+
+</html>

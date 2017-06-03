@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Compile SCSS Automatically On Request w/ PHP</title>
+  <meta name="description" content="I just started playing with SCSS. It didn’t take very long to learn and, so far, I love it.">
+  <meta property=”og:image” content="" />
+
+  
+  
+  <link rel="stylesheet" href="http://localhost:4000/assets/style.css">
+  <link rel="stylesheet" href="http://localhost:4000/assets/highlight.css">
+
+  <link rel="canonical" href="http://localhost:4000/compile-scss-automatically-on-request">
+  <link rel="alternate" type="application/rss+xml" title="Danya Lette" href="http://localhost:4000/feed.xml">
+
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+</head>
+
+
+  <body>
+
+    <header class="border-bottom-thick px-2 clearfix">
+  <div class="left sm-width-full py-1 mt-1 mt-lg-0">
+    <a class="align-middle link-primary text-accent" href="/">
+      Danya Lette
+    </a>
+  </div>
+  <div class="right sm-width-full">
+    <ul class="list-reset mt-lg-1 mb-2 mb-lg-1">
+      
+        
+        <li class="inline-block">
+          <a class="align-middle link-primary mr-2 mr-lg-0 ml-lg-2" href="/blog/">
+            Blog
+          </a>
+        </li>
+        
+      
+        
+      
+        
+      
+        
+      
+    </ul>
+  </div>
+</header>
+
+
+    <div>
+      <article class="container px-2 mx-auto mb4" itemscope itemtype="http://schema.org/BlogPosting">
+  <h1 class="h0 col-9 sm-width-full py-4 mt-3 inline-block" itemprop="name headline">Compile SCSS Automatically On Request w/ PHP</h1>
+  <div class="col-4 sm-width-full mt-1 border-top-thin ">
+    <p class="mb-3 py-2 bold h4"><time datetime="2014-09-13T19:42:56-04:00" itemprop="datePublished">Sep 13, 2014</time></p>
+  </div>
+  
+  <div class="prose" itemprop="articleBody">
+      <p>I just started playing with SCSS. It didn’t take very long to learn and, so far, I love it.</p>
+
+<p>There are loads of way to compile your SCSS to CSS to serve to the client. One of the easiest ways to get up and running, if you’re using php, is <a href="http://leafo.net/scssphp">scssphp</a>.
+ The SCSS is compiled and returns plain CSS, every time a request is made by a client to your server for a page containing SCSS. (I don’t recommend this in production though.)</p>
+
+<!--more-->
+
+<h1 id="setup">Setup</h1>
+
+<h2 id="start">Start</h2>
+
+<p>Create a directory on your server to house your SCSS test project. Once you complete steps 1-6, your directory should be structured like this:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>scss-test-directory/  
+      style.php
+      index.html
+      scssphp/
+          scss.inc.php
+          ...
+      stylesheets/
+          main.scss
+          ...
+</code></pre>
+</div>
+
+<h2 id="download">Download</h2>
+
+<p>Grab and unarchive scssphp from <a href="http://leafo.net/scssphp">here</a>, and put it in your new directory.</p>
+
+<h2 id="create-a-file">Create a file</h2>
+
+<p>Create a file and call it <code class="highlighter-rouge">style.php</code>. Add the following:</p>
+
+<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="nv">$directory</span> <span class="o">=</span> <span class="s2">"./stylesheets"</span><span class="p">;</span>
+<span class="k">require</span> <span class="s2">"scssphp/scss.inc.php"</span><span class="p">;</span>
+<span class="nx">scss_server</span><span class="o">::</span><span class="na">serveFrom</span><span class="p">(</span><span class="nv">$directory</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+</div>
+
+<h2 id="create-stylesheets-directory">Create Stylesheets Directory</h2>
+
+<p>Create a directory in your project directory and call it <code class="highlighter-rouge">stylesheets</code>.
+Notice that this directory is referred to (by relative path) in the above php: <code class="highlighter-rouge">$directory = "./stylesheets";</code></p>
+
+<h2 id="write-some-scss">Write Some SCSS</h2>
+
+<p>Write some SCSS in a new file and save the resultant file into the <code class="highlighter-rouge">stylesheets</code> directory.</p>
+
+<h2 id="make-an-index-page">Make An Index Page</h2>
+
+<p>Make an index page and put whatever you’d like in there.</p>
+
+<h2 id="link-to-your-scss">Link To Your SCSS</h2>
+
+<p>Link to your SCSS by including the following line in the <code class="highlighter-rouge">index.html</code> you just created:</p>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">'stylesheet'</span> <span class="na">type=</span><span class="s">'text/css'</span> <span class="na">href=</span><span class="s">'style.php/main.scss'</span> <span class="nt">/&gt;</span>
+</code></pre>
+</div>
+
+<p>in which</p>
+
+<ul>
+  <li><code class="highlighter-rouge">style.php</code> is the php file you created in step 3</li>
+  <li><code class="highlighter-rouge">main.scss</code> is the scss file you created in step 5 and</li>
+  <li><code class="highlighter-rouge">main.scss</code>’s parent directory is the directory configured in <code class="highlighter-rouge">style.php</code>, namely <code class="highlighter-rouge">./stylesheets</code></li>
+</ul>
+
+<h2 id="check-it-out">Check It Out</h2>
+
+<p>Navigate to your test project in a browser.</p>
+
+<p>Note that you might need to change permissions in order for this work.
+Long story short, <code class="highlighter-rouge">style.php</code> needs to be able to create – and then write in – <code class="highlighter-rouge">scss_cache</code>, a directory intended to serve as a cache (to save the script from having to recompile scss files that have not been modified since last compile).</p>
+
+  </div>
+
+</article>
+
+<div class="container mx-auto px-2 py-2 clearfix">
+  <!-- Use if you want to show previous and next for all posts. -->
+
+
+<div class="previous-next">
+  
+    <div class="previous">
+      <a class="no-underline border-top-thin py-1 block" href="http://localhost:4000/pentagram-pentagon">
+        <span class="h5 bold text-accent">Previous</span>
+        <p class="bold h3 link-primary mb-1">Pentagram  ≅ Pentagon</p>
+        <p>&nbsp; Pentagrams and pentagons are actually a bit spooky… Complementary Pentagons and pentagrams are complements: They have the same vertex...</p>
+      </a>
+    </div>
+    
+    
+    <div class="next">
+      <a class="no-underline border-top-thin py-1 block" href="http://localhost:4000/scss-mixin-for-font-face">
+        <span class="h5 bold text-accent">Next</span>
+        <p class="bold h3 link-primary mb-1">SCSS Mixin For @font-face</p>
+        <p>define it @mixin font-face($fontname){ $filepath: "fonts/" + $fontname + "/" + $fontname; @font-face { font-family: $fontname; src: url($filepath + ".eot");...</p>
+      </a>
+    </div>
+  
+</div>
+
+</div>
+
+    </div>
+
+    
+
+  </body>
+
+</html>

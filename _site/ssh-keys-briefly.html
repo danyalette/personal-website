@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>SSH Keys, Briefly</title>
+  <meta name="description" content="Using ssh keys is super useful for speeding up the process of logging onto remote machines, doing file transfers between machines, or using git. Here is a br...">
+  <meta property=”og:image” content="" />
+
+  
+  
+  <link rel="stylesheet" href="http://localhost:4000/assets/style.css">
+  <link rel="stylesheet" href="http://localhost:4000/assets/highlight.css">
+
+  <link rel="canonical" href="http://localhost:4000/ssh-keys-briefly">
+  <link rel="alternate" type="application/rss+xml" title="Danya Lette" href="http://localhost:4000/feed.xml">
+
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+</head>
+
+
+  <body>
+
+    <header class="border-bottom-thick px-2 clearfix">
+  <div class="left sm-width-full py-1 mt-1 mt-lg-0">
+    <a class="align-middle link-primary text-accent" href="/">
+      Danya Lette
+    </a>
+  </div>
+  <div class="right sm-width-full">
+    <ul class="list-reset mt-lg-1 mb-2 mb-lg-1">
+      
+        
+        <li class="inline-block">
+          <a class="align-middle link-primary mr-2 mr-lg-0 ml-lg-2" href="/blog/">
+            Blog
+          </a>
+        </li>
+        
+      
+        
+      
+        
+      
+        
+      
+    </ul>
+  </div>
+</header>
+
+
+    <div>
+      <article class="container px-2 mx-auto mb4" itemscope itemtype="http://schema.org/BlogPosting">
+  <h1 class="h0 col-9 sm-width-full py-4 mt-3 inline-block" itemprop="name headline">SSH Keys, Briefly</h1>
+  <div class="col-4 sm-width-full mt-1 border-top-thin ">
+    <p class="mb-3 py-2 bold h4"><time datetime="2014-08-21T18:55:36-04:00" itemprop="datePublished">Aug 21, 2014</time></p>
+  </div>
+  
+  <div class="prose" itemprop="articleBody">
+      <p>Using ssh keys is super useful for speeding up the process of logging onto remote machines, doing file transfers between machines, or using git. Here is a brief guide to getting started.</p>
+
+<!--more-->
+<h2 id="generate-a-key-pair">Generate a key pair</h2>
+
+<p>On most mac or linux systems, key pairs live in the hidden directory  <code class="highlighter-rouge">~/.ssh</code>. Your public key is called  <code class="highlighter-rouge">id_rsa.pub</code> or  <code class="highlighter-rouge">id_dsa.pub</code>. Don’t have one yet? Start by generating a new key pair:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ssh-keygen -t rsa -C <span class="s2">"you@example.com"</span>
+</code></pre>
+</div>
+
+<p>At the prompt, save the keys to the default location (indicated between parenthesis), which is probably something like:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>/Users/yourusername/.ssh/id_rsa
+</code></pre>
+</div>
+
+<p>Choose a good passphrase and don’t lose it.</p>
+
+<h2 id="add-your-key-to-ssh-agent">Add your key to ssh-agent</h2>
+
+<p>Check if you have ssh-agent running:</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">eval</span> <span class="s2">"</span><span class="k">$(</span>ssh-agent -s<span class="k">)</span><span class="s2">"</span>
+</code></pre>
+</div>
+<p>You should see something like</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>Agent pid 70248
+</code></pre>
+</div>
+<p>If you do, then simply</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>$ ssh-add ~/.ssh/id_rsa
+</code></pre>
+</div>
+
+<p>and type in your passphrase. This step saves you from having to reenter your passphrase in the future.</p>
+
+<h2 id="add-your-public-key-to-the-remote-machine">Add your public key to the remote machine</h2>
+
+<p>When you attempt to SSH into a remote machine (or git pull from a remote git server, or what have you), the remote machine will make sure that you, on your local machine, are authorized to log on. In order to do so, the remote machine needs to know what your <em>public</em> key is.</p>
+
+<p>If you are using this key pair for github or bitbucket or something similar, you will need to log on to the site in a browser, and copy the content of your <em>public</em> key (<code class="highlighter-rouge">~/.ssh/id_rsa.pub</code>) to the <code class="highlighter-rouge">ssh keys</code> section of your user profile.</p>
+
+<p>However, If you are using this key to log into a machine that you administer, you’ll need to manually add your public key to that machine’s authorized key store, <code class="highlighter-rouge">~/.ssh/authorized_keys</code>. Log in to the remote machine the old fashioned way (using your username and password) and simply paste the plain text or you public key to the end of that file. Next time you log in, you will be able to omit your password.</p>
+
+  </div>
+
+</article>
+
+<div class="container mx-auto px-2 py-2 clearfix">
+  <!-- Use if you want to show previous and next for all posts. -->
+
+
+<div class="previous-next">
+  
+    <div class="previous">
+      <a class="no-underline border-top-thin py-1 block" href="http://localhost:4000/force-favicon-reload">
+        <span class="h5 bold text-accent">Previous</span>
+        <p class="bold h3 link-primary mb-1">Force Favicon Reload</p>
+        <p>&lt;link rel="shortcut icon" href="http://website.com/favicon.ico?v=2" /&gt; Favicons are cached pretty hard by most browsers. This can be an annoyance. Fortunately, there’s...</p>
+      </a>
+    </div>
+    
+    
+    <div class="next">
+      <a class="no-underline border-top-thin py-1 block" href="http://localhost:4000/60s-french-pop">
+        <span class="h5 bold text-accent">Next</span>
+        <p class="bold h3 link-primary mb-1">60&#8217;s French Pop</p>
+        <p>60’s french pop is extremely cute: anna karina Roller Girl clothilde Saperlipopette Fallait Pas Écraser La Queue Du Chat brigitte...</p>
+      </a>
+    </div>
+  
+</div>
+
+</div>
+
+    </div>
+
+    
+
+  </body>
+
+</html>

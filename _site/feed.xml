@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-06-02T23:21:31-04:00</updated><id>http://localhost:4000/</id><title type="html">Danya Lette</title><subtitle>Hi, I'm Danya Lette, a software developer living and working in Toronto. I love learning and building cool stuff.
+</subtitle><entry><title type="html">Playing Around With LeNet</title><link href="http://localhost:4000/playing-around-with-lenet" rel="alternate" type="text/html" title="Playing Around With LeNet" /><published>2017-06-01T15:18:55-04:00</published><updated>2017-06-01T15:18:55-04:00</updated><id>http://localhost:4000/playing-around-with-lenet</id><content type="html" xml:base="http://localhost:4000/playing-around-with-lenet">&lt;p&gt;Just for fun, I followed along &lt;a href=&quot;http://www.pyimagesearch.com/2016/08/01/lenet-convolutional-neural-network-in-python/&quot;&gt;this&lt;/a&gt; tutorial on how to build &lt;a href=&quot;http://yann.lecun.com/exdb/lenet/&quot;&gt;LeNet&lt;/a&gt; – an early &amp;amp; famously successful neural net used for handwriting recognition – in Python. I’ve been playing with the data a bit to see how my modifications affect the learning rate. Here’s what I tried:&lt;!--more--&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Rotate each image by 90deg&lt;/li&gt;
+  &lt;li&gt;Rotate each image by 180deg&lt;/li&gt;
+  &lt;li&gt;Rotate each image by 270deg&lt;/li&gt;
+  &lt;li&gt;Invert high and low values (Note: high values are represented by white and low values are represented by black)&lt;/li&gt;
+  &lt;li&gt;Fade image – reduce intensity by halving all values&lt;/li&gt;
+  &lt;li&gt;Eliminate “in-between” values – all pixel values are either 1 (white) or 0 (black)&lt;/li&gt;
+  &lt;li&gt;Randomly rotate each image (by either 90, 180 or 270deg)&lt;/li&gt;
+  &lt;li&gt;Randomly rotate each image, after adding an indicator line to the bottom of the image&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;uniform-rotation&quot;&gt;Uniform Rotation&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/images/uploads/2017/06/rotate-1.png&quot; rel=&quot;magnific&quot;&gt;&lt;img class=&quot;alignleft wp-image-1115 size-full&quot; src=&quot;/assets/images/uploads/2017/06/rotate-1-300x120.png&quot; alt=&quot;rotate-1&quot; width=&quot;300&quot; height=&quot;120&quot; /&gt;&lt;/a&gt;&lt;a href=&quot;/assets/images/uploads/2017/06/rotate-2.png&quot; rel=&quot;magnific&quot;&gt;&lt;img class=&quot;alignleft wp-image-1114 size-medium alignleft&quot; src=&quot;/assets/images/uploads/2017/06/rotate-2-300x120.png&quot; alt=&quot;rotate-2&quot; width=&quot;300&quot; height=&quot;120&quot; /&gt;&lt;/a&gt;&lt;a href=&quot;/assets/images/uploads/2017/06/rotate-3.png&quot; rel=&quot;magnific&quot;&gt;&lt;img class=&quot;alignleft wp-image-1113 size-medium alignleft&quot; src=&quot;/assets/images/uploads/2017/06/rotate-3-300x120.png&quot; alt=&quot;rotate-3&quot; width=&quot;300&quot; height=&quot;120&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;div style=&quot;float: none; clear: both;&quot;&gt;
+&lt;/div&gt;
+
+&lt;p&gt;To begin with, I rotated the images by, in turn, 90, 180, and 270 degrees.&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dataset&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reshape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dataset&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;28&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;28&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;rotation&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# 90deg&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# rotation = 2 # 180deg&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# rotation = 3 # 270deg&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;enumerate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rot90&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rotation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;At each rotation, I ran LeNet for 30 epochs. As expected, those transformations did not appear to affect learning rate, because the transformation was applied uniformly across all data. In addition, these transformations will not affect any other attributes of the data, such as mean value over the whole image.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/images/uploads/2017/06/Figure_rotations.png&quot; rel=&quot;magnific&quot;&gt;&lt;img class=&quot;alignnone size-full wp-image-1112&quot; src=&quot;/assets/images/uploads/2017/06/Figure_rotations.png&quot; alt=&quot;Figure_rotations&quot; width=&quot;640&quot; height=&quot;480&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;h2 id=&quot;valueintensity&quot;&gt;Value/Intensity&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/images/uploads/2017/06/invert-color.png&quot; rel=&quot;magnific&quot;&gt;&lt;img class=&quot;alignleft size-medium wp-image-1120&quot; src=&quot;/assets/images/uploads/2017/06/invert-color-300x120.png&quot; alt=&quot;invert-color&quot; width=&quot;300&quot; height=&quot;120&quot; /&gt;&lt;/a&gt;&lt;a href=&quot;/assets/images/uploads/2017/06/lighten-color.png&quot; rel=&quot;magnific&quot;&gt;&lt;img class=&quot;alignleft size-medium wp-image-1119&quot; src=&quot;/assets/images/uploads/2017/06/lighten-color-300x120.png&quot; alt=&quot;lighten-color&quot; width=&quot;300&quot; height=&quot;120&quot; /&gt;&lt;/a&gt;&lt;a href=&quot;/assets/images/uploads/2017/06/binary-color.png&quot; rel=&quot;magnific&quot;&gt;&lt;img class=&quot;alignleft size-medium wp-image-1121&quot; src=&quot;/assets/images/uploads/2017/06/binary-color-300x120.png&quot; alt=&quot;binary-color&quot; width=&quot;300&quot; height=&quot;120&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;div style=&quot;float: none; clear: both;&quot;&gt;
+&lt;/div&gt;
+
+&lt;p&gt;I then tried playing around with the values in the image.&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;transformData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;255.&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# normal (values must, in any case, be converted from range 0-255 to range 0-1)&lt;/span&gt;
+  &lt;span class=&quot;c&quot;&gt;# return 1 - (data/255.) # invert values&lt;/span&gt;
+  &lt;span class=&quot;c&quot;&gt;# return data/(255. * 2) # fade image - reduce intensity by halving all values&lt;/span&gt;
+  &lt;span class=&quot;c&quot;&gt;# return data &amp;amp;gt; 127.5 # make values binary&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;trainData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;testData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;trainLabels&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;testLabels&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;train_test_split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;transformData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dataset&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;target&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;astype&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;int&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;test_size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.33&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;As in the case of uniform rotation across all data, these changes were applied uniformly to all data. So, we wouldn’t expect these alterations to have a substantial negative impact on the ability of the network to eventually converge. However, these alteration will have changed important underlying structures of the data such as the mean and variance of the values in any given image. To illustrate, applying these value/intensity transformations to one set of 5 randomly chosen images results in the following:&lt;/p&gt;
+
+&lt;div class=&quot;language-md highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gh&quot;&gt;normal
+------
+&lt;/span&gt;mean: 0.119206682497
+variance: 0.0883226659517
+
+&lt;span class=&quot;gh&quot;&gt;binary
+------
+&lt;/span&gt;mean: 0.123979591837
+variance: 0.108608652645
+
+&lt;span class=&quot;gh&quot;&gt;fade
+----
+&lt;/span&gt;mean: 0.0596033412487
+variance: 0.0220806664879
+
+&lt;span class=&quot;gh&quot;&gt;invert
+------
+&lt;/span&gt;mean: 0.880793317503
+variance: 0.0883226659517
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;As you can see below, the binary color and inverted color images get off to a slower start but soon catch up, after 5 epochs.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/images/uploads/2017/06/Figure_values_5e.png&quot; rel=&quot;magnific&quot;&gt;&lt;img class=&quot;alignnone size-full wp-image-1136&quot; src=&quot;/assets/images/uploads/2017/06/Figure_values_5e.png&quot; alt=&quot;Figure_values_5e&quot; width=&quot;640&quot; height=&quot;480&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;div&gt;
+  (Note that I am comparing individual runs of LeNet; the difference between these learning rates is small enough that it might be reasonable to expect that these observed differences are random occurrences and would disappear when comparing the averages of multiple runs.)
+&lt;/div&gt;
+
+&lt;div style=&quot;float: none; clear: both;&quot;&gt;
+  &amp;nbsp;
+&lt;/div&gt;
+
+&lt;p&gt;The faded image, however, also gets off to a slow start but takes many more epochs to catch up.&lt;/p&gt;
+
+&lt;div style=&quot;float: none; clear: both;&quot;&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/images/uploads/2017/06/Figure_values_30e.png&quot; rel=&quot;magnific&quot;&gt;&lt;img class=&quot;alignnone size-full wp-image-1135&quot; src=&quot;/assets/images/uploads/2017/06/Figure_values_30e.png&quot; alt=&quot;Figure_values_30e&quot; width=&quot;640&quot; height=&quot;480&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;div style=&quot;float: none; clear: both;&quot;&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;random-rotation&quot;&gt;Random Rotation&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/images/uploads/2017/06/random-rotate.png&quot; rel=&quot;magnific&quot;&gt;&lt;img class=&quot;alignleft size-medium wp-image-1117&quot; src=&quot;/assets/images/uploads/2017/06/random-rotate-300x120.png&quot; alt=&quot;random-rotate&quot; width=&quot;300&quot; height=&quot;120&quot; /&gt;&lt;/a&gt;&lt;a href=&quot;/assets/images/uploads/2017/06/random-rotate-with-indicators.png&quot; rel=&quot;magnific&quot;&gt;&lt;img class=&quot;alignleft size-medium wp-image-1116&quot; src=&quot;/assets/images/uploads/2017/06/random-rotate-with-indicators-300x120.png&quot; alt=&quot;random-rotate-with-indicators&quot; width=&quot;300&quot; height=&quot;120&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;div style=&quot;float: none; clear: both;&quot;&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Finally, I randomly rotated the images, both with and without the addition of an “indicator” line (a line of all 1s – pure white – added to the bottom of the image before applying the random rotation, to serve as an indicator of the “true” bottom of the image:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dataset&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reshape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dataset&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;28&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;28&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;enumerate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;indicator&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ones&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;28&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;255.&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;# data[i][27] = indicator.tolist() # add indicator&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rot90&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;randint&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+
+&lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Unsurprisingly, the worst performance of all the data modifications occurred as a result of randomly rotating the images. In this case, the transformation was not uniformly applied to each image. The addition of the indicator line had a substantial positive impact on the learning rate. However, interestingly, this positive effect was only observed after 5 epochs. Even so, neither modification was able to eventually converge to an accuracy similar to unmodified data, after 30 epochs.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/images/uploads/2017/06/Figure_random_rotate.png&quot; rel=&quot;magnific&quot;&gt;&lt;img class=&quot;alignnone size-full wp-image-1111&quot; src=&quot;/assets/images/uploads/2017/06/Figure_random_rotate.png&quot; alt=&quot;Figure_random_rotate&quot; width=&quot;640&quot; height=&quot;480&quot; /&gt;&lt;/a&gt;&lt;/p&gt;</content><author><name>danya</name></author><summary type="html">Just for fun, I followed along this tutorial on how to build LeNet – an early &amp;amp; famously successful neural net used for handwriting recognition – in Python. I’ve been playing with the data a bit to see how my modifications affect the learning rate. Here’s what I tried:</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/images/featured/lenet.png" /></entry><entry><title type="html">Pixel Value Visualization</title><link href="http://localhost:4000/pixel-value-visualization" rel="alternate" type="text/html" title="Pixel Value Visualization" /><published>2017-04-21T22:23:33-04:00</published><updated>2017-04-21T22:23:33-04:00</updated><id>http://localhost:4000/pixel-value-visualization</id><content type="html" xml:base="http://localhost:4000/pixel-value-visualization">&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://github.com/danyalette/pixel-value-visualizer&quot; target=&quot;_blank&quot;&gt;github&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;http://pixel-value.danya.ca&quot; target=&quot;_blank&quot;&gt;website&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;I’m currently doing a machine learning course and spending…slightly more time than usual contemplating high-dimensional data.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;p&gt;It’s conventional to think of images as having two dimensions. However, at least for the purposes of machine learning, they have two spatial dimensions and any number of others (including, most obviously, color).&lt;/p&gt;
+
+&lt;p&gt;Color may itself have several dimensions in order to account for different color channels (e.g. red, green, and blue). Or, color may contribute just one additional dimension, in the case of greyscale images.&lt;/p&gt;
+
+&lt;p&gt;For fun, I made &lt;a href=&quot;http://pixel-value.danya.ca&quot; target=&quot;_blank&quot;&gt;a site&lt;/a&gt; that helps to visualize the color dimension by tacking on a third spatial dimension to the image. Drag the images the see the flip-side.&lt;/p&gt;</content><author><name>danya</name></author><summary type="html">github website</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/images/featured/pixel-value.gif" /></entry><entry><title type="html">ThreeJS Terraforming Tool</title><link href="http://localhost:4000/threejs-terraforming-tool" rel="alternate" type="text/html" title="ThreeJS Terraforming Tool" /><published>2017-03-16T14:23:51-04:00</published><updated>2017-03-16T14:23:51-04:00</updated><id>http://localhost:4000/threejs-terraforming-tool</id><content type="html" xml:base="http://localhost:4000/threejs-terraforming-tool">&lt;p&gt;So, somewhat accidentally, I made a terraforming tool in threejs! Check it out:
+&lt;!--more--&gt;
+Basically, when you mouse over, a raycaster is set from the camera position and the mouse position. The raycaster returns the face of the plane that it has intersected. The position of each vertex of the face is incremented by 0.5 on the z axis. Then, the plane geometry is updated (as are the face normals and vertex normals, in order to maintain the smooth appearance).
+&lt;script async=&quot;&quot; src=&quot;//jsfiddle.net/danyalette/xpynzxpo/13/embed/result,js,css/&quot;&gt;&amp;lt;/script
+&amp;lt;/p&amp;gt;&lt;/script&gt;&lt;/p&gt;</content><author><name>danya</name></author><summary type="html">So, somewhat accidentally, I made a terraforming tool in threejs! Check it out: Basically, when you mouse over, a raycaster is set from the camera position and the mouse position. The raycaster returns the face of the plane that it has intersected. The position of each vertex of the face is incremented by 0.5 on the z axis. Then, the plane geometry is updated (as are the face normals and vertex normals, in order to maintain the smooth appearance).</summary></entry><entry><title type="html">ThreeJS Rhombic Dodecahedron</title><link href="http://localhost:4000/threejs-rhombic-dodecahedron" rel="alternate" type="text/html" title="ThreeJS Rhombic Dodecahedron" /><published>2017-03-15T18:04:04-04:00</published><updated>2017-03-15T18:04:04-04:00</updated><id>http://localhost:4000/threejs-rhombic-dodecahedron</id><content type="html" xml:base="http://localhost:4000/threejs-rhombic-dodecahedron">&lt;p&gt;I’ve been working with threejs a bunch lately. Here’s a pretty shiny tessellation of a space-filling polyhedron called the rhombic dodecahedron:
+&lt;!--more--&gt;
+&lt;script async=&quot;&quot; src=&quot;//jsfiddle.net/danyalette/jbm2b9bo/2/embed/result,js/&quot;&gt;&lt;/script&gt;&lt;/p&gt;</content><author><name>danya</name></author><summary type="html">I’ve been working with threejs a bunch lately. Here’s a pretty shiny tessellation of a space-filling polyhedron called the rhombic dodecahedron:</summary></entry><entry><title type="html">Building Themeable Web Apps</title><link href="http://localhost:4000/building-themeable-web-apps" rel="alternate" type="text/html" title="Building Themeable Web Apps" /><published>2017-02-20T11:35:46-05:00</published><updated>2017-02-20T11:35:46-05:00</updated><id>http://localhost:4000/building-themeable-web-apps</id><content type="html" xml:base="http://localhost:4000/building-themeable-web-apps">&lt;p&gt;I recently worked on an app that was intended to be themeable – a “white label” app that had a default look and default behaviour which were expected to be selectively overridden on a client-by-client basis. I definitely did not grasp the scope of this requirement before diving in. So, I figured I would share some of my experiences in case they can save anyone else some time.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;h3 id=&quot;flexibility-vs-predictability&quot;&gt;Flexibility vs. Predictability&lt;/h3&gt;
+
+&lt;p&gt;Looking back, the biggest issues we had revolved around striking a balance between flexibility and predictability. To illustrate how theming can be closer to one extreme or the other, consider the following options for stylesheet customization:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;The client can &lt;em&gt;overwrite&lt;/em&gt; the default stylesheets&lt;/li&gt;
+  &lt;li&gt;The client can &lt;em&gt;override&lt;/em&gt; the default styles (using css rule order and selector specificity), by including additional stylesheets after the default ones&lt;/li&gt;
+  &lt;li&gt;The client can only set the values of certain parameters that have been predetermined, such as button colours&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;In the first case, the app is extremely flexible but extremely unpredictable. This will make it impossible for you, the devs, to test all scenarios, and to write other parts of the app (such as the markup) in such a way that the app will reliably produce the intended result.&lt;/p&gt;
+
+&lt;p&gt;However, the last case isn’t ideal either – this can only work if there is consensus (between the clients, product managers, the dev team, etc) on what the outline of your product looks like, in all its possible forms. This can also create a lot overhead: every time someone wants a new option, you have to create a new parameter and hook it into your existing app …and then be able to potentially deploy the updated app to other clients who may or may not care to set the value of the new parameter…and then you have to update documentation, and so on.&lt;/p&gt;
+
+&lt;p&gt;I have no intention of advising you to favour of one strategy or another; the right choice obviously depends on the circumstances. In our case, when it came to stylesheets (written in scss), we used a combination strategy:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Theme files were included by default (i.e. the default stylesheets had, e.g. &lt;code class=&quot;highlighter-rouge&quot;&gt;include('theme.scss')&lt;/code&gt;) and the theme files existed as empty files in the default build.&lt;/li&gt;
+  &lt;li&gt;Clients could include their own theme files to &lt;em&gt;overwrite&lt;/em&gt; the existing (empty) theme files.&lt;/li&gt;
+  &lt;li&gt;Some of those theme files were explicitly intended for scss variables. In other words, scss variables that had been set in the default scss stylesheets could be overridden in the (default empty) theme variables files.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;You might have noticed that our method includes parts of all three options enumerated above: files can be &lt;em&gt;overwritten&lt;/em&gt; (though, in this case, not important ones!); those theme files can &lt;em&gt;override&lt;/em&gt; existing styles (using css rule order and selector specificity). And, in addition, certain parameters have been earmarked for client customization by the fact that some css properties have been set using scss variables rather than directly having been assigned a value. The message being: you don’t have to choose between flexibility and predictability, but you will definitely have to consider where you want to land, in the gradient between the two. This will likely involve having to define, with the participation of the app’s other stakeholders, a clear idea of what your app should and should not &lt;em&gt;be able to become&lt;/em&gt; as a result of theming.&lt;/p&gt;
+
+&lt;p&gt;When it came to stylesheets, this method worked well for us but it wasn’t our master plan – we grew into it organically as our product requirements evolved. However, in addition to stylesheets, we also had to contend with themeable layouts, data, and basic functionality, all of which were also constantly also negotiating that balance between flexibility and predictability.&lt;/p&gt;
+
+&lt;h3 id=&quot;implementation&quot;&gt;Implementation&lt;/h3&gt;
+
+&lt;p&gt;A downside of the organic evolution of our strategy was that it was quite varied. Ok, it was basically strategy soup. In some cases, customizations were set in a configuration file that was bundled into the client build of the app. In other cases, they were set in a configuration file that was fetched remotely by the app at runtime.  Some configurations were directly written into app files at build-time using search-and-replace. In other cases, customizations were additional files that sometimes overwrote and sometimes overrode existing default files (as was the case in the stylesheets example above).&lt;/p&gt;
+
+&lt;p&gt;Taken individually, each strategy was justified. For instance, if a client wanted to be able to make changes to certain aspects of the app without redeploying a build, then it seems obvious that we needed a configuration file stored remotely that could be changed at will, and that the app would fetch at runtime. However, other configurations needed to be set at build time. In our case, since it was a Cordova hybrid mobile app, the title of the app and its icon, for instance, needed to be set at build time.&lt;/p&gt;
+
+&lt;p&gt;But it is easy to see how this variety might hamper development. Developers working on the app were unclear on which method to use when building out new customizable features; this slowed down development and made our codebase messier and more difficult to maintain. The biggest issue, however, is only evident to me in retrospect: as our theming strategy became increasingly complex, so did our build process. At a certain point, our build process was responsible for (in addition to the usual suspects): copying all files from directory &lt;em&gt;a&lt;/em&gt; into &lt;em&gt;b&lt;/em&gt;, without overwriting; copying all files from directory &lt;em&gt;c&lt;/em&gt; to directory &lt;em&gt;d&lt;/em&gt;, &lt;em&gt;with&lt;/em&gt; overwriting; emptying this dir; duplicating file &lt;em&gt;q&lt;/em&gt;, but appending a string from file &lt;em&gt;z&lt;/em&gt; to the name of file &lt;em&gt;q&lt;/em&gt;; generating a json file from an xml file; replacing string &lt;em&gt;x&lt;/em&gt; in all files in directory &lt;em&gt;e&lt;/em&gt; with string _y…_which was itself the string returned from a shell command…and the list goes on. Just writing this out, I’m sweating.&lt;/p&gt;
+
+&lt;p&gt;Perhaps unsurprisingly, our build process was extremely unreliable because there were several race conditions. Many of the tasks were asynchronous (sometimes unintentionally so!), and had dependencies on other tasks. (For example, imagine that string &lt;em&gt;x _is to be read from file _z&lt;/em&gt;, but file &lt;em&gt;z&lt;/em&gt; is in directory &lt;em&gt;c&lt;/em&gt;, which is to be emptied after it has been copied into directory &lt;em&gt;d&lt;/em&gt; . The success of the reading task depends on the amount of time it takes to complete the copying task.) Because the build process was built up incrementally, some of the dependencies were exceedingly subtle; I actually even found some circular dependencies!&lt;/p&gt;
+
+&lt;p&gt;Anyways, if this story does have a moral, I think it is this:&lt;/p&gt;
+
+&lt;p&gt;It might be tempting to approach theming issues one-by-one, and implement solutions as they befit the problem. It makes complete sense to set up theming to work differently for stylesheets than it works for copy, or markup files. However, themeability isn’t just an abstract problem – it needs to be implemented. Every time you opt to overwrite a default file with a custom one, you are adding one more thing to your build process’s plate. And every time you opt to use regex to replace a string in a default file with a string from another default file, or from a shell command…well, actually, please just don’t do that. Seriously. What are you thinking.&lt;/p&gt;
+
+&lt;h3 id=&quot;thecube&quot;&gt;The Cube&lt;/h3&gt;
+
+&lt;p&gt;One of my big projects, during my time working on this app, was an overhaul of the build process. The first thing I did was take a survey of all the things the build process had to accomplish, many of which were directly related to themeability. I found it helpful to categorize the various theming strategies along 3 axes: &lt;strong&gt;build-time&lt;/strong&gt; or &lt;strong&gt;runtime;&lt;/strong&gt; &lt;strong&gt;overriding&lt;/strong&gt; or &lt;strong&gt;overwriting_;_&lt;/strong&gt; &lt;strong&gt;optional&lt;/strong&gt; or &lt;strong&gt;required&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&quot;wp-image-1037 size-medium aligncenter&quot; src=&quot;/assets/images/uploads/2017/02/the-cube-of-themeability-285x300.jpg&quot; alt=&quot;the-cube-of-themeability&quot; width=&quot;285&quot; height=&quot;300&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Basically, we ran the gamut: we had required built-time overwrites, optional runtime overrides, and everything in between. There are eight “quadrants” (octants?)  in that diagram, and you can expect that each of them will have different implications for the structure of your build process, your development workflow, your testing strategy, your deployment strategy, and so on. However, they also each have the potential to solve for different problems.&lt;/p&gt;
+
+&lt;h5 id=&quot;build-timeruntime&quot;&gt;Build-time/runtime&lt;/h5&gt;
+
+&lt;p&gt;A build-time configuration is one that is “baked into” the app when it is bundled for deployment. A runtime configuration, however, is one that is queried by the app during its operation. Choosing between the two – in my opinion – really depends upon use-case. In the first case, you might imagine your build process replacing the file &lt;code class=&quot;highlighter-rouge&quot;&gt;images/logo.jpg&lt;/code&gt; with the file, if any, that is found at &lt;code class=&quot;highlighter-rouge&quot;&gt;theme/images/logo.png&lt;/code&gt;. In the second case, however, you might imagine doing something like:&lt;/p&gt;
+
+&lt;pre&gt;var logoImageFile = configurations.getParam('logo_image_file') || 'images/logo.png';&lt;/pre&gt;
+
+&lt;p&gt;Runtime configurations are somewhat more flexible, and can be changed at arbitrary times (i.e. not just at build time), although they can also, in some cases, incur a performance penalty.&lt;/p&gt;
+
+&lt;h5 id=&quot;overwritingoverriding&quot;&gt;Overwriting/overriding&lt;/h5&gt;
+
+&lt;p&gt;When it comes to choosing between overriding and overwriting, I am a strong proponent of going with overriding in all cases where that is an option. Allowing clients to overwrite default files is a liability. In addition – and I can’t stress this enough – it can also create &lt;em&gt;mountains of work&lt;/em&gt; and sneaky regressions in cases where the default files (those that are slated to be overwritten by theme files) have been themselves been updated in subsequent iterations. The theme files – the ones that are intended to overwrite the defaults – would likely all need to be updated at the same time as the defaults. However, there &lt;em&gt;are&lt;/em&gt; cases where overwriting is a requirement; we encountered many such cases in using Cordova.&lt;/p&gt;
+
+&lt;h5 id=&quot;optionalrequired&quot;&gt;Optional/required&lt;/h5&gt;
+
+&lt;p&gt;I feel similarly about the choice between optional and required. Required customizations (e.g. a required theme file, or a required value in a configuration file) introduce unnecessary liabilities. Setting robust defaults should negate the need for required customizations, and thus reduce the probably of making buggy builds.&lt;/p&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;p&gt;In any case, I strongly recommend choosing one quadrant and focussing as much of your theming strategy there – doing so will likely eliminate a lot of the excessive complexity that we struggled to rein in. I have to choose one: I believe that runtime optional overrides are the least likely to cause problems down the line.&lt;/p&gt;
+
+&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;there are more ways to implement theming than you think!&lt;/li&gt;
+  &lt;li&gt;you may end up using all of them&lt;/li&gt;
+  &lt;li&gt;but try not to&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>danya</name></author><summary type="html">I recently worked on an app that was intended to be themeable – a “white label” app that had a default look and default behaviour which were expected to be selectively overridden on a client-by-client basis. I definitely did not grasp the scope of this requirement before diving in. So, I figured I would share some of my experiences in case they can save anyone else some time.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/images/featured/the-cube-of-themeability-wide.png" /></entry><entry><title type="html">Pure Scss Slideshow</title><link href="http://localhost:4000/pure-scss-slideshow" rel="alternate" type="text/html" title="Pure Scss Slideshow" /><published>2017-02-18T20:40:50-05:00</published><updated>2017-02-18T20:40:50-05:00</updated><id>http://localhost:4000/pure-scss-slideshow</id><content type="html" xml:base="http://localhost:4000/pure-scss-slideshow">&lt;p&gt;The performance of this snippet is not great in chrome, but nonetheless…&lt;/p&gt;
+
+&lt;p&gt;Here you go!&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://gist.github.com/danyalette/0c32184b9a86a31e061c785e114f2528&quot; target=&quot;_blank&quot;&gt;gist&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://codepen.io/danyalette/pen/RKmXGQ&quot; target=&quot;_blank&quot;&gt;codepen&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;!--more--&gt;
+
+&lt;div class=&quot;language-scss highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$images&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;/images/fun.jpg&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;/images/yay.jpg&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;/images/wow.jpg&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$slide_duration&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;//preload images
+&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:before&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nv&quot;&gt;$urls&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;sx&quot;&gt;url('')&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;@each&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$image&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$images&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nv&quot;&gt;$urls&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$urls&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;sx&quot;&gt;url(&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$image&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;none&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$urls&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;@keyframes&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;slideshow&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nv&quot;&gt;$current_percentage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nv&quot;&gt;$increment&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$images&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;@each&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$image&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$images&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$current_percentage&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;background-image&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;sx&quot;&gt;url($image)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;nv&quot;&gt;$current_percentage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$current_percentage&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$increment&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nc&quot;&gt;.slideshow-image&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;animation-name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;slideshow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;animation-timing-function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;step-end&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;animation-fill-mode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;forwards&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;animation-duration&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$slide_duration&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$images&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;animation-iteration-count&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;infinite&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;nl&quot;&gt;background-size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cover&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;background-position&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;center&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;</content><author><name>danya</name></author><summary type="html">The performance of this snippet is not great in chrome, but nonetheless…</summary></entry><entry><title type="html">Old Sites</title><link href="http://localhost:4000/old-sites" rel="alternate" type="text/html" title="Old Sites" /><published>2016-11-03T19:23:09-04:00</published><updated>2016-11-03T19:23:09-04:00</updated><id>http://localhost:4000/old-sites</id><content type="html" xml:base="http://localhost:4000/old-sites">&lt;p&gt;i’m redoing my personal website and feeling super nostalgic for my websites of yore.
+&lt;!--more--&gt;&lt;/p&gt;
+&lt;h2 id=&quot;first-site&quot;&gt;first site&lt;/h2&gt;
+
+&lt;video autoplay=&quot;&quot; loop=&quot;&quot; style=&quot;max-width:95%;&quot;&gt;&lt;source src=&quot;/assets/images/uploads/2016/11/first-site-b.mp4&quot; type=&quot;video/mp4&quot; /&gt;&lt;/video&gt;
+
+&lt;h2 id=&quot;second-site&quot;&gt;second site&lt;/h2&gt;
+
+&lt;video autoplay=&quot;&quot; loop=&quot;&quot; style=&quot;max-width:95%&quot;&gt;&lt;source src=&quot;/assets/images/uploads/2016/11/second-site.mp4&quot; type=&quot;video/mp4&quot; /&gt;&lt;/video&gt;
+
+&lt;h2 id=&quot;third-site--current&quot;&gt;third site – current&lt;/h2&gt;
+
+&lt;video autoplay=&quot;&quot; loop=&quot;&quot; style=&quot;max-width:95%&quot;&gt;&lt;source src=&quot;/assets/images/uploads/2016/11/third-site-b.mp4&quot; type=&quot;video/mp4&quot; /&gt;&lt;/video&gt;
+
+&lt;h3 id=&quot;fourth-site&quot;&gt;fourth site&lt;/h3&gt;
+
+&lt;p&gt;who knows???&lt;/p&gt;</content><author><name>danya</name></author><summary type="html">i’m redoing my personal website and feeling super nostalgic for my websites of yore. first site</summary></entry><entry><title type="html">Ear Velvet</title><link href="http://localhost:4000/ear-velvet" rel="alternate" type="text/html" title="Ear Velvet" /><published>2016-10-25T22:33:26-04:00</published><updated>2016-10-25T22:33:26-04:00</updated><id>http://localhost:4000/ear-velvet</id><content type="html" xml:base="http://localhost:4000/ear-velvet">&lt;p&gt;I’ve listened to this Indonesian band Sore a bunch lately.
+Also, I’m currently recovering from a very serious Cocteau Twins addiction.
+Some great songs:
+&lt;!--more--&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;sore---plastik-kita&quot;&gt;Sore - Plastik Kita&lt;/h4&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Salam….salam…..&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;audio src=&quot;/assets/music/plastik-kita.mp3&quot; controls=&quot;&quot;&gt;&lt;/audio&gt;
+
+&lt;h4 id=&quot;cocteau-twins---sugar-hiccup&quot;&gt;Cocteau Twins - Sugar Hiccup&lt;/h4&gt;
+
+&lt;audio src=&quot;/assets/music/sugar-hiccup.mp3&quot; controls=&quot;&quot;&gt;&lt;/audio&gt;</content><author><name>danya</name></author><summary type="html">I’ve listened to this Indonesian band Sore a bunch lately. Also, I’m currently recovering from a very serious Cocteau Twins addiction. Some great songs:</summary></entry><entry><title type="html">Command-Click Prevent Default</title><link href="http://localhost:4000/command-click-w-click-preventdefault" rel="alternate" type="text/html" title="Command-Click Prevent Default" /><published>2015-12-13T00:02:06-05:00</published><updated>2015-12-13T00:02:06-05:00</updated><id>http://localhost:4000/command-click-w-click-preventdefault</id><content type="html" xml:base="http://localhost:4000/command-click-w-click-preventdefault">&lt;p&gt;I often command-click links in order to open them in a new tab. I find it very irritating when a site’s JS usurps that functionality.&lt;/p&gt;
+
+&lt;p&gt;It turns out that click events have a boolean attribute – &lt;code class=&quot;highlighter-rouge&quot;&gt;event.metaKey&lt;/code&gt; – that is &lt;code class=&quot;highlighter-rouge&quot;&gt;true&lt;/code&gt; on command-click. So, you can &lt;code class=&quot;highlighter-rouge&quot;&gt;event.preventDefault()&lt;/code&gt; your heart out and still easily retain the expected command-click behaviour.&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;.something&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;click&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;metaKey&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;preventDefault&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// etc&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;//other stuff&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;</content><author><name>danya</name></author><summary type="html">I often command-click links in order to open them in a new tab. I find it very irritating when a site’s JS usurps that functionality.</summary></entry><entry><title type="html">Pure CSS Animated Squiggle Underline</title><link href="http://localhost:4000/pure-css-animated-squiggle-underline" rel="alternate" type="text/html" title="Pure CSS Animated Squiggle Underline" /><published>2015-10-15T21:27:45-04:00</published><updated>2015-10-15T21:27:45-04:00</updated><id>http://localhost:4000/pure-css-animated-squiggle-underline</id><content type="html" xml:base="http://localhost:4000/pure-css-animated-squiggle-underline">&lt;p&gt;Probably not a great use of my time. Anyways…&lt;/p&gt;
+&lt;style&gt;.demo h2{text-transform:uppercase}.squiggle{position:relative;overflow:hidden;padding-bottom:5px;display:inline-block;vertical-align:top;cursor:pointer}.red{color:red}.squiggle:before,.squiggle:after{position:absolute;font-family:monospace;font-size:19px;color:inherit;letter-spacing:1px;bottom:0;left:0;transition:none;word-break:break-all;white-space:nowrap}.squiggle:before{content:&quot;\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004&quot;}.squiggle:after{content:&quot;\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004&quot;;left:6px;bottom:1px}.squiggle:hover:after{left:-100px;transition:left 7s linear}.squiggle:hover:before{left:-106px;transition:left 7s linear}&lt;/style&gt;
+
+&lt;div class=&quot;demo&quot;&gt;
+  &lt;h2 class=&quot;squiggle&quot;&gt;Hover over me&lt;/h2&gt;
+&lt;/div&gt;
+
+&lt;!--more--&gt;
+
+&lt;h2 id=&quot;how&quot;&gt;how&lt;/h2&gt;
+
+&lt;p&gt;I make use of the characters &lt;code&gt; ̮&lt;/code&gt; &amp;amp; &lt;code&gt;̯&lt;/code&gt;. The former populates the &lt;code class=&quot;highlighter-rouge&quot;&gt;content&lt;/code&gt; attribute of the elem’s &lt;code class=&quot;highlighter-rouge&quot;&gt;:before&lt;/code&gt; pseudo-element. The latter populates its &lt;code class=&quot;highlighter-rouge&quot;&gt;:after&lt;/code&gt;, which also has a slight &lt;code class=&quot;highlighter-rouge&quot;&gt;left&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;bottom&lt;/code&gt; offset. As for the animation, the pseudo-elements simply have a &lt;code class=&quot;highlighter-rouge&quot;&gt;left&lt;/code&gt; transition on &lt;code class=&quot;highlighter-rouge&quot;&gt;:hover&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;ye-be-warned&quot;&gt;ye be warned&lt;/h2&gt;
+
+&lt;p&gt;The viable use-cases for this code are extremely limited because:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;it renders slightly differently in different browsers. Safari looks pretty meh.&lt;/li&gt;
+  &lt;li&gt;won’t support text of arbitrary length&lt;/li&gt;
+  &lt;li&gt;won’t support animation of arbitrary duration&lt;/li&gt;
+  &lt;li&gt;won’t change thickness relative to elem’s font-size&lt;/li&gt;
+  &lt;li&gt;will not line-wrap&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;the-code&quot;&gt;the code&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://jsfiddle.net/ugj7bp6s/6/&quot;&gt;here’s&lt;/a&gt; a jsfiddle.&lt;/p&gt;
+
+&lt;h4 id=&quot;html&quot;&gt;html&lt;/h4&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'squiggle'&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;this will have a squiggly underline&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;css&quot;&gt;CSS&lt;/h4&gt;
+
+&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nc&quot;&gt;.squiggle&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;relative&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;overflow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;hidden&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;padding-bottom&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;5px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;inline-block&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;vertical-align&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;top&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;cursor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;pointer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;nc&quot;&gt;.squiggle&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:before&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;.squiggle&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:after&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;absolute&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;font-family&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;monospace&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;font-size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;19px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;inherit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;letter-spacing&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;bottom&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;transition&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;none&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;word-break&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;break-all&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nc&quot;&gt;.squiggle&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:before&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&quot;\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004\032E\2004&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;nc&quot;&gt;.squiggle&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:after&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&quot;\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004\032F\2004&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;6px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;bottom&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;nc&quot;&gt;.squiggle&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:hover:after&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;-100px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;transition&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;left&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;7s&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;linear&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;nc&quot;&gt;.squiggle&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:hover:before&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;-106px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;transition&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;left&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;7s&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;linear&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;  
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+&lt;/div&gt;</content><author><name>danya</name></author><summary type="html">Probably not a great use of my time. Anyways…</summary></entry></feed>

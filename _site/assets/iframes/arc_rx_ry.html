@@ -1,0 +1,167 @@
+<!doctype html>
+<html>
+<head>
+	<link href='https://fonts.googleapis.com/css?family=Lustria' rel='stylesheet' type='text/css'>
+	<style>
+	body{
+		overflow:hidden;
+	}
+	svg{
+		position:relative;
+		left:30px;
+		top:20px;
+	}
+	.p
+	{
+		font-size:12px;
+		position:absolute;
+		top:20px;
+		cursor:pointer;
+		font-family:sans-serif;
+		border:2px outset #ccc;
+		padding:3px;
+		background:#eee;
+		border-radius:3px;
+		color:#333;
+	}
+	.p:hover{
+		border:2px inset #ccc;
+		background:#ddd;
+	}
+	#rot{
+		height:200px;
+		width:300px;
+		position:absolute;
+		left:50px;
+		top:50px;
+		font-family:lustria;
+		font-size:90px;
+		color:#ddd;
+		font-weight:bold;
+	}
+	</style>
+</head>
+
+<body>
+<div id='rot'>rx: 150 <br /> ry: 150</div>
+
+<svg version="1.1" id="svg1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="500" height="500" viewBox="-200 -300 1000 1000" xml:space="preserve" >
+  <path class="path" id='path' fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" d="M0 0a150 150 0 1 1 100 50" />
+	<circle cx='0' cy='0' r='7' />
+	<circle cx='100' cy='50' r='7' />
+</svg>
+<div class='p' id='s'>start</div>
+<script>
+
+var shape1 = [0,0,150,150,0,1,1,100,50]; 
+var shape2 = [0,0,150,50,0,1,1,100,50];
+var shape3 = [0,0,50,50,10,1,1,100,50];
+var shape4 = [0,0,50,150,0,1,1,100,50];
+
+
+var d = document.getElementById('rot'); 
+
+var allShapes = [shape1, shape2, shape3, shape4]; 
+
+var path = document.getElementById('path');
+var svg = document.getElementsByTagName('svg')[0];
+var index = 0;
+
+var start_b = document.getElementById('s'); 
+
+start_b.onclick = function(){
+animateBeta({start: allShapes[0], end: allShapes[1], segments:300}); 
+start_b.innerHTML = "stop"; 
+start_b.onclick = function(){
+	cancelAnimationFrame(frame);
+	start_b.innerHTML = "restart";
+	start_b.onclick = function(){
+		window.location.reload();
+	}; 
+};
+};
+
+
+function animateNext(){
+	var startShape = allShapes[1];
+	var endShape = allShapes[2];
+	animateBeta({start: startShape, end: endShape, segments:300}); 
+	queueShapes();
+}
+
+
+function queueShapes(){
+	allShapes.push(allShapes.shift());
+};
+
+function animateBeta(object){
+	
+	var start = object.start;
+	var end = object.end;
+	var segments = object.segments;
+	
+	var thisInterval = determineInterval(start, end, segments);
+	startAnimationLoop(start, thisInterval, segments);
+
+}
+
+function determineInterval(start, end, segments){ 
+	var intervals = [];
+	for(i=0; i<start.length;i++){
+		intervals[i] = -(start[i] - end[i])/segments;
+	}
+	return intervals; 
+}
+
+function startAnimationLoop(start,interval,segments){
+	var currentPosition = start; 
+	var so_far = 0; 
+	function loopBeta(){
+		draw(currentPosition);
+		currentPosition = getNextPosition(currentPosition, interval);
+		frame = requestAnimationFrame(loopBeta);
+		if(so_far > segments) {
+			cancelAnimationFrame(frame); 
+			animateNext();
+		}
+		so_far++;
+		
+		
+	}
+	requestAnimationFrame(loopBeta);
+	
+} 
+
+function draw(array){
+	var pathString1 = arrayToPath(array);
+	path.setAttribute("d", pathString1);
+	
+}
+
+function getNextPosition(currentPosition, interval){
+	var position = [];
+	for(i=0; i<currentPosition.length; i++){
+		position[i] = currentPosition[i] + interval[i]; 
+	}
+	return position;
+}
+
+function arrayToPath(arg){
+	var a = []; 
+	arg.forEach(function(item){
+		a.push(" " + item); 
+	}); 
+	var string1 = "m" + a[0] + a[1] + "a" + a[2] + a[3] + a[4] + a[5] + a[6] + a[7] + a[8]; 
+	
+	d.innerHTML = "rx: " + parseInt(a[2]) + "<br />" + "ry: " + parseInt(a[3]); 
+	
+	return string1; 
+}
+
+
+</script>
+
+</body>
+
+</html>

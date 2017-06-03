@@ -1,0 +1,171 @@
+<!doctype html>
+<html>
+<head>
+	<style>
+	body{
+		overflow:hidden;
+	}
+	svg{
+		opacity:0;
+		-webkit-transition:opacity 0.5s linear; 
+		-moz-transition:opacity 0.5s linear; 
+		-o-transition:opacity 0.5s linear; 
+		transition:opacity 0.5s linear; 
+	}
+	#pp
+	{
+		font-size:12px;
+		position:absolute;
+		top:185px;
+		cursor:pointer;
+	}
+	</style>
+</head>
+
+<body>
+
+
+<svg version="1.1" id="svg1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="340px" height="333px" viewBox="0 0 340 333" enable-background="new 0 0 340 333" xml:space="preserve" >
+
+  <path class="path" id='path' fill="none" stroke="#000000" stroke-width="1" transform="translate(140,75), scale(0.7)" stroke-miterlimit="10" d="M0 100" />
+	<circle cx="50" cy="50" r="2" stroke="black" stroke-width="3" fill="#000" id='c1'  transform="translate(140,75), scale(0.7)"/>
+	<circle cx="50" cy="50" r="2" stroke="black" stroke-width="3" fill="#000" id='c2' transform="translate(140,75), scale(0.7)"/>
+	<circle cx="50" cy="50" r="2" stroke="black" stroke-width="3" fill="#000" id='c3' transform="translate(140,75), scale(0.7)"/>
+	<circle cx="50" cy="50" r="2" stroke="black" stroke-width="3" fill="#000" id='c4' transform="translate(140,75), scale(0.7)"/>
+	<circle cx="50" cy="50" r="2" stroke="black" stroke-width="3" fill="#000" id='c5' transform="translate(140,75), scale(0.7)"/>
+</svg>
+<div id='pp'>stop</div>
+<script>
+
+document.getElementById('pp').onclick = function(){ cancelAnimationFrame(frame); }; 
+
+var shape1 = [[0, 100],[100, 0],[0, -100],[-100, 0],[-160, 0], [55.2, 100], [100, 55.2],[100, -55.2], [55.2, -100],  [-55.2, -100], [-100, -55.2], [-100, 55.2], [-55.2, 100], [-150, 0], [-150, 0]]; //circle 
+var shape2 = [[0, 50], [50, 100], [100, 50], [50, 50], [125, 125], [25, 75], [25, 75],[75, 75], [75, 75],[75, 50], [75, 50],[25, 50], [25, 50],[100, 100], [100, 100]];
+var shape3 = [[67, 43], [64, -55], [120, 149], [86, 83], [-8, 148], [-8, 75],[-56, 19],[182, -12],[183, 90],[95, 101],[91, 92],[71, 53],[69, 48],[-8, 148],[-8, 148]];  
+var shape4 = [[-88, 49], [-5, 44 ], [60, 38 ], [123, 54 ], [-40, -30], [-74, 5 ], [-20, -63 ],[-3, -11 ],[69, -34 ], [86, -9 ], [162, -26 ], [66, 94 ], [-36, 92 ], [-40, -30], [-40, -30]]; 
+var shape5 = [[0, 100],[100, 0],[0, -100],[-100, 0],[-50, 0], [100, 0], [100, 0],[0, -100], [0, -100],  [-55.2, -100], [-100, -55.2], [-100, 55.2], [-55.2, 100], [-50, 0], [-50, 0]]; //circle 
+
+var allShapes = [shape1, shape2, shape3, shape4, shape5]; 
+var index = 0; 
+
+var path = document.getElementById('path');
+var svg = document.getElementsByTagName('svg')[0];
+var c1 = document.getElementById('c1');
+var c2 = document.getElementById('c2');
+var c3 = document.getElementById('c3');
+var c4 = document.getElementById('c4');
+var c5 = document.getElementById('c5');
+
+ 
+
+setTimeout(function(){
+	svg.style.opacity = 1;
+},100);
+
+animateBeta({start: shape5, end: shape1, segments:100}); 
+
+function animateNext(){
+	var startShape = allShapes[0];
+	var endShape = allShapes[1];
+	animateBeta({start: startShape, end: endShape, segments:100}); 
+	queueShapes(); 	
+}
+
+
+function queueShapes(){
+	allShapes.push(allShapes.shift());
+};
+
+
+
+function animateBeta(object){
+	
+	var start = object.start;
+	var end = object.end;
+	var segments = object.segments;
+	
+	var thisInterval = determineInterval(start, end, segments);
+	startAnimationLoop(start, thisInterval, segments);
+	
+}
+
+function determineInterval(start, end, segments){
+	var intervals = [];
+	for(i=0; i<start.length;i++){
+		intervals[i] = []; 
+		intervals[i][0] = -(start[i][0] - end[i][0])/segments;
+		intervals[i][1] = -(start[i][1] - end[i][1])/segments;
+	}
+	return intervals; 
+}
+
+function startAnimationLoop(start,interval,segments){
+	var currentPosition = start; 
+	var so_far = 0; 
+	function loopBeta(){
+		draw(currentPosition);
+		setVertices(currentPosition);
+		currentPosition = getNextPosition(currentPosition, interval);
+		frame = requestAnimationFrame(loopBeta);
+		if(so_far > segments) {
+			cancelAnimationFrame(frame); 
+			animateNext();
+		}
+		so_far++;
+		
+		
+	}
+	requestAnimationFrame(loopBeta);
+	
+} 
+
+function draw(array){
+	var pathString = arrayToPath(array);
+	path.setAttribute("d", pathString);
+	
+}
+
+function getNextPosition(currentPosition, interval){
+	var position = [];
+	for(i=0; i<currentPosition.length; i++){
+		position[i] = [];
+		position[i][0] = currentPosition[i][0] + interval[i][0]; 
+		position[i][1] = currentPosition[i][1] + interval[i][1]; 
+	}
+	return position;
+}
+
+function arrayToPath(arg){
+	var a = []; 
+	arg.forEach(function(item){
+		a.push(" " + item.join(" "));
+	}); 
+	
+	var string = "M" + a[0] + "C" + a[5] + a[6] + a[1] + "C" + a[7] + a[8] + a[2] + "C" + a[9] + a[10] + a[3] + "C" + a[11] + a[12] + a[0] + "M" + a[3] + "C" + a[13] + a[14] + a[4];
+	return string; 
+}
+
+function setVertices(a){
+	c1.setAttribute("cx", a[0][0]);
+	c1.setAttribute("cy", a[0][1]);
+	
+	c2.setAttribute("cx", a[1][0]);
+	c2.setAttribute("cy", a[1][1]);
+	
+	c3.setAttribute("cx", a[2][0]);
+	c3.setAttribute("cy", a[2][1]);
+
+	c4.setAttribute("cx", a[3][0]);
+	c4.setAttribute("cy", a[3][1]);
+	
+	c5.setAttribute("cx", a[4][0]);
+	c5.setAttribute("cy", a[4][1]);
+}
+
+
+</script>
+
+</body>
+
+</html>

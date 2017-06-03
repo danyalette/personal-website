@@ -1,0 +1,4 @@
+- add resume
+- add demos
+- remove iframes where possible
+- get categories working 

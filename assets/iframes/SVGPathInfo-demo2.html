@@ -1,0 +1,33 @@
+<html>
+<head>
+	<style>
+	body{
+		overflow:hidden;
+	}
+	svg{
+		position:relative;
+		top:-350px;
+		left:-50px;
+	}
+	</style>
+</head>
+
+<body>
+<svg height="800" width="600" viewBox='-50 -50 600 800'>
+<path class='parse-path' id='path1'
+d="	M217 711h55q5 0 8.5 -3.5t2.5 -8.5l-18 -154l141 65q11 6 15 -7l17 -52q1 -3 1 -5q0 -7 -9 -9l-152 -31l105 -114q9 -9 -2 -17l-44 -32q-4 -3 -8 -3t-8 6l-76 135l-76 -135q-4 -7 -8.5 -7t-8.5 3l-44 32q-9 8 -2 17l106 115l-152 30q-10 3 -10 11q0 2 1 4l17 52q4 11 15 7l141 -65l-18 154q-1 5 2.5 8.5t8.5 3.5z" stroke-width='30' stroke='coral' fill='none' />
+<path id='path2' class='parse-path' stroke-width='18' stroke='grey'
+d="" fill='none'/>
+<path id='path3' class='parse-path' stroke-width='10' stroke='pink' fill='none'
+d=""/>
+<path id='path4' class='parse-path' stroke-width='3' stroke='yellow' fill='none'
+d="" />
+</svg>
+<script src='SVGPathInfo.js'></script>
+<script>
+var info = new SVGPathInfo(path1); 
+document.getElementById('path2').setAttribute("d", info.getRelativePath()); 
+document.getElementById('path3').setAttribute("d", info.getAbsolutePath()); 
+document.getElementById('path4').setAttribute("d", info.getGlobalCubicBezier()); 
+</script>
+</body>

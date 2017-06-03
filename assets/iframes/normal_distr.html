@@ -1,0 +1,117 @@
+<!doctype html>
+<html>
+<head>
+	<style>
+	.bar{
+		position:relative;
+		height:10px;
+		width:15px;
+		background:#24adf5;
+		margin:3px;
+		display:inline-block;
+		bottom:0px;
+	}
+	button{
+		border:0;
+		background:#ddd;
+		padding:6px;
+		font-size:12px;
+		cursor:pointer;
+		border-radius:2px;
+		outline:0;
+		color:#555;
+		transition:background 0.2s ease, color 0.2s ease;
+		font-family:helvetica, sans-serif;
+	}
+	button:hover{
+		background:#999;
+		color:#fff;
+	}
+	button:active{
+		background:#24adf5;
+
+	}
+	</style>
+</head>
+<body>
+	<button id='b'> AGAIN</button>
+	<div id='wrap'>
+	</div>
+	<script>
+	//vars
+		document.getElementById('b').onclick = function(){
+			window.location.reload();
+		}
+		var wrap = document.getElementById('wrap');
+		var nums = {}; 
+		var bars = []; 
+		var cats = { //value brackets for the histogram 
+			"5":0,
+			"10":0,
+			"15":0,
+			"20":0,
+			"25":0,
+			"30":0,
+			"35":0,
+			"40":0,
+			"45":0,
+			"50":0,
+			"55":0,
+			"60":0,
+			"65":0,
+			"70":0,
+			"75":0,
+			"80":0,
+			"85":0,
+			"90":0,
+			"95":0,
+			"100":0
+
+		};
+	//do 
+		init();
+		makeData();
+		
+	//functions 
+		function rnd(mean, stdev) {
+			var snd = (Math.random()*2-1)+(Math.random()*2-1)+(Math.random()*2-1); 
+			return Math.round(snd*stdev+mean);
+		}
+		function init(){
+			for (cat in cats){
+				var bar = document.createElement('div');
+				bar.className = "bar"; 
+				bars[cat] = bar; 
+				wrap.appendChild(bar);
+			}
+		}
+
+		function makeData(){
+			
+			i=0;
+			while(i<100){
+				var num = rnd(50, 15); 
+				if (!nums.hasOwnProperty(num)) nums[num] = 1; 
+				else nums[num] += 1;
+				i++; 
+			}
+
+			for(num in nums){
+
+				var i = 5; 
+				var cat = 5;  
+				while (i<300){
+					if (num > i) {
+					cat = i; 
+					i += 5;
+					} else break;
+				}
+				cats[cat] += 1; 
+			}
+			for (cat in cats){
+				bars[cat].style.height = 5 + 30*cats[cat] + "px"; 
+			}
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+---
+id: 579
+title: Math of Bézier Curves
+date: 2014-11-13T18:55:49+00:00
+author: danya
+layout: post
+categories:
+  - animation
+  - javascript
+  - math
+  - svg
+---
+
+
+If you are at all interested in SVG or Bézier curves, you&#8217;ve probably seen something like [Jason Davies&#8217; animation](http://www.jasondavies.com/animated-bezier/). I found that those animations are an excellent way of intuitively grasping how Bézier curves work. However, the math behind it all is less intuitive.
+
+I just read [this](http://pomax.github.io/bezierinfo/) really illuminating article.
+
+Something I hadn&#8217;t realized before reading the article is that, mathematically, Bézier curves are not defined as run-of-the-mill functions. Whereas generally one would plug an `x` value into a function to determine a `y` value, à la  `f(x) = y = ax + b` , Bézier curves are defined _parametrically_. The values of `x` and `y` are determined independently, according to a third parameter, dubbed `t`.
+
+This is the general formula for a cubic Bézier:
+
+<pre>B(t) = (1-t)<sup>3</sup>&middot;P0 + 3&middot;(1-t)<sup>2</sup>&middot;t&middot;P1 + 3&middot;(1-t)&middot;t<sup>2</sup>&middot;P2 + t<sup>3</sup>&middot;P3
+
+</pre>
+
+where `P0` and `P3` are the start and end points, and `P1` and `P2` are the first and second control points.
+
+<!--more-->
+
+
+
+This actually means:
+
+<pre>x = (1-t)<sup>3</sup>&middot;P0<sub>x</sub> + 3&middot;(1-t)<sup>2</sup>&middot;t&middot;P1<sub>x</sub> + 3&middot;(1-t)&middot;t<sup>2</sup>&middot;P2<sub>x</sub> + t<sup>3</sup>&middot;P3<sub>x</sub>
+
+y = (1-t)<sup>3</sup>&middot;P0<sub>y</sub> + 3&middot;(1-t)<sup>2</sup>&middot;t&middot;P1<sub>y</sub> + 3&middot;(1-t)&middot;t<sup>2</sup>&middot;P2<sub>y</sub> + t<sup>3</sup>&middot;P3<sub>y</sub>
+
+</pre>
+
+So, plugging the same `t` value into both functions will give you an `x` and a `y`, i.e. one coordinate for a point on the Bézier curve with said values for `P0`,`P1`,`P2`, and `P3`.
+
+So, what is `t`?
+
+<pre>t &isin; [0,1]
+</pre>
+
+Simply speaking, `t` goes continuously from 0 to 1, and, at each value, it generates a new set of coordinates defined by the Bézier function.
+
+This hypothetical infinitely dense set of coordinates is what defines the curve. The following animation demonstrates which `(x,y)` coordinate (-> the black dot) results from which `t` value ( -> the grey number under the black curve):
+
+
+
+That cubic Bézier curve, as well as the calculations for the moving point&#8217;s coordinates, are based on the following values:
+
+```javascript
+P0 = (0,200); // start point
+P1 = (0,0); /// first control point
+P2 = (100,0); // second control point
+P3 = (100,200); // end point
+```

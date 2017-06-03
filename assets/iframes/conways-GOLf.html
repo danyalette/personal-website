@@ -1,0 +1,340 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+   "http://www.w3.org/TR/html4/loose.dtd">
+
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>conway's GOLf</title>
+
+	<meta name="author" content="Danya Lette">
+	<style>
+	body{
+		background:#eee;
+	}
+	#grid{
+		background:#777;
+		margin:30px;
+		display:block;
+		cursor:pointer;
+	}
+	button{
+		background:rgba(200,200,200,0.5);
+		border:none;
+		cursor:pointer;
+		outline:none;
+		margin:5px;
+	}
+	button:active{
+		background:rgba(200,200,200,0.8);
+	}
+	#controls{
+		margin-left:30px;
+		margin-top:20px;
+	}
+	</style>
+</head>
+<body>
+	<div id='controls'>
+		<button id='step'>manual step</button>
+		<button id='auto-step'>auto-step</button>
+		<button id='restart'>restart</button>
+	</div>
+<canvas id="grid"></canvas>
+
+	<script>
+
+	/*
+
+	RULE SET:
+
+	a live cell can die if:
+	neighbours > p
+	neighbours < q
+
+	and a dead cell can come alive if:
+	neighbours = r
+
+
+	where
+	p = 3
+	q = 2
+	r = 3
+
+	note that p >= q
+
+	*/
+
+
+	//a pulsar's starting arrangement:
+	var start_on = [[2,4],[2,5],[2,6],[2,10],[2,11],[2,12],[7,4],[7,5],[7,6],[7,10],[7,11],[7,12],[9,4],[9,5],[9,6],[9,10],[9,11],[9,12],[14,4],[14,5],[14,6],[14,10],[14,11],[14,12],[4,2],[4,7],[4,9],[4,14],[5,2],[5,7],[5,9],[5,14],[6,2],[6,7],[6,9],[6,14],[10,2],[10,7],[10,9],[10,14],[11,2],[11,7],[11,9],[11,14],[12,2],[12,7],[12,9],[12,14]];
+
+	spacing = 2;
+	size = 15;
+	number = 17;
+
+	die_from_overpopulation = 3;
+	die_from_loneliness = 2;
+	induced_life_force = 3;
+
+	grid = {cells: []};
+
+	stateChangeQueue = [];
+
+	grid.getState = function(row,col){
+		var this_cell = this.cells[row][col];
+		return this_cell.state;
+	}
+
+	live_color = "#E74727";
+	dead_color = "#999999";
+
+
+	var c = document.getElementById("grid");
+	var ctx = c.getContext("2d");
+
+	c.width = c.height = spacing*2*number + size*number;
+
+
+	var b = document.getElementById('step');
+	var a = document.getElementById('auto-step');
+	var r = document.getElementById('restart');
+	b.onclick = step;
+	r.onclick = function(){ window.location.reload(); };
+
+	var autoStep;
+	a.setAttribute("data-active", "false");
+	a.onclick = function(){
+		if (a.getAttribute("data-active") == "false"){
+			a.setAttribute("data-active", "true");
+			a.style.background = "rgba(200,200,200,1)";
+			step();
+			autoStep = setInterval(function(){
+				step();
+			}, 700);
+		}
+		else if (a.getAttribute("data-active") == "true"){
+			a.setAttribute("data-active", "false");
+			a.style.background = "";
+			clearInterval(autoStep);
+		}
+	}
+
+
+
+
+	for(row=0; row<number; row++){
+		var pos_top = spacing + spacing*2*row + size*row;
+		var this_row = [];
+		for(col=0; col<number; col++){
+			var pos_left = spacing + spacing*2*col + size*col;
+			ctx.fillStyle = dead_color;
+			ctx.fillRect(pos_left, pos_top, size, size);
+
+			var cell = {};
+			cell.row = row;
+			cell.col = col;
+			cell.left = pos_left;
+			cell.top = pos_top;
+			cell.size = size;
+			cell.state = 0;
+			cell.countNeighbors = function(){
+
+						var row = this.row;
+						var col = this.col;
+
+						var neighbors = 0;
+
+						if (col > 0){
+							if (grid.cells[row][col-1].state == 1) neighbors++;
+						}
+						if (col < number-1){
+							if (grid.cells[row][col+1].state == 1) neighbors++;
+						}
+
+						if (row > 0){
+							if (grid.cells[row-1][col].state == 1) neighbors++;
+							if (col > 0){
+								if (grid.cells[row-1][col-1].state == 1) neighbors++;
+							}
+							if (col < number-1){
+								if (grid.cells[row-1][col+1].state == 1) neighbors++;
+							}
+						}
+						if (row < number-1){
+							if (grid.cells[row+1][col].state == 1) neighbors++;
+							if (col > 0){
+								if (grid.cells[row+1][col-1].state == 1) neighbors++;
+							}
+							if (col < number-1){
+								if (grid.cells[row+1][col+1].state == 1) neighbors++;
+							}
+						}
+						return neighbors;
+					}
+
+
+			this_row.push(cell);
+		}
+		grid.cells.push(this_row);
+	}
+
+	start_on.forEach(function(item){
+		var row = item[0];
+		var col = item[1];
+		reverseState(grid.cells[row][col]);
+	});
+
+
+
+	function changeStateTo(cell_obj, goal_state){
+		var pos_left = cell_obj.left;
+		var pos_top = cell_obj.top;
+		var size = cell_obj.size;
+		if (goal_state == 1) {
+			ctx.fillStyle = live_color;
+			cell_obj.state = 1;
+		}
+		else if (goal_state == 0){
+			 ctx.fillStyle = dead_color;
+			cell_obj.state = 0;
+		}
+		ctx.fillRect(pos_left, pos_top, size, size);
+	}
+
+  var mousedown = false;
+  var lastFlip = null;
+
+  c.onmousedown = function(e) {
+    mousedown = true;
+  }
+
+  c.onmouseleave = function(e) {
+    mousedown = false;
+  }
+
+  c.onmouseup = function(e) {
+    mousedown = false;
+  }
+
+  c.onmousemove = function(e) {
+    if (!mousedown) return;
+    var click_left = e.pageX - e.target.offsetLeft - e.target.style.marginLeft;
+    var click_top = e.pageY - e.target.offsetTop - e.target.style.marginTop;
+
+    var target = getRowCol(click_left, click_top);
+
+    if (target) {
+      if (lastFlip && (target.col == lastFlip.col)&&(target.row == lastFlip.row)) return;
+      changeStateTo(grid.cells[target.row][target.col], 1);
+      lastFlip = target;
+    }
+  }
+
+	c.onclick = function(e){
+    if (mousedown) return;
+		var click_left = e.pageX - e.target.offsetLeft - e.target.style.marginLeft;
+		var click_top = e.pageY - e.target.offsetTop - e.target.style.marginTop;
+
+    var target = getRowCol(click_left, click_top);
+
+		if (target) {
+			reverseState(grid.cells[target.row][target.col]);
+		}
+
+	}
+
+  function getRowCol(left, top) {
+    var row;
+    var col;
+
+    which_col:
+      for(i=0;i<number;i++){
+        var lower_limit = spacing + spacing*2*i + size*i;
+        var upper_limit = lower_limit+size;
+        if ((left > lower_limit) && (left < upper_limit)){
+          col = i;
+          break which_col;
+        }
+      }
+
+    which_row:
+      for(i=0;i<number;i++){
+        var lower_limit = spacing + spacing*2*i + size*i;
+        var upper_limit = lower_limit+size;
+        if ((top > lower_limit) && (top < upper_limit)){
+          row = i;
+          break which_row;
+        }
+      }
+    if ((typeof col === "undefined")||(typeof row === "undefined")) {
+      return false;
+    }
+    return {row: row, col: col}
+  }
+
+	function reverseState(cell_obj){
+		if (cell_obj.state == 1){
+			changeStateTo(cell_obj, 0);
+		}
+		else if (cell_obj.state == 0){
+			changeStateTo(cell_obj, 1);
+		}
+	}
+
+	function step(){
+		stateChangeQueue = [];
+		for (i=0; i<number; i++){
+			var this_row = grid.cells[i];
+			for(o=0; o<number; o++){
+				var this_cell = this_row[o];
+				nextCellState(this_cell);
+			}
+		}
+		assignNewStates();
+	}
+
+	function queueState(cell_obj, goal_state){
+		cell_obj.next_state = goal_state;
+		stateChangeQueue.push(cell_obj);
+	}
+
+
+	function assignNewStates(){
+		stateChangeQueue.forEach(function(cell_obj){
+			changeStateTo(cell_obj, cell_obj.next_state);
+		});
+	}
+
+
+	function nextCellState(cell_obj){
+
+		var row = cell_obj.row * 1;
+		var col = cell_obj.col * 1;
+
+		var neighbors = cell_obj.countNeighbors();
+
+		if (cell_obj.state == 1) {
+			if (neighbors > die_from_overpopulation){
+				queueState(cell_obj, 0);
+			}
+			else if (neighbors < die_from_loneliness){
+				queueState(cell_obj, 0);
+
+			}
+
+		}
+		else if (cell_obj.state == 0){
+			if (neighbors == induced_life_force){
+				queueState(cell_obj, 1);
+
+			}
+		}
+
+
+	}
+
+
+	</script>
+
+</body>
+</html>

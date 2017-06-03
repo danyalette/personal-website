@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+	<style>
+.select-div{
+	font-family:helvetica;
+	height: 32px;
+	overflow: hidden;
+	background: url("dropdown-arrow.png") no-repeat right #eee;
+	background-size:34px;
+	outline:none;
+	margin-bottom:5px;
+	width:300px;
+	cursor:pointer;
+}
+.select-div select{
+	background: transparent;
+	outline:none;
+	width:110%;
+	font-size: 16px;
+	padding:5px;
+	line-height: 1;
+	border: 0;
+	border-radius: 0;
+	height: 32px;
+	-webkit-appearance: none;
+	-moz-appearance:none;
+	text-overflow:'';
+	text-indent:0.01px;
+	color:#333;
+}
+.select-div select::-ms-expand {
+	display: none;
+}
+	</style>
+</head>
+<body>
+	<div class='select-div'>
+		<select>
+			<option>FIRST OPTION</option>
+			<option>SECOND OPTION</option>
+		</select>
+	</div>
+</body>
+</html>

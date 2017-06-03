@@ -1,0 +1,91 @@
+---
+---
+
+@import "_theme-{{ site.theme_color }}.scss";
+
+a {
+  color: $color-primary-link;
+}
+
+h1, h2, h3, h4, header, .previous-next {
+  a {
+    color: inherit;
+  }
+}
+
+.previous-next {
+  margin: 80px 0;
+  display: flex;
+  justify-content: space-around;
+  max-width: 100%;
+  overflow: hidden;
+  .previous, .next {
+    margin-left: 0;
+    margin-right: 20px;
+    flex: 1;
+    max-width: 50%;
+    overflow: hidden;
+  }
+  .next {
+    margin-left: 20px;
+    margin-right: 0;
+  }
+}
+
+code {
+  background: #f5f5f5;
+}
+
+pre code {
+  color: #333;
+  background: none;
+}
+
+.more {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.container {
+  max-width: 750px;
+}
+
+article img {
+  max-width: 100%;
+}
+
+.featured-image {
+  margin: 30px 0 40px 0;
+}
+
+.excerpt {
+  margin-top: 70px;
+  margin-bottom: 70px;
+  padding-bottom: 70px;
+}
+
+.prose {
+  p, ol, ul {
+    @media (min-width: $breakpoint-lg) {
+      width: 100%;
+    }
+  }
+}
+
+@media (min-width: 52em) {
+  .h0 {
+    font-size: 80px;
+  }
+  .prose blockquote {
+    margin: 30px 0;
+    max-width: 100%;
+  }
+  .prose blockquote p {
+    font-size: inherit;
+  }
+  .prose img {
+    max-width: 100%;
+  }
+}

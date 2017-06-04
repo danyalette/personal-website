@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Graph Theory</title>
+  <meta name="description" content="&nbsp;&nbsp;I’m currently reading a book on graph theory.">
+  <meta property=”og:image” content="" />
+
+  
+  
+  <link rel="stylesheet" href="/assets/styles/style.css">
+  <link rel="stylesheet" href="/assets/styles/highlight.css">
+
+  <link rel="canonical" href="/blog/graph-theory">
+  <link rel="alternate" type="application/rss+xml" title="Danya Lette" href="/feed.xml">
+
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+</head>
+
+
+  <body>
+
+    <header class="border-bottom-thick px-2 clearfix">
+  <div class="left sm-width-full py-1 mt-1 mt-lg-0">
+    <a class="align-middle link-primary text-accent" href="/">
+      Danya Lette
+    </a>
+  </div>
+  <div class="right sm-width-full">
+    <ul class="list-reset mt-lg-1 mb-2 mb-lg-1">
+      
+        
+          
+        
+      
+        
+          
+        <li class="inline-block">
+          <a class="align-middle link-primary mr-2 mr-lg-0 ml-lg-2" href="/blog/">
+            Blog
+          </a>
+        </li>
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </ul>
+  </div>
+</header>
+
+
+    <div>
+      <article class="container px-2 mx-auto mb4" itemscope itemtype="http://schema.org/BlogPosting">
+  <h1 class="h0 col-9 sm-width-full py-4 mt-3 inline-block" itemprop="name headline">Graph Theory</h1>
+  <div class="col-4 sm-width-full mt-1 border-top-thin ">
+    <p class="mb-3 py-2 bold h4"><time datetime="2014-09-03T20:45:12-04:00" itemprop="datePublished">Sep 4, 2014</time></p>
+  </div>
+  
+  <div class="prose" itemprop="articleBody">
+      <div>&nbsp;</div>
+<iframe src="/assets/iframes/graph.html" width="400" scale="0.5" height="200" style="text-align:center;margin:auto;overflow:hidden" frameborder="0"></iframe>
+<div>&nbsp;</div>
+<p>I’m currently reading a book on graph theory.</p>
+
+<p>A graph, in the mathematical sense, is a completely abstract object made up of sets. However, it definitely lends itself to visual representation, so I’m having a bit of fun making visualizations of some of the concepts.</p>
+
+<!--more-->
+
+<h2 id="math-lite">Math Lite</h2>
+
+<p>A graph (an abstract object – not to be confused with a representation of a graph!) is made up of two sets:</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">vertices</span> <span class="o">=</span> <span class="p">{</span><span class="nx">v1</span><span class="p">,</span> <span class="nx">v2</span> <span class="p">...}</span>
+<span class="nx">edges</span> <span class="o">=</span> <span class="p">{</span><span class="nx">e1</span><span class="p">,</span><span class="nx">e2</span><span class="p">,..}</span>
+</code></pre>
+</div>
+
+<p>However, the edge set may be empty.
+Each edge is incident to exactly two vertices.</p>
+
+<p>Any two graphs are isomorphic if their vertex sets have a one-to-one relationship that <em>preserves vertex adjacency</em>. In other words, they may be represented differently but in the abstract they are the same.</p>
+
+<h2 id="the-animation">The Animation</h2>
+
+<p>I made the above animation to demonstrate that some very different looking graphs are in fact equal – you can see that no connections are ever forged or broken. Graph theory aside, it’s also interesting that some of the transitions I’ve animated appear to be taking place in 3 dimensions. I think this is especially true of transitions that cause edges to briefly take on dramatic angles, such as
+<img src="/assets/images/uploads/2017/06/graph-angle.png" style="max-width:200px;" /></p>
+
+<h3 id="svg">SVG</h3>
+
+<p>The graph is created using <code class="highlighter-rouge">svg</code>, with one <code class="highlighter-rouge">path</code> element and five <code class="highlighter-rouge">circle</code> elements – one circle for each vertex. The segments of the path are all cubic bézier curves, à la <code class="highlighter-rouge">M0 100C55.2 100 100 55.2 100 0</code>, which I animated using javascript’s <code class="highlighter-rouge">requestAnimationFrame</code>.</p>
+
+<h3 id="javascript">Javascript</h3>
+
+<p>I animate the graph by calling the following:</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">animate</span><span class="p">({</span><span class="na">start</span><span class="p">:</span> <span class="nx">shape1</span><span class="p">,</span> <span class="na">end</span><span class="p">:</span> <span class="nx">shape2</span><span class="p">,</span> <span class="na">total_frames</span><span class="p">:</span><span class="mi">100</span><span class="p">});</span>
+</code></pre>
+</div>
+
+<p>where <code class="highlighter-rouge">total_frames</code> is the number of frames I would like that animation to last, and <code class="highlighter-rouge">shape1/shape2</code> are arrays of coordinates, of the form <code class="highlighter-rouge">shape1 = [[67, 43], [64, -55],....]</code> etc.</p>
+
+<p>Here’s the meat of that function:</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">animate</span><span class="p">(</span><span class="nx">object</span><span class="p">){</span>
+	<span class="c1">//`start` and `end` are both arrays of coordinates</span>
+	<span class="kd">var</span> <span class="nx">start</span> <span class="o">=</span> <span class="nx">object</span><span class="p">.</span><span class="nx">start</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">end</span> <span class="o">=</span> <span class="nx">object</span><span class="p">.</span><span class="nx">end</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">total_frames</span> <span class="o">=</span> <span class="nx">object</span><span class="p">.</span><span class="nx">total_frames</span><span class="p">;</span>
+
+	<span class="kd">var</span> <span class="nx">delta</span> <span class="o">=</span> <span class="nx">determineDelta</span><span class="p">(</span><span class="nx">start</span><span class="p">,</span> <span class="nx">end</span><span class="p">,</span> <span class="nx">total_frames</span><span class="p">);</span>
+	<span class="nx">startAnimationLoop</span><span class="p">(</span><span class="nx">start</span><span class="p">,</span> <span class="nx">delta</span><span class="p">,</span> <span class="nx">total_frames</span><span class="p">);</span>
+
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>which calls</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">startAnimationLoop</span><span class="p">(</span><span class="nx">start</span><span class="p">,</span> <span class="nx">delta</span><span class="p">,</span> <span class="nx">max_count</span><span class="p">){</span>
+	<span class="kd">var</span> <span class="nx">currentPosition</span> <span class="o">=</span> <span class="nx">start</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+	<span class="kd">function</span> <span class="nx">loop</span><span class="p">(){</span>
+		<span class="nx">draw</span><span class="p">(</span><span class="nx">currentPosition</span><span class="p">);</span>
+		<span class="nx">setVertices</span><span class="p">(</span><span class="nx">currentPosition</span><span class="p">);</span>
+		<span class="nx">currentPosition</span> <span class="o">=</span> <span class="nx">getNextPosition</span><span class="p">(</span><span class="nx">currentPosition</span><span class="p">,</span> <span class="nx">delta</span><span class="p">);</span>
+		<span class="nx">frame</span> <span class="o">=</span> <span class="nx">requestAnimationFrame</span><span class="p">(</span><span class="nx">loop</span><span class="p">);</span>
+		<span class="k">if</span><span class="p">(</span><span class="nx">count</span> <span class="o">&gt;</span> <span class="nx">max_count</span><span class="p">)</span> <span class="nx">cancelAnimationFrame</span><span class="p">(</span><span class="nx">frame</span><span class="p">);</span>
+		<span class="nx">count</span><span class="o">++</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="nx">requestAnimationFrame</span><span class="p">(</span><span class="nx">loop</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>and</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">determineDelta</span><span class="p">(</span><span class="nx">start</span><span class="p">,</span> <span class="nx">end</span><span class="p">,</span> <span class="nx">total_frames</span><span class="p">){</span>
+	<span class="kd">var</span> <span class="nx">deltas</span> <span class="o">=</span> <span class="p">[];</span>
+	<span class="k">for</span><span class="p">(</span><span class="nx">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">start</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">){</span>
+		<span class="nx">deltas</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">[];</span>
+		<span class="nx">deltas</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="nx">start</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="nx">end</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span><span class="o">/</span><span class="nx">total_frames</span><span class="p">;</span>
+		<span class="nx">deltas</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="nx">start</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="nx">end</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="nx">total_frames</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="k">return</span> <span class="nx">deltas</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>which is simply determining which value to add to each point at each frame.
+The resultant value is the total change in position of each point (from start to end) divided by number of frames I want the animation to last. The function returns an array of values – one <code class="highlighter-rouge">delta[i] = [deltaX, deltaY]</code> for each point of the graph (including control points for cubic bézier curves).</p>
+
+<p>The rest isn’t too interesting. The function <code class="highlighter-rouge">draw(array)</code> simply turns the coordinates array into proper svg path syntax and then sets the “d” attribute of a path element; <code class="highlighter-rouge">getNextPosition(array,delta)</code> increments the values of the coordinates by the amount determined for each point in <code class="highlighter-rouge">determineDelta(start, end, total_frames)</code>.</p>
+
+<h2 id="that-circle">That Circle</h2>
+
+<p>If you’re curious about how a perfect-seeming circle was represented using cubic bézier curves, check out <a href="/blog/circle-w-cubic-bezier">this post</a>.</p>
+
+  </div>
+
+</article>
+
+<div class="container mx-auto px-2 py-2 clearfix">
+  <!-- Use if you want to show previous and next for all posts. -->
+
+
+<div class="previous-next">
+  
+    <div class="previous">
+      <a class="no-underline border-top-thin py-1 block" href="/blog/circle-w-cubic-bezier">
+        <span class="h5 bold text-accent">Previous</span>
+        <p class="bold h3 link-primary mb-1">Circle w/ Cubic Bézier</p>
+        <p>&nbsp; This paper demonstrates an extremely accurate approximation of a circle using cubic bezier curves. It takes 4 curves, one...</p>
+      </a>
+    </div>
+    
+    
+    <div class="next">
+      <a class="no-underline border-top-thin py-1 block" href="/pentagram-pentagon">
+        <span class="h5 bold text-accent">Next</span>
+        <p class="bold h3 link-primary mb-1">Pentagram  ≅ Pentagon</p>
+        <p>&nbsp; Pentagrams and pentagons are actually a bit spooky… Complementary Pentagons and pentagrams are complements: They have the same vertex...</p>
+      </a>
+    </div>
+  
+</div>
+
+</div>
+
+    </div>
+
+    
+
+  </body>
+
+</html>

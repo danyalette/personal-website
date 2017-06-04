@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Random Normally Distributed Values in JS</title>
+  <meta name="description" content="I want random data! But…I want them to be distributed normally!">
+  <meta property=”og:image” content="" />
+
+  
+  
+  <link rel="stylesheet" href="/assets/styles/style.css">
+  <link rel="stylesheet" href="/assets/styles/highlight.css">
+
+  <link rel="canonical" href="/blog/random-normally-distributed-values-in-js">
+  <link rel="alternate" type="application/rss+xml" title="Danya Lette" href="/feed.xml">
+
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+</head>
+
+
+  <body>
+
+    <header class="border-bottom-thick px-2 clearfix">
+  <div class="left sm-width-full py-1 mt-1 mt-lg-0">
+    <a class="align-middle link-primary text-accent" href="/">
+      Danya Lette
+    </a>
+  </div>
+  <div class="right sm-width-full">
+    <ul class="list-reset mt-lg-1 mb-2 mb-lg-1">
+      
+        
+          
+        
+      
+        
+          
+        <li class="inline-block">
+          <a class="align-middle link-primary mr-2 mr-lg-0 ml-lg-2" href="/blog/">
+            Blog
+          </a>
+        </li>
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </ul>
+  </div>
+</header>
+
+
+    <div>
+      <article class="container px-2 mx-auto mb4" itemscope itemtype="http://schema.org/BlogPosting">
+  <h1 class="h0 col-9 sm-width-full py-4 mt-3 inline-block" itemprop="name headline">Random Normally Distributed Values in JS</h1>
+  <div class="col-4 sm-width-full mt-1 border-top-thin ">
+    <p class="mb-3 py-2 bold h4"><time datetime="2015-01-10T02:27:58-05:00" itemprop="datePublished">Jan 10, 2015</time></p>
+  </div>
+  
+  <div class="prose" itemprop="articleBody">
+      <p>I want random data! But…I want them to be distributed normally!</p>
+
+<iframe width="440" height="250" src="/assets/iframes/normal_distr.html" frameborder="0"></iframe>
+
+<p>The ability to generate random data that are normally distributed is very useful. Here’s how you do it in Javascript:
+<!--more--></p>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">rnd</span><span class="p">(</span><span class="nx">mean</span><span class="p">,</span> <span class="nx">stdev</span><span class="p">)</span> <span class="p">{</span>
+	<span class="kd">var</span> <span class="nx">snd</span> <span class="o">=</span> <span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span><span class="o">*</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span><span class="o">*</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span><span class="o">*</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+	<span class="k">return</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">(</span><span class="nx">snd</span><span class="o">*</span><span class="nx">stdev</span><span class="o">+</span><span class="nx">mean</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="c1">//this function generates one value; iterate in order to generate a large population of values</span>
+</code></pre>
+</div>
+
+<h3 id="fyi">FYI</h3>
+
+<p>This is normal distribution:</p>
+
+<p><a href="/assets/images/uploads/2015/01/normal_distr-e1420872547521.gif" rel="magnific"><img class="alignnone size-full wp-image-694" src="/assets/images/uploads/2015/01/normal_distr-e1420872547521.gif" alt="normal_distr" width="300" height="158" /></a></p>
+
+<p>E.g. test grades are normally distributed: very few students will do extremely well or do extremely poorly. Many more students will have grades that are closer to the mean grade. So, grade frequency clusters around the mean.</p>
+
+<h4 id="fun-fact">FUN FACT</h4>
+
+<p>Did you know that, though perhaps you’ve seen “histogram” and “bar chart” used interchangeably, histograms in fact represent values’ frequencies whereas bar charts represent values’ magnitudes⸮</p>
+
+<h4 id="anyways">anyways</h4>
+
+<p>To generate the histogram above, I used that JS function to generate 100 data points. I set the mean to 50 and the standard deviation to 15. For example, I might generate <code class="highlighter-rouge">[48,52,17,41,65,58]</code>. I then determined a set of value ranges and counted how many data points fall into value range, e.g. <code class="highlighter-rouge">0-10</code> has 2 data points. <code class="highlighter-rouge">10-20</code> has 3 data points. <code class="highlighter-rouge">20-30</code> has 3 data points. Etc. Then, finally, I increased the height of each bar in the histogram in relation to the number of data points that fall into that category.</p>
+
+  </div>
+
+</article>
+
+<div class="container mx-auto px-2 py-2 clearfix">
+  <!-- Use if you want to show previous and next for all posts. -->
+
+
+<div class="previous-next">
+  
+    <div class="previous">
+      <a class="no-underline border-top-thin py-1 block" href="/blog/cross-browser-custom-select-dropdown-style">
+        <span class="h5 bold text-accent">Previous</span>
+        <p class="bold h3 link-primary mb-1">Cross-Browser Custom Dropdown</p>
+        <p>&nbsp; I’ve read a number of recommendations for customizing the appearance of dropdowns. This is the closest I’ve come to...</p>
+      </a>
+    </div>
+    
+    
+    <div class="next">
+      <a class="no-underline border-top-thin py-1 block" href="/blog/transition-timing-function">
+        <span class="h5 bold text-accent">Next</span>
+        <p class="bold h3 link-primary mb-1">Transition-Timing-Function</p>
+        <p>So, obviously transition: all 1s ease; and transition: all 1s linear; but did you know transition: all 1s cubic-bezier(0.42,0,0.58,1); ???...</p>
+      </a>
+    </div>
+  
+</div>
+
+</div>
+
+    </div>
+
+    
+
+  </body>
+
+</html>

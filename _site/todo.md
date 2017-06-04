@@ -1,4 +1,6 @@
 - add resume
 - add demos
 - remove iframes where possible
-- get categories working 
+- get categories working
+- add google analytics
+- make site responsive

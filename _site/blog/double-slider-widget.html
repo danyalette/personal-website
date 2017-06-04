@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Double Slider Widget</title>
+  <meta name="description" content="">
+  <meta property=”og:image” content="" />
+
+  
+  
+  <link rel="stylesheet" href="/assets/styles/style.css">
+  <link rel="stylesheet" href="/assets/styles/highlight.css">
+
+  <link rel="canonical" href="/blog/double-slider-widget">
+  <link rel="alternate" type="application/rss+xml" title="Danya Lette" href="/feed.xml">
+
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+</head>
+
+
+  <body>
+
+    <header class="border-bottom-thick px-2 clearfix">
+  <div class="left sm-width-full py-1 mt-1 mt-lg-0">
+    <a class="align-middle link-primary text-accent" href="/">
+      Danya Lette
+    </a>
+  </div>
+  <div class="right sm-width-full">
+    <ul class="list-reset mt-lg-1 mb-2 mb-lg-1">
+      
+        
+          
+        
+      
+        
+          
+        <li class="inline-block">
+          <a class="align-middle link-primary mr-2 mr-lg-0 ml-lg-2" href="/blog/">
+            Blog
+          </a>
+        </li>
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </ul>
+  </div>
+</header>
+
+
+    <div>
+      <article class="container px-2 mx-auto mb4" itemscope itemtype="http://schema.org/BlogPosting">
+  <h1 class="h0 col-9 sm-width-full py-4 mt-3 inline-block" itemprop="name headline">Double Slider Widget</h1>
+  <div class="col-4 sm-width-full mt-1 border-top-thin ">
+    <p class="mb-3 py-2 bold h4"><time datetime="2015-02-25T20:04:25-05:00" itemprop="datePublished">Feb 26, 2015</time></p>
+  </div>
+  
+  <div class="prose" itemprop="articleBody">
+      <iframe src="/assets/iframes/double-slider.html" frameborder="0" height="110" width="500"></iframe>
+
+<!--more-->
+
+<h4 id="1--include-these-files">1 – include these files:</h4>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">'double-slider/utils.js'</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">'double-slider/script.js'</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">'double-slider/style.css'</span> <span class="na">rel=</span><span class="s">'stylesheet'</span> <span class="nt">/&gt;</span>
+</code></pre>
+</div>
+<p><a href="/assets/iframes/double-slider.zip">Here’s</a> a zip.</p>
+
+<h4 id="2--initialize-your-slider">2 – initialize your slider:</h4>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="c1">//grab your element and create a callback function</span>
+        <span class="kd">var</span> <span class="nx">element</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementByClassName</span><span class="p">(</span><span class="s2">"double-slider"</span><span class="p">)[</span><span class="mi">0</span><span class="p">];</span>
+        <span class="kd">function</span> <span class="nx">callback</span><span class="p">(</span><span class="nx">values</span><span class="p">){</span>
+             <span class="kd">var</span> <span class="nx">min</span> <span class="o">=</span> <span class="nx">values</span><span class="p">.</span><span class="nx">min</span><span class="p">;</span>
+             <span class="kd">var</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">values</span><span class="p">.</span><span class="nx">max</span><span class="p">;</span>
+             <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"min: "</span> <span class="o">+</span> <span class="nx">min</span> <span class="o">+</span> <span class="s2">", max: "</span> <span class="o">+</span> <span class="nx">max</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="c1">//create the double-slider</span>
+	<span class="nx">slider</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">DoubleSlider</span><span class="p">(</span><span class="nx">element</span><span class="p">,</span> <span class="nx">callback</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<h4 id="3--set-values">3 – set values</h4>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">slider</span><span class="p">.</span><span class="nx">moveTo</span><span class="p">(</span><span class="mf">0.3</span><span class="p">,</span><span class="mf">0.7</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<h4 id="4--get-values">4 – get values</h4>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">slider</span><span class="p">.</span><span class="nx">getMax</span><span class="p">();</span>
+<span class="kd">var</span> <span class="nx">min</span> <span class="o">=</span> <span class="nx">slider</span><span class="p">.</span><span class="nx">getMin</span><span class="p">();</span>
+
+<span class="c1">//or grab the values using the callback function</span>
+<span class="c1">//which is executed whenever slider values change</span>
+</code></pre>
+</div>
+
+  </div>
+
+</article>
+
+<div class="container mx-auto px-2 py-2 clearfix">
+  <!-- Use if you want to show previous and next for all posts. -->
+
+
+<div class="previous-next">
+  
+    <div class="previous">
+      <a class="no-underline border-top-thin py-1 block" href="/blog/css-hack-set-a-fixed-width-to-height-ratio">
+        <span class="h5 bold text-accent">Previous</span>
+        <p class="bold h3 link-primary mb-1">CSS Hack: Fixed Width-To-Height Ratio</p>
+        <p>Somehow I only just heard about this hack. But now it seems so obvious! Set a fixed width-to-height ratio on...</p>
+      </a>
+    </div>
+    
+    
+    <div class="next">
+      <a class="no-underline border-top-thin py-1 block" href="/blog/heart">
+        <span class="h5 bold text-accent">Next</span>
+        <p class="bold h3 link-primary mb-1">Heart</p>
+        <p>
+
+oil paint + 4 clear plastic sheets
+</p>
+      </a>
+    </div>
+  
+</div>
+
+</div>
+
+    </div>
+
+    
+
+  </body>
+
+</html>

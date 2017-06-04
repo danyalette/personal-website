@@ -108,4 +108,4 @@ The rest isn&#8217;t too interesting. The function `draw(array)` simply turns th
 
 ## That Circle
 
-If you're curious about how a perfect-seeming circle was represented using cubic bézier curves, check out [this post](/circle-w-cubic-bezier).
+If you're curious about how a perfect-seeming circle was represented using cubic bézier curves, check out [this post](/blog/circle-w-cubic-bezier).

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Command-Click Prevent Default</title>
+  <meta name="description" content="I often command-click links in order to open them in a new tab. I find it very irritating when a site’s JS usurps that functionality.">
+  <meta property=”og:image” content="" />
+
+  
+  
+  <link rel="stylesheet" href="/assets/styles/style.css">
+  <link rel="stylesheet" href="/assets/styles/highlight.css">
+
+  <link rel="canonical" href="/blog/command-click-w-click-preventdefault">
+  <link rel="alternate" type="application/rss+xml" title="Danya Lette" href="/feed.xml">
+
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+</head>
+
+
+  <body>
+
+    <header class="border-bottom-thick px-2 clearfix">
+  <div class="left sm-width-full py-1 mt-1 mt-lg-0">
+    <a class="align-middle link-primary text-accent" href="/">
+      Danya Lette
+    </a>
+  </div>
+  <div class="right sm-width-full">
+    <ul class="list-reset mt-lg-1 mb-2 mb-lg-1">
+      
+        
+          
+        
+      
+        
+          
+        <li class="inline-block">
+          <a class="align-middle link-primary mr-2 mr-lg-0 ml-lg-2" href="/blog/">
+            Blog
+          </a>
+        </li>
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </ul>
+  </div>
+</header>
+
+
+    <div>
+      <article class="container px-2 mx-auto mb4" itemscope itemtype="http://schema.org/BlogPosting">
+  <h1 class="h0 col-9 sm-width-full py-4 mt-3 inline-block" itemprop="name headline">Command-Click Prevent Default</h1>
+  <div class="col-4 sm-width-full mt-1 border-top-thin ">
+    <p class="mb-3 py-2 bold h4"><time datetime="2015-12-13T00:02:06-05:00" itemprop="datePublished">Dec 13, 2015</time></p>
+  </div>
+  
+  <div class="prose" itemprop="articleBody">
+      <p>I often command-click links in order to open them in a new tab. I find it very irritating when a site’s JS usurps that functionality.</p>
+
+<p>It turns out that click events have a boolean attribute – <code class="highlighter-rouge">event.metaKey</code> – that is <code class="highlighter-rouge">true</code> on command-click. So, you can <code class="highlighter-rouge">event.preventDefault()</code> your heart out and still easily retain the expected command-click behaviour.</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">$</span><span class="p">(</span><span class="s2">".something"</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">){</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">event</span><span class="p">.</span><span class="nx">metaKey</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+        <span class="c1">// etc</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="c1">//other stuff</span>
+    <span class="p">}</span>
+<span class="p">})</span>
+</code></pre>
+</div>
+
+  </div>
+
+</article>
+
+<div class="container mx-auto px-2 py-2 clearfix">
+  <!-- Use if you want to show previous and next for all posts. -->
+
+
+<div class="previous-next">
+  
+    <div class="previous">
+      <a class="no-underline border-top-thin py-1 block" href="/blog/pure-css-animated-squiggle-underline">
+        <span class="h5 bold text-accent">Previous</span>
+        <p class="bold h3 link-primary mb-1">Pure CSS Animated Squiggle Underline</p>
+        <p>Probably not a great use of my time. Anyways… Hover over me how I make use of the characters ̮...</p>
+      </a>
+    </div>
+    
+    
+    <div class="next">
+      <a class="no-underline border-top-thin py-1 block" href="/blog/ear-velvet">
+        <span class="h5 bold text-accent">Next</span>
+        <p class="bold h3 link-primary mb-1">Ear Velvet</p>
+        <p>I’ve listened to this Indonesian band Sore a bunch lately. Also, I’m currently recovering from a very serious Cocteau Twins...</p>
+      </a>
+    </div>
+  
+</div>
+
+</div>
+
+    </div>
+
+    
+
+  </body>
+
+</html>

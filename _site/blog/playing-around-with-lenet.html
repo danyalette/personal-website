@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Playing Around With LeNet</title>
+  <meta name="description" content="Just for fun, I followed along this tutorial on how to build LeNet – an early &amp; famously successful neural net used for handwriting recognition – in Pyth...">
+  <meta property=”og:image” content="/assets/images/featured/lenet.png" />
+
+  
+  
+  <link rel="stylesheet" href="/assets/styles/style.css">
+  <link rel="stylesheet" href="/assets/styles/highlight.css">
+
+  <link rel="canonical" href="/blog/playing-around-with-lenet">
+  <link rel="alternate" type="application/rss+xml" title="Danya Lette" href="/feed.xml">
+
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+</head>
+
+
+  <body>
+
+    <header class="border-bottom-thick px-2 clearfix">
+  <div class="left sm-width-full py-1 mt-1 mt-lg-0">
+    <a class="align-middle link-primary text-accent" href="/">
+      Danya Lette
+    </a>
+  </div>
+  <div class="right sm-width-full">
+    <ul class="list-reset mt-lg-1 mb-2 mb-lg-1">
+      
+        
+          
+        
+      
+        
+          
+        <li class="inline-block">
+          <a class="align-middle link-primary mr-2 mr-lg-0 ml-lg-2" href="/blog/">
+            Blog
+          </a>
+        </li>
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </ul>
+  </div>
+</header>
+
+
+    <div>
+      <article class="container px-2 mx-auto mb4" itemscope itemtype="http://schema.org/BlogPosting">
+  <h1 class="h0 col-9 sm-width-full py-4 mt-3 inline-block" itemprop="name headline">Playing Around With LeNet</h1>
+  <div class="col-4 sm-width-full mt-1 border-top-thin ">
+    <p class="mb-3 py-2 bold h4"><time datetime="2017-06-01T15:18:55-04:00" itemprop="datePublished">Jun 1, 2017</time></p>
+  </div>
+  
+    <p class="featured-image">
+      <img src="/assets/images/featured/lenet.png" />
+    </p>
+  
+  <div class="prose" itemprop="articleBody">
+      <p>Just for fun, I followed along <a href="http://www.pyimagesearch.com/2016/08/01/lenet-convolutional-neural-network-in-python/">this</a> tutorial on how to build <a href="http://yann.lecun.com/exdb/lenet/">LeNet</a> – an early &amp; famously successful neural net used for handwriting recognition – in Python. I’ve been playing with the data a bit to see how my modifications affect the learning rate. Here’s what I tried:<!--more--></p>
+
+<ul>
+  <li>Rotate each image by 90deg</li>
+  <li>Rotate each image by 180deg</li>
+  <li>Rotate each image by 270deg</li>
+  <li>Invert high and low values (Note: high values are represented by white and low values are represented by black)</li>
+  <li>Fade image – reduce intensity by halving all values</li>
+  <li>Eliminate “in-between” values – all pixel values are either 1 (white) or 0 (black)</li>
+  <li>Randomly rotate each image (by either 90, 180 or 270deg)</li>
+  <li>Randomly rotate each image, after adding an indicator line to the bottom of the image</li>
+</ul>
+
+<h2 id="uniform-rotation">Uniform Rotation</h2>
+
+<p><a href="/assets/images/uploads/2017/06/rotate-1.png" rel="magnific"><img class="alignleft wp-image-1115 size-full" src="/assets/images/uploads/2017/06/rotate-1-300x120.png" alt="rotate-1" width="300" height="120" /></a><a href="/assets/images/uploads/2017/06/rotate-2.png" rel="magnific"><img class="alignleft wp-image-1114 size-medium alignleft" src="/assets/images/uploads/2017/06/rotate-2-300x120.png" alt="rotate-2" width="300" height="120" /></a><a href="/assets/images/uploads/2017/06/rotate-3.png" rel="magnific"><img class="alignleft wp-image-1113 size-medium alignleft" src="/assets/images/uploads/2017/06/rotate-3-300x120.png" alt="rotate-3" width="300" height="120" /></a></p>
+
+<div style="float: none; clear: both;">
+</div>
+
+<p>To begin with, I rotated the images by, in turn, 90, 180, and 270 degrees.</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="o">...</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">dataset</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">28</span><span class="p">))</span>
+
+<span class="n">rotation</span> <span class="o">=</span> <span class="mi">1</span> <span class="c"># 90deg</span>
+<span class="c"># rotation = 2 # 180deg</span>
+<span class="c"># rotation = 3 # 270deg</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">rot90</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">rotation</span><span class="p">)</span>
+
+<span class="o">...</span>
+</code></pre>
+</div>
+
+<p>At each rotation, I ran LeNet for 30 epochs. As expected, those transformations did not appear to affect learning rate, because the transformation was applied uniformly across all data. In addition, these transformations will not affect any other attributes of the data, such as mean value over the whole image.</p>
+
+<p><a href="/assets/images/uploads/2017/06/Figure_rotations.png" rel="magnific"><img class="alignnone size-full wp-image-1112" src="/assets/images/uploads/2017/06/Figure_rotations.png" alt="Figure_rotations" width="640" height="480" /></a></p>
+
+<p> </p>
+
+<h2 id="valueintensity">Value/Intensity</h2>
+
+<p><a href="/assets/images/uploads/2017/06/invert-color.png" rel="magnific"><img class="alignleft size-medium wp-image-1120" src="/assets/images/uploads/2017/06/invert-color-300x120.png" alt="invert-color" width="300" height="120" /></a><a href="/assets/images/uploads/2017/06/lighten-color.png" rel="magnific"><img class="alignleft size-medium wp-image-1119" src="/assets/images/uploads/2017/06/lighten-color-300x120.png" alt="lighten-color" width="300" height="120" /></a><a href="/assets/images/uploads/2017/06/binary-color.png" rel="magnific"><img class="alignleft size-medium wp-image-1121" src="/assets/images/uploads/2017/06/binary-color-300x120.png" alt="binary-color" width="300" height="120" /></a></p>
+
+<div style="float: none; clear: both;">
+</div>
+
+<p>I then tried playing around with the values in the image.</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="o">...</span>
+<span class="k">def</span> <span class="nf">transformData</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+  <span class="k">return</span> <span class="n">data</span><span class="o">/</span><span class="mf">255.</span> <span class="c"># normal (values must, in any case, be converted from range 0-255 to range 0-1)</span>
+  <span class="c"># return 1 - (data/255.) # invert values</span>
+  <span class="c"># return data/(255. * 2) # fade image - reduce intensity by halving all values</span>
+  <span class="c"># return data &amp;gt; 127.5 # make values binary</span>
+
+<span class="p">(</span><span class="n">trainData</span><span class="p">,</span> <span class="n">testData</span><span class="p">,</span> <span class="n">trainLabels</span><span class="p">,</span> <span class="n">testLabels</span><span class="p">)</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
+    <span class="n">transformData</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">dataset</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s">"int"</span><span class="p">),</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.33</span><span class="p">)</span>
+<span class="o">...</span>
+</code></pre>
+</div>
+
+<p>As in the case of uniform rotation across all data, these changes were applied uniformly to all data. So, we wouldn’t expect these alterations to have a substantial negative impact on the ability of the network to eventually converge. However, these alteration will have changed important underlying structures of the data such as the mean and variance of the values in any given image. To illustrate, applying these value/intensity transformations to one set of 5 randomly chosen images results in the following:</p>
+
+<div class="language-md highlighter-rouge"><pre class="highlight"><code><span class="gh">normal
+------
+</span>mean: 0.119206682497
+variance: 0.0883226659517
+
+<span class="gh">binary
+------
+</span>mean: 0.123979591837
+variance: 0.108608652645
+
+<span class="gh">fade
+----
+</span>mean: 0.0596033412487
+variance: 0.0220806664879
+
+<span class="gh">invert
+------
+</span>mean: 0.880793317503
+variance: 0.0883226659517
+</code></pre>
+</div>
+
+<p>As you can see below, the binary color and inverted color images get off to a slower start but soon catch up, after 5 epochs.</p>
+
+<p><a href="/assets/images/uploads/2017/06/Figure_values_5e.png" rel="magnific"><img class="alignnone size-full wp-image-1136" src="/assets/images/uploads/2017/06/Figure_values_5e.png" alt="Figure_values_5e" width="640" height="480" /></a></p>
+
+<div>
+  (Note that I am comparing individual runs of LeNet; the difference between these learning rates is small enough that it might be reasonable to expect that these observed differences are random occurrences and would disappear when comparing the averages of multiple runs.)
+</div>
+
+<div style="float: none; clear: both;">
+  &nbsp;
+</div>
+
+<p>The faded image, however, also gets off to a slow start but takes many more epochs to catch up.</p>
+
+<div style="float: none; clear: both;">
+</div>
+
+<p><a href="/assets/images/uploads/2017/06/Figure_values_30e.png" rel="magnific"><img class="alignnone size-full wp-image-1135" src="/assets/images/uploads/2017/06/Figure_values_30e.png" alt="Figure_values_30e" width="640" height="480" /></a></p>
+
+<div style="float: none; clear: both;">
+</div>
+
+<h2 id="random-rotation">Random Rotation</h2>
+
+<p><a href="/assets/images/uploads/2017/06/random-rotate.png" rel="magnific"><img class="alignleft size-medium wp-image-1117" src="/assets/images/uploads/2017/06/random-rotate-300x120.png" alt="random-rotate" width="300" height="120" /></a><a href="/assets/images/uploads/2017/06/random-rotate-with-indicators.png" rel="magnific"><img class="alignleft size-medium wp-image-1116" src="/assets/images/uploads/2017/06/random-rotate-with-indicators-300x120.png" alt="random-rotate-with-indicators" width="300" height="120" /></a></p>
+
+<div style="float: none; clear: both;">
+</div>
+
+<p>Finally, I randomly rotated the images, both with and without the addition of an “indicator” line (a line of all 1s – pure white – added to the bottom of the image before applying the random rotation, to serve as an indicator of the “true” bottom of the image:</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="o">...</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">dataset</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">28</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    <span class="n">indicator</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">28</span><span class="p">)</span> <span class="o">*</span> <span class="mf">255.</span>
+    <span class="c"># data[i][27] = indicator.tolist() # add indicator</span>
+    <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">rot90</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+
+<span class="o">...</span>
+</code></pre>
+</div>
+
+<p>Unsurprisingly, the worst performance of all the data modifications occurred as a result of randomly rotating the images. In this case, the transformation was not uniformly applied to each image. The addition of the indicator line had a substantial positive impact on the learning rate. However, interestingly, this positive effect was only observed after 5 epochs. Even so, neither modification was able to eventually converge to an accuracy similar to unmodified data, after 30 epochs.</p>
+
+<p><a href="/assets/images/uploads/2017/06/Figure_random_rotate.png" rel="magnific"><img class="alignnone size-full wp-image-1111" src="/assets/images/uploads/2017/06/Figure_random_rotate.png" alt="Figure_random_rotate" width="640" height="480" /></a></p>
+
+  </div>
+
+</article>
+
+<div class="container mx-auto px-2 py-2 clearfix">
+  <!-- Use if you want to show previous and next for all posts. -->
+
+
+<div class="previous-next">
+  
+    <div class="previous">
+      <a class="no-underline border-top-thin py-1 block" href="/blog/pixel-value-visualization">
+        <span class="h5 bold text-accent">Previous</span>
+        <p class="bold h3 link-primary mb-1">Pixel Value Visualization</p>
+        <p>github website I’m currently doing a machine learning course and spending…slightly more time than usual contemplating high-dimensional data. It’s conventional...</p>
+      </a>
+    </div>
+    
+    
+    <div class="next">
+      <a class="no-underline border-top-thin py-1 block" href="/blog/new-website-and-blog">
+        <span class="h5 bold text-accent">Next</span>
+        <p class="bold h3 link-primary mb-1">New Website and Blog!</p>
+        <p>I finally got around to updating my personal website and blog! My personal website was a quirky custom oddity with...</p>
+      </a>
+    </div>
+  
+</div>
+
+</div>
+
+    </div>
+
+    
+
+  </body>
+
+</html>

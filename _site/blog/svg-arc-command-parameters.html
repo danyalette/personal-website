@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>SVG Arc Command Parameters</title>
+  <meta name="description" content="I made a few animations to explain the role of the parameters of the "arc" (a) command. ">
+  <meta property=”og:image” content="" />
+
+  
+  
+  <link rel="stylesheet" href="/assets/styles/style.css">
+  <link rel="stylesheet" href="/assets/styles/highlight.css">
+
+  <link rel="canonical" href="/blog/svg-arc-command-parameters">
+  <link rel="alternate" type="application/rss+xml" title="Danya Lette" href="/feed.xml">
+
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+</head>
+
+
+  <body>
+
+    <header class="border-bottom-thick px-2 clearfix">
+  <div class="left sm-width-full py-1 mt-1 mt-lg-0">
+    <a class="align-middle link-primary text-accent" href="/">
+      Danya Lette
+    </a>
+  </div>
+  <div class="right sm-width-full">
+    <ul class="list-reset mt-lg-1 mb-2 mb-lg-1">
+      
+        
+          
+        
+      
+        
+          
+        <li class="inline-block">
+          <a class="align-middle link-primary mr-2 mr-lg-0 ml-lg-2" href="/blog/">
+            Blog
+          </a>
+        </li>
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </ul>
+  </div>
+</header>
+
+
+    <div>
+      <article class="container px-2 mx-auto mb4" itemscope itemtype="http://schema.org/BlogPosting">
+  <h1 class="h0 col-9 sm-width-full py-4 mt-3 inline-block" itemprop="name headline">SVG Arc Command Parameters</h1>
+  <div class="col-4 sm-width-full mt-1 border-top-thin ">
+    <p class="mb-3 py-2 bold h4"><time datetime="2014-11-08T19:12:22-05:00" itemprop="datePublished">Nov 9, 2014</time></p>
+  </div>
+  
+  <div class="prose" itemprop="articleBody">
+      <p>An SVG <code class="highlighter-rouge">&lt;path&gt;</code> element’s “arc” command (denoted <code class="highlighter-rouge">a</code> or <code class="highlighter-rouge">A</code>) has 7 parameters:</p>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;path</span> <span class="na">d=</span><span class="s">'a {rx} {ry} {x-axis-rotation} {large-arc-flag} {sweepflag} {x} {y}'</span> <span class="nt">/&gt;</span>
+</code></pre>
+</div>
+
+<p>That’s quite a lot of params for one command, and the names of the params are not exactly enlightening. Here’s the deal:</p>
+
+<!--more-->
+
+<h1 id="background">Background</h1>
+
+<h3 id="svg-commands">SVG Commands</h3>
+
+<p>There are a number of commands available for use in the <code class="highlighter-rouge">d</code> attribute of a <code class="highlighter-rouge">&lt;path&gt;</code> element, such as moveto (<code class="highlighter-rouge">m</code>) and lineto (<code class="highlighter-rouge">l</code>).</p>
+
+<p>E.g.  <code class="highlighter-rouge">&lt;path d='M100 100L200 200" /&gt;</code>.</p>
+
+<p>This command moves the pen to coordinates <code class="highlighter-rouge">(100,100)</code> and then draws a line to coordinates <code class="highlighter-rouge">(200,200)</code>.</p>
+
+<h3 id="command-parameters">Command Parameters</h3>
+
+<p>Each command has a number of parameters. For the most part, these specify coordinates. Each command has an origin and a destination coordinate (i.e. where you want the pen to begin drawing and where you want it to “end up”). The origin is always inferred and the destination is generally explicit.</p>
+
+<p>E.g.<code class="highlighter-rouge">M100 100L200 200L300 300Z</code></p>
+
+<p>The first lineto command (<code class="highlighter-rouge">l200 200</code>) has an inferred origin of <code class="highlighter-rouge">(100,100)</code> and an explicit destination of <code class="highlighter-rouge">(200,200)</code>. the second lineto command (<code class="highlighter-rouge">l300 300</code>) has an inferred origin of <code class="highlighter-rouge">(200,200)</code> – where the pen ended up after the last command – and an explicit destination of <code class="highlighter-rouge">(300,300)</code>. The closepath command (<code class="highlighter-rouge">Z</code>) has an inferred origin (<code class="highlighter-rouge">(300,300)</code>)<em>and</em> and inferred destination (<code class="highlighter-rouge">(100,100)</code>).</p>
+
+<p>There are a number of other parameters used by other SVG commands. Each Bézier command (<code class="highlighter-rouge">t</code>, <code class="highlighter-rouge">q</code>, <code class="highlighter-rouge">s</code>, or <code class="highlighter-rouge">c</code>) has one or two control points, which are either inferred or explicit.</p>
+
+<p>Though Bézier curves – the basis of Adobe Illustrator’s “pen tool” – are famously difficult to intuit, the ‘arc’ command (<code class="highlighter-rouge">a</code>) is, to me, the most mysterious.</p>
+
+<p>Its parameters are:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">rx,ry</code></li>
+  <li><code class="highlighter-rouge">x-axis-rotation</code></li>
+  <li><code class="highlighter-rouge">large-arc-flag</code></li>
+  <li><code class="highlighter-rouge">sweepflag</code></li>
+  <li><code class="highlighter-rouge">x,y</code></li>
+</ul>
+
+<h1 id="the-arc-command">The Arc Command</h1>
+
+<p>The effects of the arc’s parameters are not completely intuitive. Here a few animations to clarify:</p>
+
+<h2 id="rxry">rx,ry</h2>
+
+<p>An arc is a portion of an ellipse. To understand the way an arc is drawn in SVG, you have to both understand <em>which ellipse</em> is being drawn and <em>which portion</em> of that ellipse is being selected.</p>
+
+<p>Unless the <code class="highlighter-rouge">x-axis-rotation</code> is specified, the major and minor axes of the ellipse are strictly horizontal and vertical. Thus, <code class="highlighter-rouge">rx</code> is one half of the length of the horizontal axis and <code class="highlighter-rouge">ry</code> is one half of the length of the vertical axis of the ellipse.</p>
+
+<p><strong>For the path <code class="highlighter-rouge">M 0 0 a {rx} {ry} 0 1 1 100 50</code>:</strong></p>
+
+<iframe src="/assets/iframes/arc_rx_ry.html" width="400" height="280" frameborder="0"></iframe>
+
+<p>Note that there are lower limits on the values of {rx} and {ry} in relation to the values of {x} and {y}. For instance, <code class="highlighter-rouge">M 0 0 a 10 10 0 1 1 100 50</code> looks the same as <code class="highlighter-rouge">M 0 0 a 50 50 0 1 1 100 50</code>. In addition, the curve appears to behave erratically when one of {rx} or {ry} is made very small:</p>
+
+<p><strong>For the path <code class="highlighter-rouge">M 0 0 a {rx} {ry} 0 1 1 100 50</code>:</strong></p>
+
+<iframe src="/assets/iframes/arc_rx_ry_marginal.html" width="400" height="280" frameborder="0"></iframe>
+
+<h2 id="x-axis-rotation">x-axis-rotation</h2>
+
+<p>Though the ellipse appears to be moving left/right and up/down, this is merely a side-effect of the actual function of this parameter. In fact, it simply rotates the ellipse’s horizontal axis (which, in this animation, is its <em>major</em> axis) by {x-axis-rotation} degrees clockwise.</p>
+
+<p><strong>For the path <code class="highlighter-rouge">M 0 0 a 180 80 {x-axis-rotation} 1 1 100 50</code>:</strong></p>
+
+<iframe src="/assets/iframes/arc_rotation.html" width="400" height="280" frameborder="0"></iframe>
+
+<h2 id="large-arc-flag--sweep-flag">large-arc-flag &amp; sweep-flag</h2>
+
+<p>So, now that it’s clear enough what <em>shape</em> the ellipse is going to be, we have to determine:</p>
+
+<p>1 – {sweepflag}: which of the two possible <em>points of origin</em> the ellipse will have, and</p>
+
+<p>2 – {large-arc-flag}: which of the two possible <em>halves</em> of the resultant ellipse will be represented.</p>
+
+<p>To demonstrate the 4 possible outcomes,</p>
+
+<p><strong>For the path <code class="highlighter-rouge">M 0 0 a 180 80 0 {large-arc-flag} {sweepflag} 100 50</code>:</strong></p>
+
+<iframe src="/assets/iframes/arc_flags.html" width="400" height="280" frameborder="0"></iframe>
+
+<h2 id="and-they-all-lived">and they all lived</h2>
+
+<p>happily ever after.</p>
+
+  </div>
+
+</article>
+
+<div class="container mx-auto px-2 py-2 clearfix">
+  <!-- Use if you want to show previous and next for all posts. -->
+
+
+<div class="previous-next">
+  
+    <div class="previous">
+      <a class="no-underline border-top-thin py-1 block" href="/blog/conways-golf">
+        <span class="h5 bold text-accent">Previous</span>
+        <p class="bold h3 link-primary mb-1">Conway&#8217;s GOLf</p>
+        <p>In my free time, I’m making a game based on conway’s game of life. Here’s the result of my work...</p>
+      </a>
+    </div>
+    
+    
+    <div class="next">
+      <a class="no-underline border-top-thin py-1 block" href="/blog/mathematical-def-of-bezier-curves">
+        <span class="h5 bold text-accent">Next</span>
+        <p class="bold h3 link-primary mb-1">Math of Bézier Curves</p>
+        <p>If you are at all interested in SVG or Bézier curves, you’ve probably seen something like Jason Davies’ animation. I...</p>
+      </a>
+    </div>
+  
+</div>
+
+</div>
+
+    </div>
+
+    
+
+  </body>
+
+</html>

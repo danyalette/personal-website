@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Conway&amp;#8217;s GOLf</title>
+  <meta name="description" content="In my free time, I’m making a game based on conway’s game of life. Here’s the result of my work so far. Obviously, it’s not a game yet, but it is a functiona...">
+  <meta property=”og:image” content="" />
+
+  
+  
+  <link rel="stylesheet" href="/assets/styles/style.css">
+  <link rel="stylesheet" href="/assets/styles/highlight.css">
+
+  <link rel="canonical" href="/blog/conways-golf">
+  <link rel="alternate" type="application/rss+xml" title="Danya Lette" href="/feed.xml">
+
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+</head>
+
+
+  <body>
+
+    <header class="border-bottom-thick px-2 clearfix">
+  <div class="left sm-width-full py-1 mt-1 mt-lg-0">
+    <a class="align-middle link-primary text-accent" href="/">
+      Danya Lette
+    </a>
+  </div>
+  <div class="right sm-width-full">
+    <ul class="list-reset mt-lg-1 mb-2 mb-lg-1">
+      
+        
+          
+        
+      
+        
+          
+        <li class="inline-block">
+          <a class="align-middle link-primary mr-2 mr-lg-0 ml-lg-2" href="/blog/">
+            Blog
+          </a>
+        </li>
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </ul>
+  </div>
+</header>
+
+
+    <div>
+      <article class="container px-2 mx-auto mb4" itemscope itemtype="http://schema.org/BlogPosting">
+  <h1 class="h0 col-9 sm-width-full py-4 mt-3 inline-block" itemprop="name headline">Conway&#8217;s GOLf</h1>
+  <div class="col-4 sm-width-full mt-1 border-top-thin ">
+    <p class="mb-3 py-2 bold h4"><time datetime="2014-10-31T13:41:39-04:00" itemprop="datePublished">Oct 31, 2014</time></p>
+  </div>
+  
+  <div class="prose" itemprop="articleBody">
+      <p>In my free time, I’m making a game based on <a href="http://en.wikipedia.org/wiki/Conway%27s_Game_of_Life">conway’s game of life</a>. Here’s the result of my work so far. Obviously, it’s not a game yet, but it is a functional cellular automaton written in javascript.</p>
+
+<p>Click on a cell to flip its state, or drag to paint on living cells.</p>
+
+<iframe src="/assets/iframes/conways-GOLf.html" width="390" height="430" frameborder="0"></iframe>
+<div>&nbsp;</div>
+<p>In this example, the starting state of living cells is called a “pulsar” – an example of a cyclic form with a period of 3. In other words, if you step 3 times it will return to the original state.<br />
+Click on the cells to turn them on or off – maybe you can find other stable or cyclic forms.</p>
+
+<!--more-->
+
+<h3 id="what">What</h3>
+
+<p>Conway’s game of life is not really a game; rather, it’s a <a href="http://en.wikipedia.org/wiki/Cellular_automaton">cellular automaton</a>. Well…according to wikipedia, it <em>is</em> a game…but it’s a <a href="http://en.wikipedia.org/wiki/Zero-player_game">zero-player game</a>.</p>
+
+<p>A cellular automaton is a grid of ‘cells’ that have states: on or off; alive or dead. Under certain conditions, cells that are alive will die and cells that are dead will come alive.</p>
+
+<p>The ruleset used specifically in conway’s game of life has it that living cells with more than 3 neighbours and fewer than 2 neighbours will die; dead cells with exactly 3 neighbours will come alive. If you need a mnemonic: a cell can die of overpopulation…and of loneliness.</p>
+
+<h3 id="why-bother">Why bother</h3>
+
+<p>It’s no coincidence that this field’s terminology alludes to organic life. Cellular automata are a computational phenomenon – viz. cells have addresses and states, logical operations determine future states, etc – but they are oft-cited in philosophy of biology as a window into understanding the emergent properties of a group of individual organisms or cells. The patterns that arise in cellular automata are often surprising and appear to have semantic content or intentions. Similarly, the achievements of a colony of ants appear to be inexplicable in light of the very simple rules that guide the behaviour of individual ants.</p>
+
+<p>Evolution itself has (/is) a simple set of rules that act on individuals. The astonishing outcome is the result of a ruleset iterated many times over.</p>
+
+<h3 id="learn-more">Learn More</h3>
+
+<ul>
+  <li><a href="http://en.wikipedia.org/wiki/Emergence">Emergence</a> on wikipedia.</li>
+  <li>There is a <a href="http://www.radiolab.org/story/91500-emergence/">radiolab</a> on the topic.</li>
+  <li>This is related to the mathematical concept of <a href="http://en.wikipedia.org/wiki/Iteration">iteration</a>. This might lead you down the path to fractals. <a href="http://www.cs.cmu.edu/~tcortina/15110sp12/Unit09PtC.pdf">Here’s</a> an excellent explanation of the relationship between cellular automata and fractals (from a Carnegie Mellon computer science class).</li>
+  <li>Regarding evolution and thought as emergent phenomena: an old professor of mine, Ronald de Sousa, wrote <a href="http://www.amazon.ca/Why-Think-Evolution-Rational-Mind/dp/019518985X">a book</a> on the topic.</li>
+</ul>
+
+  </div>
+
+</article>
+
+<div class="container mx-auto px-2 py-2 clearfix">
+  <!-- Use if you want to show previous and next for all posts. -->
+
+
+<div class="previous-next">
+  
+    <div class="previous">
+      <a class="no-underline border-top-thin py-1 block" href="/blog/scss-mixin-for-font-face">
+        <span class="h5 bold text-accent">Previous</span>
+        <p class="bold h3 link-primary mb-1">SCSS Mixin For @font-face</p>
+        <p>define it @mixin font-face($fontname){ $filepath: "fonts/" + $fontname + "/" + $fontname; @font-face { font-family: $fontname; src: url($filepath + ".eot");...</p>
+      </a>
+    </div>
+    
+    
+    <div class="next">
+      <a class="no-underline border-top-thin py-1 block" href="/blog/svg-arc-command-parameters">
+        <span class="h5 bold text-accent">Next</span>
+        <p class="bold h3 link-primary mb-1">SVG Arc Command Parameters</p>
+        <p>An SVG &lt;path&gt; element’s “arc” command (denoted a or A) has 7 parameters: &lt;path d='a {rx} {ry} {x-axis-rotation} {large-arc-flag} {sweepflag}...</p>
+      </a>
+    </div>
+  
+</div>
+
+</div>
+
+    </div>
+
+    
+
+  </body>
+
+</html>

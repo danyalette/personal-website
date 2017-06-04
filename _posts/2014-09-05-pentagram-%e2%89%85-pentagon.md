@@ -40,4 +40,4 @@ But, really, since &#8220;they&#8221; are the same graph, there is no &#8220;the
 
 ## More info
 
-For more info on graph theory and on that animation, check out [this post](/graph-theory).
+For more info on graph theory and on that animation, check out [this post](/blog/graph-theory).

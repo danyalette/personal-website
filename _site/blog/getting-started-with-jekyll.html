@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Getting Started With Jekyll</title>
+  <meta name="description" content="When I decided to give Jekyll a shot, for my blog do-over, the first thing I did was take a look at the quickstart in their docs. It’s a very straightforward...">
+  <meta property=”og:image” content="" />
+
+  
+  
+  <link rel="stylesheet" href="/assets/styles/style.css">
+  <link rel="stylesheet" href="/assets/styles/highlight.css">
+
+  <link rel="canonical" href="/blog/getting-started-with-jekyll">
+  <link rel="alternate" type="application/rss+xml" title="Danya Lette" href="/feed.xml">
+
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+</head>
+
+
+  <body>
+
+    <header class="border-bottom-thick px-2 clearfix">
+  <div class="left sm-width-full py-1 mt-1 mt-lg-0">
+    <a class="align-middle link-primary text-accent" href="/">
+      Danya Lette
+    </a>
+  </div>
+  <div class="right sm-width-full">
+    <ul class="list-reset mt-lg-1 mb-2 mb-lg-1">
+      
+        
+          
+        
+      
+        
+          
+        <li class="inline-block">
+          <a class="align-middle link-primary mr-2 mr-lg-0 ml-lg-2" href="/blog/">
+            Blog
+          </a>
+        </li>
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </ul>
+  </div>
+</header>
+
+
+    <div>
+      <article class="container px-2 mx-auto mb4" itemscope itemtype="http://schema.org/BlogPosting">
+  <h1 class="h0 col-9 sm-width-full py-4 mt-3 inline-block" itemprop="name headline">Getting Started With Jekyll</h1>
+  <div class="col-4 sm-width-full mt-1 border-top-thin ">
+    <p class="mb-3 py-2 bold h4"><time datetime="2017-06-03T04:00:00-04:00" itemprop="datePublished">Jun 3, 2017</time></p>
+  </div>
+  
+  <div class="prose" itemprop="articleBody">
+      <p>When I decided to give Jekyll a shot, for my blog do-over, the first thing I did was take a look at the <a href="https://jekyllrb.com/docs/quickstart/">quickstart</a> in their docs. It’s a very straightforward setup but the process would have been much smoother for me if I had known a few things ahead of time.</p>
+
+<!--more-->
+<ul id="markdown-toc">
+  <li><a href="#ruby-version-management" id="markdown-toc-ruby-version-management">Ruby version management</a>    <ul>
+      <li><a href="#setting-up-rbenv" id="markdown-toc-setting-up-rbenv">Setting up rbenv</a></li>
+    </ul>
+  </li>
+  <li><a href="#installing-jekyll" id="markdown-toc-installing-jekyll">Installing Jekyll</a></li>
+  <li><a href="#changing-the-theme" id="markdown-toc-changing-the-theme">Changing the Theme</a>    <ul>
+      <li><a href="#selection" id="markdown-toc-selection">Selection</a></li>
+      <li><a href="#installation" id="markdown-toc-installation">Installation</a></li>
+      <li><a href="#configuration" id="markdown-toc-configuration">Configuration</a></li>
+      <li><a href="#customization" id="markdown-toc-customization">Customization</a></li>
+    </ul>
+  </li>
+  <li><a href="#scss-customization" id="markdown-toc-scss-customization">SCSS Customization</a>    <ul>
+      <li><a href="#write-your-own-scss" id="markdown-toc-write-your-own-scss">Write Your Own SCSS</a></li>
+      <li><a href="#extend-the-themes-scss" id="markdown-toc-extend-the-themes-scss">Extend the Theme’s SCSS</a></li>
+    </ul>
+  </li>
+  <li><a href="#conclusion" id="markdown-toc-conclusion">Conclusion</a></li>
+</ul>
+
+<h2 id="ruby-version-management">Ruby version management</h2>
+
+<p>Before starting on the installation, you should get set up using a Ruby version management tool.</p>
+
+<p>If you are on a Mac, and you have recently tried to install gems, you may have noticed that you had issues with permissions; there’s a good chance you ended up doing a <code class="highlighter-rouge">$ sudo gem install...</code>. Doing so is problematic for a few reasons. For one, this may result in you needing to use sudo every time you use one of those gems, which is cumbersome and dangerous. Also, installing gems in the version of Ruby that comes default with Mac OS can have unintended side-effects on other programs you use that depend on Ruby.</p>
+
+<p>The two main tools that are conventionally used to do Ruby version management are <code class="highlighter-rouge">rbenv</code> and <code class="highlighter-rouge">rvm</code>. I chose to go with <a href="https://github.com/rbenv/rbenv#homebrew-on-mac-os-x"><code class="highlighter-rouge">rbenv</code></a>.</p>
+
+<h3 id="setting-up-rbenv">Setting up rbenv</h3>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>brew install rbenv
+<span class="gp">$ </span>rbenv init
+</code></pre>
+</div>
+<p>After installing <code class="highlighter-rouge">rbenv</code>, you need to use <code class="highlighter-rouge">rbenv</code> to install at least one version of Ruby, and then tell <code class="highlighter-rouge">rbenv</code> which version of Ruby you want to work on at the moment.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>rbenv install 2.4.1
+<span class="gp">$ </span>rbenv <span class="nb">local </span>2.4.1
+</code></pre>
+</div>
+
+<h2 id="installing-jekyll">Installing Jekyll</h2>
+
+<p>Now that your Ruby install is all set, you are ready to go ahead and install Jekyll, as per the instructions in the offical docs’ quickstart:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>gem install jekyll bundler
+<span class="gp">$ </span>jekyll new myblog
+<span class="gp">$ </span><span class="nb">cd </span>myblog
+<span class="gp">$ </span>bundle <span class="nb">exec </span>jekyll serve
+<span class="c"># Now browse to http://localhost:4000</span>
+</code></pre>
+</div>
+
+<p>That’ll start a development server. In order to do a production build, do</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>jekyll build
+</code></pre>
+</div>
+
+<p>Whenever Jekyll makes a build (either for development or for production), <code class="highlighter-rouge">_site/</code> gets emptied out and then repopulated with html and CSS files, and the resultant website is served out of that <code class="highlighter-rouge">_site/</code> directory. So, you’ll never be directly editing files in that directory.</p>
+
+<h2 id="changing-the-theme">Changing the Theme</h2>
+
+<h3 id="selection">Selection</h3>
+
+<p>Check out <a href="https://github.com/planetjekyll/awesome-jekyll-themes">this</a> list to pick one, and make note of your chosen theme’s <em>gem name</em>.<br />
+E.g. This theme is called Swiss but the gem is called <code class="highlighter-rouge">jekyll-swiss</code>:</p>
+<div class="language-markdown highlighter-rouge"><pre class="highlight"><code>Swiss ★35 (gem: jekyll-swiss ...
+</code></pre>
+</div>
+
+<h3 id="installation">Installation</h3>
+
+<p>Installing the theme is a four-step process:</p>
+<ul>
+  <li>Add the new theme to your <code class="highlighter-rouge">Gemfile</code>, which lists the project’s dependencies:
+    <div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="c1"># Swiss theme</span>
+<span class="n">gem</span> <span class="s2">"jekyll-swiss"</span>
+</code></pre>
+    </div>
+  </li>
+  <li>Use <code class="highlighter-rouge">bundler</code> to update your dependencies. This command install will install the new gem.
+    <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>bundle install
+</code></pre>
+    </div>
+  </li>
+  <li>change the value of <code class="highlighter-rouge">theme: </code> in <code class="highlighter-rouge">_config.yml</code>
+    <div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="ss">theme: </span><span class="n">jekyll</span><span class="o">-</span><span class="n">swiss</span>
+</code></pre>
+    </div>
+  </li>
+  <li>Restart the development server to reload the new config and the updated dependencies:
+    <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>bundle <span class="nb">exec </span>jekyll serve
+</code></pre>
+    </div>
+  </li>
+</ul>
+
+<h3 id="configuration">Configuration</h3>
+
+<p>Your chosen theme may have a few settings you can configure in <code class="highlighter-rouge">_config.yml</code>. You can determine what settings are available by reading that theme’s documentation. For example, <code class="highlighter-rouge">jekyll-swiss</code> has several options for <code class="highlighter-rouge">theme_color</code>. So, I’ve added the following to <code class="highlighter-rouge">_config.xml</code>:</p>
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="ss">theme_color: </span><span class="n">red</span>
+</code></pre>
+</div>
+<p>After editing your config, restart your development server.</p>
+
+<h3 id="customization">Customization</h3>
+
+<p>You can navigate to the root directory of the theme by doing, e.g.</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>open <span class="k">$(</span>bundle show jekyll-swiss<span class="k">)</span>
+</code></pre>
+</div>
+<p>(You can use this method for any installed gems.)
+Don’t make changes directly to any file in the theme directory; rather, any file that you would like to alter should be copied into your project root at the same location. The file in the project will override the file in the theme.</p>
+
+<p>For example, if you want to change the footer, copy the file <code class="highlighter-rouge">jekyll-swiss-0.4.0/_includes/footer.html</code> into <code class="highlighter-rouge">my-project/_includes/footer.html</code> and make your changes to the latter. If you are running the dev server, then you should be able simply refresh the page in the browser to see your changes take effect.</p>
+
+<h2 id="scss-customization">SCSS Customization</h2>
+
+<p>Jekyll has built-in support for writing styles in SCSS. Any SCSS files that you add to your project, anywhere <em>other than</em> in underscored directories (<code class="highlighter-rouge">_site</code>, <code class="highlighter-rouge">_posts</code>, <code class="highlighter-rouge">_includes</code>, …), will be compiled to CSS and added to <code class="highlighter-rouge">_site</code> with the same name and directory hierarchy they had as SCSS files.</p>
+
+<p>For example, these SCSS files</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>style.scss
+assets/my-file.scss
+testing/testeroo/test.scss
+</code></pre>
+</div>
+<p>will, respectively, be compiled to these CSS files:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>_site/style.css
+_site/assets/my-file.css
+_site/testing/testeroo/test.css
+</code></pre>
+</div>
+
+<p>The same goes for the <em>theme’s</em> SCSS files. If you navigate to your current theme’s root directory, you will notice that any SCSS in a non-underscored directory has been compiled to an equivalent CSS file, in your project’s <code class="highlighter-rouge">_site/</code>.</p>
+
+<h3 id="write-your-own-scss">Write Your Own SCSS</h3>
+
+<p>CSS is included in Jekyll sites in the same way it is in any run-of-the-mill site: the html files have <code class="highlighter-rouge">&lt;link&gt;</code> tags, who’s href attributes point to CSS files. In order to add a new stylesheet to your site, you need to do two things:</p>
+<ul>
+  <li>Create a SCSS file.<br />
+For this, I recommend that you create an <code class="highlighter-rouge">assets/</code> directory in your project root. The files that you add to this directory will be compiled to CSS files in <code class="highlighter-rouge">_site/assets/</code>.</li>
+  <li>Add a <code class="highlighter-rouge">&lt;link&gt;</code> tag.<br />
+For this step, you may need to delve into your theme a little bit. You will probably want to add the <code class="highlighter-rouge">&lt;link&gt;</code> tag to the <code class="highlighter-rouge">&lt;head&gt;</code>. Now for some digging: open your theme’s directory (<code class="highlighter-rouge">$ open $(bundle show jekyll-swiss)</code>) and figure out which template includes a <code class="highlighter-rouge">&lt;head&gt;</code> tag. In my case, the template in question is in <code class="highlighter-rouge">jekyll-swiss-0.4.0/_includes/head.html</code>. Now, importantly, do not edit the file in the theme’s directory. What we want to do is override this file <em>in our project</em>. So, assuming the file you want to override is in the theme’s <code class="highlighter-rouge">_includes/</code>:
+    <ul>
+      <li>If your project root does not have an <code class="highlighter-rouge">_includes/</code> directory, create one.</li>
+      <li>Copy the file from the theme’s <code class="highlighter-rouge">_includes/</code> to your project’s <code class="highlighter-rouge">_includes/</code></li>
+      <li>Edit the file in your project’s <code class="highlighter-rouge">_includes/</code> to add the new <code class="highlighter-rouge">&lt;link&gt;</code> tag.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="extend-the-themes-scss">Extend the Theme’s SCSS</h3>
+
+<p>There are some limitation and drawbacks to simply adding another CSS file to the site. For instance, you might want access to the theme’s SCSS variables. Similarly to steps laid out above (for overriding a theme template file), here’s what you need to do:</p>
+<ul>
+  <li>Navigate to the theme’s directory (e.g. <code class="highlighter-rouge">$ open $(bundle show jekyll-swiss)</code>)</li>
+  <li>Find the main SCSS in the theme, and copy it into your project with the same file path it had in the theme. In my case, the theme’s main stylesheet was in <code class="highlighter-rouge">jekyll-swiss-0.4.0/assets/style.scss</code>, so I created <code class="highlighter-rouge">assets/style.scss</code> in my project root.
+The content of this file is:</li>
+</ul>
+
+<div class="language-scss highlighter-rouge"><pre class="highlight"><code><span class="nt">---</span>
+<span class="nn">#</span> <span class="nt">Only</span> <span class="nt">the</span> <span class="nt">main</span> <span class="nt">Sass</span> <span class="nt">file</span> <span class="nt">needs</span> <span class="nt">front</span> <span class="nt">matter</span> <span class="o">(</span><span class="nt">the</span> <span class="nt">dashes</span> <span class="nt">are</span> <span class="nt">enough</span><span class="o">)</span>
+<span class="nt">---</span>
+<span class="o">@</span><span class="nt">charset</span> <span class="s2">"utf-8"</span><span class="p">;</span>
+
+<span class="c1">// Import partials from `sass_dir` and set theme here
+</span><span class="k">@import</span>
+        <span class="s2">"theme-{{ site.theme_color | default: "</span><span class="no">black</span><span class="s2">" }}.scss"</span>
+<span class="p">;</span>
+</code></pre>
+</div>
+<p>The default base that the Jekyll SCSS compiler uses for imported URLs points to the theme’s configured SCSS directory, so I don’t need to change anything in my copy of this file in order for that import statement to work. I can go ahead and start using the theme’s variables:</p>
+
+<div class="language-scss highlighter-rouge"><pre class="highlight"><code><span class="nc">...</span>
+
+<span class="nt">a</span> <span class="p">{</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="nv">$color-primary-link</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">...</span>
+</code></pre>
+</div>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>So, that should be enough info to be able to start working on your new Jekyll site!
+You might also find some useful info in my post on <a href="/blog/migrating-from-wordpress-to-jekyll">Migrating From Wordpress to Jekyll</a> - I cover some Wordpress specific topics, as well as some more generally blog-related things.</p>
+
+  </div>
+
+</article>
+
+<div class="container mx-auto px-2 py-2 clearfix">
+  <!-- Use if you want to show previous and next for all posts. -->
+
+
+<div class="previous-next">
+  
+    <div class="previous">
+      <a class="no-underline border-top-thin py-1 block" href="/blog/new-website-and-blog">
+        <span class="h5 bold text-accent">Previous</span>
+        <p class="bold h3 link-primary mb-1">New Website and Blog!</p>
+        <p>I finally got around to updating my personal website and blog! My personal website was a quirky custom oddity with...</p>
+      </a>
+    </div>
+    
+    
+</div>
+
+</div>
+
+    </div>
+
+    
+
+  </body>
+
+</html>

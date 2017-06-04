@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>SVGPathInfo.js</title>
+  <meta name="description" content="">
+  <meta property=”og:image” content="" />
+
+  
+  
+  <link rel="stylesheet" href="/assets/styles/style.css">
+  <link rel="stylesheet" href="/assets/styles/highlight.css">
+
+  <link rel="canonical" href="/blog/svgpathinfo-a-lightweight-mini-library">
+  <link rel="alternate" type="application/rss+xml" title="Danya Lette" href="/feed.xml">
+
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+</head>
+
+
+  <body>
+
+    <header class="border-bottom-thick px-2 clearfix">
+  <div class="left sm-width-full py-1 mt-1 mt-lg-0">
+    <a class="align-middle link-primary text-accent" href="/">
+      Danya Lette
+    </a>
+  </div>
+  <div class="right sm-width-full">
+    <ul class="list-reset mt-lg-1 mb-2 mb-lg-1">
+      
+        
+          
+        
+      
+        
+          
+        <li class="inline-block">
+          <a class="align-middle link-primary mr-2 mr-lg-0 ml-lg-2" href="/blog/">
+            Blog
+          </a>
+        </li>
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </ul>
+  </div>
+</header>
+
+
+    <div>
+      <article class="container px-2 mx-auto mb4" itemscope itemtype="http://schema.org/BlogPosting">
+  <h1 class="h0 col-9 sm-width-full py-4 mt-3 inline-block" itemprop="name headline">SVGPathInfo.js</h1>
+  <div class="col-4 sm-width-full mt-1 border-top-thin ">
+    <p class="mb-3 py-2 bold h4"><time datetime="2014-11-13T16:25:21-05:00" itemprop="datePublished">Nov 13, 2014</time></p>
+  </div>
+  
+  <div class="prose" itemprop="articleBody">
+      <iframe src="/assets/iframes/SVGPathInfo-demo.html" height="380" width="400" frameborder="0"></iframe>
+
+<p>I made a little Javascript library to quickly get info on an SVG path element. Check it out:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><a href="https://github.com/danyalette/SVGPathInfo" target="_blank">github</a></td>
+      <td><a href="https://danyalette.com/SVGPathInfo" target="_blank">website</a>.</td>
+    </tr>
+  </tbody>
+</table>
+
+<!--more-->
+
+<h2 id="how-to">How To</h2>
+
+<p>The available methods are <code class="highlighter-rouge">getJSON()</code>, <code class="highlighter-rouge">getCommands()</code>, <code class="highlighter-rouge">getCommandsArray()</code>, <code class="highlighter-rouge">getSubPaths(deep)</code>, <code class="highlighter-rouge">getRelativePath()</code>, <code class="highlighter-rouge">getAbsolutePath()</code> and <code class="highlighter-rouge">getGlobalCubicBezier()</code>.</p>
+
+<p>Once you’ve included the script in your page, here’s how you start using them:</p>
+
+<h3 id="begin">Begin</h3>
+
+<p>First, create a new <code class="highlighter-rouge">SVGPathInfo</code> object.</p>
+
+<p>You can pass it a handle to a path element:</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">path_elem</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'mypath'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">info1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SVGPathInfo</span><span class="p">(</span><span class="nx">path_elem</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<p><em>Or</em> you can pass it a path string:</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">path_string</span> <span class="o">=</span> <span class="s2">"M0 0 L0 50L50 50M0 200L200 0"</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">info2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SVGPathInfo</span><span class="p">(</span><span class="nx">path_string</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<p>Now you have access to a bunch of SVGPathInfo’s methods:</p>
+
+<h3 id="getjson">getJSON()</h3>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">path_json</span> <span class="o">=</span> <span class="nx">info2</span><span class="p">.</span><span class="nx">getJSON</span><span class="p">();</span>
+</code></pre>
+</div>
+
+<p>will output</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="p">{</span>  
+   <span class="s2">"0"</span><span class="err">:</span><span class="p">{</span>  
+      <span class="s2">"type"</span><span class="err">:</span><span class="s2">"M"</span><span class="p">,</span>
+      <span class="s2">"string"</span><span class="err">:</span><span class="s2">"M0 0"</span><span class="p">,</span>
+      <span class="s2">"x"</span><span class="err">:</span><span class="s2">"0"</span><span class="p">,</span>
+      <span class="s2">"y"</span><span class="err">:</span><span class="s2">"0"</span>
+   <span class="p">},</span>
+   <span class="s2">"1"</span><span class="err">:</span><span class="p">{</span>  
+      <span class="s2">"type"</span><span class="err">:</span><span class="s2">"L"</span><span class="p">,</span>
+      <span class="s2">"string"</span><span class="err">:</span><span class="s2">"L0 50"</span><span class="p">,</span>
+      <span class="s2">"x"</span><span class="err">:</span><span class="s2">"0"</span><span class="p">,</span>
+      <span class="s2">"y"</span><span class="err">:</span><span class="s2">"50"</span>
+   <span class="p">},</span>
+   <span class="s2">"2"</span><span class="err">:</span><span class="p">{</span>  
+      <span class="s2">"type"</span><span class="err">:</span><span class="s2">"L"</span><span class="p">,</span>
+      <span class="s2">"string"</span><span class="err">:</span><span class="s2">"L50 50"</span><span class="p">,</span>
+      <span class="s2">"x"</span><span class="err">:</span><span class="s2">"50"</span><span class="p">,</span>
+      <span class="s2">"y"</span><span class="err">:</span><span class="s2">"50"</span>
+   <span class="p">}</span>
+   <span class="s2">"3"</span><span class="err">:</span><span class="p">{</span>  
+      <span class="s2">"type"</span><span class="err">:</span><span class="s2">"M"</span><span class="p">,</span>
+      <span class="s2">"string"</span><span class="err">:</span><span class="s2">"M0 200"</span><span class="p">,</span>
+      <span class="s2">"x"</span><span class="err">:</span><span class="s2">"0"</span><span class="p">,</span>
+      <span class="s2">"y"</span><span class="err">:</span><span class="s2">"200"</span>
+   <span class="p">},</span>
+   <span class="s2">"4"</span><span class="err">:</span><span class="p">{</span>  
+      <span class="s2">"type"</span><span class="err">:</span><span class="s2">"L"</span><span class="p">,</span>
+      <span class="s2">"string"</span><span class="err">:</span><span class="s2">"L200 0"</span><span class="p">,</span>
+      <span class="s2">"x"</span><span class="err">:</span><span class="s2">"200"</span><span class="p">,</span>
+      <span class="s2">"y"</span><span class="err">:</span><span class="s2">"0"</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<h3 id="getcommands">getCommands()</h3>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">path_commands</span> <span class="o">=</span> <span class="nx">info2</span><span class="p">.</span><span class="nx">getCommands</span><span class="p">();</span>
+</code></pre>
+</div>
+
+<p>This will return the object that is described by the above JSON string.</p>
+
+<h3 id="getcommandsarray">getCommandsArray()</h3>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">path_commands</span> <span class="o">=</span> <span class="nx">info2</span><span class="p">.</span><span class="nx">getCommandsArray</span><span class="p">();</span>
+</code></pre>
+</div>
+
+<p>This returns an array of command <em>strings</em>, rather than an object of command <em>objects</em>:</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="p">[</span><span class="s2">"M0 0"</span><span class="p">,</span> <span class="s2">"L0 50"</span><span class="p">,</span> <span class="s2">"L50 50"</span><span class="p">,</span> <span class="s2">"M0 200"</span><span class="p">,</span> <span class="s2">"L200 0"</span><span class="p">]</span>
+</code></pre>
+</div>
+
+<h3 id="getsubpathsdeep">getSubPaths(deep)</h3>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">subpaths</span> <span class="o">=</span> <span class="nx">info2</span><span class="p">.</span><span class="nx">getSubPaths</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+<span class="c1">//OR</span>
+<span class="kd">var</span> <span class="nx">subpaths</span> <span class="o">=</span> <span class="nx">info2</span><span class="p">.</span><span class="nx">getSubPaths</span><span class="p">();</span> <span class="c1">//default: false</span>
+</code></pre>
+</div>
+
+<p>This breaks down the path into subpaths, breaking wherever a moveto (<code class="highlighter-rouge">M</code>/<code class="highlighter-rouge">m</code>) command occurs.</p>
+
+<p>The argument <code class="highlighter-rouge">deep</code> is by default <code class="highlighter-rouge">false</code>. If <code class="highlighter-rouge">deep</code> is <code class="highlighter-rouge">false</code>, it returns an array of subpath strings:</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="p">[</span><span class="s2">"M0 0L0 50L50 50"</span><span class="p">,</span> <span class="s2">"M0 200L200 0"</span><span class="p">]</span>
+</code></pre>
+</div>
+
+<p>If <code class="highlighter-rouge">deep</code> is <code class="highlighter-rouge">true</code>, it returns an array of subpath arrays:</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="p">[[</span><span class="s2">"M0 0"</span><span class="p">,</span><span class="s2">"L0 50"</span><span class="p">,</span><span class="s2">"L50 50"</span><span class="p">],</span> <span class="p">[</span><span class="s2">"M0 200"</span><span class="p">,</span><span class="s2">"L200 0"</span><span class="p">]]</span>
+</code></pre>
+</div>
+
+<h3 id="getabsolutepath">getAbsolutePath()</h3>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">abs_path</span> <span class="o">=</span> <span class="nx">info2</span><span class="p">.</span><span class="nx">getAbsolutePath</span><span class="p">();</span>
+</code></pre>
+</div>
+
+<p>Wherever the lowercase form of a command is used, the coordinates that follow the command are <em>relative</em> – their location is specified relative to location of the pen, and not specified absolutely i.e. relative <em>to the point of origin</em> of the svg element (the top left corner).</p>
+
+<p>This function converts the path to the absolute form and returns a string. (Note: my example path is already absolute.)</p>
+
+<h3 id="getrelativepath">getRelativePath()</h3>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">rel_path</span> <span class="o">=</span> <span class="nx">info2</span><span class="p">.</span><span class="nx">getRelativePath</span><span class="p">();</span>
+</code></pre>
+</div>
+
+<p>This does the opposite of getAbsolutePath() – all absolute commands are modified so as to be specified in relation to the location of the pen.</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="s2">"m0 0 l0 50 l50 0 m-50 150 l200 -200"</span>
+</code></pre>
+</div>
+
+<h3 id="getglobalcubicbezier">getGlobalCubicBezier()</h3>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">gcb_path</span> <span class="o">=</span> <span class="nx">info2</span><span class="p">.</span><span class="nx">getGlobalCubicBezier</span><span class="p">();</span>
+</code></pre>
+</div>
+
+<p>This function converts each command to a cubic Bézier and returns a string.</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="s2">"M0 0C0 0 0 50 0 50C0 50 50 50 50 50M0 200C0 200 200 0 200 0"</span>
+</code></pre>
+</div>
+
+<h3 id="notes">Notes:</h3>
+
+<h4 id="accuracy">Accuracy</h4>
+
+<p>There is approximation involved, as is the nature of dealing with Bézier curves, and of course Javascript does famously imprecise maths. However, the result is quite good:</p>
+
+<iframe src="/assets/iframes/SVGPathInfo-demo2.html" height="450" width="470" frameborder="0"></iframe>
+
+<p>This svg image is the result of generating path strings using SVGPathInfo’s various functions, and assigning the resultant strings to the “d” attribute of path elements. I made the stroke-width of the paths decrease progressively so that all the paths can be seen at once. Here is the JS:</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">info</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SVGPathInfo</span><span class="p">(</span><span class="nx">path1</span><span class="p">);</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'path2'</span><span class="p">).</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s2">"d"</span><span class="p">,</span> <span class="nx">info</span><span class="p">.</span><span class="nx">getRelativePath</span><span class="p">());</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'path3'</span><span class="p">).</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s2">"d"</span><span class="p">,</span> <span class="nx">info</span><span class="p">.</span><span class="nx">getAbsolutePath</span><span class="p">());</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'path4'</span><span class="p">).</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s2">"d"</span><span class="p">,</span> <span class="nx">info</span><span class="p">.</span><span class="nx">getGlobalCubicBezier</span><span class="p">());</span>
+</code></pre>
+</div>
+
+<p>where</p>
+
+<ul>
+  <li><code class="highlighter-rouge">path1</code> has the original path (orange with <code class="highlighter-rouge">stroke-width='30'</code>)</li>
+  <li><code class="highlighter-rouge">path2</code> has the relative path (grey with <code class="highlighter-rouge">stroke-width='18'</code>)</li>
+  <li><code class="highlighter-rouge">path3</code> has the absolute path (pink with <code class="highlighter-rouge">stroke-width='10'</code>)</li>
+  <li><code class="highlighter-rouge">path4</code> has the cubic Bézier path (yellow with <code class="highlighter-rouge">stroke-width='3'</code>)</li>
+</ul>
+
+<h4 id="validitity">Validitity</h4>
+
+<p>This library does not check the path’s validity. It will likely throw an error or behave unexpectedly if it is provided with an invalid path.</p>
+
+<h4 id="to-do">To Do</h4>
+
+<p>I have not yet implemented a conversion from the arc command (<code class="highlighter-rouge">A</code>,<code class="highlighter-rouge">a</code>) to cubic Bézier.</p>
+
+  </div>
+
+</article>
+
+<div class="container mx-auto px-2 py-2 clearfix">
+  <!-- Use if you want to show previous and next for all posts. -->
+
+
+<div class="previous-next">
+  
+    <div class="previous">
+      <a class="no-underline border-top-thin py-1 block" href="/blog/mathematical-def-of-bezier-curves">
+        <span class="h5 bold text-accent">Previous</span>
+        <p class="bold h3 link-primary mb-1">Math of Bézier Curves</p>
+        <p>If you are at all interested in SVG or Bézier curves, you’ve probably seen something like Jason Davies’ animation. I...</p>
+      </a>
+    </div>
+    
+    
+    <div class="next">
+      <a class="no-underline border-top-thin py-1 block" href="/blog/svgpathinfo-user-interface">
+        <span class="h5 bold text-accent">Next</span>
+        <p class="bold h3 link-primary mb-1">SVGPathInfo Web Interface</p>
+        <p>I made this site so that SVGPathInfo can be used online. Just paste in your path string and convert it...</p>
+      </a>
+    </div>
+  
+</div>
+
+</div>
+
+    </div>
+
+    
+
+  </body>
+
+</html>

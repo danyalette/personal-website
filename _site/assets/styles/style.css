@@ -473,3 +473,88 @@ code {
   .link-primary:hover {
     color: #E74727;
     text-decoration: none; }
+
+a {
+  color: #E74727; }
+
+h1 a, h2 a, h3 a, h4 a, header a, .previous-next a {
+  color: inherit; }
+
+header .link-primary:hover {
+  color: inherit; }
+
+.previous-next {
+  margin: 80px 0;
+  display: flex;
+  justify-content: space-around;
+  max-width: 100%;
+  overflow: hidden; }
+  .previous-next .previous, .previous-next .next {
+    margin-left: 0;
+    margin-right: 20px;
+    flex: 1;
+    max-width: 50%;
+    overflow: hidden; }
+    .previous-next .previous:only-child, .previous-next .next:only-child {
+      max-width: 100%; }
+  .previous-next .next {
+    margin-left: 20px;
+    margin-right: 0; }
+
+code {
+  background: #f5f5f5; }
+
+pre code {
+  color: #333;
+  background: none;
+  padding: 0; }
+
+.more {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 15px;
+  font-weight: bold; }
+
+.container {
+  max-width: 750px; }
+
+article h1, article h2, article h3, article h4, article h5 {
+  margin-top: 2em;
+  margin-bottom: 0.5em; }
+article img {
+  max-width: 100%; }
+
+.featured-image {
+  margin: 30px 0 40px 0; }
+
+.excerpt {
+  margin-top: 70px;
+  margin-bottom: 70px;
+  padding-bottom: 70px; }
+
+#markdown-toc {
+  margin: 30px 0;
+  border: 1px solid #000;
+  display: inline-block;
+  width: auto;
+  padding: 50px 60px 45px 60px; }
+  #markdown-toc ul, #markdown-toc li {
+    margin: 0; }
+
+@media (min-width: 52em) {
+  .prose p, .prose ol, .prose ul {
+    width: 100%; } }
+
+@media (min-width: 52em) {
+  .h0 {
+    font-size: 80px; }
+
+  .prose blockquote {
+    margin: 30px 0;
+    max-width: 100%; }
+
+  .prose blockquote p {
+    font-size: inherit; }
+
+  .prose img {
+    max-width: 100%; } }

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Prevent Text Selection</title>
+  <meta name="description" content="utility class:.noselect {  -webkit-touch-callout: none;  -webkit-user-select: none;  -khtml-user-select: none;  -moz-user-select: none;  -ms-user-select: non...">
+  <meta property=”og:image” content="" />
+
+  
+  
+  <link rel="stylesheet" href="/assets/styles/style.css">
+  <link rel="stylesheet" href="/assets/styles/highlight.css">
+
+  <link rel="canonical" href="/blog/prevent-text-from-being-selectedhighlighted">
+  <link rel="alternate" type="application/rss+xml" title="Danya Lette" href="/feed.xml">
+
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+</head>
+
+
+  <body>
+
+    <header class="border-bottom-thick px-2 clearfix">
+  <div class="left sm-width-full py-1 mt-1 mt-lg-0">
+    <a class="align-middle link-primary text-accent" href="/">
+      Danya Lette
+    </a>
+  </div>
+  <div class="right sm-width-full">
+    <ul class="list-reset mt-lg-1 mb-2 mb-lg-1">
+      
+        
+          
+        
+      
+        
+          
+        <li class="inline-block">
+          <a class="align-middle link-primary mr-2 mr-lg-0 ml-lg-2" href="/blog/">
+            Blog
+          </a>
+        </li>
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </ul>
+  </div>
+</header>
+
+
+    <div>
+      <article class="container px-2 mx-auto mb4" itemscope itemtype="http://schema.org/BlogPosting">
+  <h1 class="h0 col-9 sm-width-full py-4 mt-3 inline-block" itemprop="name headline">Prevent Text Selection</h1>
+  <div class="col-4 sm-width-full mt-1 border-top-thin ">
+    <p class="mb-3 py-2 bold h4"><time datetime="2014-12-15T17:36:09-05:00" itemprop="datePublished">Dec 15, 2014</time></p>
+  </div>
+  
+  <div class="prose" itemprop="articleBody">
+      <p>utility class:</p>
+<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="nc">.noselect</span> <span class="p">{</span>
+  <span class="nl">-webkit-touch-callout</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
+  <span class="nl">-webkit-user-select</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
+  <span class="nl">-khtml-user-select</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
+  <span class="nl">-moz-user-select</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
+  <span class="nl">-ms-user-select</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
+  <span class="py">user-select</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<p>scss mixin:</p>
+<div class="language-scss highlighter-rouge"><pre class="highlight"><code><span class="k">@mixin</span> <span class="nf">noselect</span><span class="p">()</span> <span class="p">{</span>
+  <span class="na">-webkit-touch-callout</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
+  <span class="na">-webkit-user-select</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
+  <span class="na">-khtml-user-select</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
+  <span class="na">-moz-user-select</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
+  <span class="na">-ms-user-select</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
+  <span class="na">user-select</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.item</span> <span class="p">{</span> <span class="k">@include</span> <span class="nd">noselect</span><span class="p">();</span> <span class="p">}</span>
+</code></pre>
+</div>
+
+<p><small>from <a href="http://stackoverflow.com/questions/826782/css-rule-to-disable-text-selection-highlighting">SO</a></small></p>
+
+  </div>
+
+</article>
+
+<div class="container mx-auto px-2 py-2 clearfix">
+  <!-- Use if you want to show previous and next for all posts. -->
+
+
+<div class="previous-next">
+  
+    <div class="previous">
+      <a class="no-underline border-top-thin py-1 block" href="/blog/little-animation-thingy">
+        <span class="h5 bold text-accent">Previous</span>
+        <p class="bold h3 link-primary mb-1">Little Animation Thingy</p>
+        <p>I’m working on an animation library which specializes in animating between paths whose commands are different in number and type....</p>
+      </a>
+    </div>
+    
+    
+    <div class="next">
+      <a class="no-underline border-top-thin py-1 block" href="/blog/vertical-alignment-of-inline-block-elements">
+        <span class="h5 bold text-accent">Next</span>
+        <p class="bold h3 link-primary mb-1">Bug in Vertical Alignment?</p>
+        <p>I was having trouble applying styles to inline-block elements such that they are rendered consistently across browsers (incl. the latest...</p>
+      </a>
+    </div>
+  
+</div>
+
+</div>
+
+    </div>
+
+    
+
+  </body>
+
+</html>

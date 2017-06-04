@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Delaunay Triangulation in JS</title>
+  <meta name="description" content="  &nbsp;">
+  <meta property=”og:image” content="" />
+
+  
+  
+  <link rel="stylesheet" href="/assets/styles/style.css">
+  <link rel="stylesheet" href="/assets/styles/highlight.css">
+
+  <link rel="canonical" href="/blog/delaunay-triangulation-in-js">
+  <link rel="alternate" type="application/rss+xml" title="Danya Lette" href="/feed.xml">
+
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+</head>
+
+
+  <body>
+
+    <header class="border-bottom-thick px-2 clearfix">
+  <div class="left sm-width-full py-1 mt-1 mt-lg-0">
+    <a class="align-middle link-primary text-accent" href="/">
+      Danya Lette
+    </a>
+  </div>
+  <div class="right sm-width-full">
+    <ul class="list-reset mt-lg-1 mb-2 mb-lg-1">
+      
+        
+          
+        
+      
+        
+          
+        <li class="inline-block">
+          <a class="align-middle link-primary mr-2 mr-lg-0 ml-lg-2" href="/blog/">
+            Blog
+          </a>
+        </li>
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </ul>
+  </div>
+</header>
+
+
+    <div>
+      <article class="container px-2 mx-auto mb4" itemscope itemtype="http://schema.org/BlogPosting">
+  <h1 class="h0 col-9 sm-width-full py-4 mt-3 inline-block" itemprop="name headline">Delaunay Triangulation in JS</h1>
+  <div class="col-4 sm-width-full mt-1 border-top-thin ">
+    <p class="mb-3 py-2 bold h4"><time datetime="2015-10-04T23:31:40-04:00" itemprop="datePublished">Oct 5, 2015</time></p>
+  </div>
+  
+  <div class="prose" itemprop="articleBody">
+      <div>
+  &nbsp;
+</div>
+
+<p>My initial goal was to make a dynamically generated triangle pattern for a site, like so:</p>
+
+<h3 id="the-pattern"><a href="https://danyalette.com/delaunay/basic.html" target="_blank">The pattern.</a></h3>
+
+<p>That site will generate a new pattern on each visit.</p>
+
+<p><a href="https://danyalette.com/delaunay/basic.html" target="_blank"><img style="width:100%" src="/assets/images/uploads/2015/10/Screen-Shot-2015-10-04-at-9.38.43-PM-1024x596.png" width="550" height="320" class="alignnone size-large wp-image-820" /></a></p>
+
+<p>Here you see a set of points, randomly generated, that has been triangulated. In other words, every generated point has become the vertex of a triangle and all triangles are non-overlapping.</p>
+
+<h3 id="the-demo"><a href="https://danyalette.com/delaunay" target="_blank">The demo.</a></h3>
+
+<p><a href="https://danyalette.com/delaunay" target="_blank"><img class="alignnone size-large wp-image-818" style="width:100%" src="/assets/images/uploads/2015/10/Screen-Shot-2015-10-04-at-9.32.01-PM-1024x565.png" width="550" height="303" /></a></p>
+
+<p>In the demo, drag points to see the triangulation recalculate.</p>
+
+<!--more-->
+
+<p>This geometric solution to that problem is called Delaunay Triangulation.</p>
+
+<p>Having made the pattern generator, I wanted to play around a bit more so I added support for dragging the points/vertices, recalculating the Delaunay Triangulation, and generating a fresh batch of points of a variable number.</p>
+
+<p>If you dragged some points around in the demo and you found yourself wondering about the recalculations, you might be interested to know that, as per <a href="https://en.wikipedia.org/wiki/Delaunay_triangulation" target="_blank">wikipedia</a>, “Delaunay triangulations maximize the minimum angle of all the angles of the triangles in the triangulation; they tend to avoid skinny triangles.”</p>
+
+<h3 id="factoids">Factoids:</h3>
+
+<ol>
+  <li>
+    <p>The demo generates points that have a normal distribution, with a mean of width/2 and a std deviation of width/5, so that the generated points cluster around the center – I find that a bit more aesthetically pleasing.</p>
+  </li>
+  <li>
+    <p>I’m using <a href="http://raphaeljs.com/" target="_blank">Raphael.js</a> to ease the SVG JS process.</p>
+  </li>
+  <li>
+    <p>I’m using the <a href="https://jakearchibald.com/2013/animated-line-drawing-svg/" target="_blank">stroke-dashoffset trick</a> for the initial line-drawing animation.</p>
+  </li>
+  <li>
+    <p>The calculation of the Delaunay Triangulation is accomplished by <a href="https://github.com/ironwallaby/delaunay" target="_blank">this</a> Javascript port of <a href="http://paulbourke.net/papers/triangulate/" target="_blank">this</a> C implementation.</p>
+  </li>
+</ol>
+
+  </div>
+
+</article>
+
+<div class="container mx-auto px-2 py-2 clearfix">
+  <!-- Use if you want to show previous and next for all posts. -->
+
+
+<div class="previous-next">
+  
+    <div class="previous">
+      <a class="no-underline border-top-thin py-1 block" href="/blog/life-without-buildings">
+        <span class="h5 bold text-accent">Previous</span>
+        <p class="bold h3 link-primary mb-1">Life Without Buildings</p>
+        <p>Ahhhhhh! Loving this band lately. Here are some of my favorites: Let’s Get Out look around! just information! in the...</p>
+      </a>
+    </div>
+    
+    
+    <div class="next">
+      <a class="no-underline border-top-thin py-1 block" href="/blog/update-delaunay-triangulation">
+        <span class="h5 bold text-accent">Next</span>
+        <p class="bold h3 link-primary mb-1">UPDATE: Delaunay Triangulation</p>
+        <p>Make your delaunay triangulation squirm in the updated version of this project, here. This version also allows you to toggle...</p>
+      </a>
+    </div>
+  
+</div>
+
+</div>
+
+    </div>
+
+    
+
+  </body>
+
+</html>

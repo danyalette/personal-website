@@ -4,3 +4,4 @@
 - get categories working
 - add google analytics
 - make site responsive
+- add contact info

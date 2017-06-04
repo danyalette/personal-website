@@ -163,7 +163,48 @@ a {
 ...
 ```
 
+## Deploy
+
+In order to deploy your site, all you need to do is run Jekyll's build process, and then copy the files in `_site/` into your server's web root.
+
+### My Process
+I am using git for my Jekyll site. In addition, I have decided to track `_site/` using git, contrary to the default Jekyll behaviour, in order to be able to avoid having to do a Jekyll build on my web server (i.e. to avoid configuring my web host environment w/ correct version of Ruby and gems etc). So, for me, the process looks something like this:
+
+```bash
+$ jekyll build
+$ git add .
+$ git commit -m "my message"
+$ git push
+$ ssh user@host
+host$ cd ~/repos/jekyll-site
+host$ git pull
+# My web root is /var/www/html/
+host$ cp -a ~/jekyll_site/_site/. /var/www/html
+# Tada!
+```
+
+Two things worth noting:  
+
+### jekyll serve vs. jekyll build  
+Running the Jekyll development server will cause Jekyll to build the `_site/` files, but you should still turn off the dev server and run `jekyll build` before checking in and deploying `_site/` files. This is because the dev server will have assigned `localhost:4000` as the value of of `site.url`, and this value may be baked into various resultant html files.
+
+### Permalink Structure
+You may need to configure your production server in order to accommodate your chosen permalink structure. For example: I have set, in `_config.yml`,
+```ruby
+permalink: /blog/:title
+```
+Notice that the title is not followed by `.html`, but the files that I would like to serve, when hitting the resulting URLs, are html files.
+
+I am using Apache, so I opted to create an `.htaccess` file in my web root, containing the following:
+
+```htaccess
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([^\.]+)$ $1.html [NC,L]
+```
+
 ## Conclusion
 
 So, that should be enough info to be able to start working on your new Jekyll site!
-You might also find some useful info in my post on [Migrating From Wordpress to Jekyll](/blog/migrating-from-wordpress-to-jekyll) - I cover some Wordpress specific topics, as well as some more generally blog-related things.
+You might also find some useful info in my post on [Migrating From Wordpress to Jekyll](/blog/migrating-from-wordpress-to-jekyll) - I cover some Wordpress specific topics, as well as some more general blog-related things.

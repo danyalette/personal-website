@@ -89,6 +89,12 @@
       <li><a href="#extend-the-themes-scss" id="markdown-toc-extend-the-themes-scss">Extend the Theme’s SCSS</a></li>
     </ul>
   </li>
+  <li><a href="#deploy" id="markdown-toc-deploy">Deploy</a>    <ul>
+      <li><a href="#my-process" id="markdown-toc-my-process">My Process</a></li>
+      <li><a href="#jekyll-serve-vs-jekyll-build" id="markdown-toc-jekyll-serve-vs-jekyll-build">jekyll serve vs. jekyll build</a></li>
+      <li><a href="#permalink-structure" id="markdown-toc-permalink-structure">Permalink Structure</a></li>
+    </ul>
+  </li>
   <li><a href="#conclusion" id="markdown-toc-conclusion">Conclusion</a></li>
 </ul>
 
@@ -255,10 +261,50 @@ The content of this file is:</li>
 </code></pre>
 </div>
 
+<h2 id="deploy">Deploy</h2>
+
+<p>In order to deploy your site, all you need to do is run Jekyll’s build process, and then copy the files in <code class="highlighter-rouge">_site/</code> into your server’s web root.</p>
+
+<h3 id="my-process">My Process</h3>
+<p>I am using git for my Jekyll site. In addition, I have decided to track <code class="highlighter-rouge">_site/</code> using git, contrary to the default Jekyll behaviour, in order to be able to avoid having to do a Jekyll build on my web server (i.e. to avoid configuring my web host environment w/ correct version of Ruby and gems etc). So, for me, the process looks something like this:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>jekyll build
+<span class="gp">$ </span>git add .
+<span class="gp">$ </span>git commit -m <span class="s2">"my message"</span>
+<span class="gp">$ </span>git push
+<span class="gp">$ </span>ssh user@host
+<span class="gp">host$ </span><span class="nb">cd</span> ~/repos/jekyll-site
+<span class="gp">host$ </span>git pull
+<span class="c"># My web root is /var/www/html/</span>
+<span class="gp">host$ </span>cp -a ~/jekyll_site/_site/. /var/www/html
+<span class="c"># Tada!</span>
+</code></pre>
+</div>
+
+<p>Two things worth noting:</p>
+
+<h3 id="jekyll-serve-vs-jekyll-build">jekyll serve vs. jekyll build</h3>
+<p>Running the Jekyll development server will cause Jekyll to build the <code class="highlighter-rouge">_site/</code> files, but you should still turn off the dev server and run <code class="highlighter-rouge">jekyll build</code> before checking in and deploying <code class="highlighter-rouge">_site/</code> files. This is because the dev server will have assigned <code class="highlighter-rouge">localhost:4000</code> as the value of of <code class="highlighter-rouge">site.url</code>, and this value may be baked into various resultant html files.</p>
+
+<h3 id="permalink-structure">Permalink Structure</h3>
+<p>You may need to configure your production server in order to accommodate your chosen permalink structure. For example: I have set, in <code class="highlighter-rouge">_config.yml</code>,</p>
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="ss">permalink: </span><span class="sr">/blog/</span><span class="ss">:title</span>
+</code></pre>
+</div>
+<p>Notice that the title is not followed by <code class="highlighter-rouge">.html</code>, but the files that I would like to serve, when hitting the resulting URLs, are html files.</p>
+
+<p>I am using Apache, so I opted to create an <code class="highlighter-rouge">.htaccess</code> file in my web root, containing the following:</p>
+
+<pre><code class="language-htaccess">RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([^\.]+)$ $1.html [NC,L]
+</code></pre>
+
 <h2 id="conclusion">Conclusion</h2>
 
 <p>So, that should be enough info to be able to start working on your new Jekyll site!
-You might also find some useful info in my post on <a href="/blog/migrating-from-wordpress-to-jekyll">Migrating From Wordpress to Jekyll</a> - I cover some Wordpress specific topics, as well as some more generally blog-related things.</p>
+You might also find some useful info in my post on <a href="/blog/migrating-from-wordpress-to-jekyll">Migrating From Wordpress to Jekyll</a> - I cover some Wordpress specific topics, as well as some more general blog-related things.</p>
 
   </div>
 

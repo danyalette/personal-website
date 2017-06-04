@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2017-06-03T22:49:43-04:00</updated><id>/</id><title type="html">Danya Lette</title><subtitle>Hi, I'm Danya Lette, a software developer living and working in Toronto. I love learning and building cool stuff.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2017-06-04T03:04:47-04:00</updated><id>/</id><title type="html">Danya Lette</title><subtitle>Hi, I'm Danya Lette, a software developer living and working in Toronto. I love learning and building cool stuff.
 </subtitle><entry><title type="html">Getting Started With Jekyll</title><link href="/blog/getting-started-with-jekyll" rel="alternate" type="text/html" title="Getting Started With Jekyll" /><published>2017-06-03T04:00:00-04:00</published><updated>2017-06-03T04:00:00-04:00</updated><id>/blog/getting-started-with-jekyll</id><content type="html" xml:base="/blog/getting-started-with-jekyll">&lt;p&gt;When I decided to give Jekyll a shot, for my blog do-over, the first thing I did was take a look at the &lt;a href=&quot;https://jekyllrb.com/docs/quickstart/&quot;&gt;quickstart&lt;/a&gt; in their docs. It’s a very straightforward setup but the process would have been much smoother for me if I had known a few things ahead of time.&lt;/p&gt;
 
 &lt;!--more--&gt;
@@ -18,6 +18,12 @@
   &lt;li&gt;&lt;a href=&quot;#scss-customization&quot; id=&quot;markdown-toc-scss-customization&quot;&gt;SCSS Customization&lt;/a&gt;    &lt;ul&gt;
       &lt;li&gt;&lt;a href=&quot;#write-your-own-scss&quot; id=&quot;markdown-toc-write-your-own-scss&quot;&gt;Write Your Own SCSS&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;#extend-the-themes-scss&quot; id=&quot;markdown-toc-extend-the-themes-scss&quot;&gt;Extend the Theme’s SCSS&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#deploy&quot; id=&quot;markdown-toc-deploy&quot;&gt;Deploy&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#my-process&quot; id=&quot;markdown-toc-my-process&quot;&gt;My Process&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#jekyll-serve-vs-jekyll-build&quot; id=&quot;markdown-toc-jekyll-serve-vs-jekyll-build&quot;&gt;jekyll serve vs. jekyll build&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#permalink-structure&quot; id=&quot;markdown-toc-permalink-structure&quot;&gt;Permalink Structure&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#conclusion&quot; id=&quot;markdown-toc-conclusion&quot;&gt;Conclusion&lt;/a&gt;&lt;/li&gt;
@@ -186,10 +192,50 @@ The content of this file is:&lt;/li&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
+&lt;h2 id=&quot;deploy&quot;&gt;Deploy&lt;/h2&gt;
+
+&lt;p&gt;In order to deploy your site, all you need to do is run Jekyll’s build process, and then copy the files in &lt;code class=&quot;highlighter-rouge&quot;&gt;_site/&lt;/code&gt; into your server’s web root.&lt;/p&gt;
+
+&lt;h3 id=&quot;my-process&quot;&gt;My Process&lt;/h3&gt;
+&lt;p&gt;I am using git for my Jekyll site. In addition, I have decided to track &lt;code class=&quot;highlighter-rouge&quot;&gt;_site/&lt;/code&gt; using git, contrary to the default Jekyll behaviour, in order to be able to avoid having to do a Jekyll build on my web server (i.e. to avoid configuring my web host environment w/ correct version of Ruby and gems etc). So, for me, the process looks something like this:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;jekyll build
+&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;git add .
+&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;git commit -m &lt;span class=&quot;s2&quot;&gt;&quot;my message&quot;&lt;/span&gt;
+&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;git push
+&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;ssh user@host
+&lt;span class=&quot;gp&quot;&gt;host$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~/repos/jekyll-site
+&lt;span class=&quot;gp&quot;&gt;host$ &lt;/span&gt;git pull
+&lt;span class=&quot;c&quot;&gt;# My web root is /var/www/html/&lt;/span&gt;
+&lt;span class=&quot;gp&quot;&gt;host$ &lt;/span&gt;cp -a ~/jekyll_site/_site/. /var/www/html
+&lt;span class=&quot;c&quot;&gt;# Tada!&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Two things worth noting:&lt;/p&gt;
+
+&lt;h3 id=&quot;jekyll-serve-vs-jekyll-build&quot;&gt;jekyll serve vs. jekyll build&lt;/h3&gt;
+&lt;p&gt;Running the Jekyll development server will cause Jekyll to build the &lt;code class=&quot;highlighter-rouge&quot;&gt;_site/&lt;/code&gt; files, but you should still turn off the dev server and run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll build&lt;/code&gt; before checking in and deploying &lt;code class=&quot;highlighter-rouge&quot;&gt;_site/&lt;/code&gt; files. This is because the dev server will have assigned &lt;code class=&quot;highlighter-rouge&quot;&gt;localhost:4000&lt;/code&gt; as the value of of &lt;code class=&quot;highlighter-rouge&quot;&gt;site.url&lt;/code&gt;, and this value may be baked into various resultant html files.&lt;/p&gt;
+
+&lt;h3 id=&quot;permalink-structure&quot;&gt;Permalink Structure&lt;/h3&gt;
+&lt;p&gt;You may need to configure your production server in order to accommodate your chosen permalink structure. For example: I have set, in &lt;code class=&quot;highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt;,&lt;/p&gt;
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;ss&quot;&gt;permalink: &lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/blog/&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:title&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Notice that the title is not followed by &lt;code class=&quot;highlighter-rouge&quot;&gt;.html&lt;/code&gt;, but the files that I would like to serve, when hitting the resulting URLs, are html files.&lt;/p&gt;
+
+&lt;p&gt;I am using Apache, so I opted to create an &lt;code class=&quot;highlighter-rouge&quot;&gt;.htaccess&lt;/code&gt; file in my web root, containing the following:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-htaccess&quot;&gt;RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([^\.]+)$ $1.html [NC,L]
+&lt;/code&gt;&lt;/pre&gt;
+
 &lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
 
 &lt;p&gt;So, that should be enough info to be able to start working on your new Jekyll site!
-You might also find some useful info in my post on &lt;a href=&quot;/blog/migrating-from-wordpress-to-jekyll&quot;&gt;Migrating From Wordpress to Jekyll&lt;/a&gt; - I cover some Wordpress specific topics, as well as some more generally blog-related things.&lt;/p&gt;</content><author><name></name></author><summary type="html">When I decided to give Jekyll a shot, for my blog do-over, the first thing I did was take a look at the quickstart in their docs. It’s a very straightforward setup but the process would have been much smoother for me if I had known a few things ahead of time.</summary></entry><entry><title type="html">New Website and Blog!</title><link href="/blog/new-website-and-blog" rel="alternate" type="text/html" title="New Website and Blog!" /><published>2017-06-03T03:06:00-04:00</published><updated>2017-06-03T03:06:00-04:00</updated><id>/blog/new-website-and-blog</id><content type="html" xml:base="/blog/new-website-and-blog">&lt;p&gt;I finally got around to updating my personal website and blog!&lt;/p&gt;
+You might also find some useful info in my post on &lt;a href=&quot;/blog/migrating-from-wordpress-to-jekyll&quot;&gt;Migrating From Wordpress to Jekyll&lt;/a&gt; - I cover some Wordpress specific topics, as well as some more general blog-related things.&lt;/p&gt;</content><author><name></name></author><summary type="html">When I decided to give Jekyll a shot, for my blog do-over, the first thing I did was take a look at the quickstart in their docs. It’s a very straightforward setup but the process would have been much smoother for me if I had known a few things ahead of time.</summary></entry><entry><title type="html">New Website and Blog!</title><link href="/blog/new-website-and-blog" rel="alternate" type="text/html" title="New Website and Blog!" /><published>2017-06-03T03:06:00-04:00</published><updated>2017-06-03T03:06:00-04:00</updated><id>/blog/new-website-and-blog</id><content type="html" xml:base="/blog/new-website-and-blog">&lt;p&gt;I finally got around to updating my personal website and blog!&lt;/p&gt;
 
 &lt;!--more--&gt;
 &lt;p&gt;My personal website was a quirky custom oddity with ancient demos; it wasn’t responsive, or particularly modern in terms of either aesthetics or code. The blog was a wordpress site that I’ve been making tiny iterative tweaks to for years. It was starting to feel pretty fragile. So, I decided to fix them both in one shot, using Jekyll.&lt;/p&gt;

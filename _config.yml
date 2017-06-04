@@ -19,7 +19,7 @@ email: danyalette@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
   Hi, I'm Danya Lette, a software developer living and working in Toronto. I love learning and building cool stuff.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://danyalette.com" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: pecanswa
 github_username:  danyalette
 

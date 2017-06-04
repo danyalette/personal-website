@@ -8,7 +8,7 @@ layout: default
   </div>
   {% if page.image %}
     <p class="featured-image">
-      <img src="{{ page.image }}" />
+      <img src="{{ page.image | fullbaseurl }}" />
     </p>
   {% endif %}
   <div class="prose" itemprop="articleBody">

@@ -6,7 +6,7 @@
   </h2>
   {% if post.image %}
     <p class="featured-image">
-      <img src="{{ post.image }}" />
+      <img src="{{ post.image | fullbaseurl }}" />
     </p>
   {% endif %}
   <p>{{ post.content | split:'<!--more-->' | first }}

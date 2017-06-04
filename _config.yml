@@ -25,6 +25,8 @@ github_username:  danyalette
 
 # Build settings
 markdown: kramdown
+google_analytics: UA-45608320-1
+environment: production
 kramdown:
   input: GFM
 theme: jekyll-swiss

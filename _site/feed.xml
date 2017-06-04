@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2017-06-04T03:04:47-04:00</updated><id>/</id><title type="html">Danya Lette</title><subtitle>Hi, I'm Danya Lette, a software developer living and working in Toronto. I love learning and building cool stuff.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2017-06-04T14:41:42-04:00</updated><id>/</id><title type="html">Danya Lette</title><subtitle>Hi, I'm Danya Lette, a software developer living and working in Toronto. I love learning and building cool stuff.
 </subtitle><entry><title type="html">Getting Started With Jekyll</title><link href="/blog/getting-started-with-jekyll" rel="alternate" type="text/html" title="Getting Started With Jekyll" /><published>2017-06-03T04:00:00-04:00</published><updated>2017-06-03T04:00:00-04:00</updated><id>/blog/getting-started-with-jekyll</id><content type="html" xml:base="/blog/getting-started-with-jekyll">&lt;p&gt;When I decided to give Jekyll a shot, for my blog do-over, the first thing I did was take a look at the &lt;a href=&quot;https://jekyllrb.com/docs/quickstart/&quot;&gt;quickstart&lt;/a&gt; in their docs. It’s a very straightforward setup but the process would have been much smoother for me if I had known a few things ahead of time.&lt;/p&gt;
 
 &lt;!--more--&gt;
@@ -21,9 +21,13 @@
     &lt;/ul&gt;
   &lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#deploy&quot; id=&quot;markdown-toc-deploy&quot;&gt;Deploy&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#server-config&quot; id=&quot;markdown-toc-server-config&quot;&gt;Server Config&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#permalinks&quot; id=&quot;markdown-toc-permalinks&quot;&gt;Permalinks&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#404&quot; id=&quot;markdown-toc-404&quot;&gt;404&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#build-_site-files&quot; id=&quot;markdown-toc-build-_site-files&quot;&gt;Build _site/ Files&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;#my-process&quot; id=&quot;markdown-toc-my-process&quot;&gt;My Process&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#jekyll-serve-vs-jekyll-build&quot; id=&quot;markdown-toc-jekyll-serve-vs-jekyll-build&quot;&gt;jekyll serve vs. jekyll build&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#permalink-structure&quot; id=&quot;markdown-toc-permalink-structure&quot;&gt;Permalink Structure&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#conclusion&quot; id=&quot;markdown-toc-conclusion&quot;&gt;Conclusion&lt;/a&gt;&lt;/li&gt;
@@ -196,28 +200,12 @@ The content of this file is:&lt;/li&gt;
 
 &lt;p&gt;In order to deploy your site, all you need to do is run Jekyll’s build process, and then copy the files in &lt;code class=&quot;highlighter-rouge&quot;&gt;_site/&lt;/code&gt; into your server’s web root.&lt;/p&gt;
 
-&lt;h3 id=&quot;my-process&quot;&gt;My Process&lt;/h3&gt;
-&lt;p&gt;I am using git for my Jekyll site. In addition, I have decided to track &lt;code class=&quot;highlighter-rouge&quot;&gt;_site/&lt;/code&gt; using git, contrary to the default Jekyll behaviour, in order to be able to avoid having to do a Jekyll build on my web server (i.e. to avoid configuring my web host environment w/ correct version of Ruby and gems etc). So, for me, the process looks something like this:&lt;/p&gt;
+&lt;h3 id=&quot;server-config&quot;&gt;Server Config&lt;/h3&gt;
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;jekyll build
-&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;git add .
-&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;git commit -m &lt;span class=&quot;s2&quot;&gt;&quot;my message&quot;&lt;/span&gt;
-&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;git push
-&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;ssh user@host
-&lt;span class=&quot;gp&quot;&gt;host$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~/repos/jekyll-site
-&lt;span class=&quot;gp&quot;&gt;host$ &lt;/span&gt;git pull
-&lt;span class=&quot;c&quot;&gt;# My web root is /var/www/html/&lt;/span&gt;
-&lt;span class=&quot;gp&quot;&gt;host$ &lt;/span&gt;cp -a ~/jekyll_site/_site/. /var/www/html
-&lt;span class=&quot;c&quot;&gt;# Tada!&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;p&gt;Consider the following when setting up your server to host a Jekyll site.&lt;/p&gt;
 
-&lt;p&gt;Two things worth noting:&lt;/p&gt;
+&lt;h4 id=&quot;permalinks&quot;&gt;Permalinks&lt;/h4&gt;
 
-&lt;h3 id=&quot;jekyll-serve-vs-jekyll-build&quot;&gt;jekyll serve vs. jekyll build&lt;/h3&gt;
-&lt;p&gt;Running the Jekyll development server will cause Jekyll to build the &lt;code class=&quot;highlighter-rouge&quot;&gt;_site/&lt;/code&gt; files, but you should still turn off the dev server and run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll build&lt;/code&gt; before checking in and deploying &lt;code class=&quot;highlighter-rouge&quot;&gt;_site/&lt;/code&gt; files. This is because the dev server will have assigned &lt;code class=&quot;highlighter-rouge&quot;&gt;localhost:4000&lt;/code&gt; as the value of of &lt;code class=&quot;highlighter-rouge&quot;&gt;site.url&lt;/code&gt;, and this value may be baked into various resultant html files.&lt;/p&gt;
-
-&lt;h3 id=&quot;permalink-structure&quot;&gt;Permalink Structure&lt;/h3&gt;
 &lt;p&gt;You may need to configure your production server in order to accommodate your chosen permalink structure. For example: I have set, in &lt;code class=&quot;highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt;,&lt;/p&gt;
 &lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;ss&quot;&gt;permalink: &lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/blog/&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:title&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
@@ -231,6 +219,69 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^([^\.]+)$ $1.html [NC,L]
 &lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&quot;404&quot;&gt;404&lt;/h4&gt;
+
+&lt;p&gt;You may also want to add a 404 page. You’ll have to create a template file for that page, and then configure your server to use the resultant page as your error document.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Create &lt;code class=&quot;highlighter-rouge&quot;&gt;404.md&lt;/code&gt; in your project root. Here’s what mine looks like:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;---
+# example 404.md
+
+layout: post
+title: Not Found
+date: 1970-01-01T00:00:00+00:00
+permalink: /404.html
+exclude_from_nav: true
+---
+
+This, ladies and gentlemen, is a 404
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;If you are using Apache, add the following to your &lt;code class=&quot;highlighter-rouge&quot;&gt;.htaccess&lt;/code&gt;:
+    &lt;pre&gt;&lt;code class=&quot;language-htaccess&quot;&gt;ErrorDocument 404 /404.html
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Next time you run a build, the file &lt;code class=&quot;highlighter-rouge&quot;&gt;_site/404.html&lt;/code&gt; should be created.&lt;/p&gt;
+
+&lt;h3 id=&quot;build-_site-files&quot;&gt;Build _site/ Files&lt;/h3&gt;
+
+&lt;p&gt;Although running the Jekyll development server will cause Jekyll to build the &lt;code class=&quot;highlighter-rouge&quot;&gt;_site/&lt;/code&gt; files, you should turn off the dev server and run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll build&lt;/code&gt; before checking in and deploying &lt;code class=&quot;highlighter-rouge&quot;&gt;_site/&lt;/code&gt; files. This is because the dev server will have assigned &lt;code class=&quot;highlighter-rouge&quot;&gt;localhost:4000&lt;/code&gt; as the value of of &lt;code class=&quot;highlighter-rouge&quot;&gt;site.url&lt;/code&gt;, and this value may be baked into various resultant html files.&lt;/p&gt;
+
+&lt;p&gt;Also note that you might want to specify the environment when doing a production build:&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;JEKYLL_ENV&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;production jekyll build
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;This is because some templates may include blocks that are checking for the environment, such as&lt;/p&gt;
+
+&lt;div class=&quot;language-liquid highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;span class=&quot;p&quot;&gt;{%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kr&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;jekyll&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;environment&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'production'&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;and&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;site&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;google_analytics&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;%}&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;{%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;google-analytics&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;html&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;%}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kr&quot;&gt;endif&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;%}&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;my-process&quot;&gt;My Process&lt;/h3&gt;
+&lt;p&gt;I am using git for my Jekyll site. In addition, I have decided to track &lt;code class=&quot;highlighter-rouge&quot;&gt;_site/&lt;/code&gt; using git, contrary to the default Jekyll behaviour, in order to be able to avoid having to do a Jekyll build on my web server (i.e. to avoid configuring my web host environment w/ correct version of Ruby and gems etc). So, for me, the process looks something like this:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;JEKYLL_ENV&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;production jekyll build
+&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;git add .
+&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;git commit -m &lt;span class=&quot;s2&quot;&gt;&quot;my message&quot;&lt;/span&gt;
+&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;git push
+&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;ssh user@host
+&lt;span class=&quot;gp&quot;&gt;host$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~/repos/jekyll-site
+&lt;span class=&quot;gp&quot;&gt;host$ &lt;/span&gt;git pull
+&lt;span class=&quot;c&quot;&gt;# My web root is /var/www/html/&lt;/span&gt;
+&lt;span class=&quot;gp&quot;&gt;host$ &lt;/span&gt;cp -a ~/jekyll_site/_site/. /var/www/html
+&lt;span class=&quot;c&quot;&gt;# Tada!&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
 

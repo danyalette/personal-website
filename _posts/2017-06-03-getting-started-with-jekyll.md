@@ -138,8 +138,6 @@ There are some limitation and drawbacks to simply adding another CSS file to the
 - Find the main SCSS in the theme, and copy it into your project with the same file path it had in the theme. In my case, the theme's main stylesheet was in `jekyll-swiss-0.4.0/assets/style.scss`, so I created `assets/style.scss` in my project root.
 The content of this file is:
 
-{% assign special = '{{ site.theme_color | default: "black" }}' %}
-
 ```scss
 ---
 # Only the main Sass file needs front matter (the dashes are enough)
@@ -148,7 +146,7 @@ The content of this file is:
 
 // Import partials from `sass_dir` and set theme here
 @import
-        "theme-{{ special }}.scss"
+        "theme-{% raw %}{{ site.theme_color | default: "black" }}{% endraw %}.scss"
 ;
 ```
 The default base that the Jekyll SCSS compiler uses for imported URLs points to the theme's configured SCSS directory, so I don't need to change anything in my copy of this file in order for that import statement to work. I can go ahead and start using the theme's variables:
@@ -167,28 +165,12 @@ a {
 
 In order to deploy your site, all you need to do is run Jekyll's build process, and then copy the files in `_site/` into your server's web root.
 
-### My Process
-I am using git for my Jekyll site. In addition, I have decided to track `_site/` using git, contrary to the default Jekyll behaviour, in order to be able to avoid having to do a Jekyll build on my web server (i.e. to avoid configuring my web host environment w/ correct version of Ruby and gems etc). So, for me, the process looks something like this:
+### Server Config
 
-```bash
-$ jekyll build
-$ git add .
-$ git commit -m "my message"
-$ git push
-$ ssh user@host
-host$ cd ~/repos/jekyll-site
-host$ git pull
-# My web root is /var/www/html/
-host$ cp -a ~/jekyll_site/_site/. /var/www/html
-# Tada!
-```
+Consider the following when setting up your server to host a Jekyll site.
 
-Two things worth noting:  
+#### Permalinks
 
-### jekyll serve vs. jekyll build  
-Running the Jekyll development server will cause Jekyll to build the `_site/` files, but you should still turn off the dev server and run `jekyll build` before checking in and deploying `_site/` files. This is because the dev server will have assigned `localhost:4000` as the value of of `site.url`, and this value may be baked into various resultant html files.
-
-### Permalink Structure
 You may need to configure your production server in order to accommodate your chosen permalink structure. For example: I have set, in `_config.yml`,
 ```ruby
 permalink: /blog/:title
@@ -202,6 +184,65 @@ RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^([^\.]+)$ $1.html [NC,L]
+```
+#### 404
+
+You may also want to add a 404 page. You'll have to create a template file for that page, and then configure your server to use the resultant page as your error document.
+- Create `404.md` in your project root. Here's what mine looks like:  
+
+```
+---
+# example 404.md
+
+layout: post
+title: Not Found
+date: 1970-01-01T00:00:00+00:00
+permalink: /404.html
+exclude_from_nav: true
+---
+
+This, ladies and gentlemen, is a 404
+```
+
+- If you are using Apache, add the following to your `.htaccess`:
+```htaccess
+ErrorDocument 404 /404.html
+```
+
+Next time you run a build, the file `_site/404.html` should be created.
+
+### Build \_site/ Files
+
+Although running the Jekyll development server will cause Jekyll to build the `_site/` files, you should turn off the dev server and run `jekyll build` before checking in and deploying `_site/` files. This is because the dev server will have assigned `localhost:4000` as the value of of `site.url`, and this value may be baked into various resultant html files.
+
+Also note that you might want to specify the environment when doing a production build:
+```bash
+$ JEKYLL_ENV=production jekyll build
+```
+This is because some templates may include blocks that are checking for the environment, such as
+
+```liquid
+{% raw %}
+{% if jekyll.environment == 'production' and site.google_analytics %}
+  {% include google-analytics.html %}
+{% endif %}
+{% endraw %}
+```
+
+### My Process
+I am using git for my Jekyll site. In addition, I have decided to track `_site/` using git, contrary to the default Jekyll behaviour, in order to be able to avoid having to do a Jekyll build on my web server (i.e. to avoid configuring my web host environment w/ correct version of Ruby and gems etc). So, for me, the process looks something like this:
+
+```bash
+$ JEKYLL_ENV=production jekyll build
+$ git add .
+$ git commit -m "my message"
+$ git push
+$ ssh user@host
+host$ cd ~/repos/jekyll-site
+host$ git pull
+# My web root is /var/www/html/
+host$ cp -a ~/jekyll_site/_site/. /var/www/html
+# Tada!
 ```
 
 ## Conclusion

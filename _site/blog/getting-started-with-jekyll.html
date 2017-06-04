@@ -90,9 +90,13 @@
     </ul>
   </li>
   <li><a href="#deploy" id="markdown-toc-deploy">Deploy</a>    <ul>
+      <li><a href="#server-config" id="markdown-toc-server-config">Server Config</a>        <ul>
+          <li><a href="#permalinks" id="markdown-toc-permalinks">Permalinks</a></li>
+          <li><a href="#404" id="markdown-toc-404">404</a></li>
+        </ul>
+      </li>
+      <li><a href="#build-_site-files" id="markdown-toc-build-_site-files">Build _site/ Files</a></li>
       <li><a href="#my-process" id="markdown-toc-my-process">My Process</a></li>
-      <li><a href="#jekyll-serve-vs-jekyll-build" id="markdown-toc-jekyll-serve-vs-jekyll-build">jekyll serve vs. jekyll build</a></li>
-      <li><a href="#permalink-structure" id="markdown-toc-permalink-structure">Permalink Structure</a></li>
     </ul>
   </li>
   <li><a href="#conclusion" id="markdown-toc-conclusion">Conclusion</a></li>
@@ -265,28 +269,12 @@ The content of this file is:</li>
 
 <p>In order to deploy your site, all you need to do is run Jekyll’s build process, and then copy the files in <code class="highlighter-rouge">_site/</code> into your server’s web root.</p>
 
-<h3 id="my-process">My Process</h3>
-<p>I am using git for my Jekyll site. In addition, I have decided to track <code class="highlighter-rouge">_site/</code> using git, contrary to the default Jekyll behaviour, in order to be able to avoid having to do a Jekyll build on my web server (i.e. to avoid configuring my web host environment w/ correct version of Ruby and gems etc). So, for me, the process looks something like this:</p>
+<h3 id="server-config">Server Config</h3>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>jekyll build
-<span class="gp">$ </span>git add .
-<span class="gp">$ </span>git commit -m <span class="s2">"my message"</span>
-<span class="gp">$ </span>git push
-<span class="gp">$ </span>ssh user@host
-<span class="gp">host$ </span><span class="nb">cd</span> ~/repos/jekyll-site
-<span class="gp">host$ </span>git pull
-<span class="c"># My web root is /var/www/html/</span>
-<span class="gp">host$ </span>cp -a ~/jekyll_site/_site/. /var/www/html
-<span class="c"># Tada!</span>
-</code></pre>
-</div>
+<p>Consider the following when setting up your server to host a Jekyll site.</p>
 
-<p>Two things worth noting:</p>
+<h4 id="permalinks">Permalinks</h4>
 
-<h3 id="jekyll-serve-vs-jekyll-build">jekyll serve vs. jekyll build</h3>
-<p>Running the Jekyll development server will cause Jekyll to build the <code class="highlighter-rouge">_site/</code> files, but you should still turn off the dev server and run <code class="highlighter-rouge">jekyll build</code> before checking in and deploying <code class="highlighter-rouge">_site/</code> files. This is because the dev server will have assigned <code class="highlighter-rouge">localhost:4000</code> as the value of of <code class="highlighter-rouge">site.url</code>, and this value may be baked into various resultant html files.</p>
-
-<h3 id="permalink-structure">Permalink Structure</h3>
 <p>You may need to configure your production server in order to accommodate your chosen permalink structure. For example: I have set, in <code class="highlighter-rouge">_config.yml</code>,</p>
 <div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="ss">permalink: </span><span class="sr">/blog/</span><span class="ss">:title</span>
 </code></pre>
@@ -300,6 +288,69 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^([^\.]+)$ $1.html [NC,L]
 </code></pre>
+<h4 id="404">404</h4>
+
+<p>You may also want to add a 404 page. You’ll have to create a template file for that page, and then configure your server to use the resultant page as your error document.</p>
+<ul>
+  <li>Create <code class="highlighter-rouge">404.md</code> in your project root. Here’s what mine looks like:</li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>---
+# example 404.md
+
+layout: post
+title: Not Found
+date: 1970-01-01T00:00:00+00:00
+permalink: /404.html
+exclude_from_nav: true
+---
+
+This, ladies and gentlemen, is a 404
+</code></pre>
+</div>
+
+<ul>
+  <li>If you are using Apache, add the following to your <code class="highlighter-rouge">.htaccess</code>:
+    <pre><code class="language-htaccess">ErrorDocument 404 /404.html
+</code></pre>
+  </li>
+</ul>
+
+<p>Next time you run a build, the file <code class="highlighter-rouge">_site/404.html</code> should be created.</p>
+
+<h3 id="build-_site-files">Build _site/ Files</h3>
+
+<p>Although running the Jekyll development server will cause Jekyll to build the <code class="highlighter-rouge">_site/</code> files, you should turn off the dev server and run <code class="highlighter-rouge">jekyll build</code> before checking in and deploying <code class="highlighter-rouge">_site/</code> files. This is because the dev server will have assigned <code class="highlighter-rouge">localhost:4000</code> as the value of of <code class="highlighter-rouge">site.url</code>, and this value may be baked into various resultant html files.</p>
+
+<p>Also note that you might want to specify the environment when doing a production build:</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nv">JEKYLL_ENV</span><span class="o">=</span>production jekyll build
+</code></pre>
+</div>
+<p>This is because some templates may include blocks that are checking for the environment, such as</p>
+
+<div class="language-liquid highlighter-rouge"><pre class="highlight"><code>
+<span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">jekyll</span><span class="p">.</span><span class="nv">environment</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">'production'</span><span class="w"> </span><span class="nv">and</span><span class="w"> </span><span class="nv">site</span><span class="p">.</span><span class="nv">google_analytics</span><span class="w"> </span><span class="p">%}</span>
+  <span class="p">{%</span><span class="w"> </span><span class="nt">include</span><span class="w"> </span><span class="na">google-analytics</span><span class="p">.</span><span class="na">html</span><span class="w"> </span><span class="p">%}</span>
+<span class="p">{%</span><span class="w"> </span><span class="kr">endif</span><span class="w"> </span><span class="p">%}</span>
+
+</code></pre>
+</div>
+
+<h3 id="my-process">My Process</h3>
+<p>I am using git for my Jekyll site. In addition, I have decided to track <code class="highlighter-rouge">_site/</code> using git, contrary to the default Jekyll behaviour, in order to be able to avoid having to do a Jekyll build on my web server (i.e. to avoid configuring my web host environment w/ correct version of Ruby and gems etc). So, for me, the process looks something like this:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nv">JEKYLL_ENV</span><span class="o">=</span>production jekyll build
+<span class="gp">$ </span>git add .
+<span class="gp">$ </span>git commit -m <span class="s2">"my message"</span>
+<span class="gp">$ </span>git push
+<span class="gp">$ </span>ssh user@host
+<span class="gp">host$ </span><span class="nb">cd</span> ~/repos/jekyll-site
+<span class="gp">host$ </span>git pull
+<span class="c"># My web root is /var/www/html/</span>
+<span class="gp">host$ </span>cp -a ~/jekyll_site/_site/. /var/www/html
+<span class="c"># Tada!</span>
+</code></pre>
+</div>
 
 <h2 id="conclusion">Conclusion</h2>
 

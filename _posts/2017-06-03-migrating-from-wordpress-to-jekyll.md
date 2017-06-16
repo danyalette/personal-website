@@ -1,8 +1,7 @@
 ---
 layout: post
 title:  "Migrating From Wordpress To Jekyll"
-date:   2017-06-04 15:04:00 -0400
-published: false
+date:   2017-06-15 21:46:00 -0400
 ---
 
 When migrating from Wordpress to Jekyll, an obvious first step is exporting your data from Wordpress. Fortunately, there is a Wordpress plugin for that. Unfortunately, some features that we take for granted in Worpress (such as featured images, and the `<!--more-->` tag) are not supported out-the-box by Jekyll and may require some extra fiddling.
@@ -22,7 +21,7 @@ Start by installing [this](https://github.com/benbalter/wordpress-to-jekyll-expo
 
 ### Pages and Posts
 
-If you look inside the unzipped archive, you'll see that your pages and posts have been converted to markdown files, and these files have "Front Matter" i.e. Jekyll meta data.
+If you look inside the unzipped archive, you'll see that your pages and posts have been converted to markdown files, and these files have "front matter" i.e. Jekyll metadata.
 Move the pages and posts into your Jekyll project directory. Pages go in the project root; posts go in `_posts`.
 
 ### Config
@@ -31,9 +30,9 @@ You may also want to update some values in your existing Jekyll `_config.yml` wi
 
 ### Uploads
 
-You'll also want to grab your uploads directory. You could just plunk the whole `wp-content` directory into the root of your Jekyll site. This will mean that, in your eventual live Jekyll blog, your uploads will have the same URLs they did in your Wordpress site.
+You'll also want to grab your uploads directory. You could just plunk the whole `wp-content` directory from your Wordpress export into the root of your Jekyll site. This will mean that, in your eventual live Jekyll blog, your uploads will have the same URLs they did in your Wordpress site.
 
-However, I wanted to get rid of the traces of Wordpress, and use a directory structure that was more nuanced. So, I created `assets/images/` in my Jekyll project, and moved the `uploads/` directory (which you can find inside the Wordpress export's `wp-content/` directory) into my new Jekyll project's `assets/images/`.
+However, personally, I wanted to get rid of the traces of Wordpress, and use a directory structure that was more nuanced. So, I created `assets/images/` in my Jekyll project, and moved the `uploads/` directory (which you can find inside the Wordpress export's `wp-content/` directory) into my new Jekyll project's `assets/images/`.
 ```
 jekyll-project
   -- assets
@@ -44,42 +43,207 @@ jekyll-project
             -- 2017
 ```
 
-## Links
+## URIs
 
-You might notice that your pages and posts refer to images and files using absolute URIs, i.e. `https://my-former-blog.com/wp-content/uploads ...`. If this is the case, you will need to edit those in order for you to be able to source images locally during development, and also in order to reflect any changes you made in the directory hierarchy of your uploads.
+You might notice that your pages and posts refer to images and files using absolute URIs, i.e. `https://my-former-blog.com/wp-content/uploads ...`. If this is the case, you will need to edit those in order for you to be able to source images and files locally during development, and also in order to reflect any changes you made in the directory hierarchy of your uploads.
 
+In order to resolve this, you'll have to do a global search and replace. If you made the same change as I did regarding the location of the uploads directory, then you'd be searching for for `https://my-former-blog.com/wp-content/uploads/` and replacing it with `/assets/images/uploads/`.
 
+At this stage, you might choose to get a bit fancier and use liquid template variables in order to automatically prepend the configured `site.url` and `site.baseurl` to the paths. In this case, you'd be searching for `https://my-former-blog.com/wp-content/uploads/` and replacing with `{{ site.url }}{{ site.baseurl }}/assets/images/uploads/` or something along those lines.
 
 ## Missing Elements
 
+I found that certain HTML elements got stripped from posts during export, likely due to the conversion from HTML to markdown. Specifically, I noticed missing iframes and script tags. I am not aware of a way to fix this during export - I personally fixed these cases manually without too much trouble.
+
 ## Permalinks
+
+Your exported posts will likely each have a permalink configured in the front matter (Jekyll metadata) of the post file. The permalink may make explicit reference to your former blog's URI. Note that setting the permalink on individual posts overrides the global permalink settings. So, I recommend removing these from individual posts (with a global search and replace) and setting a global permalink structure in your `_config.yml`.
+Mine is
+```yaml
+permalink: /blog/:title
+```
+Note that, after editing `_config.yml`, you will have to restart your development server.
+
+(Notice that I removed `.html` from the end of the title. You might want to check [this](blog/getting-started-with-jekyll#permalinks) out, to support this permalink structure in production.)
+
+A little gotcha: Note that `:title` is actually the latter part of the post's filename, and not the posts `title: ` as configured in its front matter.
 
 ## Read More Tag
 
+I am a frequent user of the `<!--more-->` tag. My automatically exported posts did retain these tags, but the template displaying my posts feed in my new Jekyll site did not, of course, limit itself to only displaying content before the more tag.
+
+If you'd like to get the `<!--more-->` tag working, the first thing you'll have to do is find the template that is used to display post excerpts in the post feed.
+To start, navigate to the directory that contains your current theme. My theme is `jekyll-swiss`, so, to open the directory, I just do
+```bash
+open $(bundle show jekyll-swiss)
+```
+I located the post feed in `jekyll-swiss-0.4.0/_layouts/home.html`, where I found:
+
+{% raw %}
+```liquid
+{% for post in site.posts %}
+  {% include post_block.html %}
+{% endfor %}
+```
+{% endraw %}
+
+So, post excerpts should be in a file called `post_block.html` in the `_includes/` directory: `jekyll-swiss-0.4.0/_includes/post_block.html`
+
+In order to override that file, make a copy of it in your Jekyll project's `_includes/` directory. (If you don't already have an `_includes/` directory, create one.)
+
+Then, edit your `_includes/post_block.html`. In my case, the post excerpt was being generated here on this line:
+{% raw %}
+```liquid
+<p>{{ post.content | strip_html | truncatewords:30 }}</p>
+```
+{% endraw %}
+So, I replaced that with:
+{% raw %}
+```liquid
+<p>
+  {{ post.content | split:'<!--more-->' | first }}
+</p>
+{% if post.content contains '<!--more-->' %}
+  <div class="more">
+    <a href="{{ post.url }}">Read More</a>
+  </div>
+{% endif %}
+```
+{% endraw %}
+
 ## Static Homepage
 
+You might decide that you don't want your homepage to display a post feed.
+If so, then you'll need to override the current homepage, and create a new page to host the feed.
 
+The index file of your Jekyll site can be found in your project root, in `index.md`.
+It should contain something like:
 
-
-- featured images
-- plugin to export
-- read more tag
-- static homepage
-- permalinks: set them in `_config.yml`, in file itself, and in filename
-- missing tags?
-- new features in Jekyll such as syntax highlighting
-
-- deploying
-  - code deployment
-  - build for urls
-  - \_site dir?
-  - htaccess?
-
-- useful commands
-
-```bash
-  open $(bundle show jekyll-swiss)
-  bundle install
-  bundle exec jekyll serve
-  jekyll build
+```jekyll
+---
+# You don't need to edit this file, it's empty on purpose.
+# Edit theme's home layout instead if you wanna make some changes
+# See: https://jekyllrb.com/docs/themes/#overriding-theme-defaults
+layout: home
+---
 ```
+As you can see, in order to edit your site's homepage, you should be editing the file that determines the layout called `home`. This file should be in `_layouts/home.html` or something similar. If you don't have the home layout file in your project, you will need to locate this file in your theme, copy it into your project, and edit in there, in order to override it this layout in the theme.
+First up, find this file in your theme directory.
+In my case, since my theme is called `jekyll-swiss`, I navigated to my theme directory by doing
+```bash
+open $(bundle show jekyll-swiss)
+```
+From there, the home layout file should be in `_layouts`. Mine was in `jekyll-swiss-0.4.0/_layouts/home.html`.
+
+This file includes a loop that displays an excerpt of all posts, such as
+
+{% raw %}
+```liquid
+{% for post in site.posts %}
+  {% include post_block.html %}
+{% endfor %}
+```
+{% endraw %}
+
+If you want your homepage to be static, i.e. not to display a feed, then you'll need to create a new layout for the feed and move that post loop there.
+You'll need to do three things:
+### Create Blog Index
+Create a file in the root of your project called `blog.md`. It should contain:
+```jekyll
+---
+layout: blog
+title: Blog
+permalink: /blog/
+---
+```
+### Create Blog Layout
+Create a blog layout by creating the file `_layouts/blog.html`. You can put whatever you want in there, as long as it contains a loop that displays all posts. Mine looks like this:
+{% raw %}
+```jekyll
+---
+layout: default
+---
+<article class="container mx-auto px-2 mt2 mb4">
+  <header>
+    <h1 class="h0 py-4 mt-3">{{ page.title }}</h1>
+  </header>
+  <div class="col-4 sm-width-full border-top-thin">
+  </div>
+  <div class="prose mb-4 py-4">
+    {% for post in site.posts %}
+      {% include post_block.html %}
+    {% endfor %}
+  </div>
+</article>
+```
+{% endraw %}
+### Edit Home Layout
+Once you've copied the home layout file from your theme to your project, you'll want to edit it so that it contains only what you want to display on the homepage. Mine looks like this:
+{% raw %}
+```jekyll
+<!DOCTYPE html>
+<html>
+
+  {% include head.html %}
+
+  <body>
+    <div>
+      {% include header_home.html %}
+      <div class="container mx-auto px-2 py-4 prose">
+        {% include about_block.html %}
+        {% include tools_block.html %}
+      </div>
+    </div>
+    {% include footer.html %}
+  </body>
+</html>
+```
+{% endraw %}
+
+## Featured Images
+
+In order to get featured images working in Jekyll, you'll need to follow these steps:
+### Add Data
+The first step is to add a field to a post's front matter if you want that post to have a featured image.
+I decided to name this field `image`. Here's an example of a post's front matter with an image:
+```jekyll
+---
+id: 1108
+title: Playing Around With LeNet
+date: 2017-06-01T19:18:55+00:00
+author: danya
+layout: post
+image: /assets/images/featured/lenet.png
+---
+```
+Of course, in addition to adding a field to the post specifying the path of the featured image, you will also have to actually add an image file to that location.
+### Display Image
+Then, you will need to edit a couple of template files.
+
+Any custom field you add to a post's front matter will be available for use in templates. You can access the value of this new custom variable by doing {% raw %}`{{ post.image }}`{% endraw %}. So, you would display the image in a post by adding {% raw %}`<img src="{{ post.image }}" />`{% endraw %} to the template that is used to generate post content.
+
+As with other instances that have required overriding a theme file, you will need to
+- locate the theme directory (`open $(bundle show jekyll-swiss)`)
+- find the relevant files (`jekyll-swiss-0.4.0/_includes/post_block.html` & `jekyll-swiss-0.4.0/_layouts/post.html`)
+- make copies of them in your project (`my-project-root/_includes/post_block.html` & `my-project-root/_layouts/post.html`).
+
+In my case, I wanted to display featured images in both the posts' excerpts in the blog feed, as well as in the post itself.
+
+To both those files, I added
+{% raw %}
+```liquid
+{% if page.image %}
+  <p class="featured-image">
+    <img src="{{ page.image }}" />
+  </p>
+{% endif %}
+```
+{% endraw %}
+
+### Full Base URLs
+
+Don't forget to consider whether the path of the image (which you have specified in the post's front matter) is absolute or relative. You may decide that you want to programmatically add the site's url and baseurl to the image path in the template, by prepending the image path in the template with {% raw %}`{{ site.url }}{{ site.baseurl }}`{% endraw %}.
+
+## Conclusion
+
+Hopefully these tips help get you at least part of the way to migrating your site from Wordpress to Jekyll!

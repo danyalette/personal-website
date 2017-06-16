@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Migrating From Wordpress To Jekyll</title>
+  <meta name="description" content="When migrating from Wordpress to Jekyll, an obvious first step is exporting your data from Wordpress. Fortunately, there is a Wordpress plugin for that. Unfo...">
+  <meta property=”og:image” content="" />
+
+  
+  
+  <link rel="stylesheet" href="https://danyalette.com/assets/styles/style.css">
+  <link rel="stylesheet" href="https://danyalette.com/assets/styles/highlight.css">
+
+  <link rel="canonical" href="https://danyalette.com/blog/migrating-from-wordpress-to-jekyll">
+  <link rel="alternate" type="application/rss+xml" title="Danya Lette" href="https://danyalette.com/feed.xml">
+
+  
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-45608320-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+  
+
+  
+
+</head>
+
+
+  <body>
+
+    <header class="border-bottom-thick px-2 clearfix">
+  <div class="left sm-width-full py-1 mt-1 mt-lg-0">
+    <a class="align-middle link-primary text-accent" href="/">
+      Danya Lette
+    </a>
+  </div>
+  <div class="right sm-width-full">
+    <ul class="list-reset mt-lg-1 mb-2 mb-lg-1">
+      
+        
+          
+        
+      
+        
+          
+        <li class="inline-block">
+          <a class="align-middle link-primary mr-2 mr-lg-0 ml-lg-2" href="/blog/">
+            Blog
+          </a>
+        </li>
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </ul>
+  </div>
+</header>
+
+
+    <div>
+      <article class="container px-2 mx-auto mb4" itemscope itemtype="http://schema.org/BlogPosting">
+  <h1 class="h0 col-9 sm-width-full py-4 mt-3 inline-block" itemprop="name headline">Migrating From Wordpress To Jekyll</h1>
+  <div class="col-4 sm-width-full mt-1 border-top-thin ">
+    <p class="mb-3 py-2 bold h4"><time datetime="2017-06-15T21:46:00-04:00" itemprop="datePublished">Jun 15, 2017</time></p>
+  </div>
+  
+  <div class="prose" itemprop="articleBody">
+      <p>When migrating from Wordpress to Jekyll, an obvious first step is exporting your data from Wordpress. Fortunately, there is a Wordpress plugin for that. Unfortunately, some features that we take for granted in Worpress (such as featured images, and the <code class="highlighter-rouge">&lt;!--more--&gt;</code> tag) are not supported out-the-box by Jekyll and may require some extra fiddling.
+<!--more--></p>
+
+<ul id="markdown-toc">
+  <li><a href="#getting-started-with-jekyll" id="markdown-toc-getting-started-with-jekyll">Getting Started With Jekyll</a></li>
+  <li><a href="#export-your-data-from-wordpress" id="markdown-toc-export-your-data-from-wordpress">Export Your Data From Wordpress</a>    <ul>
+      <li><a href="#pages-and-posts" id="markdown-toc-pages-and-posts">Pages and Posts</a></li>
+      <li><a href="#config" id="markdown-toc-config">Config</a></li>
+      <li><a href="#uploads" id="markdown-toc-uploads">Uploads</a></li>
+    </ul>
+  </li>
+  <li><a href="#uris" id="markdown-toc-uris">URIs</a></li>
+  <li><a href="#missing-elements" id="markdown-toc-missing-elements">Missing Elements</a></li>
+  <li><a href="#permalinks" id="markdown-toc-permalinks">Permalinks</a></li>
+  <li><a href="#read-more-tag" id="markdown-toc-read-more-tag">Read More Tag</a></li>
+  <li><a href="#static-homepage" id="markdown-toc-static-homepage">Static Homepage</a>    <ul>
+      <li><a href="#create-blog-index" id="markdown-toc-create-blog-index">Create Blog Index</a></li>
+      <li><a href="#create-blog-layout" id="markdown-toc-create-blog-layout">Create Blog Layout</a></li>
+      <li><a href="#edit-home-layout" id="markdown-toc-edit-home-layout">Edit Home Layout</a></li>
+    </ul>
+  </li>
+  <li><a href="#featured-images" id="markdown-toc-featured-images">Featured Images</a>    <ul>
+      <li><a href="#add-data" id="markdown-toc-add-data">Add Data</a></li>
+      <li><a href="#display-image" id="markdown-toc-display-image">Display Image</a></li>
+      <li><a href="#full-base-urls" id="markdown-toc-full-base-urls">Full Base URLs</a></li>
+    </ul>
+  </li>
+  <li><a href="#conclusion" id="markdown-toc-conclusion">Conclusion</a></li>
+</ul>
+
+<h2 id="getting-started-with-jekyll">Getting Started With Jekyll</h2>
+
+<p>The obvious first step is getting yourself set up to develop a new Jekyll site. I strongly recommend taking a look at my guide, <a href="/blog/getting-started-with-jekyll">Getting Started With Jekyll</a>.
+Before moving forward in the Wordpress migration, you should choose a theme, and also familiarize yourself with the process of overriding theme templates - both of which are detailed in the guide - because, in subsequent steps, we will be overriding theme files.</p>
+
+<h2 id="export-your-data-from-wordpress">Export Your Data From Wordpress</h2>
+
+<p>Start by installing <a href="https://github.com/benbalter/wordpress-to-jekyll-exporter">this</a> plugin into your Wordpress site, activate it, and then use it to create an export. Unzip the resulting archive.</p>
+
+<h3 id="pages-and-posts">Pages and Posts</h3>
+
+<p>If you look inside the unzipped archive, you’ll see that your pages and posts have been converted to markdown files, and these files have “front matter” i.e. Jekyll metadata.
+Move the pages and posts into your Jekyll project directory. Pages go in the project root; posts go in <code class="highlighter-rouge">_posts</code>.</p>
+
+<h3 id="config">Config</h3>
+
+<p>You may also want to update some values in your existing Jekyll <code class="highlighter-rouge">_config.yml</code> with the values in the <code class="highlighter-rouge">_config.yml</code> generated by the Wordpress export.</p>
+
+<h3 id="uploads">Uploads</h3>
+
+<p>You’ll also want to grab your uploads directory. You could just plunk the whole <code class="highlighter-rouge">wp-content</code> directory from your Wordpress export into the root of your Jekyll site. This will mean that, in your eventual live Jekyll blog, your uploads will have the same URLs they did in your Wordpress site.</p>
+
+<p>However, personally, I wanted to get rid of the traces of Wordpress, and use a directory structure that was more nuanced. So, I created <code class="highlighter-rouge">assets/images/</code> in my Jekyll project, and moved the <code class="highlighter-rouge">uploads/</code> directory (which you can find inside the Wordpress export’s <code class="highlighter-rouge">wp-content/</code> directory) into my new Jekyll project’s <code class="highlighter-rouge">assets/images/</code>.</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>jekyll-project
+  -- assets
+      -- images
+        -- uploads
+            -- 2015
+            -- 2016
+            -- 2017
+</code></pre>
+</div>
+
+<h2 id="uris">URIs</h2>
+
+<p>You might notice that your pages and posts refer to images and files using absolute URIs, i.e. <code class="highlighter-rouge">https://my-former-blog.com/wp-content/uploads ...</code>. If this is the case, you will need to edit those in order for you to be able to source images and files locally during development, and also in order to reflect any changes you made in the directory hierarchy of your uploads.</p>
+
+<p>In order to resolve this, you’ll have to do a global search and replace. If you made the same change as I did regarding the location of the uploads directory, then you’d be searching for for <code class="highlighter-rouge">https://my-former-blog.com/wp-content/uploads/</code> and replacing it with <code class="highlighter-rouge">/assets/images/uploads/</code>.</p>
+
+<p>At this stage, you might choose to get a bit fancier and use liquid template variables in order to automatically prepend the configured <code class="highlighter-rouge">site.url</code> and <code class="highlighter-rouge">site.baseurl</code> to the paths. In this case, you’d be searching for <code class="highlighter-rouge">https://my-former-blog.com/wp-content/uploads/</code> and replacing with <code class="highlighter-rouge">https://danyalette.com/assets/images/uploads/</code> or something along those lines.</p>
+
+<h2 id="missing-elements">Missing Elements</h2>
+
+<p>I found that certain HTML elements got stripped from posts during export, likely due to the conversion from HTML to markdown. Specifically, I noticed missing iframes and script tags. I am not aware of a way to fix this during export - I personally fixed these cases manually without too much trouble.</p>
+
+<h2 id="permalinks">Permalinks</h2>
+
+<p>Your exported posts will likely each have a permalink configured in the front matter (Jekyll metadata) of the post file. The permalink may make explicit reference to your former blog’s URI. Note that setting the permalink on individual posts overrides the global permalink settings. So, I recommend removing these from individual posts (with a global search and replace) and setting a global permalink structure in your <code class="highlighter-rouge">_config.yml</code>.
+Mine is</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">permalink</span><span class="pi">:</span> <span class="s">/blog/:title</span>
+</code></pre>
+</div>
+<p>Note that, after editing <code class="highlighter-rouge">_config.yml</code>, you will have to restart your development server.</p>
+
+<p>(Notice that I removed <code class="highlighter-rouge">.html</code> from the end of the title. You might want to check <a href="blog/getting-started-with-jekyll#permalinks">this</a> out, to support this permalink structure in production.)</p>
+
+<p>A little gotcha: Note that <code class="highlighter-rouge">:title</code> is actually the latter part of the post’s filename, and not the posts <code class="highlighter-rouge">title: </code> as configured in its front matter.</p>
+
+<h2 id="read-more-tag">Read More Tag</h2>
+
+<p>I am a frequent user of the <code class="highlighter-rouge">&lt;!--more--&gt;</code> tag. My automatically exported posts did retain these tags, but the template displaying my posts feed in my new Jekyll site did not, of course, limit itself to only displaying content before the more tag.</p>
+
+<p>If you’d like to get the <code class="highlighter-rouge">&lt;!--more--&gt;</code> tag working, the first thing you’ll have to do is find the template that is used to display post excerpts in the post feed.
+To start, navigate to the directory that contains your current theme. My theme is <code class="highlighter-rouge">jekyll-swiss</code>, so, to open the directory, I just do</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>open <span class="k">$(</span>bundle show jekyll-swiss<span class="k">)</span>
+</code></pre>
+</div>
+<p>I located the post feed in <code class="highlighter-rouge">jekyll-swiss-0.4.0/_layouts/home.html</code>, where I found:</p>
+
+<div class="language-liquid highlighter-rouge"><pre class="highlight"><code><span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span>post<span class="w"> </span>in<span class="w"> </span>site.posts<span class="w"> </span><span class="p">%}</span>
+  <span class="p">{%</span><span class="w"> </span><span class="nt">include</span><span class="w"> </span><span class="na">post_block</span><span class="p">.</span><span class="na">html</span><span class="w"> </span><span class="p">%}</span>
+<span class="p">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">%}</span>
+</code></pre>
+</div>
+
+<p>So, post excerpts should be in a file called <code class="highlighter-rouge">post_block.html</code> in the <code class="highlighter-rouge">_includes/</code> directory: <code class="highlighter-rouge">jekyll-swiss-0.4.0/_includes/post_block.html</code></p>
+
+<p>In order to override that file, make a copy of it in your Jekyll project’s <code class="highlighter-rouge">_includes/</code> directory. (If you don’t already have an <code class="highlighter-rouge">_includes/</code> directory, create one.)</p>
+
+<p>Then, edit your <code class="highlighter-rouge">_includes/post_block.html</code>. In my case, the post excerpt was being generated here on this line:</p>
+
+<div class="language-liquid highlighter-rouge"><pre class="highlight"><code>&lt;p&gt;<span class="p">{{</span><span class="w"> </span><span class="nv">post</span><span class="p">.</span><span class="nv">content</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">strip_html</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">truncatewords</span><span class="p">:</span><span class="mi">30</span><span class="w"> </span><span class="p">}}</span>&lt;/p&gt;
+</code></pre>
+</div>
+
+<p>So, I replaced that with:</p>
+
+<div class="language-liquid highlighter-rouge"><pre class="highlight"><code>&lt;p&gt;
+  <span class="p">{{</span><span class="w"> </span><span class="nv">post</span><span class="p">.</span><span class="nv">content</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">split</span><span class="p">:</span><span class="s1">'&lt;!--more--&gt;'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">first</span><span class="w"> </span><span class="p">}}</span>
+&lt;/p&gt;
+<span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">post</span><span class="p">.</span><span class="nv">content</span><span class="w"> </span><span class="ow">contains</span><span class="w"> </span><span class="s1">'&lt;!--more--&gt;'</span><span class="w"> </span><span class="p">%}</span>
+  &lt;div class="more"&gt;
+    &lt;a href="<span class="p">{{</span><span class="w"> </span><span class="nv">post</span><span class="p">.</span><span class="nv">url</span><span class="w"> </span><span class="p">}}</span>"&gt;Read More&lt;/a&gt;
+  &lt;/div&gt;
+<span class="p">{%</span><span class="w"> </span><span class="kr">endif</span><span class="w"> </span><span class="p">%}</span>
+</code></pre>
+</div>
+
+<h2 id="static-homepage">Static Homepage</h2>
+
+<p>You might decide that you don’t want your homepage to display a post feed.
+If so, then you’ll need to override the current homepage, and create a new page to host the feed.</p>
+
+<p>The index file of your Jekyll site can be found in your project root, in <code class="highlighter-rouge">index.md</code>.
+It should contain something like:</p>
+
+<pre><code class="language-jekyll">---
+# You don't need to edit this file, it's empty on purpose.
+# Edit theme's home layout instead if you wanna make some changes
+# See: https://jekyllrb.com/docs/themes/#overriding-theme-defaults
+layout: home
+---
+</code></pre>
+<p>As you can see, in order to edit your site’s homepage, you should be editing the file that determines the layout called <code class="highlighter-rouge">home</code>. This file should be in <code class="highlighter-rouge">_layouts/home.html</code> or something similar. If you don’t have the home layout file in your project, you will need to locate this file in your theme, copy it into your project, and edit in there, in order to override it this layout in the theme.
+First up, find this file in your theme directory.
+In my case, since my theme is called <code class="highlighter-rouge">jekyll-swiss</code>, I navigated to my theme directory by doing</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>open <span class="k">$(</span>bundle show jekyll-swiss<span class="k">)</span>
+</code></pre>
+</div>
+<p>From there, the home layout file should be in <code class="highlighter-rouge">_layouts</code>. Mine was in <code class="highlighter-rouge">jekyll-swiss-0.4.0/_layouts/home.html</code>.</p>
+
+<p>This file includes a loop that displays an excerpt of all posts, such as</p>
+
+<div class="language-liquid highlighter-rouge"><pre class="highlight"><code><span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span>post<span class="w"> </span>in<span class="w"> </span>site.posts<span class="w"> </span><span class="p">%}</span>
+  <span class="p">{%</span><span class="w"> </span><span class="nt">include</span><span class="w"> </span><span class="na">post_block</span><span class="p">.</span><span class="na">html</span><span class="w"> </span><span class="p">%}</span>
+<span class="p">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">%}</span>
+</code></pre>
+</div>
+
+<p>If you want your homepage to be static, i.e. not to display a feed, then you’ll need to create a new layout for the feed and move that post loop there.
+You’ll need to do three things:</p>
+<h3 id="create-blog-index">Create Blog Index</h3>
+<p>Create a file in the root of your project called <code class="highlighter-rouge">blog.md</code>. It should contain:</p>
+<pre><code class="language-jekyll">---
+layout: blog
+title: Blog
+permalink: /blog/
+---
+</code></pre>
+<h3 id="create-blog-layout">Create Blog Layout</h3>
+<p>Create a blog layout by creating the file <code class="highlighter-rouge">_layouts/blog.html</code>. You can put whatever you want in there, as long as it contains a loop that displays all posts. Mine looks like this:</p>
+
+<pre><code class="language-jekyll">---
+layout: default
+---
+&lt;article class="container mx-auto px-2 mt2 mb4"&gt;
+  &lt;header&gt;
+    &lt;h1 class="h0 py-4 mt-3"&gt;{{ page.title }}&lt;/h1&gt;
+  &lt;/header&gt;
+  &lt;div class="col-4 sm-width-full border-top-thin"&gt;
+  &lt;/div&gt;
+  &lt;div class="prose mb-4 py-4"&gt;
+    {% for post in site.posts %}
+      {% include post_block.html %}
+    {% endfor %}
+  &lt;/div&gt;
+&lt;/article&gt;
+</code></pre>
+
+<h3 id="edit-home-layout">Edit Home Layout</h3>
+<p>Once you’ve copied the home layout file from your theme to your project, you’ll want to edit it so that it contains only what you want to display on the homepage. Mine looks like this:</p>
+
+<pre><code class="language-jekyll">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+  {% include head.html %}
+
+  &lt;body&gt;
+    &lt;div&gt;
+      {% include header_home.html %}
+      &lt;div class="container mx-auto px-2 py-4 prose"&gt;
+        {% include about_block.html %}
+        {% include tools_block.html %}
+      &lt;/div&gt;
+    &lt;/div&gt;
+    {% include footer.html %}
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<h2 id="featured-images">Featured Images</h2>
+
+<p>In order to get featured images working in Jekyll, you’ll need to follow these steps:</p>
+<h3 id="add-data">Add Data</h3>
+<p>The first step is to add a field to a post’s front matter if you want that post to have a featured image.
+I decided to name this field <code class="highlighter-rouge">image</code>. Here’s an example of a post’s front matter with an image:</p>
+<pre><code class="language-jekyll">---
+id: 1108
+title: Playing Around With LeNet
+date: 2017-06-01T19:18:55+00:00
+author: danya
+layout: post
+image: /assets/images/featured/lenet.png
+---
+</code></pre>
+<p>Of course, in addition to adding a field to the post specifying the path of the featured image, you will also have to actually add an image file to that location.</p>
+<h3 id="display-image">Display Image</h3>
+<p>Then, you will need to edit a couple of template files.</p>
+
+<p>Any custom field you add to a post’s front matter will be available for use in templates. You can access the value of this new custom variable by doing <code class="highlighter-rouge"><span class="p">{</span><span class="err">{</span><span class="w"> </span><span class="err">post.image</span><span class="w"> </span><span class="p">}</span><span class="err">}</span></code>. So, you would display the image in a post by adding <code class="highlighter-rouge">&lt;img src="{{ post.image }}" /&gt;</code> to the template that is used to generate post content.</p>
+
+<p>As with other instances that have required overriding a theme file, you will need to</p>
+<ul>
+  <li>locate the theme directory (<code class="highlighter-rouge">open $(bundle show jekyll-swiss)</code>)</li>
+  <li>find the relevant files (<code class="highlighter-rouge">jekyll-swiss-0.4.0/_includes/post_block.html</code> &amp; <code class="highlighter-rouge">jekyll-swiss-0.4.0/_layouts/post.html</code>)</li>
+  <li>make copies of them in your project (<code class="highlighter-rouge">my-project-root/_includes/post_block.html</code> &amp; <code class="highlighter-rouge">my-project-root/_layouts/post.html</code>).</li>
+</ul>
+
+<p>In my case, I wanted to display featured images in both the posts’ excerpts in the blog feed, as well as in the post itself.</p>
+
+<p>To both those files, I added</p>
+
+<div class="language-liquid highlighter-rouge"><pre class="highlight"><code><span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">image</span><span class="w"> </span><span class="p">%}</span>
+  &lt;p class="featured-image"&gt;
+    &lt;img src="<span class="p">{{</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">image</span><span class="w"> </span><span class="p">}}</span>" /&gt;
+  &lt;/p&gt;
+<span class="p">{%</span><span class="w"> </span><span class="kr">endif</span><span class="w"> </span><span class="p">%}</span>
+</code></pre>
+</div>
+
+<h3 id="full-base-urls">Full Base URLs</h3>
+
+<p>Don’t forget to consider whether the path of the image (which you have specified in the post’s front matter) is absolute or relative. You may decide that you want to programmatically add the site’s url and baseurl to the image path in the template, by prepending the image path in the template with <code class="highlighter-rouge"><span class="p">{</span><span class="err">{</span><span class="w"> </span><span class="err">site.url</span><span class="w"> </span><span class="p">}</span><span class="err">}</span><span class="p">{</span><span class="err">{</span><span class="w"> </span><span class="err">site.baseurl</span><span class="w"> </span><span class="p">}</span><span class="err">}</span></code>.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>Hopefully these tips help get you at least part of the way to migrating your site from Wordpress to Jekyll!</p>
+
+  </div>
+
+</article>
+
+<div class="container mx-auto px-2 py-2 clearfix">
+  <!-- Use if you want to show previous and next for all posts. -->
+
+
+<div class="previous-next">
+  
+    <div class="previous">
+      <a class="no-underline border-top-thin py-1 block" href="https://danyalette.com/blog/getting-started-with-jekyll">
+        <span class="h5 bold text-accent">Previous</span>
+        <p class="bold h3 link-primary mb-1">Getting Started With Jekyll</p>
+        <p>When I decided to give Jekyll a shot, for my blog do-over, the first thing I did was take a...</p>
+      </a>
+    </div>
+    
+    
+</div>
+
+</div>
+
+    </div>
+
+    
+
+  </body>
+
+</html>

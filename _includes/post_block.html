@@ -9,11 +9,12 @@
       <img src="{{ post.image | fullbaseurl }}" />
     </p>
   {% endif %}
-  <p>{{ post.content | split:'<!--more-->' | first }}
+  <p>
+    {{ post.content | split:'<!--more-->' | first }}
   </p>
   {% if post.content contains '<!--more-->' %}
     <div class="more">
-      <a href="{{ post.url | prepend: site.baseurl }}">Read More</a>
+      <a href="{{ post.url | fullbaseurl }}">Read More</a>
     </div>
   {% endif %}
 </div>

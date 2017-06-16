@@ -3,7 +3,6 @@ id: 352
 title: 'Pentagram  ≅ Pentagon'
 date: 2014-09-05T20:19:39+00:00
 author: danya
-permalink: pentagram-pentagon
 layout: post
 categories:
   - animation

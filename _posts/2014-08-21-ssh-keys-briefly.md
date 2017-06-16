@@ -3,7 +3,6 @@ id: 205
 title: SSH Keys, Briefly
 date: 2014-08-21T22:55:36+00:00
 author: danya
-permalink: ssh-keys-briefly
 layout: post
 categories:
   - linux, etc

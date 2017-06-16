@@ -9,6 +9,7 @@ categories:
   - javascript
   - math
   - svg
+  - graphs
 ---
 
 <iframe src='/assets/iframes/penta.html' height='240' width='500' frameBorder='0'></iframe>

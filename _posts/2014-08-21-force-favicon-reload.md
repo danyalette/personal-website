@@ -5,7 +5,7 @@ date: 2014-08-21T18:00:32+00:00
 author: danya
 layout: post
 categories:
-  - 'html &amp; css'
+  - 'html'
 ---
 ```html
 <link rel="shortcut icon" href="http://website.com/favicon.ico?v=2" />

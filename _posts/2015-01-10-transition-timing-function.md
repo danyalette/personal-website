@@ -5,8 +5,7 @@ date: 2015-01-10T19:42:37+00:00
 author: danya
 layout: post
 categories:
-  - animation
-  - 'html &amp; css'
+  - 'css'
 ---
 So, obviously
 

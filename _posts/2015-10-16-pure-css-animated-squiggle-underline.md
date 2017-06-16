@@ -6,7 +6,7 @@ author: danya
 layout: post
 categories:
   - animation
-  - 'html &amp; css'
+  - 'css'
 ---
 
 Probably not a great use of my time. Anyways&#8230;

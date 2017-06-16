@@ -4,6 +4,19 @@
   <h2 class="h1 lh-condensed col-9 mt-0">
     <a class="link-primary" title="{{ post.url | prepend: site.baseurl }}" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
   </h2>
+
+  {% if post.categories %}
+    <p class="categories">
+      {% for category in post.categories %}
+         {% assign category_name = category | strip_html %}
+         {% assign category_handle = category_name | regexreplace: ' &.+; |[^a-zA-Z-]+', '-' %}
+         <a href="/category/{{ category_handle}}">{{ category_name }}</a>
+      {% endfor %}
+    </p>
+  {% endif %}
+  
+
+
   {% if post.image %}
     <p class="featured-image">
       <img src="{{ post.image | fullbaseurl }}" />

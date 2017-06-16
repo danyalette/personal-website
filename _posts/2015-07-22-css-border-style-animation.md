@@ -6,7 +6,7 @@ author: danya
 layout: post
 categories:
   - animation
-  - 'html &amp; css'
+  - 'css'
 ---
 You can&#8217;t use CSS to animate between a solid and a dotted border style, which makes sense because the change is non-numerical. But you _can_ use CSS to achieve the following effect:
 

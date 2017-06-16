@@ -2,6 +2,8 @@
 layout: post
 title:  "Getting Started With Jekyll"
 date:   2017-06-03 04:00:00 -0400
+categories:
+  - jekyll
 ---
 
 

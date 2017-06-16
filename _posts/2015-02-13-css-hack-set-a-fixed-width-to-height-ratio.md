@@ -5,7 +5,7 @@ date: 2015-02-13T19:06:32+00:00
 author: danya
 layout: post
 categories:
-  - 'html &amp; css'
+  - 'css'
 ---
 Somehow I only just heard about this hack. But now it seems so obvious!
 

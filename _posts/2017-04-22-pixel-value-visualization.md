@@ -6,7 +6,8 @@ author: danya
 layout: post
 image: /assets/images/featured/pixel-value.gif
 categories:
-  - neither hither nor thither
+  - machine learning
+  - threejs
 ---
 
 <a href="https://github.com/danyalette/pixel-value-visualizer" target="_blank">github</a> | <a href="http://pixel-value.danya.ca" target="_blank">website</a>

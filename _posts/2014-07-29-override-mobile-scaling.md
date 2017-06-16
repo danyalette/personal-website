@@ -6,8 +6,8 @@ author: danya
 layout: post
 published: false
 categories:
-  - 'html &amp; css'
   - mobile
+  - html
 ---
 <pre>&lt;meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
 </pre>

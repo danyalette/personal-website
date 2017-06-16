@@ -5,7 +5,7 @@ date: 2014-12-15T22:36:09+00:00
 author: danya
 layout: post
 categories:
-  - 'html &amp; css'
+  - 'css'
 ---
 utility class:
 ```css

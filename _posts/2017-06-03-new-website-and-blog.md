@@ -2,6 +2,8 @@
 layout: post
 title:  "New Website and Blog!"
 date:   2017-06-03 03:06:00 -0400
+categories:
+  - jekyll
 ---
 
 I finally got around to updating my personal website and blog!  

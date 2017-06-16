@@ -6,7 +6,7 @@ author: danya
 layout: post
 image: /assets/images/featured/lenet.png
 categories:
-  - neither hither nor thither
+  - machine learning
 ---
 Just for fun, I followed along <a href="http://www.pyimagesearch.com/2016/08/01/lenet-convolutional-neural-network-in-python/">this</a> tutorial on how to build <a href="http://yann.lecun.com/exdb/lenet/">LeNet</a> &#8211; an early & famously successful neural net used for handwriting recognition &#8211; in Python. I&#8217;ve been playing with the data a bit to see how my modifications affect the learning rate. Here&#8217;s what I tried:<!--more-->
 

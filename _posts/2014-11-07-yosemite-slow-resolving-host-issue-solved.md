@@ -6,7 +6,7 @@ author: danya
 published: false
 layout: post
 categories:
-  - mac
+  - linux, etc
 ---
 <div>
   &nbsp;

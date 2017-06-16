@@ -5,7 +5,7 @@ date: 2014-12-03T18:10:55+00:00
 author: danya
 layout: post
 categories:
-  - neither hither nor thither
+  - animation
 ---
 
 <iframe src='/assets/iframes/anim.html' height='450' width='500' frameBorder='0'></iframe>

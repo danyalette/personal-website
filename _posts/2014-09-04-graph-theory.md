@@ -9,6 +9,7 @@ categories:
   - javascript
   - math
   - svg
+  - graphs
 ---
 <div>&nbsp;</div>
 <iframe src='/assets/iframes/graph.html' width='400' scale='0.5' height='200' style='text-align:center;margin:auto;overflow:hidden' frameBorder='0'></iframe>

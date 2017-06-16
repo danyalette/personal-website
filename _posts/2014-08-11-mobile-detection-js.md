@@ -6,7 +6,6 @@ author: danya
 layout: post
 published: false
 categories:
-  - javascript
   - mobile
 ---
 Redirect requests coming from mobile user agents!

@@ -5,7 +5,6 @@ date: 2015-01-10T07:27:58+00:00
 author: danya
 layout: post
 categories:
-  - 'html &amp; css'
   - javascript
   - math
 ---

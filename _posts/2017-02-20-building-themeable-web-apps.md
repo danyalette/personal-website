@@ -6,9 +6,7 @@ author: danya
 layout: post
 image: /assets/images/featured/the-cube-of-themeability-wide.png
 categories:
-  - 'html &amp; css'
-  - javascript
-  - mobile
+  - rambling
 ---
 I recently worked on an app that was intended to be themeable &#8211; a &#8220;white label&#8221; app that had a default look and default behaviour which were expected to be selectively overridden on a client-by-client basis. I definitely did not grasp the scope of this requirement before diving in. So, I figured I would share some of my experiences in case they can save anyone else some time.
 

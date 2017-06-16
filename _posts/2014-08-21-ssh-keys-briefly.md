@@ -6,7 +6,6 @@ author: danya
 layout: post
 categories:
   - linux, etc
-  - mac
 ---
 Using ssh keys is super useful for speeding up the process of logging onto remote machines, doing file transfers between machines, or using git. Here is a brief guide to getting started.
 

@@ -6,7 +6,7 @@ author: danya
 layout: post
 published: false
 categories:
-  - 'html &amp; css'
+  - 'css'
 ---
 
 I found this snippet essential:

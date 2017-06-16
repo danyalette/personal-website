@@ -5,8 +5,7 @@ date: 2017-02-19T01:40:50+00:00
 author: danya
 layout: post
 categories:
-  - animation
-  - 'html &amp; css'
+  - 'css'
 ---
 The performance of this snippet is not great in chrome, but nonetheless&#8230;
 

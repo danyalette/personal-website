@@ -5,7 +5,6 @@ date: 2014-11-18T10:20:24+00:00
 author: danya
 layout: post
 categories:
-  - 'html &amp; css'
   - javascript
   - svg
 ---

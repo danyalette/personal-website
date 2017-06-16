@@ -2,6 +2,8 @@
 layout: post
 title:  "Migrating From Wordpress To Jekyll"
 date:   2017-06-15 21:46:00 -0400
+categories:
+  - jekyll
 ---
 
 When migrating from Wordpress to Jekyll, an obvious first step is exporting your data from Wordpress. Fortunately, there is a Wordpress plugin for that. Unfortunately, some features that we take for granted in Worpress (such as featured images, and the `<!--more-->` tag) are not supported out-the-box by Jekyll and may require some extra fiddling.

@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Javascript</title>
+  <meta name="description" content="Hi, I'm Danya Lette, a software developer living and working in Toronto. I love learning and building cool stuff.
+">
+  <meta property=”og:image” content="" />
+
+  
+  
+  <link rel="stylesheet" href="https://danyalette.com/assets/styles/style.css">
+  <link rel="stylesheet" href="https://danyalette.com/assets/styles/highlight.css">
+
+  <link rel="canonical" href="https://danyalette.com/category/javascript">
+  <link rel="alternate" type="application/rss+xml" title="Danya Lette" href="https://danyalette.com/feed.xml">
+
+  
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-45608320-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+  
+
+  
+
+</head>
+
+
+  <body>
+
+    <header class="border-bottom-thick px-2 clearfix">
+  <div class="left sm-width-full py-1 mt-1 mt-lg-0">
+    <a class="align-middle link-primary text-accent" href="/">
+      Danya Lette
+    </a>
+  </div>
+  <div class="right sm-width-full">
+    <ul class="list-reset mt-lg-1 mb-2 mb-lg-1">
+      
+        
+          
+        
+      
+        
+          
+        <li class="inline-block">
+          <a class="align-middle link-primary mr-2 mr-lg-0 ml-lg-2" href="/blog/">
+            Blog
+          </a>
+        </li>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    </ul>
+  </div>
+</header>
+
+
+    <div>
+      <article class="container mx-auto px-2 mt2 mb4">
+  <header>
+    <h1 class="h0 py-4 mt-3">Javascript</h1>
+  </header>
+  <div class="col-4 sm-width-full border-top-thin">
+  </div>
+  <div class="prose mb-4 py-4">
+    
+
+<div class="container mx-auto">
+  
+    <!-- Renders post date, title, and snippet of text. -->
+<div class="py-2 mb-2 prose excerpt border-bottom-thin">
+  <a class="no-underline h5 bold text-accent" title="/blog/command-click-w-click-preventdefault" href="/blog/command-click-w-click-preventdefault">Dec 13, 2015</a>
+  <h2 class="h1 lh-condensed col-9 mt-0">
+    <a class="link-primary" title="/blog/command-click-w-click-preventdefault" href="/blog/command-click-w-click-preventdefault">Command-Click Prevent Default</a>
+  </h2>
+
+  
+    <p class="categories">
+      
+         
+         
+         <a href="/category/javascript">javascript</a>
+      
+    </p>
+  
+  
+
+
+  
+  <p>
+    <p>I often command-click links in order to open them in a new tab. I find it very irritating when a site’s JS usurps that functionality.</p>
+
+<p>It turns out that click events have a boolean attribute – <code class="highlighter-rouge">event.metaKey</code> – that is <code class="highlighter-rouge">true</code> on command-click. So, you can <code class="highlighter-rouge">event.preventDefault()</code> your heart out and still easily retain the expected command-click behaviour.</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">$</span><span class="p">(</span><span class="s2">".something"</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">){</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">event</span><span class="p">.</span><span class="nx">metaKey</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+        <span class="c1">// etc</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="c1">//other stuff</span>
+    <span class="p">}</span>
+<span class="p">})</span>
+</code></pre>
+</div>
+
+  </p>
+  
+</div>
+
+  
+    <!-- Renders post date, title, and snippet of text. -->
+<div class="py-2 mb-2 prose excerpt border-bottom-thin">
+  <a class="no-underline h5 bold text-accent" title="/blog/update-delaunay-triangulation" href="/blog/update-delaunay-triangulation">Oct 14, 2015</a>
+  <h2 class="h1 lh-condensed col-9 mt-0">
+    <a class="link-primary" title="/blog/update-delaunay-triangulation" href="/blog/update-delaunay-triangulation">UPDATE: Delaunay Triangulation</a>
+  </h2>
+
+  
+    <p class="categories">
+      
+         
+         
+         <a href="/category/javascript">javascript</a>
+      
+         
+         
+         <a href="/category/math">math</a>
+      
+         
+         
+         <a href="/category/svg">svg</a>
+      
+    </p>
+  
+  
+
+
+  
+  <p>
+    <p>Make your delaunay triangulation squirm in the updated version of this project, <a href="https://danyalette.com/delaunay/squirm">here</a>.</p>
+
+<p><a href="https://danyalette.com/delaunay/squirm"><img src="https://danyalette.com/delaunay/squirm/squirm.gif" alt="" /></a></p>
+
+<p>This version also allows you to toggle between wallpaper and wireframe mode.</p>
+
+<p>I decided to build in this functionality because I wanted to make my polygonal background wallpaper be constantly moving slightly, <em>but</em> it’s way too computationally expensive to do that atm. In other words, be warned: your fan will spin up.</p>
+
+  </p>
+  
+</div>
+
+  
+    <!-- Renders post date, title, and snippet of text. -->
+<div class="py-2 mb-2 prose excerpt border-bottom-thin">
+  <a class="no-underline h5 bold text-accent" title="/blog/delaunay-triangulation-in-js" href="/blog/delaunay-triangulation-in-js">Oct 5, 2015</a>
+  <h2 class="h1 lh-condensed col-9 mt-0">
+    <a class="link-primary" title="/blog/delaunay-triangulation-in-js" href="/blog/delaunay-triangulation-in-js">Delaunay Triangulation in JS</a>
+  </h2>
+
+  
+    <p class="categories">
+      
+         
+         
+         <a href="/category/javascript">javascript</a>
+      
+         
+         
+         <a href="/category/math">math</a>
+      
+         
+         
+         <a href="/category/svg">svg</a>
+      
+    </p>
+  
+  
+
+
+  
+  <p>
+    <div>
+  &nbsp;
+</div>
+
+<p>My initial goal was to make a dynamically generated triangle pattern for a site, like so:</p>
+
+<h3 id="the-pattern"><a href="https://danyalette.com/delaunay/basic.html" target="_blank">The pattern.</a></h3>
+
+<p>That site will generate a new pattern on each visit.</p>
+
+<p><a href="https://danyalette.com/delaunay/basic.html" target="_blank"><img style="width:100%" src="/assets/images/uploads/2015/10/Screen-Shot-2015-10-04-at-9.38.43-PM-1024x596.png" width="550" height="320" class="alignnone size-large wp-image-820" /></a></p>
+
+<p>Here you see a set of points, randomly generated, that has been triangulated. In other words, every generated point has become the vertex of a triangle and all triangles are non-overlapping.</p>
+
+<h3 id="the-demo"><a href="https://danyalette.com/delaunay" target="_blank">The demo.</a></h3>
+
+<p><a href="https://danyalette.com/delaunay" target="_blank"><img class="alignnone size-large wp-image-818" style="width:100%" src="/assets/images/uploads/2015/10/Screen-Shot-2015-10-04-at-9.32.01-PM-1024x565.png" width="550" height="303" /></a></p>
+
+<p>In the demo, drag points to see the triangulation recalculate.</p>
+
+
+  </p>
+  
+    <div class="more">
+      <a href="https://danyalette.com/blog/delaunay-triangulation-in-js">Read More</a>
+    </div>
+  
+</div>
+
+  
+    <!-- Renders post date, title, and snippet of text. -->
+<div class="py-2 mb-2 prose excerpt border-bottom-thin">
+  <a class="no-underline h5 bold text-accent" title="/blog/double-slider-widget" href="/blog/double-slider-widget">Feb 26, 2015</a>
+  <h2 class="h1 lh-condensed col-9 mt-0">
+    <a class="link-primary" title="/blog/double-slider-widget" href="/blog/double-slider-widget">Double Slider Widget</a>
+  </h2>
+
+  
+    <p class="categories">
+      
+         
+         
+         <a href="/category/css">css</a>
+      
+         
+         
+         <a href="/category/javascript">javascript</a>
+      
+    </p>
+  
+  
+
+
+  
+  <p>
+    <iframe src="/assets/iframes/double-slider.html" frameborder="0" height="110" width="500"></iframe>
+
+
+  </p>
+  
+    <div class="more">
+      <a href="https://danyalette.com/blog/double-slider-widget">Read More</a>
+    </div>
+  
+</div>
+
+  
+    <!-- Renders post date, title, and snippet of text. -->
+<div class="py-2 mb-2 prose excerpt border-bottom-thin">
+  <a class="no-underline h5 bold text-accent" title="/blog/random-normally-distributed-values-in-js" href="/blog/random-normally-distributed-values-in-js">Jan 10, 2015</a>
+  <h2 class="h1 lh-condensed col-9 mt-0">
+    <a class="link-primary" title="/blog/random-normally-distributed-values-in-js" href="/blog/random-normally-distributed-values-in-js">Random Normally Distributed Values in JS</a>
+  </h2>
+
+  
+    <p class="categories">
+      
+         
+         
+         <a href="/category/javascript">javascript</a>
+      
+         
+         
+         <a href="/category/math">math</a>
+      
+    </p>
+  
+  
+
+
+  
+  <p>
+    <p>I want random data! But…I want them to be distributed normally!</p>
+
+<iframe width="440" height="250" src="/assets/iframes/normal_distr.html" frameborder="0"></iframe>
+
+<p>The ability to generate random data that are normally distributed is very useful. Here’s how you do it in Javascript:
+
+  </p>
+  
+    <div class="more">
+      <a href="https://danyalette.com/blog/random-normally-distributed-values-in-js">Read More</a>
+    </div>
+  
+</div>
+
+  
+    <!-- Renders post date, title, and snippet of text. -->
+<div class="py-2 mb-2 prose excerpt border-bottom-thin">
+  <a class="no-underline h5 bold text-accent" title="/blog/svgpathinfo-user-interface" href="/blog/svgpathinfo-user-interface">Nov 18, 2014</a>
+  <h2 class="h1 lh-condensed col-9 mt-0">
+    <a class="link-primary" title="/blog/svgpathinfo-user-interface" href="/blog/svgpathinfo-user-interface">SVGPathInfo Web Interface</a>
+  </h2>
+
+  
+    <p class="categories">
+      
+         
+         
+         <a href="/category/javascript">javascript</a>
+      
+         
+         
+         <a href="/category/svg">svg</a>
+      
+    </p>
+  
+  
+
+
+  
+  <p>
+    <p><a href="https://danyalette.com/SVGPathInfo" target="_blank"><img src="/assets/images/uploads/2014/11/SPI-interface-1024x561.png" rel="magnific" alt="SVGPathInfo user interface" width="550" height="301" class="size-large wp-image-646" /></a></p>
+
+<p>I made <a href="https://danyalette.com/SVGPathInfo" target="_blank">this site</a> so that SVGPathInfo can be used online. Just paste in your path string and convert it to JSON, relative, absolute or cubic Bézier.</p>
+
+  </p>
+  
+</div>
+
+  
+    <!-- Renders post date, title, and snippet of text. -->
+<div class="py-2 mb-2 prose excerpt border-bottom-thin">
+  <a class="no-underline h5 bold text-accent" title="/blog/svgpathinfo-a-lightweight-mini-library" href="/blog/svgpathinfo-a-lightweight-mini-library">Nov 13, 2014</a>
+  <h2 class="h1 lh-condensed col-9 mt-0">
+    <a class="link-primary" title="/blog/svgpathinfo-a-lightweight-mini-library" href="/blog/svgpathinfo-a-lightweight-mini-library">SVGPathInfo.js</a>
+  </h2>
+
+  
+    <p class="categories">
+      
+         
+         
+         <a href="/category/javascript">javascript</a>
+      
+         
+         
+         <a href="/category/svg">svg</a>
+      
+    </p>
+  
+  
+
+
+  
+  <p>
+    <iframe src="/assets/iframes/SVGPathInfo-demo.html" height="380" width="400" frameborder="0"></iframe>
+
+<p>I made a little Javascript library to quickly get info on an SVG path element. Check it out:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><a href="https://github.com/danyalette/SVGPathInfo" target="_blank">github</a></td>
+      <td><a href="https://danyalette.com/SVGPathInfo" target="_blank">website</a>.</td>
+    </tr>
+  </tbody>
+</table>
+
+
+  </p>
+  
+    <div class="more">
+      <a href="https://danyalette.com/blog/svgpathinfo-a-lightweight-mini-library">Read More</a>
+    </div>
+  
+</div>
+
+  
+    <!-- Renders post date, title, and snippet of text. -->
+<div class="py-2 mb-2 prose excerpt border-bottom-thin">
+  <a class="no-underline h5 bold text-accent" title="/blog/mathematical-def-of-bezier-curves" href="/blog/mathematical-def-of-bezier-curves">Nov 13, 2014</a>
+  <h2 class="h1 lh-condensed col-9 mt-0">
+    <a class="link-primary" title="/blog/mathematical-def-of-bezier-curves" href="/blog/mathematical-def-of-bezier-curves">Math of Bézier Curves</a>
+  </h2>
+
+  
+    <p class="categories">
+      
+         
+         
+         <a href="/category/animation">animation</a>
+      
+         
+         
+         <a href="/category/javascript">javascript</a>
+      
+         
+         
+         <a href="/category/math">math</a>
+      
+         
+         
+         <a href="/category/svg">svg</a>
+      
+    </p>
+  
+  
+
+
+  
+  <p>
+    <p>If you are at all interested in SVG or Bézier curves, you’ve probably seen something like <a href="http://www.jasondavies.com/animated-bezier/">Jason Davies’ animation</a>. I found that those animations are an excellent way of intuitively grasping how Bézier curves work. However, the math behind it all is less intuitive.</p>
+
+<p>I just read <a href="http://pomax.github.io/bezierinfo/">this</a> really illuminating article.</p>
+
+<p>Something I hadn’t realized before reading the article is that, mathematically, Bézier curves are not defined as run-of-the-mill functions. Whereas generally one would plug an <code class="highlighter-rouge">x</code> value into a function to determine a <code class="highlighter-rouge">y</code> value, à la  <code class="highlighter-rouge">f(x) = y = ax + b</code> , Bézier curves are defined <em>parametrically</em>. The values of <code class="highlighter-rouge">x</code> and <code class="highlighter-rouge">y</code> are determined independently, according to a third parameter, dubbed <code class="highlighter-rouge">t</code>.</p>
+
+<p>This is the general formula for a cubic Bézier:</p>
+
+<pre>B(t) = (1-t)<sup>3</sup>&middot;P0 + 3&middot;(1-t)<sup>2</sup>&middot;t&middot;P1 + 3&middot;(1-t)&middot;t<sup>2</sup>&middot;P2 + t<sup>3</sup>&middot;P3
+
+</pre>
+
+<p>where <code class="highlighter-rouge">P0</code> and <code class="highlighter-rouge">P3</code> are the start and end points, and <code class="highlighter-rouge">P1</code> and <code class="highlighter-rouge">P2</code> are the first and second control points.</p>
+
+
+  </p>
+  
+    <div class="more">
+      <a href="https://danyalette.com/blog/mathematical-def-of-bezier-curves">Read More</a>
+    </div>
+  
+</div>
+
+  
+    <!-- Renders post date, title, and snippet of text. -->
+<div class="py-2 mb-2 prose excerpt border-bottom-thin">
+  <a class="no-underline h5 bold text-accent" title="/blog/conways-golf" href="/blog/conways-golf">Oct 31, 2014</a>
+  <h2 class="h1 lh-condensed col-9 mt-0">
+    <a class="link-primary" title="/blog/conways-golf" href="/blog/conways-golf">Conway&#8217;s GOLf</a>
+  </h2>
+
+  
+    <p class="categories">
+      
+         
+         
+         <a href="/category/animation">animation</a>
+      
+         
+         
+         <a href="/category/games">games</a>
+      
+         
+         
+         <a href="/category/javascript">javascript</a>
+      
+    </p>
+  
+  
+
+
+  
+  <p>
+    <p>In my free time, I’m making a game based on <a href="http://en.wikipedia.org/wiki/Conway%27s_Game_of_Life">conway’s game of life</a>. Here’s the result of my work so far. Obviously, it’s not a game yet, but it is a functional cellular automaton written in javascript.</p>
+
+<p>Click on a cell to flip its state, or drag to paint on living cells.</p>
+
+<iframe src="/assets/iframes/conways-GOLf.html" width="390" height="430" frameborder="0"></iframe>
+<div>&nbsp;</div>
+<p>In this example, the starting state of living cells is called a “pulsar” – an example of a cyclic form with a period of 3. In other words, if you step 3 times it will return to the original state.<br />
+Click on the cells to turn them on or off – maybe you can find other stable or cyclic forms.</p>
+
+
+  </p>
+  
+    <div class="more">
+      <a href="https://danyalette.com/blog/conways-golf">Read More</a>
+    </div>
+  
+</div>
+
+  
+    <!-- Renders post date, title, and snippet of text. -->
+<div class="py-2 mb-2 prose excerpt border-bottom-thin">
+  <a class="no-underline h5 bold text-accent" title="/blog/pentagram-pentagon" href="/blog/pentagram-pentagon">Sep 5, 2014</a>
+  <h2 class="h1 lh-condensed col-9 mt-0">
+    <a class="link-primary" title="/blog/pentagram-pentagon" href="/blog/pentagram-pentagon">Pentagram  ≅ Pentagon</a>
+  </h2>
+
+  
+    <p class="categories">
+      
+         
+         
+         <a href="/category/animation">animation</a>
+      
+         
+         
+         <a href="/category/javascript">javascript</a>
+      
+         
+         
+         <a href="/category/math">math</a>
+      
+         
+         
+         <a href="/category/svg">svg</a>
+      
+         
+         
+         <a href="/category/graphs">graphs</a>
+      
+    </p>
+  
+  
+
+
+  
+  <p>
+    <iframe src="/assets/iframes/penta.html" height="240" width="500" frameborder="0"></iframe>
+<div>&nbsp;</div>
+<p>Pentagrams and pentagons are actually a bit spooky…
+
+  </p>
+  
+    <div class="more">
+      <a href="https://danyalette.com/blog/pentagram-pentagon">Read More</a>
+    </div>
+  
+</div>
+
+  
+    <!-- Renders post date, title, and snippet of text. -->
+<div class="py-2 mb-2 prose excerpt border-bottom-thin">
+  <a class="no-underline h5 bold text-accent" title="/blog/graph-theory" href="/blog/graph-theory">Sep 4, 2014</a>
+  <h2 class="h1 lh-condensed col-9 mt-0">
+    <a class="link-primary" title="/blog/graph-theory" href="/blog/graph-theory">Graph Theory</a>
+  </h2>
+
+  
+    <p class="categories">
+      
+         
+         
+         <a href="/category/animation">animation</a>
+      
+         
+         
+         <a href="/category/javascript">javascript</a>
+      
+         
+         
+         <a href="/category/math">math</a>
+      
+         
+         
+         <a href="/category/svg">svg</a>
+      
+         
+         
+         <a href="/category/graphs">graphs</a>
+      
+    </p>
+  
+  
+
+
+  
+  <p>
+    <div>&nbsp;</div>
+<iframe src="/assets/iframes/graph.html" width="400" scale="0.5" height="200" style="text-align:center;margin:auto;overflow:hidden" frameborder="0"></iframe>
+<div>&nbsp;</div>
+<p>I’m currently reading a book on graph theory.</p>
+
+<p>A graph, in the mathematical sense, is a completely abstract object made up of sets. However, it definitely lends itself to visual representation, so I’m having a bit of fun making visualizations of some of the concepts.</p>
+
+
+  </p>
+  
+    <div class="more">
+      <a href="https://danyalette.com/blog/graph-theory">Read More</a>
+    </div>
+  
+</div>
+
+  
+    <!-- Renders post date, title, and snippet of text. -->
+<div class="py-2 mb-2 prose excerpt border-bottom-thin">
+  <a class="no-underline h5 bold text-accent" title="/blog/jss-htmlcollection-is-a-pseudo-array" href="/blog/jss-htmlcollection-is-a-pseudo-array">Jul 12, 2014</a>
+  <h2 class="h1 lh-condensed col-9 mt-0">
+    <a class="link-primary" title="/blog/jss-htmlcollection-is-a-pseudo-array" href="/blog/jss-htmlcollection-is-a-pseudo-array">JS's HTMLCollection is a Pseudo-Array</a>
+  </h2>
+
+  
+    <p class="categories">
+      
+         
+         
+         <a href="/category/javascript">javascript</a>
+      
+    </p>
+  
+  
+
+
+  
+  <p>
+    <div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">realArray</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">slice</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByClassName</span><span class="p">(</span><span class="s1">'classname'</span><span class="p">),</span> <span class="mi">0</span><span class="p">);</span>
+</code></pre>
+</div>
+
+
+  </p>
+  
+    <div class="more">
+      <a href="https://danyalette.com/blog/jss-htmlcollection-is-a-pseudo-array">Read More</a>
+    </div>
+  
+</div>
+
+  
+</div>
+
+  </div>
+</article>
+
+    </div>
+
+    
+
+  </body>
+
+</html>

@@ -6,7 +6,7 @@ author: danya
 layout: post
 categories:
   - animation
-  - 'html &amp; css'
+  - games
   - javascript
 ---
 In my free time, I&#8217;m making a game based on [conway&#8217;s game of life](http://en.wikipedia.org/wiki/Conway%27s_Game_of_Life). Here&#8217;s the result of my work so far. Obviously, it&#8217;s not a game yet, but it is a functional cellular automaton written in javascript.

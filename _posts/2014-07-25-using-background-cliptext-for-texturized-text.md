@@ -5,7 +5,7 @@ date: 2014-07-25T17:43:10+00:00
 author: danya
 layout: post
 categories:
-  - 'html &amp; css'
+  - 'css'
 ---
 <div>&nbsp;</div>
 <iframe src="/assets/iframes/cliptext.html" height="160" width="650" frameborder="0"></iframe>

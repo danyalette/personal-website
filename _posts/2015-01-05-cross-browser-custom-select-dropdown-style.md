@@ -5,7 +5,7 @@ date: 2015-01-05T17:44:11+00:00
 author: danya
 layout: post
 categories:
-  - 'html &amp; css'
+  - 'css'
 ---
 <div>&nbsp;</div>
 <iframe height="60" width="350" src="/assets/iframes/dropdown.html" frameborder="0"></iframe>

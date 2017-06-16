@@ -6,7 +6,6 @@ author: danya
 layout: post
 published: false
 categories:
-  - 'html &amp; css'
   - javascript
   - svg
 ---

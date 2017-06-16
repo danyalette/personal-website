@@ -480,6 +480,9 @@ a {
 h1 a, h2 a, h3 a, h4 a, header a, .previous-next a {
   color: inherit; }
 
+h1.h0 {
+  padding-bottom: 40px; }
+
 header .link-primary:hover {
   color: inherit; }
 
@@ -523,6 +526,18 @@ article h1, article h2, article h3, article h4, article h5 {
   margin-bottom: 0.5em; }
 article img {
   max-width: 100%; }
+
+p.categories {
+  margin-bottom: 30px; }
+
+.categories a {
+  margin-right: 10px;
+  font-size: 14px;
+  border: 2px solid #E74727;
+  padding: 6px 10px; }
+
+.categories a:hover {
+  text-decoration: none; }
 
 .featured-image {
   margin: 30px 0 40px 0; }

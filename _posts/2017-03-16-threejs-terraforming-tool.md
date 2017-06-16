@@ -5,7 +5,7 @@ date: 2017-03-16T18:23:51+00:00
 author: danya
 layout: post
 categories:
-  - neither hither nor thither
+  - threejs 
 ---
 So, somewhat accidentally, I made a terraforming tool in threejs! Check it out:
 <!--more-->

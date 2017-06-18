@@ -5,6 +5,15 @@ layout: default
   <header>
     <h1 class="h0 py-4 mt-3">{{ page.title }}</h1>
   </header>
+
+  <div class="categories categories-all">
+    {% for category in site.categories %}
+       {% assign category_name = category | first | strip_html %}
+       {% assign category_handle = category_name | regexreplace: ' &.+; |[^a-zA-Z-]+', '-' %}
+       <a href="/category/{{ category_handle}}">{{ category_name }}</a>
+    {% endfor %}
+  </div>
+
   <div class="col-4 sm-width-full border-top-thin">
   </div>
   <div class="prose mb-4 py-4">

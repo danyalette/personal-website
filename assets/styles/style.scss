@@ -75,8 +75,16 @@ article {
   }
 }
 
-p.categories {
+.categories.categories-post {
   margin-bottom: 30px;
+}
+
+.categories.categories-all {
+  margin-bottom: 30px;
+  a {
+    margin-bottom: 10px;
+    display: inline-block;
+  }
 }
 
 .categories a{
@@ -84,10 +92,13 @@ p.categories {
   font-size: 14px;
   border: 2px solid $color-primary-link;
   padding: 6px 10px;
+  transition: background 0.1s ease, color 0.1s ease;
 }
 
 .categories a:hover {
   text-decoration: none;
+  background: $color-primary-link;
+  color: #fff;
 }
 
 .featured-image {

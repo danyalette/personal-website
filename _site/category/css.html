@@ -127,9 +127,15 @@
         
       
         
+          
+        
+      
+        
       
         
           
+        
+      
         
       
         
@@ -528,6 +534,89 @@ This is the closest I’ve come to finding a cross-browser solution:</p>
 <p><small>from <a href="http://stackoverflow.com/questions/826782/css-rule-to-disable-text-selection-highlighting">SO</a></small></p>
 
   </p>
+  
+</div>
+
+  
+    <!-- Renders post date, title, and snippet of text. -->
+<div class="py-2 mb-2 prose excerpt border-bottom-thin">
+  <a class="no-underline h5 bold text-accent" title="/blog/scss-mixin-for-font-face" href="/blog/scss-mixin-for-font-face">Sep 17, 2014</a>
+  <h2 class="h1 lh-condensed col-9 mt-0">
+    <a class="link-primary" title="/blog/scss-mixin-for-font-face" href="/blog/scss-mixin-for-font-face">SCSS Mixin For @font-face</a>
+  </h2>
+
+  
+    <p class="categories">
+      
+         
+         
+         <a href="/category/css">css</a>
+      
+    </p>
+  
+  
+
+
+  
+  <p>
+    <h2 id="define-it">define it</h2>
+
+<div class="language-scss highlighter-rouge"><pre class="highlight"><code><span class="k">@mixin</span> <span class="nf">font-face</span><span class="p">(</span><span class="nv">$fontname</span><span class="p">){</span>
+  <span class="nv">$filepath</span><span class="p">:</span> <span class="s2">"fonts/"</span> <span class="o">+</span> <span class="nv">$fontname</span> <span class="o">+</span> <span class="s2">"/"</span> <span class="o">+</span> <span class="nv">$fontname</span><span class="p">;</span>
+  <span class="k">@font-face</span> <span class="p">{</span>
+    <span class="nl">font-family</span><span class="p">:</span> <span class="nv">$fontname</span><span class="p">;</span>
+    <span class="nl">src</span><span class="p">:</span> <span class="sx">url($filepath + ".eot")</span><span class="p">;</span>
+    <span class="nl">src</span><span class="p">:</span> <span class="sx">url($filepath + ".eot?#iefix")</span> <span class="nf">format</span><span class="p">(</span><span class="s1">'embedded-opentype'</span><span class="p">)</span><span class="o">,</span> <span class="sx">url($filepath + ".woff")</span> <span class="nf">format</span><span class="p">(</span><span class="s1">'woff'</span><span class="p">)</span><span class="o">,</span> <span class="sx">url($filepath + ".ttf")</span> <span class="nf">format</span><span class="p">(</span><span class="s1">'truetype'</span><span class="p">)</span><span class="o">,</span> <span class="sx">url($filepath + ".svg#" + $fontname + "")</span> <span class="nf">format</span><span class="p">(</span><span class="s1">'svg'</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<h2 id="use-it">use it</h2>
+
+<div class="language-scss highlighter-rouge"><pre class="highlight"><code><span class="nv">$font1</span><span class="p">:</span> <span class="n">helvetica</span><span class="p">;</span>
+<span class="k">@include</span> <span class="nd">font-face</span><span class="p">(</span><span class="nv">$font1</span><span class="p">);</span>
+<span class="nt">p</span><span class="p">{</span> <span class="nl">font-family</span><span class="p">:</span> <span class="nv">$font1</span><span class="p">;</span> <span class="p">};</span>
+</code></pre>
+</div>
+
+  </p>
+  
+</div>
+
+  
+    <!-- Renders post date, title, and snippet of text. -->
+<div class="py-2 mb-2 prose excerpt border-bottom-thin">
+  <a class="no-underline h5 bold text-accent" title="/blog/compile-scss-automatically-on-request" href="/blog/compile-scss-automatically-on-request">Sep 13, 2014</a>
+  <h2 class="h1 lh-condensed col-9 mt-0">
+    <a class="link-primary" title="/blog/compile-scss-automatically-on-request" href="/blog/compile-scss-automatically-on-request">Compile SCSS Automatically On Request w/ PHP</a>
+  </h2>
+
+  
+    <p class="categories">
+      
+         
+         
+         <a href="/category/css">css</a>
+      
+    </p>
+  
+  
+
+
+  
+  <p>
+    <p>I just started playing with SCSS. It didn’t take very long to learn and, so far, I love it.</p>
+
+<p>There are loads of way to compile your SCSS to CSS to serve to the client. One of the easiest ways to get up and running, if you’re using php, is <a href="http://leafo.net/scssphp">scssphp</a>.
+ The SCSS is compiled and returns plain CSS, every time a request is made by a client to your server for a page containing SCSS. (I don’t recommend this in production though.)</p>
+
+
+  </p>
+  
+    <div class="more">
+      <a href="https://danyalette.com/blog/compile-scss-automatically-on-request">Read More</a>
+    </div>
   
 </div>
 

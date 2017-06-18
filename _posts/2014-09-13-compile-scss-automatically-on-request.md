@@ -5,7 +5,7 @@ date: 2014-09-13T23:42:56+00:00
 author: danya
 layout: post
 categories:
-  - 'html &amp; css'
+  - 'css'
 ---
 I just started playing with SCSS. It didn&#8217;t take very long to learn and, so far, I love it.
 

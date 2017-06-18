@@ -5,7 +5,7 @@ date: 2014-09-17T19:28:28+00:00
 author: danya
 layout: post
 categories:
-  - 'html &amp; css'
+  - 'css'
 ---
 
 ## define it

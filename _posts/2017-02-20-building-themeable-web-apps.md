@@ -70,11 +70,11 @@ When it comes to choosing between overriding and overwriting, I am a strong pro
 
 ##### Optional/required
 
-I feel similarly about the choice between optional and required. Required customizations (e.g. a required theme file, or a required value in a configuration file) introduce unnecessary liabilities. Setting robust defaults should negate the need for required customizations, and thus reduce the probably of making buggy builds.
+I feel similarly about the choice between optional and required. Required customizations (e.g. a required theme file, or a required value in a configuration file) introduce unnecessary liabilities. Setting robust defaults should negate the need for required customizations, and thus reduce the probability of making buggy builds.
 
 &nbsp;
 
-In any case, I strongly recommend choosing one quadrant and focussing as much of your theming strategy there &#8211; doing so will likely eliminate a lot of the excessive complexity that we struggled to rein in. I have to choose one: I believe that runtime optional overrides are the least likely to cause problems down the line.
+In any case, I strongly recommend choosing one quadrant and focussing as much of your theming strategy there &#8211; doing so will likely eliminate a lot of the excessive complexity that we struggled to rein in. If I have to choose one: I believe that runtime optional overrides are the least likely to cause problems down the line.
 
 ### Conclusion
 

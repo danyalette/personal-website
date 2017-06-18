@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="https://danyalette.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://danyalette.com/" rel="alternate" type="text/html" /><updated>2017-06-16T00:59:19-04:00</updated><id>https://danyalette.com/</id><title type="html">Danya Lette</title><subtitle>Hi, I'm Danya Lette, a software developer living and working in Toronto. I love learning and building cool stuff.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="https://danyalette.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://danyalette.com/" rel="alternate" type="text/html" /><updated>2017-06-18T00:21:50-04:00</updated><id>https://danyalette.com/</id><title type="html">Danya Lette</title><subtitle>Hi, I'm Danya Lette, a software developer living and working in Toronto. I love learning and building cool stuff.
 </subtitle><entry><title type="html">Migrating From Wordpress To Jekyll</title><link href="https://danyalette.com/blog/migrating-from-wordpress-to-jekyll" rel="alternate" type="text/html" title="Migrating From Wordpress To Jekyll" /><published>2017-06-15T21:46:00-04:00</published><updated>2017-06-15T21:46:00-04:00</updated><id>https://danyalette.com/blog/migrating-from-wordpress-to-jekyll</id><content type="html" xml:base="https://danyalette.com/blog/migrating-from-wordpress-to-jekyll">&lt;p&gt;When migrating from Wordpress to Jekyll, an obvious first step is exporting your data from Wordpress. Fortunately, there is a Wordpress plugin for that. Unfortunately, some features that we take for granted in Worpress (such as featured images, and the &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;!--more--&amp;gt;&lt;/code&gt; tag) are not supported out-the-box by Jekyll and may require some extra fiddling.
 &lt;!--more--&gt;&lt;/p&gt;
 
@@ -773,11 +773,11 @@ Basically, when you mouse over, a raycaster is set from the camera position and 
 
 &lt;h5 id=&quot;optionalrequired&quot;&gt;Optional/required&lt;/h5&gt;
 
-&lt;p&gt;I feel similarly about the choice between optional and required. Required customizations (e.g. a required theme file, or a required value in a configuration file) introduce unnecessary liabilities. Setting robust defaults should negate the need for required customizations, and thus reduce the probably of making buggy builds.&lt;/p&gt;
+&lt;p&gt;I feel similarly about the choice between optional and required. Required customizations (e.g. a required theme file, or a required value in a configuration file) introduce unnecessary liabilities. Setting robust defaults should negate the need for required customizations, and thus reduce the probability of making buggy builds.&lt;/p&gt;
 
 &lt;p&gt; &lt;/p&gt;
 
-&lt;p&gt;In any case, I strongly recommend choosing one quadrant and focussing as much of your theming strategy there – doing so will likely eliminate a lot of the excessive complexity that we struggled to rein in. I have to choose one: I believe that runtime optional overrides are the least likely to cause problems down the line.&lt;/p&gt;
+&lt;p&gt;In any case, I strongly recommend choosing one quadrant and focussing as much of your theming strategy there – doing so will likely eliminate a lot of the excessive complexity that we struggled to rein in. If I have to choose one: I believe that runtime optional overrides are the least likely to cause problems down the line.&lt;/p&gt;
 
 &lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
 

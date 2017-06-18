@@ -19,6 +19,9 @@ That's quite a lot of params for one command, and the names of the params are no
 
 <!--more-->
 
+* TOC
+{:toc}
+
 # Background
 
 ### SVG Commands
@@ -90,7 +93,3 @@ To demonstrate the 4 possible outcomes,
 **For the path `M 0 0 a 180 80 0 {large-arc-flag} {sweepflag} 100 50`:**
 
 <iframe src="/assets/iframes/arc_flags.html" width="400" height="280" frameborder="0"></iframe>
-
-## and they all lived
-
-happily ever after.

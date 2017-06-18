@@ -153,9 +153,9 @@ a {
 @media only print {
   body {
     background: #fff;
-    padding: 20px; }
+    padding: 10px; }
     body * {
-      font-size: 14px; }
+      font-size: 12px; }
       body * ul.personal_skills li {
         font-size: 14px !important; }
 
@@ -168,7 +168,20 @@ a {
 
   .sticky.stuck .head__title {
     height: auto;
-    opacity: 1; } }
+    opacity: 1; }
+
+  .head .head__inner {
+    padding: 10px 0; }
+
+  .head .head__name {
+    font-size: 35px; }
+
+  .head .head__title {
+    font-size: 20px;
+    margin: 10px 0; }
+
+  .dotted_anim:before, .dotted_anim:after {
+    display: none !important; } }
 /* link animation */
 .dotted_anim {
   position: relative;

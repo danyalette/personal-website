@@ -180,63 +180,76 @@ a{
 }
 
 
-	@media only screen and (max-width : 1200px) {
+@media only screen and (max-width : 1200px) {
 
+}
+
+@media only screen and (max-width : 992px) {
+	.sticky.stuck {
+		padding:20px;
+	}
+}
+
+@media only screen and (max-width : 768px) {
+	.subsection .subsection__heading .subsection__dates{
+		float:none;
+		display:block;
+	}
+	.section .section__content{
+		margin-left:10px;
+		padding-left:20px;
+	}
+}
+
+@media only screen and (max-width : 480px) {
+
+	.section .section__content{
+		margin-left:0;
 	}
 
-	@media only screen and (max-width : 992px) {
-		.sticky.stuck {
-			padding:20px;
-		}
-	}
+}
 
-	@media only screen and (max-width : 768px) {
-		.subsection .subsection__heading .subsection__dates{
-			float:none;
-			display:block;
-		}
-		.section .section__content{
-			margin-left:10px;
-			padding-left:20px;
-		}
-	}
+@media only screen and (max-width : 320px) {
 
-	@media only screen and (max-width : 480px) {
-
-		.section .section__content{
-			margin-left:0;
-		}
-
-	}
-
-	@media only screen and (max-width : 320px) {
-
-	}
+}
 
 
-	@media only print {
-	  body {
-	    background: #fff;
-			padding:20px;
-			*{
-				font-size:14px;
-				ul.personal_skills li{
-					font-size:14px !important;
-				}
+@media only print {
+  body {
+    background: #fff;
+		padding:10px;
+		*{
+			font-size:12px;
+			ul.personal_skills li{
+				font-size:14px !important;
 			}
-	  }
-	  .sticky.stuck {
-	    position: relative;
-	    top: auto;
-	    left: auto;
-	    box-shadow: none;
-	    background: #fff;
-	  }
-	  .sticky.stuck .head__title {
-	    height: auto;
-	    opacity: 1;
-	  }
+		}
+  }
+  .sticky.stuck {
+    position: relative;
+    top: auto;
+    left: auto;
+    box-shadow: none;
+    background: #fff;
+  }
+  .sticky.stuck .head__title {
+    height: auto;
+    opacity: 1;
+  }
+	.head .head__inner {
+		padding: 10px 0;
 	}
+	.head .head__name {
+		font-size: 35px;
+	}
+	.head .head__title {
+		font-size: 20px;
+		margin: 10px 0;
+	}
+	.dotted_anim:before, .dotted_anim:after {
+		display: none !important;
+	}
+}
 
 
 	/* link animation */

@@ -1,5 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="https://danyalette.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://danyalette.com/" rel="alternate" type="text/html" /><updated>2018-07-05T00:23:29-04:00</updated><id>https://danyalette.com/</id><title type="html">Danya Lette</title><subtitle>Hi, I'm Danya Lette, a software developer living and working in Toronto. I love learning and building cool stuff.
-</subtitle><entry><title type="html">Migrating From Wordpress To Jekyll</title><link href="https://danyalette.com/blog/migrating-from-wordpress-to-jekyll" rel="alternate" type="text/html" title="Migrating From Wordpress To Jekyll" /><published>2017-06-15T21:46:00-04:00</published><updated>2017-06-15T21:46:00-04:00</updated><id>https://danyalette.com/blog/migrating-from-wordpress-to-jekyll</id><content type="html" xml:base="https://danyalette.com/blog/migrating-from-wordpress-to-jekyll">&lt;p&gt;When migrating from Wordpress to Jekyll, an obvious first step is exporting your data from Wordpress. Fortunately, there is a Wordpress plugin for that. Unfortunately, some features that we take for granted in Wordpress (such as featured images, and the &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;!--more--&amp;gt;&lt;/code&gt; tag) are not supported out-the-box by Jekyll and may require some extra fiddling.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="https://danyalette.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://danyalette.com/" rel="alternate" type="text/html" /><updated>2019-09-28T17:45:52-04:00</updated><id>https://danyalette.com/</id><title type="html">Danya Lette</title><subtitle>Hi, I'm Danya Lette, a software developer living and working in Toronto. I love learning and building cool stuff.
+</subtitle><entry><title type="html">Heavy (But Not in Wait)</title><link href="https://danyalette.com/blog/heavy-but-not-in-wait" rel="alternate" type="text/html" title="Heavy (But Not in Wait)" /><published>2019-09-28T13:34:49-04:00</published><updated>2019-09-28T13:34:49-04:00</updated><id>https://danyalette.com/blog/heavy-but-not-in-wait</id><content type="html" xml:base="https://danyalette.com/blog/heavy-but-not-in-wait">&lt;p&gt;&lt;em&gt;Heavy (But Not in Wait)&lt;/em&gt; by &lt;strong&gt;L’Rain&lt;/strong&gt;
+&lt;!--more--&gt;&lt;/p&gt;
+&lt;audio style=&quot;display:inline&quot; src=&quot;/assets/music/heavy_but_not_in_wait.mp3&quot; controls=&quot;&quot; loop=&quot;&quot;&gt;&lt;/audio&gt;</content><author><name>danya</name></author><summary type="html">Heavy (But Not in Wait) by L’Rain</summary></entry><entry><title type="html">Migrating From Wordpress To Jekyll</title><link href="https://danyalette.com/blog/migrating-from-wordpress-to-jekyll" rel="alternate" type="text/html" title="Migrating From Wordpress To Jekyll" /><published>2017-06-15T21:46:00-04:00</published><updated>2017-06-15T21:46:00-04:00</updated><id>https://danyalette.com/blog/migrating-from-wordpress-to-jekyll</id><content type="html" xml:base="https://danyalette.com/blog/migrating-from-wordpress-to-jekyll">&lt;p&gt;When migrating from Wordpress to Jekyll, an obvious first step is exporting your data from Wordpress. Fortunately, there is a Wordpress plugin for that. Unfortunately, some features that we take for granted in Wordpress (such as featured images, and the &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;!--more--&amp;gt;&lt;/code&gt; tag) are not supported out-the-box by Jekyll and may require some extra fiddling.
 &lt;!--more--&gt;&lt;/p&gt;
 
 &lt;ul id=&quot;markdown-toc&quot;&gt;
@@ -833,20 +835,4 @@ Basically, when you mouse over, a raycaster is set from the camera position and 
   &lt;span class=&quot;nl&quot;&gt;background-position&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;center&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;</content><author><name>danya</name></author><summary type="html">The performance of this snippet is not great in chrome, but nonetheless…</summary></entry><entry><title type="html">Old Sites</title><link href="https://danyalette.com/blog/old-sites" rel="alternate" type="text/html" title="Old Sites" /><published>2016-11-03T19:23:09-04:00</published><updated>2016-11-03T19:23:09-04:00</updated><id>https://danyalette.com/blog/old-sites</id><content type="html" xml:base="https://danyalette.com/blog/old-sites">&lt;p&gt;i’m redoing my personal website and feeling super nostalgic for my websites of yore.
-&lt;!--more--&gt;&lt;/p&gt;
-&lt;h2 id=&quot;first-site&quot;&gt;first site&lt;/h2&gt;
-
-&lt;video autoplay=&quot;&quot; loop=&quot;&quot; style=&quot;max-width:95%;&quot;&gt;&lt;source src=&quot;/assets/images/uploads/2016/11/first-site-b.mp4&quot; type=&quot;video/mp4&quot; /&gt;&lt;/video&gt;
-
-&lt;h2 id=&quot;second-site&quot;&gt;second site&lt;/h2&gt;
-
-&lt;video autoplay=&quot;&quot; loop=&quot;&quot; style=&quot;max-width:95%&quot;&gt;&lt;source src=&quot;/assets/images/uploads/2016/11/second-site.mp4&quot; type=&quot;video/mp4&quot; /&gt;&lt;/video&gt;
-
-&lt;h2 id=&quot;third-site--current&quot;&gt;third site – current&lt;/h2&gt;
-
-&lt;video autoplay=&quot;&quot; loop=&quot;&quot; style=&quot;max-width:95%&quot;&gt;&lt;source src=&quot;/assets/images/uploads/2016/11/third-site-b.mp4&quot; type=&quot;video/mp4&quot; /&gt;&lt;/video&gt;
-
-&lt;h3 id=&quot;fourth-site&quot;&gt;fourth site&lt;/h3&gt;
-
-&lt;p&gt;who knows???&lt;/p&gt;</content><author><name>danya</name></author><summary type="html">i’m redoing my personal website and feeling super nostalgic for my websites of yore. first site</summary></entry></feed>
+&lt;/div&gt;</content><author><name>danya</name></author><summary type="html">The performance of this snippet is not great in chrome, but nonetheless…</summary></entry></feed>

@@ -165,31 +165,28 @@
   </div>
   
   <div class="prose" itemprop="articleBody">
-      <div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">realArray</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">slice</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByClassName</span><span class="p">(</span><span class="s1">'classname'</span><span class="p">),</span> <span class="mi">0</span><span class="p">);</span>
-</code></pre>
-</div>
+      <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">realArray</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">slice</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByClassName</span><span class="p">(</span><span class="dl">'</span><span class="s1">classname</span><span class="dl">'</span><span class="p">),</span> <span class="mi">0</span><span class="p">);</span>
+</code></pre></div></div>
 
 <!--more-->
 
 <p>Or, if you want to get cute about it (which i always do)</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">realArray</span> <span class="o">=</span> <span class="p">[].</span><span class="nx">slice</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByClassName</span><span class="p">(</span><span class="s1">'classname'</span><span class="p">),</span> <span class="mi">0</span><span class="p">);</span>
-</code></pre>
-</div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">realArray</span> <span class="o">=</span> <span class="p">[].</span><span class="nx">slice</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByClassName</span><span class="p">(</span><span class="dl">'</span><span class="s1">classname</span><span class="dl">'</span><span class="p">),</span> <span class="mi">0</span><span class="p">);</span>
+</code></pre></div></div>
 
 <p>The class selectors for javascript’s dom api – getElementsByClass and getElementsByClassName – don’t return arrays but rather pseudo-arrays called HTMLCollections. This came as a surprise to me after I started switching from using jquery to using pure js.</p>
 
 <p>An HTMLCollection has some methods associated with it, and you can still grab a handler to your desired element via index, i.e. you can</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">myElement</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByClassName</span><span class="p">(</span><span class="s1">'classname'</span><span class="p">)[</span><span class="mi">1</span><span class="p">];</span>
-</code></pre>
-</div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">myElement</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByClassName</span><span class="p">(</span><span class="dl">'</span><span class="s1">classname</span><span class="dl">'</span><span class="p">)[</span><span class="mi">1</span><span class="p">];</span>
+</code></pre></div></div>
 
 <p>but there are <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">lots of</a> super handy array methods you might wanna access. i use ‘forEach’ a fair bit so i always convert my HTMLCollections to a true array.</p>
 
 <p><small>note: IE pre-9 <a href="http://stackoverflow.com/questions/16813469/javascript-method-foreach-not-supported-from-internet-explorer">doesn’t support</a> forEach. but you can manually add the method to the array constructor:&lt;/p&gt;</small></p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="c1">// from stackoverflow user Kishor Subedi:</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// from stackoverflow user Kishor Subedi:</span>
 <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">forEach</span><span class="p">)</span> <span class="p">{</span>
     <span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">forEach</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">fn</span><span class="p">,</span> <span class="nx">scope</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">len</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span> <span class="nx">len</span><span class="p">;</span> <span class="o">++</span><span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
@@ -197,8 +194,7 @@
         <span class="p">}</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
   </div>
 

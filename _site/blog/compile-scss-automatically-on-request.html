@@ -178,7 +178,7 @@
 
 <p>Create a directory on your server to house your SCSS test project. Once you complete steps 1-6, your directory should be structured like this:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>scss-test-directory/  
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>scss-test-directory/  
       style.php
       index.html
       scssphp/
@@ -187,8 +187,7 @@
       stylesheets/
           main.scss
           ...
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="download">Download</h2>
 
@@ -196,24 +195,23 @@
 
 <h2 id="create-a-file">Create a file</h2>
 
-<p>Create a file and call it <code class="highlighter-rouge">style.php</code>. Add the following:</p>
+<p>Create a file and call it <code class="language-plaintext highlighter-rouge">style.php</code>. Add the following:</p>
 
-<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
 <span class="nv">$directory</span> <span class="o">=</span> <span class="s2">"./stylesheets"</span><span class="p">;</span>
 <span class="k">require</span> <span class="s2">"scssphp/scss.inc.php"</span><span class="p">;</span>
 <span class="nx">scss_server</span><span class="o">::</span><span class="na">serveFrom</span><span class="p">(</span><span class="nv">$directory</span><span class="p">);</span>
 <span class="cp">?&gt;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="create-stylesheets-directory">Create Stylesheets Directory</h2>
 
-<p>Create a directory in your project directory and call it <code class="highlighter-rouge">stylesheets</code>.
-Notice that this directory is referred to (by relative path) in the above php: <code class="highlighter-rouge">$directory = "./stylesheets";</code></p>
+<p>Create a directory in your project directory and call it <code class="language-plaintext highlighter-rouge">stylesheets</code>.
+Notice that this directory is referred to (by relative path) in the above php: <code class="language-plaintext highlighter-rouge">$directory = "./stylesheets";</code></p>
 
 <h2 id="write-some-scss">Write Some SCSS</h2>
 
-<p>Write some SCSS in a new file and save the resultant file into the <code class="highlighter-rouge">stylesheets</code> directory.</p>
+<p>Write some SCSS in a new file and save the resultant file into the <code class="language-plaintext highlighter-rouge">stylesheets</code> directory.</p>
 
 <h2 id="make-an-index-page">Make An Index Page</h2>
 
@@ -221,18 +219,17 @@ Notice that this directory is referred to (by relative path) in the above php: <
 
 <h2 id="link-to-your-scss">Link To Your SCSS</h2>
 
-<p>Link to your SCSS by including the following line in the <code class="highlighter-rouge">index.html</code> you just created:</p>
+<p>Link to your SCSS by including the following line in the <code class="language-plaintext highlighter-rouge">index.html</code> you just created:</p>
 
-<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">'stylesheet'</span> <span class="na">type=</span><span class="s">'text/css'</span> <span class="na">href=</span><span class="s">'style.php/main.scss'</span> <span class="nt">/&gt;</span>
-</code></pre>
-</div>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">'stylesheet'</span> <span class="na">type=</span><span class="s">'text/css'</span> <span class="na">href=</span><span class="s">'style.php/main.scss'</span> <span class="nt">/&gt;</span>
+</code></pre></div></div>
 
 <p>in which</p>
 
 <ul>
-  <li><code class="highlighter-rouge">style.php</code> is the php file you created in step 3</li>
-  <li><code class="highlighter-rouge">main.scss</code> is the scss file you created in step 5 and</li>
-  <li><code class="highlighter-rouge">main.scss</code>’s parent directory is the directory configured in <code class="highlighter-rouge">style.php</code>, namely <code class="highlighter-rouge">./stylesheets</code></li>
+  <li><code class="language-plaintext highlighter-rouge">style.php</code> is the php file you created in step 3</li>
+  <li><code class="language-plaintext highlighter-rouge">main.scss</code> is the scss file you created in step 5 and</li>
+  <li><code class="language-plaintext highlighter-rouge">main.scss</code>’s parent directory is the directory configured in <code class="language-plaintext highlighter-rouge">style.php</code>, namely <code class="language-plaintext highlighter-rouge">./stylesheets</code></li>
 </ul>
 
 <h2 id="check-it-out">Check It Out</h2>
@@ -240,7 +237,7 @@ Notice that this directory is referred to (by relative path) in the above php: <
 <p>Navigate to your test project in a browser.</p>
 
 <p>Note that you might need to change permissions in order for this work.
-Long story short, <code class="highlighter-rouge">style.php</code> needs to be able to create – and then write in – <code class="highlighter-rouge">scss_cache</code>, a directory intended to serve as a cache (to save the script from having to recompile scss files that have not been modified since last compile).</p>
+Long story short, <code class="language-plaintext highlighter-rouge">style.php</code> needs to be able to create – and then write in – <code class="language-plaintext highlighter-rouge">scss_cache</code>, a directory intended to serve as a cache (to save the script from having to recompile scss files that have not been modified since last compile).</p>
 
   </div>
 

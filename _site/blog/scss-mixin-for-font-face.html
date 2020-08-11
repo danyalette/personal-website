@@ -167,7 +167,7 @@
   <div class="prose" itemprop="articleBody">
       <h2 id="define-it">define it</h2>
 
-<div class="language-scss highlighter-rouge"><pre class="highlight"><code><span class="k">@mixin</span> <span class="nf">font-face</span><span class="p">(</span><span class="nv">$fontname</span><span class="p">){</span>
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@mixin</span> <span class="nf">font-face</span><span class="p">(</span><span class="nv">$fontname</span><span class="p">){</span>
   <span class="nv">$filepath</span><span class="p">:</span> <span class="s2">"fonts/"</span> <span class="o">+</span> <span class="nv">$fontname</span> <span class="o">+</span> <span class="s2">"/"</span> <span class="o">+</span> <span class="nv">$fontname</span><span class="p">;</span>
   <span class="k">@font-face</span> <span class="p">{</span>
     <span class="nl">font-family</span><span class="p">:</span> <span class="nv">$fontname</span><span class="p">;</span>
@@ -175,16 +175,14 @@
     <span class="nl">src</span><span class="p">:</span> <span class="sx">url($filepath + ".eot?#iefix")</span> <span class="nf">format</span><span class="p">(</span><span class="s1">'embedded-opentype'</span><span class="p">)</span><span class="o">,</span> <span class="sx">url($filepath + ".woff")</span> <span class="nf">format</span><span class="p">(</span><span class="s1">'woff'</span><span class="p">)</span><span class="o">,</span> <span class="sx">url($filepath + ".ttf")</span> <span class="nf">format</span><span class="p">(</span><span class="s1">'truetype'</span><span class="p">)</span><span class="o">,</span> <span class="sx">url($filepath + ".svg#" + $fontname + "")</span> <span class="nf">format</span><span class="p">(</span><span class="s1">'svg'</span><span class="p">);</span>
   <span class="p">}</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="use-it">use it</h2>
 
-<div class="language-scss highlighter-rouge"><pre class="highlight"><code><span class="nv">$font1</span><span class="p">:</span> <span class="n">helvetica</span><span class="p">;</span>
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$font1</span><span class="p">:</span> <span class="n">helvetica</span><span class="p">;</span>
 <span class="k">@include</span> <span class="nd">font-face</span><span class="p">(</span><span class="nv">$font1</span><span class="p">);</span>
 <span class="nt">p</span><span class="p">{</span> <span class="nl">font-family</span><span class="p">:</span> <span class="nv">$font1</span><span class="p">;</span> <span class="p">};</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
   </div>
 

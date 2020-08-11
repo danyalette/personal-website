@@ -190,7 +190,7 @@
 <p>I have no intention of advising you to favour of one strategy or another; the right choice obviously depends on the circumstances. In our case, when it came to stylesheets (written in scss), we used a combination strategy:</p>
 
 <ul>
-  <li>Theme files were included by default (i.e. the default stylesheets had, e.g. <code class="highlighter-rouge">include('theme.scss')</code>) and the theme files existed as empty files in the default build.</li>
+  <li>Theme files were included by default (i.e. the default stylesheets had, e.g. <code class="language-plaintext highlighter-rouge">include('theme.scss')</code>) and the theme files existed as empty files in the default build.</li>
   <li>Clients could include their own theme files to <em>overwrite</em> the existing (empty) theme files.</li>
   <li>Some of those theme files were explicitly intended for scss variables. In other words, scss variables that had been set in the default scss stylesheets could be overridden in the (default empty) theme variables files.</li>
 </ul>
@@ -223,7 +223,7 @@
 
 <h5 id="build-timeruntime">Build-time/runtime</h5>
 
-<p>A build-time configuration is one that is “baked into” the app when it is bundled for deployment. A runtime configuration, however, is one that is queried by the app during its operation. Choosing between the two – in my opinion – really depends upon use-case. In the first case, you might imagine your build process replacing the file <code class="highlighter-rouge">images/logo.jpg</code> with the file, if any, that is found at <code class="highlighter-rouge">theme/images/logo.png</code>. In the second case, however, you might imagine doing something like:</p>
+<p>A build-time configuration is one that is “baked into” the app when it is bundled for deployment. A runtime configuration, however, is one that is queried by the app during its operation. Choosing between the two – in my opinion – really depends upon use-case. In the first case, you might imagine your build process replacing the file <code class="language-plaintext highlighter-rouge">images/logo.jpg</code> with the file, if any, that is found at <code class="language-plaintext highlighter-rouge">theme/images/logo.png</code>. In the second case, however, you might imagine doing something like:</p>
 
 <pre>var logoImageFile = configurations.getParam('logo_image_file') || 'images/logo.png';</pre>
 

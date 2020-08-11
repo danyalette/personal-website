@@ -163,7 +163,7 @@
   
     <!-- Renders post date, title, and snippet of text. -->
 <div class="py-2 mb-2 prose excerpt border-bottom-thin">
-  <a class="no-underline h5 bold text-accent" title="/blog/pure-scss-slideshow" href="/blog/pure-scss-slideshow">Feb 19, 2017</a>
+  <a class="no-underline h5 bold text-accent" title="/blog/pure-scss-slideshow" href="/blog/pure-scss-slideshow">Feb 18, 2017</a>
   <h2 class="h1 lh-condensed col-9 mt-0">
     <a class="link-primary" title="/blog/pure-scss-slideshow" href="/blog/pure-scss-slideshow">Pure Scss Slideshow</a>
   </h2>
@@ -207,7 +207,7 @@
   
     <!-- Renders post date, title, and snippet of text. -->
 <div class="py-2 mb-2 prose excerpt border-bottom-thin">
-  <a class="no-underline h5 bold text-accent" title="/blog/pure-css-animated-squiggle-underline" href="/blog/pure-css-animated-squiggle-underline">Oct 16, 2015</a>
+  <a class="no-underline h5 bold text-accent" title="/blog/pure-css-animated-squiggle-underline" href="/blog/pure-css-animated-squiggle-underline">Oct 15, 2015</a>
   <h2 class="h1 lh-condensed col-9 mt-0">
     <a class="link-primary" title="/blog/pure-css-animated-squiggle-underline" href="/blog/pure-css-animated-squiggle-underline">Pure CSS Animated Squiggle Underline</a>
   </h2>
@@ -297,7 +297,7 @@
   
     <!-- Renders post date, title, and snippet of text. -->
 <div class="py-2 mb-2 prose excerpt border-bottom-thin">
-  <a class="no-underline h5 bold text-accent" title="/blog/double-slider-widget" href="/blog/double-slider-widget">Feb 26, 2015</a>
+  <a class="no-underline h5 bold text-accent" title="/blog/double-slider-widget" href="/blog/double-slider-widget">Feb 25, 2015</a>
   <h2 class="h1 lh-condensed col-9 mt-0">
     <a class="link-primary" title="/blog/double-slider-widget" href="/blog/double-slider-widget">Double Slider Widget</a>
   </h2>
@@ -387,21 +387,18 @@
   <p>
     <p>So, obviously</p>
 
-<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="nt">transition</span><span class="o">:</span> <span class="nt">all</span> <span class="nt">1s</span> <span class="nt">ease</span><span class="o">;</span>
-</code></pre>
-</div>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">transition</span><span class="o">:</span> <span class="nt">all</span> <span class="err">1</span><span class="nt">s</span> <span class="nt">ease</span><span class="o">;</span>
+</code></pre></div></div>
 
 <p>and</p>
 
-<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="nt">transition</span><span class="o">:</span> <span class="nt">all</span> <span class="nt">1s</span> <span class="nt">linear</span><span class="o">;</span>
-</code></pre>
-</div>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">transition</span><span class="o">:</span> <span class="nt">all</span> <span class="err">1</span><span class="nt">s</span> <span class="nt">linear</span><span class="o">;</span>
+</code></pre></div></div>
 
 <p>but did you know</p>
 
-<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="nt">transition</span><span class="o">:</span> <span class="nt">all</span> <span class="nt">1s</span> <span class="nt">cubic-bezier</span><span class="o">(</span><span class="nt">0</span><span class="nc">.42</span><span class="o">,</span><span class="nt">0</span><span class="o">,</span><span class="nt">0</span><span class="nc">.58</span><span class="o">,</span><span class="nt">1</span><span class="o">);</span>
-</code></pre>
-</div>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">transition</span><span class="o">:</span> <span class="nt">all</span> <span class="err">1</span><span class="nt">s</span> <span class="nt">cubic-bezier</span><span class="o">(</span><span class="err">0</span><span class="o">.</span><span class="err">42</span><span class="o">,</span><span class="err">0</span><span class="o">,</span><span class="err">0</span><span class="o">.</span><span class="err">58</span><span class="o">,</span><span class="err">1</span><span class="o">);</span>
+</code></pre></div></div>
 
 <p>???</p>
 
@@ -473,13 +470,12 @@ This is the closest I’ve come to finding a cross-browser solution:</p>
 
   
   <p>
-    <p>I was having trouble applying styles to inline-block elements such that they are rendered consistently across browsers (incl. the latest versions of Firefox, Chrome and Safari). It turns out that they have different default values for <code class="highlighter-rouge">vertical-align</code>.</p>
+    <p>I was having trouble applying styles to inline-block elements such that they are rendered consistently across browsers (incl. the latest versions of Firefox, Chrome and Safari). It turns out that they have different default values for <code class="language-plaintext highlighter-rouge">vertical-align</code>.</p>
 
 <p>To fix this issue, make sure you normalize this value, e.g.:</p>
 
-<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="nt">vertical-align</span><span class="o">:</span> <span class="nt">bottom</span><span class="o">;</span>
-</code></pre>
-</div>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">vertical-align</span><span class="o">:</span> <span class="nt">bottom</span><span class="o">;</span>
+</code></pre></div></div>
 
   </p>
   
@@ -508,7 +504,7 @@ This is the closest I’ve come to finding a cross-browser solution:</p>
   
   <p>
     <p>utility class:</p>
-<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="nc">.noselect</span> <span class="p">{</span>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.noselect</span> <span class="p">{</span>
   <span class="nl">-webkit-touch-callout</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
   <span class="nl">-webkit-user-select</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
   <span class="nl">-khtml-user-select</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
@@ -516,10 +512,9 @@ This is the closest I’ve come to finding a cross-browser solution:</p>
   <span class="nl">-ms-user-select</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
   <span class="py">user-select</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>scss mixin:</p>
-<div class="language-scss highlighter-rouge"><pre class="highlight"><code><span class="k">@mixin</span> <span class="nf">noselect</span><span class="p">()</span> <span class="p">{</span>
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@mixin</span> <span class="nf">noselect</span><span class="p">()</span> <span class="p">{</span>
   <span class="na">-webkit-touch-callout</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
   <span class="na">-webkit-user-select</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
   <span class="na">-khtml-user-select</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
@@ -528,8 +523,7 @@ This is the closest I’ve come to finding a cross-browser solution:</p>
   <span class="na">user-select</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
 <span class="p">}</span>
 <span class="nc">.item</span> <span class="p">{</span> <span class="k">@include</span> <span class="nd">noselect</span><span class="p">();</span> <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><small>from <a href="http://stackoverflow.com/questions/826782/css-rule-to-disable-text-selection-highlighting">SO</a></small></p>
 
@@ -561,7 +555,7 @@ This is the closest I’ve come to finding a cross-browser solution:</p>
   <p>
     <h2 id="define-it">define it</h2>
 
-<div class="language-scss highlighter-rouge"><pre class="highlight"><code><span class="k">@mixin</span> <span class="nf">font-face</span><span class="p">(</span><span class="nv">$fontname</span><span class="p">){</span>
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@mixin</span> <span class="nf">font-face</span><span class="p">(</span><span class="nv">$fontname</span><span class="p">){</span>
   <span class="nv">$filepath</span><span class="p">:</span> <span class="s2">"fonts/"</span> <span class="o">+</span> <span class="nv">$fontname</span> <span class="o">+</span> <span class="s2">"/"</span> <span class="o">+</span> <span class="nv">$fontname</span><span class="p">;</span>
   <span class="k">@font-face</span> <span class="p">{</span>
     <span class="nl">font-family</span><span class="p">:</span> <span class="nv">$fontname</span><span class="p">;</span>
@@ -569,16 +563,14 @@ This is the closest I’ve come to finding a cross-browser solution:</p>
     <span class="nl">src</span><span class="p">:</span> <span class="sx">url($filepath + ".eot?#iefix")</span> <span class="nf">format</span><span class="p">(</span><span class="s1">'embedded-opentype'</span><span class="p">)</span><span class="o">,</span> <span class="sx">url($filepath + ".woff")</span> <span class="nf">format</span><span class="p">(</span><span class="s1">'woff'</span><span class="p">)</span><span class="o">,</span> <span class="sx">url($filepath + ".ttf")</span> <span class="nf">format</span><span class="p">(</span><span class="s1">'truetype'</span><span class="p">)</span><span class="o">,</span> <span class="sx">url($filepath + ".svg#" + $fontname + "")</span> <span class="nf">format</span><span class="p">(</span><span class="s1">'svg'</span><span class="p">);</span>
   <span class="p">}</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="use-it">use it</h2>
 
-<div class="language-scss highlighter-rouge"><pre class="highlight"><code><span class="nv">$font1</span><span class="p">:</span> <span class="n">helvetica</span><span class="p">;</span>
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$font1</span><span class="p">:</span> <span class="n">helvetica</span><span class="p">;</span>
 <span class="k">@include</span> <span class="nd">font-face</span><span class="p">(</span><span class="nv">$font1</span><span class="p">);</span>
 <span class="nt">p</span><span class="p">{</span> <span class="nl">font-family</span><span class="p">:</span> <span class="nv">$font1</span><span class="p">;</span> <span class="p">};</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
   </p>
   
@@ -644,7 +636,7 @@ This is the closest I’ve come to finding a cross-browser solution:</p>
   <p>
     <div>&nbsp;</div>
 <iframe src="/assets/iframes/cliptext.html" height="160" width="650" frameborder="0"></iframe>
-<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="nc">.class</span> <span class="p">{</span>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.class</span> <span class="p">{</span>
  <span class="nl">color</span><span class="p">:</span> <span class="no">red</span><span class="p">;</span>
  <span class="nl">-webkit-text-fill-color</span><span class="p">:</span> <span class="nb">transparent</span><span class="p">;</span>
  <span class="nl">background</span><span class="p">:</span> <span class="n">-webkit-linear-gradient</span><span class="p">(</span><span class="nb">transparent</span><span class="p">,</span> <span class="nb">transparent</span><span class="p">),</span>
@@ -652,8 +644,7 @@ This is the closest I’ve come to finding a cross-browser solution:</p>
  <span class="nl">background</span><span class="p">:</span> <span class="n">-o-linear-gradient</span><span class="p">(</span><span class="nb">transparent</span><span class="p">,</span> <span class="nb">transparent</span><span class="p">);</span>
  <span class="nl">-webkit-background-clip</span><span class="p">:</span> <span class="nb">text</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 
   </p>

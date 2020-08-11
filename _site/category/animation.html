@@ -163,7 +163,7 @@
   
     <!-- Renders post date, title, and snippet of text. -->
 <div class="py-2 mb-2 prose excerpt border-bottom-thin">
-  <a class="no-underline h5 bold text-accent" title="/blog/pure-css-animated-squiggle-underline" href="/blog/pure-css-animated-squiggle-underline">Oct 16, 2015</a>
+  <a class="no-underline h5 bold text-accent" title="/blog/pure-css-animated-squiggle-underline" href="/blog/pure-css-animated-squiggle-underline">Oct 15, 2015</a>
   <h2 class="h1 lh-condensed col-9 mt-0">
     <a class="link-primary" title="/blog/pure-css-animated-squiggle-underline" href="/blog/pure-css-animated-squiggle-underline">Pure CSS Animated Squiggle Underline</a>
   </h2>
@@ -274,7 +274,7 @@
   <p>
     <iframe src="/assets/iframes/anim.html" height="450" width="500" frameborder="0"></iframe>
 
-<p>I’m working on an animation library which specializes in animating between paths whose commands are different in number and type. Essentially, from a given set of paths, all paths’ commands are converted to cubic Bézier and then the paths with fewer subpaths or fewer commands are padded (with ’empty’ paths or commands e.g. <code class="highlighter-rouge">m0 0c0 0 0 0 0 0</code>).</p>
+<p>I’m working on an animation library which specializes in animating between paths whose commands are different in number and type. Essentially, from a given set of paths, all paths’ commands are converted to cubic Bézier and then the paths with fewer subpaths or fewer commands are padded (with ’empty’ paths or commands e.g. <code class="language-plaintext highlighter-rouge">m0 0c0 0 0 0 0 0</code>).</p>
 
 <p>The interesting part is the way in which the padding is interleaved with the preexisting commands. I’d like to eventually include several parameters to create fine grained control over the style of interleaving. I also think that adding some “noise” or an arc trajectory to the motion of the control points would produce an interesting result. We’ll see!</p>
 
@@ -320,14 +320,14 @@
 
 <p>I just read <a href="http://pomax.github.io/bezierinfo/">this</a> really illuminating article.</p>
 
-<p>Something I hadn’t realized before reading the article is that, mathematically, Bézier curves are not defined as run-of-the-mill functions. Whereas generally one would plug an <code class="highlighter-rouge">x</code> value into a function to determine a <code class="highlighter-rouge">y</code> value, à la  <code class="highlighter-rouge">f(x) = y = ax + b</code> , Bézier curves are defined <em>parametrically</em>. The values of <code class="highlighter-rouge">x</code> and <code class="highlighter-rouge">y</code> are determined independently, according to a third parameter, dubbed <code class="highlighter-rouge">t</code>.</p>
+<p>Something I hadn’t realized before reading the article is that, mathematically, Bézier curves are not defined as run-of-the-mill functions. Whereas generally one would plug an <code class="language-plaintext highlighter-rouge">x</code> value into a function to determine a <code class="language-plaintext highlighter-rouge">y</code> value, à la  <code class="language-plaintext highlighter-rouge">f(x) = y = ax + b</code> , Bézier curves are defined <em>parametrically</em>. The values of <code class="language-plaintext highlighter-rouge">x</code> and <code class="language-plaintext highlighter-rouge">y</code> are determined independently, according to a third parameter, dubbed <code class="language-plaintext highlighter-rouge">t</code>.</p>
 
 <p>This is the general formula for a cubic Bézier:</p>
 
 <pre>B(t) = (1-t)<sup>3</sup>&middot;P0 + 3&middot;(1-t)<sup>2</sup>&middot;t&middot;P1 + 3&middot;(1-t)&middot;t<sup>2</sup>&middot;P2 + t<sup>3</sup>&middot;P3
 </pre>
 
-<p>where <code class="highlighter-rouge">P0</code> and <code class="highlighter-rouge">P3</code> are the start and end points, and <code class="highlighter-rouge">P1</code> and <code class="highlighter-rouge">P2</code> are the first and second control points.</p>
+<p>where <code class="language-plaintext highlighter-rouge">P0</code> and <code class="language-plaintext highlighter-rouge">P3</code> are the start and end points, and <code class="language-plaintext highlighter-rouge">P1</code> and <code class="language-plaintext highlighter-rouge">P2</code> are the first and second control points.</p>
 
 
   </p>
@@ -341,7 +341,7 @@
   
     <!-- Renders post date, title, and snippet of text. -->
 <div class="py-2 mb-2 prose excerpt border-bottom-thin">
-  <a class="no-underline h5 bold text-accent" title="/blog/svg-arc-command-parameters" href="/blog/svg-arc-command-parameters">Nov 9, 2014</a>
+  <a class="no-underline h5 bold text-accent" title="/blog/svg-arc-command-parameters" href="/blog/svg-arc-command-parameters">Nov 8, 2014</a>
   <h2 class="h1 lh-condensed col-9 mt-0">
     <a class="link-primary" title="/blog/svg-arc-command-parameters" href="/blog/svg-arc-command-parameters">SVG Arc Command Parameters</a>
   </h2>
@@ -364,11 +364,10 @@
 
   
   <p>
-    <p>An SVG <code class="highlighter-rouge">&lt;path&gt;</code> element’s “arc” command (denoted <code class="highlighter-rouge">a</code> or <code class="highlighter-rouge">A</code>) has 7 parameters:</p>
+    <p>An SVG <code class="language-plaintext highlighter-rouge">&lt;path&gt;</code> element’s “arc” command (denoted <code class="language-plaintext highlighter-rouge">a</code> or <code class="language-plaintext highlighter-rouge">A</code>) has 7 parameters:</p>
 
-<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;path</span> <span class="na">d=</span><span class="s">'a {rx} {ry} {x-axis-rotation} {large-arc-flag} {sweepflag} {x} {y}'</span> <span class="nt">/&gt;</span>
-</code></pre>
-</div>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;path</span> <span class="na">d=</span><span class="s">'a {rx} {ry} {x-axis-rotation} {large-arc-flag} {sweepflag} {x} {y}'</span> <span class="nt">/&gt;</span>
+</code></pre></div></div>
 
 <p>That’s quite a lot of params for one command, and the names of the params are not exactly enlightening. Here’s the deal:</p>
 
@@ -482,7 +481,7 @@ Click on the cells to turn them on or off – maybe you can find other stable or
   
     <!-- Renders post date, title, and snippet of text. -->
 <div class="py-2 mb-2 prose excerpt border-bottom-thin">
-  <a class="no-underline h5 bold text-accent" title="/blog/graph-theory" href="/blog/graph-theory">Sep 4, 2014</a>
+  <a class="no-underline h5 bold text-accent" title="/blog/graph-theory" href="/blog/graph-theory">Sep 3, 2014</a>
   <h2 class="h1 lh-condensed col-9 mt-0">
     <a class="link-primary" title="/blog/graph-theory" href="/blog/graph-theory">Graph Theory</a>
   </h2>

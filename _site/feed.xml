@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="https://danyalette.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://danyalette.com/" rel="alternate" type="text/html" /><updated>2020-08-10T22:57:20-04:00</updated><id>https://danyalette.com/feed.xml</id><title type="html">Danya Lette</title><subtitle>Hi, I'm Danya Lette, a software developer living and working in Toronto. I love learning and building cool stuff.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://danyalette.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://danyalette.com/" rel="alternate" type="text/html" /><updated>2020-08-10T23:24:42-04:00</updated><id>https://danyalette.com/feed.xml</id><title type="html">Danya Lette</title><subtitle>Hi, I'm Danya Lette, a software developer living and working in Toronto. I love learning and building cool stuff.
 </subtitle><entry><title type="html">How to Organize a CS Research-a-Thon</title><link href="https://danyalette.com/blog/how-to-organize-a-research-a-thon" rel="alternate" type="text/html" title="How to Organize a CS Research-a-Thon" /><published>2020-08-10T21:46:00-04:00</published><updated>2020-08-10T21:46:00-04:00</updated><id>https://danyalette.com/blog/how-to-organize-a-research-a-thon</id><content type="html" xml:base="https://danyalette.com/blog/how-to-organize-a-research-a-thon">&lt;p&gt;When I first decided to organize a computer science research-a-thon, I had no idea where to begin. I expected to find plenty of useful info online from other unis and clubs. However, I found almost nothing; this event, apparently, has not been attempted before.&lt;/p&gt;
 
 &lt;!--more--&gt;
@@ -80,7 +80,7 @@ You can specify implementation details if you’d like but that is not required.
 &lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;
 Well, that’s all I have to share for now. Please feel free to get in touch with me if you have any questions: &lt;a href=&quot;mailto:danyalette@gmail.com&quot;&gt;danyalette@gmail.com&lt;/a&gt;&lt;/p&gt;</content><author><name>danya</name></author><summary type="html">When I first decided to organize a computer science research-a-thon, I had no idea where to begin. I expected to find plenty of useful info online from other unis and clubs. However, I found almost nothing; this event, apparently, has not been attempted before.</summary></entry><entry><title type="html">Heavy (But Not in Wait)</title><link href="https://danyalette.com/blog/heavy-but-not-in-wait" rel="alternate" type="text/html" title="Heavy (But Not in Wait)" /><published>2019-09-28T13:34:49-04:00</published><updated>2019-09-28T13:34:49-04:00</updated><id>https://danyalette.com/blog/heavy-but-not-in-wait</id><content type="html" xml:base="https://danyalette.com/blog/heavy-but-not-in-wait">&lt;p&gt;&lt;em&gt;Heavy (But Not in Wait)&lt;/em&gt; by &lt;strong&gt;L’Rain&lt;/strong&gt;
 &lt;!--more--&gt;&lt;/p&gt;
-&lt;audio style=&quot;display:inline&quot; src=&quot;/assets/music/heavy_but_not_in_wait.mp3&quot; controls=&quot;&quot; loop=&quot;&quot;&gt;&lt;/audio&gt;</content><author><name>danya</name></author><summary type="html">Heavy (But Not in Wait) by L’Rain</summary></entry><entry><title type="html">Migrating From Wordpress To Jekyll</title><link href="https://danyalette.com/blog/migrating-from-wordpress-to-jekyll" rel="alternate" type="text/html" title="Migrating From Wordpress To Jekyll" /><published>2017-06-15T21:46:00-04:00</published><updated>2017-06-15T21:46:00-04:00</updated><id>https://danyalette.com/blog/migrating-from-wordpress-to-jekyll</id><content type="html" xml:base="https://danyalette.com/blog/migrating-from-wordpress-to-jekyll">&lt;p&gt;When migrating from Wordpress to Jekyll, an obvious first step is exporting your data from Wordpress. Fortunately, there is a Wordpress plugin for that. Unfortunately, some features that we take for granted in Wordpress (such as featured images, and the &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;!--more--&amp;gt;&lt;/code&gt; tag) are not supported out-the-box by Jekyll and may require some extra fiddling.
+&lt;audio style=&quot;display:inline&quot; src=&quot;/assets/music/heavy_but_not_in_wait.mp3&quot; controls=&quot;&quot; loop=&quot;&quot;&gt;&lt;/audio&gt;</content><author><name>danya</name></author><summary type="html">Heavy (But Not in Wait) by L’Rain</summary></entry><entry><title type="html">Migrating From Wordpress To Jekyll</title><link href="https://danyalette.com/blog/migrating-from-wordpress-to-jekyll" rel="alternate" type="text/html" title="Migrating From Wordpress To Jekyll" /><published>2017-06-15T21:46:00-04:00</published><updated>2017-06-15T21:46:00-04:00</updated><id>https://danyalette.com/blog/migrating-from-wordpress-to-jekyll</id><content type="html" xml:base="https://danyalette.com/blog/migrating-from-wordpress-to-jekyll">&lt;p&gt;When migrating from Wordpress to Jekyll, an obvious first step is exporting your data from Wordpress. Fortunately, there is a Wordpress plugin for that. Unfortunately, some features that we take for granted in Wordpress (such as featured images, and the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;!--more--&amp;gt;&lt;/code&gt; tag) are not supported out-the-box by Jekyll and may require some extra fiddling.
 &lt;!--more--&gt;&lt;/p&gt;
 
 &lt;ul id=&quot;markdown-toc&quot;&gt;
@@ -122,34 +122,33 @@ Before moving forward in the Wordpress migration, you should choose a theme, and
 &lt;h3 id=&quot;pages-and-posts&quot;&gt;Pages and Posts&lt;/h3&gt;
 
 &lt;p&gt;If you look inside the unzipped archive, you’ll see that your pages and posts have been converted to markdown files, and these files have “front matter” i.e. Jekyll metadata.
-Move the pages and posts into your Jekyll project directory. Pages go in the project root; posts go in &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt;.&lt;/p&gt;
+Move the pages and posts into your Jekyll project directory. Pages go in the project root; posts go in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_posts&lt;/code&gt;.&lt;/p&gt;
 
 &lt;h3 id=&quot;config&quot;&gt;Config&lt;/h3&gt;
 
-&lt;p&gt;You may also want to update some values in your existing Jekyll &lt;code class=&quot;highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt; with the values in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt; generated by the Wordpress export.&lt;/p&gt;
+&lt;p&gt;You may also want to update some values in your existing Jekyll &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt; with the values in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt; generated by the Wordpress export.&lt;/p&gt;
 
 &lt;h3 id=&quot;uploads&quot;&gt;Uploads&lt;/h3&gt;
 
-&lt;p&gt;You’ll also want to grab your uploads directory. You could just plunk the whole &lt;code class=&quot;highlighter-rouge&quot;&gt;wp-content&lt;/code&gt; directory from your Wordpress export into the root of your Jekyll site. This will mean that, in your eventual live Jekyll blog, your uploads will have the same URLs they did in your Wordpress site.&lt;/p&gt;
+&lt;p&gt;You’ll also want to grab your uploads directory. You could just plunk the whole &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;wp-content&lt;/code&gt; directory from your Wordpress export into the root of your Jekyll site. This will mean that, in your eventual live Jekyll blog, your uploads will have the same URLs they did in your Wordpress site.&lt;/p&gt;
 
-&lt;p&gt;However, personally, I wanted to get rid of the traces of Wordpress, and use a directory structure that was more nuanced. So, I created &lt;code class=&quot;highlighter-rouge&quot;&gt;assets/images/&lt;/code&gt; in my Jekyll project, and moved the &lt;code class=&quot;highlighter-rouge&quot;&gt;uploads/&lt;/code&gt; directory (which you can find inside the Wordpress export’s &lt;code class=&quot;highlighter-rouge&quot;&gt;wp-content/&lt;/code&gt; directory) into my new Jekyll project’s &lt;code class=&quot;highlighter-rouge&quot;&gt;assets/images/&lt;/code&gt;.&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;jekyll-project
+&lt;p&gt;However, personally, I wanted to get rid of the traces of Wordpress, and use a directory structure that was more nuanced. So, I created &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;assets/images/&lt;/code&gt; in my Jekyll project, and moved the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;uploads/&lt;/code&gt; directory (which you can find inside the Wordpress export’s &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;wp-content/&lt;/code&gt; directory) into my new Jekyll project’s &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;assets/images/&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;jekyll-project
   -- assets
       -- images
         -- uploads
             -- 2015
             -- 2016
             -- 2017
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;uris&quot;&gt;URIs&lt;/h2&gt;
 
-&lt;p&gt;You might notice that your pages and posts refer to images and files using absolute URIs, i.e. &lt;code class=&quot;highlighter-rouge&quot;&gt;https://my-former-blog.com/wp-content/uploads ...&lt;/code&gt;. If this is the case, you will need to edit those in order for you to be able to source images and files locally during development, and also in order to reflect any changes you made in the directory hierarchy of your uploads.&lt;/p&gt;
+&lt;p&gt;You might notice that your pages and posts refer to images and files using absolute URIs, i.e. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;https://my-former-blog.com/wp-content/uploads ...&lt;/code&gt;. If this is the case, you will need to edit those in order for you to be able to source images and files locally during development, and also in order to reflect any changes you made in the directory hierarchy of your uploads.&lt;/p&gt;
 
-&lt;p&gt;In order to resolve this, you’ll have to do a global search and replace. If you made the same change as I did regarding the location of the uploads directory, then you’d be searching for for &lt;code class=&quot;highlighter-rouge&quot;&gt;https://my-former-blog.com/wp-content/uploads/&lt;/code&gt; and replacing it with &lt;code class=&quot;highlighter-rouge&quot;&gt;/assets/images/uploads/&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;In order to resolve this, you’ll have to do a global search and replace. If you made the same change as I did regarding the location of the uploads directory, then you’d be searching for for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;https://my-former-blog.com/wp-content/uploads/&lt;/code&gt; and replacing it with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/assets/images/uploads/&lt;/code&gt;.&lt;/p&gt;
 
-&lt;p&gt;At this stage, you might choose to get a bit fancier and use liquid template variables in order to automatically prepend the configured &lt;code class=&quot;highlighter-rouge&quot;&gt;site.url&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;site.baseurl&lt;/code&gt; to the paths. In this case, you’d be searching for &lt;code class=&quot;highlighter-rouge&quot;&gt;https://my-former-blog.com/wp-content/uploads/&lt;/code&gt; and replacing with &lt;code class=&quot;highlighter-rouge&quot;&gt;https://danyalette.com/assets/images/uploads/&lt;/code&gt; or something along those lines.&lt;/p&gt;
+&lt;p&gt;At this stage, you might choose to get a bit fancier and use liquid template variables in order to automatically prepend the configured &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;site.url&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;site.baseurl&lt;/code&gt; to the paths. In this case, you’d be searching for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;https://my-former-blog.com/wp-content/uploads/&lt;/code&gt; and replacing with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;https://danyalette.com/assets/images/uploads/&lt;/code&gt; or something along those lines.&lt;/p&gt;
 
 &lt;h2 id=&quot;missing-elements&quot;&gt;Missing Elements&lt;/h2&gt;
 
@@ -157,47 +156,43 @@ Move the pages and posts into your Jekyll project directory. Pages go in the pro
 
 &lt;h2 id=&quot;permalinks&quot;&gt;Permalinks&lt;/h2&gt;
 
-&lt;p&gt;Your exported posts will likely each have a permalink configured in the front matter (Jekyll metadata) of the post file. The permalink may make explicit reference to your former blog’s URI. Note that setting the permalink on individual posts overrides the global permalink settings. So, I recommend removing these from individual posts (with a global search and replace) and setting a global permalink structure in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt;.
+&lt;p&gt;Your exported posts will likely each have a permalink configured in the front matter (Jekyll metadata) of the post file. The permalink may make explicit reference to your former blog’s URI. Note that setting the permalink on individual posts overrides the global permalink settings. So, I recommend removing these from individual posts (with a global search and replace) and setting a global permalink structure in your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt;.
 Mine is&lt;/p&gt;
-&lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;s&quot;&gt;permalink&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;/blog/:title&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;p&gt;Note that, after editing &lt;code class=&quot;highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt;, you will have to restart your development server.&lt;/p&gt;
+&lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;na&quot;&gt;permalink&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;/blog/:title&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Note that, after editing &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt;, you will have to restart your development server.&lt;/p&gt;
 
-&lt;p&gt;(Notice that I removed &lt;code class=&quot;highlighter-rouge&quot;&gt;.html&lt;/code&gt; from the end of the title. You might want to check &lt;a href=&quot;blog/getting-started-with-jekyll#permalinks&quot;&gt;this&lt;/a&gt; out, to support this permalink structure in production.)&lt;/p&gt;
+&lt;p&gt;(Notice that I removed &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.html&lt;/code&gt; from the end of the title. You might want to check &lt;a href=&quot;blog/getting-started-with-jekyll#permalinks&quot;&gt;this&lt;/a&gt; out, to support this permalink structure in production.)&lt;/p&gt;
 
-&lt;p&gt;A little gotcha: Note that &lt;code class=&quot;highlighter-rouge&quot;&gt;:title&lt;/code&gt; is actually the latter part of the post’s filename, and not the posts &lt;code class=&quot;highlighter-rouge&quot;&gt;title: &lt;/code&gt; as configured in its front matter.&lt;/p&gt;
+&lt;p&gt;A little gotcha: Note that &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;:title&lt;/code&gt; is actually the latter part of the post’s filename, and not the posts &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;title: &lt;/code&gt; as configured in its front matter.&lt;/p&gt;
 
 &lt;h2 id=&quot;read-more-tag&quot;&gt;Read More Tag&lt;/h2&gt;
 
-&lt;p&gt;I am a frequent user of the &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;!--more--&amp;gt;&lt;/code&gt; tag. My automatically exported posts did retain these tags, but the template displaying my posts feed in my new Jekyll site did not, of course, limit itself to only displaying content before the more tag.&lt;/p&gt;
+&lt;p&gt;I am a frequent user of the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;!--more--&amp;gt;&lt;/code&gt; tag. My automatically exported posts did retain these tags, but the template displaying my posts feed in my new Jekyll site did not, of course, limit itself to only displaying content before the more tag.&lt;/p&gt;
 
-&lt;p&gt;If you’d like to get the &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;!--more--&amp;gt;&lt;/code&gt; tag working, the first thing you’ll have to do is find the template that is used to display post excerpts in the post feed.
-To start, navigate to the directory that contains your current theme. My theme is &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll-swiss&lt;/code&gt;, so, to open the directory, I just do&lt;/p&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;open &lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;bundle show jekyll-swiss&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;p&gt;I located the post feed in &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll-swiss-0.4.0/_layouts/home.html&lt;/code&gt;, where I found:&lt;/p&gt;
+&lt;p&gt;If you’d like to get the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;!--more--&amp;gt;&lt;/code&gt; tag working, the first thing you’ll have to do is find the template that is used to display post excerpts in the post feed.
+To start, navigate to the directory that contains your current theme. My theme is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jekyll-swiss&lt;/code&gt;, so, to open the directory, I just do&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;open &lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;bundle show jekyll-swiss&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;I located the post feed in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jekyll-swiss-0.4.0/_layouts/home.html&lt;/code&gt;, where I found:&lt;/p&gt;
 
-&lt;div class=&quot;language-liquid highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;post&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;in&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;site.posts&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;%}&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;{%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;post_block&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;html&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;%}&lt;/span&gt;
+&lt;div class=&quot;language-liquid highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;in&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;site.posts&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;%}&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;{%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;post_block.html&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;%}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;{%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;endfor&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;%}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;So, post excerpts should be in a file called &lt;code class=&quot;highlighter-rouge&quot;&gt;post_block.html&lt;/code&gt; in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_includes/&lt;/code&gt; directory: &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll-swiss-0.4.0/_includes/post_block.html&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;So, post excerpts should be in a file called &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;post_block.html&lt;/code&gt; in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_includes/&lt;/code&gt; directory: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jekyll-swiss-0.4.0/_includes/post_block.html&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;In order to override that file, make a copy of it in your Jekyll project’s &lt;code class=&quot;highlighter-rouge&quot;&gt;_includes/&lt;/code&gt; directory. (If you don’t already have an &lt;code class=&quot;highlighter-rouge&quot;&gt;_includes/&lt;/code&gt; directory, create one.)&lt;/p&gt;
+&lt;p&gt;In order to override that file, make a copy of it in your Jekyll project’s &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_includes/&lt;/code&gt; directory. (If you don’t already have an &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_includes/&lt;/code&gt; directory, create one.)&lt;/p&gt;
 
-&lt;p&gt;Then, edit your &lt;code class=&quot;highlighter-rouge&quot;&gt;_includes/post_block.html&lt;/code&gt;. In my case, the post excerpt was being generated here on this line:&lt;/p&gt;
+&lt;p&gt;Then, edit your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_includes/post_block.html&lt;/code&gt;. In my case, the post excerpt was being generated here on this line:&lt;/p&gt;
 
-&lt;div class=&quot;language-liquid highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;p&amp;gt;&lt;span class=&quot;p&quot;&gt;{{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;strip_html&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;truncatewords&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}}&lt;/span&gt;&amp;lt;/p&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;language-liquid highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;p&amp;gt;&lt;span class=&quot;p&quot;&gt;{{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;strip_html&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;truncatewords&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}}&lt;/span&gt;&amp;lt;/p&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;So, I replaced that with:&lt;/p&gt;
 
-&lt;div class=&quot;language-liquid highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;p&amp;gt;
+&lt;div class=&quot;language-liquid highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;p&amp;gt;
   &lt;span class=&quot;p&quot;&gt;{{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'&amp;lt;!--more--&amp;gt;'&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;first&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}}&lt;/span&gt;
 &amp;lt;/p&amp;gt;
 &lt;span class=&quot;p&quot;&gt;{%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kr&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;ow&quot;&gt;contains&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'&amp;lt;!--more--&amp;gt;'&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;%}&lt;/span&gt;
@@ -205,15 +200,14 @@ To start, navigate to the directory that contains your current theme. My theme i
     &amp;lt;a href=&quot;&lt;span class=&quot;p&quot;&gt;{{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}}&lt;/span&gt;&quot;&amp;gt;Read More&amp;lt;/a&amp;gt;
   &amp;lt;/div&amp;gt;
 &lt;span class=&quot;p&quot;&gt;{%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kr&quot;&gt;endif&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;%}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;static-homepage&quot;&gt;Static Homepage&lt;/h2&gt;
 
 &lt;p&gt;You might decide that you don’t want your homepage to display a post feed.
 If so, then you’ll need to override the current homepage, and create a new page to host the feed.&lt;/p&gt;
 
-&lt;p&gt;The index file of your Jekyll site can be found in your project root, in &lt;code class=&quot;highlighter-rouge&quot;&gt;index.md&lt;/code&gt;.
+&lt;p&gt;The index file of your Jekyll site can be found in your project root, in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;index.md&lt;/code&gt;.
 It should contain something like:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&quot;language-jekyll&quot;&gt;---
@@ -223,26 +217,24 @@ It should contain something like:&lt;/p&gt;
 layout: home
 ---
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;As you can see, in order to edit your site’s homepage, you should be editing the file that determines the layout called &lt;code class=&quot;highlighter-rouge&quot;&gt;home&lt;/code&gt;. This file should be in &lt;code class=&quot;highlighter-rouge&quot;&gt;_layouts/home.html&lt;/code&gt; or something similar. If you don’t have the home layout file in your project, you will need to locate this file in your theme, copy it into your project, and edit in there, in order to override it this layout in the theme.
+&lt;p&gt;As you can see, in order to edit your site’s homepage, you should be editing the file that determines the layout called &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;home&lt;/code&gt;. This file should be in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_layouts/home.html&lt;/code&gt; or something similar. If you don’t have the home layout file in your project, you will need to locate this file in your theme, copy it into your project, and edit in there, in order to override it this layout in the theme.
 First up, find this file in your theme directory.
-In my case, since my theme is called &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll-swiss&lt;/code&gt;, I navigated to my theme directory by doing&lt;/p&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;open &lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;bundle show jekyll-swiss&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;p&gt;From there, the home layout file should be in &lt;code class=&quot;highlighter-rouge&quot;&gt;_layouts&lt;/code&gt;. Mine was in &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll-swiss-0.4.0/_layouts/home.html&lt;/code&gt;.&lt;/p&gt;
+In my case, since my theme is called &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jekyll-swiss&lt;/code&gt;, I navigated to my theme directory by doing&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;open &lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;bundle show jekyll-swiss&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;From there, the home layout file should be in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_layouts&lt;/code&gt;. Mine was in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jekyll-swiss-0.4.0/_layouts/home.html&lt;/code&gt;.&lt;/p&gt;
 
 &lt;p&gt;This file includes a loop that displays an excerpt of all posts, such as&lt;/p&gt;
 
-&lt;div class=&quot;language-liquid highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;post&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;in&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;site.posts&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;%}&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;{%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;post_block&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;html&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;%}&lt;/span&gt;
+&lt;div class=&quot;language-liquid highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;in&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;site.posts&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;%}&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;{%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;post_block.html&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;%}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;{%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;endfor&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;%}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;If you want your homepage to be static, i.e. not to display a feed, then you’ll need to create a new layout for the feed and move that post loop there.
 You’ll need to do three things:&lt;/p&gt;
 &lt;h3 id=&quot;create-blog-index&quot;&gt;Create Blog Index&lt;/h3&gt;
-&lt;p&gt;Create a file in the root of your project called &lt;code class=&quot;highlighter-rouge&quot;&gt;blog.md&lt;/code&gt;. It should contain:&lt;/p&gt;
+&lt;p&gt;Create a file in the root of your project called &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;blog.md&lt;/code&gt;. It should contain:&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-jekyll&quot;&gt;---
 layout: blog
 title: Blog
@@ -250,7 +242,7 @@ permalink: /blog/
 ---
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h3 id=&quot;create-blog-layout&quot;&gt;Create Blog Layout&lt;/h3&gt;
-&lt;p&gt;Create a blog layout by creating the file &lt;code class=&quot;highlighter-rouge&quot;&gt;_layouts/blog.html&lt;/code&gt;. You can put whatever you want in there, as long as it contains a loop that displays all posts. Mine looks like this:&lt;/p&gt;
+&lt;p&gt;Create a blog layout by creating the file &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_layouts/blog.html&lt;/code&gt;. You can put whatever you want in there, as long as it contains a loop that displays all posts. Mine looks like this:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&quot;language-jekyll&quot;&gt;---
 layout: default
@@ -295,7 +287,7 @@ layout: default
 &lt;p&gt;In order to get featured images working in Jekyll, you’ll need to follow these steps:&lt;/p&gt;
 &lt;h3 id=&quot;add-data&quot;&gt;Add Data&lt;/h3&gt;
 &lt;p&gt;The first step is to add a field to a post’s front matter if you want that post to have a featured image.
-I decided to name this field &lt;code class=&quot;highlighter-rouge&quot;&gt;image&lt;/code&gt;. Here’s an example of a post’s front matter with an image:&lt;/p&gt;
+I decided to name this field &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;image&lt;/code&gt;. Here’s an example of a post’s front matter with an image:&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-jekyll&quot;&gt;---
 id: 1108
 title: Playing Around With LeNet
@@ -309,30 +301,29 @@ image: /assets/images/featured/lenet.png
 &lt;h3 id=&quot;display-image&quot;&gt;Display Image&lt;/h3&gt;
 &lt;p&gt;Then, you will need to edit a couple of template files.&lt;/p&gt;
 
-&lt;p&gt;Any custom field you add to a post’s front matter will be available for use in templates. You can access the value of this new custom variable by doing &lt;code class=&quot;highlighter-rouge&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;post.image&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;}&lt;/span&gt;&lt;/code&gt;. So, you would display the image in a post by adding &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;img src=&quot;{{ post.image }}&quot; /&amp;gt;&lt;/code&gt; to the template that is used to generate post content.&lt;/p&gt;
+&lt;p&gt;Any custom field you add to a post’s front matter will be available for use in templates. You can access the value of this new custom variable by doing &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;{{ post.image }}&lt;/code&gt;. So, you would display the image in a post by adding &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;img src=&quot;{{ post.image }}&quot; /&amp;gt;&lt;/code&gt; to the template that is used to generate post content.&lt;/p&gt;
 
 &lt;p&gt;As with other instances that have required overriding a theme file, you will need to&lt;/p&gt;
 &lt;ul&gt;
-  &lt;li&gt;locate the theme directory (&lt;code class=&quot;highlighter-rouge&quot;&gt;open $(bundle show jekyll-swiss)&lt;/code&gt;)&lt;/li&gt;
-  &lt;li&gt;find the relevant files (&lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll-swiss-0.4.0/_includes/post_block.html&lt;/code&gt; &amp;amp; &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll-swiss-0.4.0/_layouts/post.html&lt;/code&gt;)&lt;/li&gt;
-  &lt;li&gt;make copies of them in your project (&lt;code class=&quot;highlighter-rouge&quot;&gt;my-project-root/_includes/post_block.html&lt;/code&gt; &amp;amp; &lt;code class=&quot;highlighter-rouge&quot;&gt;my-project-root/_layouts/post.html&lt;/code&gt;).&lt;/li&gt;
+  &lt;li&gt;locate the theme directory (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;open $(bundle show jekyll-swiss)&lt;/code&gt;)&lt;/li&gt;
+  &lt;li&gt;find the relevant files (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jekyll-swiss-0.4.0/_includes/post_block.html&lt;/code&gt; &amp;amp; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jekyll-swiss-0.4.0/_layouts/post.html&lt;/code&gt;)&lt;/li&gt;
+  &lt;li&gt;make copies of them in your project (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;my-project-root/_includes/post_block.html&lt;/code&gt; &amp;amp; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;my-project-root/_layouts/post.html&lt;/code&gt;).&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;In my case, I wanted to display featured images in both the posts’ excerpts in the blog feed, as well as in the post itself.&lt;/p&gt;
 
 &lt;p&gt;To both those files, I added&lt;/p&gt;
 
-&lt;div class=&quot;language-liquid highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kr&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;page&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;%}&lt;/span&gt;
+&lt;div class=&quot;language-liquid highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kr&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;page&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;%}&lt;/span&gt;
   &amp;lt;p class=&quot;featured-image&quot;&amp;gt;
     &amp;lt;img src=&quot;&lt;span class=&quot;p&quot;&gt;{{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;page&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}}&lt;/span&gt;&quot; /&amp;gt;
   &amp;lt;/p&amp;gt;
 &lt;span class=&quot;p&quot;&gt;{%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kr&quot;&gt;endif&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;%}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h3 id=&quot;full-base-urls&quot;&gt;Full Base URLs&lt;/h3&gt;
 
-&lt;p&gt;Don’t forget to consider whether the path of the image (which you have specified in the post’s front matter) is absolute or relative. You may decide that you want to programmatically add the site’s url and baseurl to the image path in the template, by prepending the image path in the template with &lt;code class=&quot;highlighter-rouge&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;site.url&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;site.baseurl&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;}&lt;/span&gt;&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Don’t forget to consider whether the path of the image (which you have specified in the post’s front matter) is absolute or relative. You may decide that you want to programmatically add the site’s url and baseurl to the image path in the template, by prepending the image path in the template with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;{{ site.url }}{{ site.baseurl }}&lt;/code&gt;.&lt;/p&gt;
 
 &lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
 
@@ -374,129 +365,116 @@ image: /assets/images/featured/lenet.png
 
 &lt;p&gt;Before starting on the installation, you should get set up using a Ruby version management tool.&lt;/p&gt;
 
-&lt;p&gt;If you are on a Mac, and you have recently tried to install gems, you may have noticed that you had issues with permissions; there’s a good chance you ended up doing a &lt;code class=&quot;highlighter-rouge&quot;&gt;$ sudo gem install...&lt;/code&gt;. Doing so is problematic for a few reasons. For one, this may result in you needing to use sudo every time you use one of those gems, which is cumbersome and dangerous. Also, installing gems in the version of Ruby that comes default with Mac OS can have unintended side-effects on other programs you use that depend on Ruby.&lt;/p&gt;
+&lt;p&gt;If you are on a Mac, and you have recently tried to install gems, you may have noticed that you had issues with permissions; there’s a good chance you ended up doing a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$ sudo gem install...&lt;/code&gt;. Doing so is problematic for a few reasons. For one, this may result in you needing to use sudo every time you use one of those gems, which is cumbersome and dangerous. Also, installing gems in the version of Ruby that comes default with Mac OS can have unintended side-effects on other programs you use that depend on Ruby.&lt;/p&gt;
 
-&lt;p&gt;The two main tools that are conventionally used to do Ruby version management are &lt;code class=&quot;highlighter-rouge&quot;&gt;rbenv&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;rvm&lt;/code&gt;. I chose to go with &lt;a href=&quot;https://github.com/rbenv/rbenv#homebrew-on-mac-os-x&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;rbenv&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The two main tools that are conventionally used to do Ruby version management are &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rbenv&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rvm&lt;/code&gt;. I chose to go with &lt;a href=&quot;https://github.com/rbenv/rbenv#homebrew-on-mac-os-x&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rbenv&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h3 id=&quot;setting-up-rbenv&quot;&gt;Setting up rbenv&lt;/h3&gt;
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;brew install rbenv
-&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;rbenv init
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;p&gt;After installing &lt;code class=&quot;highlighter-rouge&quot;&gt;rbenv&lt;/code&gt;, you need to use &lt;code class=&quot;highlighter-rouge&quot;&gt;rbenv&lt;/code&gt; to install at least one version of Ruby, and then tell &lt;code class=&quot;highlighter-rouge&quot;&gt;rbenv&lt;/code&gt; which version of Ruby you want to work on at the moment.&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;brew &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;rbenv
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;rbenv init
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;After installing &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rbenv&lt;/code&gt;, you need to use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rbenv&lt;/code&gt; to install at least one version of Ruby, and then tell &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rbenv&lt;/code&gt; which version of Ruby you want to work on at the moment.&lt;/p&gt;
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;rbenv install 2.4.1
-&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;rbenv &lt;span class=&quot;nb&quot;&gt;local &lt;/span&gt;2.4.1
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;rbenv &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;2.4.1
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;rbenv &lt;span class=&quot;nb&quot;&gt;local &lt;/span&gt;2.4.1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;installing-jekyll&quot;&gt;Installing Jekyll&lt;/h2&gt;
 
 &lt;p&gt;Now that your Ruby install is all set, you are ready to go ahead and install Jekyll, as per the instructions in the offical docs’ quickstart:&lt;/p&gt;
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;gem install jekyll bundler
-&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;jekyll new myblog
-&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;myblog
-&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;bundle &lt;span class=&quot;nb&quot;&gt;exec &lt;/span&gt;jekyll serve
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;gem &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;jekyll bundler
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;jekyll new myblog
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;myblog
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;bundle &lt;span class=&quot;nb&quot;&gt;exec &lt;/span&gt;jekyll serve
 &lt;span class=&quot;c&quot;&gt;# Now browse to http://localhost:4000&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;That’ll start a development server. In order to do a production build, do&lt;/p&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;jekyll build
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;jekyll build
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Whenever Jekyll makes a build (either for development or for production), &lt;code class=&quot;highlighter-rouge&quot;&gt;_site/&lt;/code&gt; gets emptied out and then repopulated with html and CSS files, and the resultant website is served out of that &lt;code class=&quot;highlighter-rouge&quot;&gt;_site/&lt;/code&gt; directory. So, you’ll never be directly editing files in that directory.&lt;/p&gt;
+&lt;p&gt;Whenever Jekyll makes a build (either for development or for production), &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_site/&lt;/code&gt; gets emptied out and then repopulated with html and CSS files, and the resultant website is served out of that &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_site/&lt;/code&gt; directory. So, you’ll never be directly editing files in that directory.&lt;/p&gt;
 
 &lt;h2 id=&quot;changing-the-theme&quot;&gt;Changing the Theme&lt;/h2&gt;
 
 &lt;h3 id=&quot;selection&quot;&gt;Selection&lt;/h3&gt;
 
 &lt;p&gt;Check out &lt;a href=&quot;https://github.com/planetjekyll/awesome-jekyll-themes&quot;&gt;this&lt;/a&gt; list to pick one, and make note of your chosen theme’s &lt;em&gt;gem name&lt;/em&gt;.&lt;br /&gt;
-E.g. This theme is called Swiss but the gem is called &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll-swiss&lt;/code&gt;:&lt;/p&gt;
-&lt;div class=&quot;language-markdown highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Swiss ★35 (gem: jekyll-swiss ...
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+E.g. This theme is called Swiss but the gem is called &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jekyll-swiss&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;language-markdown highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Swiss ★35 (gem: jekyll-swiss ...
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h3 id=&quot;installation&quot;&gt;Installation&lt;/h3&gt;
 
 &lt;p&gt;Installing the theme is a four-step process:&lt;/p&gt;
 &lt;ul&gt;
-  &lt;li&gt;Add the new theme to your &lt;code class=&quot;highlighter-rouge&quot;&gt;Gemfile&lt;/code&gt;, which lists the project’s dependencies:
-    &lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# Swiss theme&lt;/span&gt;
+  &lt;li&gt;Add the new theme to your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Gemfile&lt;/code&gt;, which lists the project’s dependencies:
+    &lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# Swiss theme&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;jekyll-swiss&quot;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-    &lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
   &lt;/li&gt;
-  &lt;li&gt;Use &lt;code class=&quot;highlighter-rouge&quot;&gt;bundler&lt;/code&gt; to update your dependencies. This command install will install the new gem.
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;bundle install
-&lt;/code&gt;&lt;/pre&gt;
-    &lt;/div&gt;
+  &lt;li&gt;Use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bundler&lt;/code&gt; to update your dependencies. This command install will install the new gem.
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;bundle &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
   &lt;/li&gt;
-  &lt;li&gt;change the value of &lt;code class=&quot;highlighter-rouge&quot;&gt;theme: &lt;/code&gt; in &lt;code class=&quot;highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt;
-    &lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;ss&quot;&gt;theme: &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;jekyll&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;swiss&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-    &lt;/div&gt;
+  &lt;li&gt;change the value of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;theme: &lt;/code&gt; in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt;
+    &lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;ss&quot;&gt;theme: &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;jekyll&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;swiss&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
   &lt;/li&gt;
   &lt;li&gt;Restart the development server to reload the new config and the updated dependencies:
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;bundle &lt;span class=&quot;nb&quot;&gt;exec &lt;/span&gt;jekyll serve
-&lt;/code&gt;&lt;/pre&gt;
-    &lt;/div&gt;
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;bundle &lt;span class=&quot;nb&quot;&gt;exec &lt;/span&gt;jekyll serve
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;configuration&quot;&gt;Configuration&lt;/h3&gt;
 
-&lt;p&gt;Your chosen theme may have a few settings you can configure in &lt;code class=&quot;highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt;. You can determine what settings are available by reading that theme’s documentation. For example, &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll-swiss&lt;/code&gt; has several options for &lt;code class=&quot;highlighter-rouge&quot;&gt;theme_color&lt;/code&gt;. So, I’ve added the following to &lt;code class=&quot;highlighter-rouge&quot;&gt;_config.xml&lt;/code&gt;:&lt;/p&gt;
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;ss&quot;&gt;theme_color: &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;red&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;p&gt;Your chosen theme may have a few settings you can configure in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt;. You can determine what settings are available by reading that theme’s documentation. For example, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jekyll-swiss&lt;/code&gt; has several options for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;theme_color&lt;/code&gt;. So, I’ve added the following to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_config.xml&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;ss&quot;&gt;theme_color: &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;red&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;After editing your config, restart your development server.&lt;/p&gt;
 
 &lt;h3 id=&quot;customization&quot;&gt;Customization&lt;/h3&gt;
 
 &lt;p&gt;You can navigate to the root directory of the theme by doing, e.g.&lt;/p&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;open &lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;bundle show jekyll-swiss&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;open &lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;bundle show jekyll-swiss&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;(You can use this method for any installed gems.)
 Don’t make changes directly to any file in the theme directory; rather, any file that you would like to alter should be copied into your project root at the same location. The file in the project will override the file in the theme.&lt;/p&gt;
 
-&lt;p&gt;For example, if you want to change the footer, copy the file &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll-swiss-0.4.0/_includes/footer.html&lt;/code&gt; into &lt;code class=&quot;highlighter-rouge&quot;&gt;my-project/_includes/footer.html&lt;/code&gt; and make your changes to the latter. If you are running the dev server, then you should be able simply refresh the page in the browser to see your changes take effect.&lt;/p&gt;
+&lt;p&gt;For example, if you want to change the footer, copy the file &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jekyll-swiss-0.4.0/_includes/footer.html&lt;/code&gt; into &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;my-project/_includes/footer.html&lt;/code&gt; and make your changes to the latter. If you are running the dev server, then you should be able simply refresh the page in the browser to see your changes take effect.&lt;/p&gt;
 
 &lt;h2 id=&quot;scss-customization&quot;&gt;SCSS Customization&lt;/h2&gt;
 
-&lt;p&gt;Jekyll has built-in support for writing styles in SCSS. Any SCSS files that you add to your project, anywhere &lt;em&gt;other than&lt;/em&gt; in underscored directories (&lt;code class=&quot;highlighter-rouge&quot;&gt;_site&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;_includes&lt;/code&gt;, …), will be compiled to CSS and added to &lt;code class=&quot;highlighter-rouge&quot;&gt;_site&lt;/code&gt; with the same name and directory hierarchy they had as SCSS files.&lt;/p&gt;
+&lt;p&gt;Jekyll has built-in support for writing styles in SCSS. Any SCSS files that you add to your project, anywhere &lt;em&gt;other than&lt;/em&gt; in underscored directories (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_site&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_posts&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_includes&lt;/code&gt;, …), will be compiled to CSS and added to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_site&lt;/code&gt; with the same name and directory hierarchy they had as SCSS files.&lt;/p&gt;
 
 &lt;p&gt;For example, these SCSS files&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;style.scss
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;style.scss
 assets/my-file.scss
 testing/testeroo/test.scss
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;will, respectively, be compiled to these CSS files:&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;_site/style.css
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;_site/style.css
 _site/assets/my-file.css
 _site/testing/testeroo/test.css
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;The same goes for the &lt;em&gt;theme’s&lt;/em&gt; SCSS files. If you navigate to your current theme’s root directory, you will notice that any SCSS in a non-underscored directory has been compiled to an equivalent CSS file, in your project’s &lt;code class=&quot;highlighter-rouge&quot;&gt;_site/&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;The same goes for the &lt;em&gt;theme’s&lt;/em&gt; SCSS files. If you navigate to your current theme’s root directory, you will notice that any SCSS in a non-underscored directory has been compiled to an equivalent CSS file, in your project’s &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_site/&lt;/code&gt;.&lt;/p&gt;
 
 &lt;h3 id=&quot;write-your-own-scss&quot;&gt;Write Your Own SCSS&lt;/h3&gt;
 
-&lt;p&gt;CSS is included in Jekyll sites in the same way it is in any run-of-the-mill site: the html files have &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;link&amp;gt;&lt;/code&gt; tags, who’s href attributes point to CSS files. In order to add a new stylesheet to your site, you need to do two things:&lt;/p&gt;
+&lt;p&gt;CSS is included in Jekyll sites in the same way it is in any run-of-the-mill site: the html files have &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;link&amp;gt;&lt;/code&gt; tags, who’s href attributes point to CSS files. In order to add a new stylesheet to your site, you need to do two things:&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;Create a SCSS file.&lt;br /&gt;
-For this, I recommend that you create an &lt;code class=&quot;highlighter-rouge&quot;&gt;assets/&lt;/code&gt; directory in your project root. The files that you add to this directory will be compiled to CSS files in &lt;code class=&quot;highlighter-rouge&quot;&gt;_site/assets/&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;Add a &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;link&amp;gt;&lt;/code&gt; tag.&lt;br /&gt;
-For this step, you may need to delve into your theme a little bit. You will probably want to add the &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;link&amp;gt;&lt;/code&gt; tag to the &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;head&amp;gt;&lt;/code&gt;. Now for some digging: open your theme’s directory (&lt;code class=&quot;highlighter-rouge&quot;&gt;$ open $(bundle show jekyll-swiss)&lt;/code&gt;) and figure out which template includes a &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;head&amp;gt;&lt;/code&gt; tag. In my case, the template in question is in &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll-swiss-0.4.0/_includes/head.html&lt;/code&gt;. Now, importantly, do not edit the file in the theme’s directory. What we want to do is override this file &lt;em&gt;in our project&lt;/em&gt;. So, assuming the file you want to override is in the theme’s &lt;code class=&quot;highlighter-rouge&quot;&gt;_includes/&lt;/code&gt;:
+For this, I recommend that you create an &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;assets/&lt;/code&gt; directory in your project root. The files that you add to this directory will be compiled to CSS files in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_site/assets/&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;Add a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;link&amp;gt;&lt;/code&gt; tag.&lt;br /&gt;
+For this step, you may need to delve into your theme a little bit. You will probably want to add the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;link&amp;gt;&lt;/code&gt; tag to the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;head&amp;gt;&lt;/code&gt;. Now for some digging: open your theme’s directory (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$ open $(bundle show jekyll-swiss)&lt;/code&gt;) and figure out which template includes a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;head&amp;gt;&lt;/code&gt; tag. In my case, the template in question is in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jekyll-swiss-0.4.0/_includes/head.html&lt;/code&gt;. Now, importantly, do not edit the file in the theme’s directory. What we want to do is override this file &lt;em&gt;in our project&lt;/em&gt;. So, assuming the file you want to override is in the theme’s &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_includes/&lt;/code&gt;:
     &lt;ul&gt;
-      &lt;li&gt;If your project root does not have an &lt;code class=&quot;highlighter-rouge&quot;&gt;_includes/&lt;/code&gt; directory, create one.&lt;/li&gt;
-      &lt;li&gt;Copy the file from the theme’s &lt;code class=&quot;highlighter-rouge&quot;&gt;_includes/&lt;/code&gt; to your project’s &lt;code class=&quot;highlighter-rouge&quot;&gt;_includes/&lt;/code&gt;&lt;/li&gt;
-      &lt;li&gt;Edit the file in your project’s &lt;code class=&quot;highlighter-rouge&quot;&gt;_includes/&lt;/code&gt; to add the new &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;link&amp;gt;&lt;/code&gt; tag.&lt;/li&gt;
+      &lt;li&gt;If your project root does not have an &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_includes/&lt;/code&gt; directory, create one.&lt;/li&gt;
+      &lt;li&gt;Copy the file from the theme’s &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_includes/&lt;/code&gt; to your project’s &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_includes/&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;Edit the file in your project’s &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_includes/&lt;/code&gt; to add the new &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;link&amp;gt;&lt;/code&gt; tag.&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
@@ -505,37 +483,35 @@ For this step, you may need to delve into your theme a little bit. You will prob
 
 &lt;p&gt;There are some limitation and drawbacks to simply adding another CSS file to the site. For instance, you might want access to the theme’s SCSS variables. Similarly to steps laid out above (for overriding a theme template file), here’s what you need to do:&lt;/p&gt;
 &lt;ul&gt;
-  &lt;li&gt;Navigate to the theme’s directory (e.g. &lt;code class=&quot;highlighter-rouge&quot;&gt;$ open $(bundle show jekyll-swiss)&lt;/code&gt;)&lt;/li&gt;
-  &lt;li&gt;Find the main SCSS in the theme, and copy it into your project with the same file path it had in the theme. In my case, the theme’s main stylesheet was in &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll-swiss-0.4.0/assets/style.scss&lt;/code&gt;, so I created &lt;code class=&quot;highlighter-rouge&quot;&gt;assets/style.scss&lt;/code&gt; in my project root.
+  &lt;li&gt;Navigate to the theme’s directory (e.g. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$ open $(bundle show jekyll-swiss)&lt;/code&gt;)&lt;/li&gt;
+  &lt;li&gt;Find the main SCSS in the theme, and copy it into your project with the same file path it had in the theme. In my case, the theme’s main stylesheet was in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jekyll-swiss-0.4.0/assets/style.scss&lt;/code&gt;, so I created &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;assets/style.scss&lt;/code&gt; in my project root.
 The content of this file is:&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div class=&quot;language-scss highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;---&lt;/span&gt;
+&lt;div class=&quot;language-scss highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;---&lt;/span&gt;
 &lt;span class=&quot;nn&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;Only&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;the&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;main&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;Sass&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;file&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;needs&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;front&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;matter&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;the&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;dashes&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;are&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;enough&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;---&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;charset&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;utf-8&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 
-&lt;span class=&quot;c1&quot;&gt;// Import partials from `sass_dir` and set theme here
-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;@import&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// Import partials from `sass_dir` and set theme here&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;@import&lt;/span&gt;
         &lt;span class=&quot;s2&quot;&gt;&quot;theme-{{ site.theme_color | default: &quot;&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;black&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot; }}.scss&quot;&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;The default base that the Jekyll SCSS compiler uses for imported URLs points to the theme’s configured SCSS directory, so I don’t need to change anything in my copy of this file in order for that import statement to work. I can go ahead and start using the theme’s variables:&lt;/p&gt;
 
-&lt;div class=&quot;language-scss highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nc&quot;&gt;...&lt;/span&gt;
+&lt;div class=&quot;language-scss highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nc&quot;&gt;...&lt;/span&gt;
 
 &lt;span class=&quot;nt&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
   &lt;span class=&quot;nl&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$color-primary-link&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 
 &lt;span class=&quot;nc&quot;&gt;...&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;deploy&quot;&gt;Deploy&lt;/h2&gt;
 
-&lt;p&gt;In order to deploy your site, all you need to do is run Jekyll’s build process, and then copy the files in &lt;code class=&quot;highlighter-rouge&quot;&gt;_site/&lt;/code&gt; into your server’s web root.&lt;/p&gt;
+&lt;p&gt;In order to deploy your site, all you need to do is run Jekyll’s build process, and then copy the files in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_site/&lt;/code&gt; into your server’s web root.&lt;/p&gt;
 
 &lt;h3 id=&quot;server-config&quot;&gt;Server Config&lt;/h3&gt;
 
@@ -543,13 +519,12 @@ The content of this file is:&lt;/li&gt;
 
 &lt;h4 id=&quot;permalinks&quot;&gt;Permalinks&lt;/h4&gt;
 
-&lt;p&gt;You may need to configure your production server in order to accommodate your chosen permalink structure. For example: I have set, in &lt;code class=&quot;highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt;,&lt;/p&gt;
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;ss&quot;&gt;permalink: &lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/blog/&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:title&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;p&gt;Notice that the title is not followed by &lt;code class=&quot;highlighter-rouge&quot;&gt;.html&lt;/code&gt;, but the files that I would like to serve, when hitting the resulting URLs, are html files.&lt;/p&gt;
+&lt;p&gt;You may need to configure your production server in order to accommodate your chosen permalink structure. For example: I have set, in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt;,&lt;/p&gt;
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;ss&quot;&gt;permalink: &lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/blog/&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:title&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Notice that the title is not followed by &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.html&lt;/code&gt;, but the files that I would like to serve, when hitting the resulting URLs, are html files.&lt;/p&gt;
 
-&lt;p&gt;I am using Apache, so I opted to create an &lt;code class=&quot;highlighter-rouge&quot;&gt;.htaccess&lt;/code&gt; file in my web root, containing the following:&lt;/p&gt;
+&lt;p&gt;I am using Apache, so I opted to create an &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.htaccess&lt;/code&gt; file in my web root, containing the following:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&quot;language-htaccess&quot;&gt;RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
@@ -560,10 +535,10 @@ RewriteRule ^([^\.]+)$ $1.html [NC,L]
 
 &lt;p&gt;You may also want to add a 404 page. You’ll have to create a template file for that page, and then configure your server to use the resultant page as your error document.&lt;/p&gt;
 &lt;ul&gt;
-  &lt;li&gt;Create &lt;code class=&quot;highlighter-rouge&quot;&gt;404.md&lt;/code&gt; in your project root. Here’s what mine looks like:&lt;/li&gt;
+  &lt;li&gt;Create &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;404.md&lt;/code&gt; in your project root. Here’s what mine looks like:&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;---
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;---
 # example 404.md
 
 layout: post
@@ -574,51 +549,47 @@ exclude_from_nav: true
 ---
 
 This, ladies and gentlemen, is a 404
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;If you are using Apache, add the following to your &lt;code class=&quot;highlighter-rouge&quot;&gt;.htaccess&lt;/code&gt;:
+  &lt;li&gt;If you are using Apache, add the following to your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.htaccess&lt;/code&gt;:
     &lt;pre&gt;&lt;code class=&quot;language-htaccess&quot;&gt;ErrorDocument 404 /404.html
 &lt;/code&gt;&lt;/pre&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Next time you run a build, the file &lt;code class=&quot;highlighter-rouge&quot;&gt;_site/404.html&lt;/code&gt; should be created.&lt;/p&gt;
+&lt;p&gt;Next time you run a build, the file &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_site/404.html&lt;/code&gt; should be created.&lt;/p&gt;
 
 &lt;h3 id=&quot;build-_site-files&quot;&gt;Build _site/ Files&lt;/h3&gt;
 
-&lt;p&gt;Although running the Jekyll development server will cause Jekyll to build the &lt;code class=&quot;highlighter-rouge&quot;&gt;_site/&lt;/code&gt; files, you should turn off the dev server and run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll build&lt;/code&gt; before checking in and deploying &lt;code class=&quot;highlighter-rouge&quot;&gt;_site/&lt;/code&gt; files. This is because the dev server will have assigned &lt;code class=&quot;highlighter-rouge&quot;&gt;localhost:4000&lt;/code&gt; as the value of of &lt;code class=&quot;highlighter-rouge&quot;&gt;site.url&lt;/code&gt;, and this value may be baked into various resultant html files.&lt;/p&gt;
+&lt;p&gt;Although running the Jekyll development server will cause Jekyll to build the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_site/&lt;/code&gt; files, you should turn off the dev server and run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jekyll build&lt;/code&gt; before checking in and deploying &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_site/&lt;/code&gt; files. This is because the dev server will have assigned &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;localhost:4000&lt;/code&gt; as the value of of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;site.url&lt;/code&gt;, and this value may be baked into various resultant html files.&lt;/p&gt;
 
 &lt;p&gt;Also note that you might want to specify the environment when doing a production build:&lt;/p&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;JEKYLL_ENV&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;production jekyll build
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ JEKYLL_ENV&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;production jekyll build
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;This is because some templates may include blocks that are checking for the environment, such as&lt;/p&gt;
 
-&lt;div class=&quot;language-liquid highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-&lt;span class=&quot;p&quot;&gt;{%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kr&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;jekyll&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;environment&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'production'&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;and&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;site&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;google_analytics&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;%}&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;{%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;google-analytics&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;html&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;%}&lt;/span&gt;
+&lt;div class=&quot;language-liquid highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;span class=&quot;p&quot;&gt;{%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kr&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;jekyll&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;environment&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'production'&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;ow&quot;&gt;and&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;site&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;google_analytics&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;%}&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;{%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;google-analytics.html&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;%}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;{%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kr&quot;&gt;endif&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;%}&lt;/span&gt;
 
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h3 id=&quot;my-process&quot;&gt;My Process&lt;/h3&gt;
-&lt;p&gt;I am using git for my Jekyll site. In addition, I have decided to track &lt;code class=&quot;highlighter-rouge&quot;&gt;_site/&lt;/code&gt; using git, contrary to the default Jekyll behaviour, in order to be able to avoid having to do a Jekyll build on my web server (i.e. to avoid configuring my web host environment w/ correct version of Ruby and gems etc). So, for me, the process looks something like this:&lt;/p&gt;
+&lt;p&gt;I am using git for my Jekyll site. In addition, I have decided to track &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_site/&lt;/code&gt; using git, contrary to the default Jekyll behaviour, in order to be able to avoid having to do a Jekyll build on my web server (i.e. to avoid configuring my web host environment w/ correct version of Ruby and gems etc). So, for me, the process looks something like this:&lt;/p&gt;
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;JEKYLL_ENV&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;production jekyll build
-&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;git add .
-&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;git commit -m &lt;span class=&quot;s2&quot;&gt;&quot;my message&quot;&lt;/span&gt;
-&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;git push
-&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;ssh user@host
-&lt;span class=&quot;gp&quot;&gt;host$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~/repos/jekyll-site
-&lt;span class=&quot;gp&quot;&gt;host$ &lt;/span&gt;git pull
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ JEKYLL_ENV&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;production jekyll build
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git add &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git commit &lt;span class=&quot;nt&quot;&gt;-m&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;my message&quot;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git push
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;ssh user@host
+host&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~/repos/jekyll-site
+host&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git pull
 &lt;span class=&quot;c&quot;&gt;# My web root is /var/www/html/&lt;/span&gt;
-&lt;span class=&quot;gp&quot;&gt;host$ &lt;/span&gt;cp -a ~/jekyll_site/_site/. /var/www/html
+host&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cp&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-a&lt;/span&gt; ~/jekyll_site/_site/. /var/www/html
 &lt;span class=&quot;c&quot;&gt;# Tada!&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
 
@@ -652,20 +623,19 @@ You might also find some useful info in my post on &lt;a href=&quot;/blog/migrat
 
 &lt;p&gt;To begin with, I rotated the images by, in turn, 90, 180, and 270 degrees.&lt;/p&gt;
 
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
 
-&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dataset&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reshape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dataset&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;28&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;28&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dataset&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reshape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dataset&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;28&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;28&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
 
-&lt;span class=&quot;n&quot;&gt;rotation&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# 90deg&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# rotation = 2 # 180deg&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# rotation = 3 # 270deg&lt;/span&gt;
-
+&lt;span class=&quot;n&quot;&gt;rotation&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 90deg
+# rotation = 2 # 180deg
+# rotation = 3 # 270deg
+&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;enumerate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rot90&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rotation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rot90&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rotation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 
-&lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;At each rotation, I ran LeNet for 30 epochs. As expected, those transformations did not appear to affect learning rate, because the transformation was applied uniformly across all data. In addition, these transformations will not affect any other attributes of the data, such as mean value over the whole image.&lt;/p&gt;
 
@@ -682,22 +652,21 @@ You might also find some useful info in my post on &lt;a href=&quot;/blog/migrat
 
 &lt;p&gt;I then tried playing around with the values in the image.&lt;/p&gt;
 
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;transformData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;255.&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# normal (values must, in any case, be converted from range 0-255 to range 0-1)&lt;/span&gt;
-  &lt;span class=&quot;c&quot;&gt;# return 1 - (data/255.) # invert values&lt;/span&gt;
-  &lt;span class=&quot;c&quot;&gt;# return data/(255. * 2) # fade image - reduce intensity by halving all values&lt;/span&gt;
-  &lt;span class=&quot;c&quot;&gt;# return data &amp;amp;gt; 127.5 # make values binary&lt;/span&gt;
-
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;255.&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# normal (values must, in any case, be converted from range 0-255 to range 0-1)
+&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;# return 1 - (data/255.) # invert values
+&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;# return data/(255. * 2) # fade image - reduce intensity by halving all values
+&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;# return data &amp;amp;gt; 127.5 # make values binary
+&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;trainData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;testData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;trainLabels&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;testLabels&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;train_test_split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;transformData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dataset&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;target&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;astype&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;int&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;test_size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.33&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+    &lt;span class=&quot;n&quot;&gt;transformData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dataset&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;target&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;astype&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;int&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;test_size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.33&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;As in the case of uniform rotation across all data, these changes were applied uniformly to all data. So, we wouldn’t expect these alterations to have a substantial negative impact on the ability of the network to eventually converge. However, these alteration will have changed important underlying structures of the data such as the mean and variance of the values in any given image. To illustrate, applying these value/intensity transformations to one set of 5 randomly chosen images results in the following:&lt;/p&gt;
 
-&lt;div class=&quot;language-md highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gh&quot;&gt;normal
+&lt;div class=&quot;language-md highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gh&quot;&gt;normal
 ------
 &lt;/span&gt;mean: 0.119206682497
 variance: 0.0883226659517
@@ -716,8 +685,7 @@ variance: 0.0220806664879
 ------
 &lt;/span&gt;mean: 0.880793317503
 variance: 0.0883226659517
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;As you can see below, the binary color and inverted color images get off to a slower start but soon catch up, after 5 epochs.&lt;/p&gt;
 
@@ -750,18 +718,17 @@ variance: 0.0883226659517
 
 &lt;p&gt;Finally, I randomly rotated the images, both with and without the addition of an “indicator” line (a line of all 1s – pure white – added to the bottom of the image before applying the random rotation, to serve as an indicator of the “true” bottom of the image:&lt;/p&gt;
 
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
 
-&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dataset&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reshape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dataset&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;28&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;28&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dataset&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reshape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dataset&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;28&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;28&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
 
 &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;enumerate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;indicator&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ones&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;28&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;255.&lt;/span&gt;
-    &lt;span class=&quot;c&quot;&gt;# data[i][27] = indicator.tolist() # add indicator&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rot90&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;randint&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;indicator&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ones&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;28&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;255.&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# data[i][27] = indicator.tolist() # add indicator
+&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rot90&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;randint&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
 
-&lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Unsurprisingly, the worst performance of all the data modifications occurred as a result of randomly rotating the images. In this case, the transformation was not uniformly applied to each image. The addition of the indicator line had a substantial positive impact on the learning rate. However, interestingly, this positive effect was only observed after 5 epochs. Even so, neither modification was able to eventually converge to an accuracy similar to unmodified data, after 30 epochs.&lt;/p&gt;
 
@@ -809,7 +776,7 @@ Basically, when you mouse over, a raycaster is set from the camera position and 
 &lt;p&gt;I have no intention of advising you to favour of one strategy or another; the right choice obviously depends on the circumstances. In our case, when it came to stylesheets (written in scss), we used a combination strategy:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Theme files were included by default (i.e. the default stylesheets had, e.g. &lt;code class=&quot;highlighter-rouge&quot;&gt;include('theme.scss')&lt;/code&gt;) and the theme files existed as empty files in the default build.&lt;/li&gt;
+  &lt;li&gt;Theme files were included by default (i.e. the default stylesheets had, e.g. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;include('theme.scss')&lt;/code&gt;) and the theme files existed as empty files in the default build.&lt;/li&gt;
   &lt;li&gt;Clients could include their own theme files to &lt;em&gt;overwrite&lt;/em&gt; the existing (empty) theme files.&lt;/li&gt;
   &lt;li&gt;Some of those theme files were explicitly intended for scss variables. In other words, scss variables that had been set in the default scss stylesheets could be overridden in the (default empty) theme variables files.&lt;/li&gt;
 &lt;/ul&gt;
@@ -842,7 +809,7 @@ Basically, when you mouse over, a raycaster is set from the camera position and 
 
 &lt;h5 id=&quot;build-timeruntime&quot;&gt;Build-time/runtime&lt;/h5&gt;
 
-&lt;p&gt;A build-time configuration is one that is “baked into” the app when it is bundled for deployment. A runtime configuration, however, is one that is queried by the app during its operation. Choosing between the two – in my opinion – really depends upon use-case. In the first case, you might imagine your build process replacing the file &lt;code class=&quot;highlighter-rouge&quot;&gt;images/logo.jpg&lt;/code&gt; with the file, if any, that is found at &lt;code class=&quot;highlighter-rouge&quot;&gt;theme/images/logo.png&lt;/code&gt;. In the second case, however, you might imagine doing something like:&lt;/p&gt;
+&lt;p&gt;A build-time configuration is one that is “baked into” the app when it is bundled for deployment. A runtime configuration, however, is one that is queried by the app during its operation. Choosing between the two – in my opinion – really depends upon use-case. In the first case, you might imagine your build process replacing the file &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;images/logo.jpg&lt;/code&gt; with the file, if any, that is found at &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;theme/images/logo.png&lt;/code&gt;. In the second case, however, you might imagine doing something like:&lt;/p&gt;
 
 &lt;pre&gt;var logoImageFile = configurations.getParam('logo_image_file') || 'images/logo.png';&lt;/pre&gt;
 

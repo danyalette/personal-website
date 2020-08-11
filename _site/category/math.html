@@ -241,7 +241,7 @@
   
     <!-- Renders post date, title, and snippet of text. -->
 <div class="py-2 mb-2 prose excerpt border-bottom-thin">
-  <a class="no-underline h5 bold text-accent" title="/blog/delaunay-triangulation-in-js" href="/blog/delaunay-triangulation-in-js">Oct 5, 2015</a>
+  <a class="no-underline h5 bold text-accent" title="/blog/delaunay-triangulation-in-js" href="/blog/delaunay-triangulation-in-js">Oct 4, 2015</a>
   <h2 class="h1 lh-condensed col-9 mt-0">
     <a class="link-primary" title="/blog/delaunay-triangulation-in-js" href="/blog/delaunay-triangulation-in-js">Delaunay Triangulation in JS</a>
   </h2>
@@ -375,14 +375,14 @@
 
 <p>I just read <a href="http://pomax.github.io/bezierinfo/">this</a> really illuminating article.</p>
 
-<p>Something I hadn’t realized before reading the article is that, mathematically, Bézier curves are not defined as run-of-the-mill functions. Whereas generally one would plug an <code class="highlighter-rouge">x</code> value into a function to determine a <code class="highlighter-rouge">y</code> value, à la  <code class="highlighter-rouge">f(x) = y = ax + b</code> , Bézier curves are defined <em>parametrically</em>. The values of <code class="highlighter-rouge">x</code> and <code class="highlighter-rouge">y</code> are determined independently, according to a third parameter, dubbed <code class="highlighter-rouge">t</code>.</p>
+<p>Something I hadn’t realized before reading the article is that, mathematically, Bézier curves are not defined as run-of-the-mill functions. Whereas generally one would plug an <code class="language-plaintext highlighter-rouge">x</code> value into a function to determine a <code class="language-plaintext highlighter-rouge">y</code> value, à la  <code class="language-plaintext highlighter-rouge">f(x) = y = ax + b</code> , Bézier curves are defined <em>parametrically</em>. The values of <code class="language-plaintext highlighter-rouge">x</code> and <code class="language-plaintext highlighter-rouge">y</code> are determined independently, according to a third parameter, dubbed <code class="language-plaintext highlighter-rouge">t</code>.</p>
 
 <p>This is the general formula for a cubic Bézier:</p>
 
 <pre>B(t) = (1-t)<sup>3</sup>&middot;P0 + 3&middot;(1-t)<sup>2</sup>&middot;t&middot;P1 + 3&middot;(1-t)&middot;t<sup>2</sup>&middot;P2 + t<sup>3</sup>&middot;P3
 </pre>
 
-<p>where <code class="highlighter-rouge">P0</code> and <code class="highlighter-rouge">P3</code> are the start and end points, and <code class="highlighter-rouge">P1</code> and <code class="highlighter-rouge">P2</code> are the first and second control points.</p>
+<p>where <code class="language-plaintext highlighter-rouge">P0</code> and <code class="language-plaintext highlighter-rouge">P3</code> are the start and end points, and <code class="language-plaintext highlighter-rouge">P1</code> and <code class="language-plaintext highlighter-rouge">P2</code> are the first and second control points.</p>
 
 
   </p>
@@ -446,7 +446,7 @@
   
     <!-- Renders post date, title, and snippet of text. -->
 <div class="py-2 mb-2 prose excerpt border-bottom-thin">
-  <a class="no-underline h5 bold text-accent" title="/blog/graph-theory" href="/blog/graph-theory">Sep 4, 2014</a>
+  <a class="no-underline h5 bold text-accent" title="/blog/graph-theory" href="/blog/graph-theory">Sep 3, 2014</a>
   <h2 class="h1 lh-condensed col-9 mt-0">
     <a class="link-primary" title="/blog/graph-theory" href="/blog/graph-theory">Graph Theory</a>
   </h2>
@@ -529,7 +529,7 @@
 <p><a href="http://spencermortensen.com/articles/bezier-circle/">This paper</a> demonstrates an extremely accurate approximation of a circle using cubic bezier curves.</p>
 
 <p>It takes 4 curves, one for each 90° circle arc.
-As you can see above, I’ve implemented that approximation. The black dots represent the start (<code class="highlighter-rouge">P_0</code>) and end (<code class="highlighter-rouge">P_3</code>) of each segment, and the red dots represent the control points (<code class="highlighter-rouge">P_1</code> &amp; <code class="highlighter-rouge">P_2</code>).</p>
+As you can see above, I’ve implemented that approximation. The black dots represent the start (<code class="language-plaintext highlighter-rouge">P_0</code>) and end (<code class="language-plaintext highlighter-rouge">P_3</code>) of each segment, and the red dots represent the control points (<code class="language-plaintext highlighter-rouge">P_1</code> &amp; <code class="language-plaintext highlighter-rouge">P_2</code>).</p>
 
 
   </p>

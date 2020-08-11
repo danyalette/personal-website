@@ -175,13 +175,12 @@
 
 <p>The ability to generate random data that are normally distributed is very useful. Here’s how you do it in Javascript:
 <!--more--></p>
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">rnd</span><span class="p">(</span><span class="nx">mean</span><span class="p">,</span> <span class="nx">stdev</span><span class="p">)</span> <span class="p">{</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">rnd</span><span class="p">(</span><span class="nx">mean</span><span class="p">,</span> <span class="nx">stdev</span><span class="p">)</span> <span class="p">{</span>
 	<span class="kd">var</span> <span class="nx">snd</span> <span class="o">=</span> <span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span><span class="o">*</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span><span class="o">*</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span><span class="o">*</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
 	<span class="k">return</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">(</span><span class="nx">snd</span><span class="o">*</span><span class="nx">stdev</span><span class="o">+</span><span class="nx">mean</span><span class="p">);</span>
 <span class="p">}</span>
 <span class="c1">//this function generates one value; iterate in order to generate a large population of values</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="fyi">FYI</h3>
 
@@ -197,7 +196,7 @@
 
 <h4 id="anyways">anyways</h4>
 
-<p>To generate the histogram above, I used that JS function to generate 100 data points. I set the mean to 50 and the standard deviation to 15. For example, I might generate <code class="highlighter-rouge">[48,52,17,41,65,58]</code>. I then determined a set of value ranges and counted how many data points fall into value range, e.g. <code class="highlighter-rouge">0-10</code> has 2 data points. <code class="highlighter-rouge">10-20</code> has 3 data points. <code class="highlighter-rouge">20-30</code> has 3 data points. Etc. Then, finally, I increased the height of each bar in the histogram in relation to the number of data points that fall into that category.</p>
+<p>To generate the histogram above, I used that JS function to generate 100 data points. I set the mean to 50 and the standard deviation to 15. For example, I might generate <code class="language-plaintext highlighter-rouge">[48,52,17,41,65,58]</code>. I then determined a set of value ranges and counted how many data points fall into value range, e.g. <code class="language-plaintext highlighter-rouge">0-10</code> has 2 data points. <code class="language-plaintext highlighter-rouge">10-20</code> has 3 data points. <code class="language-plaintext highlighter-rouge">20-30</code> has 3 data points. Etc. Then, finally, I increased the height of each bar in the histogram in relation to the number of data points that fall into that category.</p>
 
   </div>
 

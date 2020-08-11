@@ -167,7 +167,7 @@
   <div class="prose" itemprop="articleBody">
       <div>&nbsp;</div>
 <iframe src="/assets/iframes/cliptext.html" height="160" width="650" frameborder="0"></iframe>
-<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="nc">.class</span> <span class="p">{</span>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.class</span> <span class="p">{</span>
  <span class="nl">color</span><span class="p">:</span> <span class="no">red</span><span class="p">;</span>
  <span class="nl">-webkit-text-fill-color</span><span class="p">:</span> <span class="nb">transparent</span><span class="p">;</span>
  <span class="nl">background</span><span class="p">:</span> <span class="n">-webkit-linear-gradient</span><span class="p">(</span><span class="nb">transparent</span><span class="p">,</span> <span class="nb">transparent</span><span class="p">),</span>
@@ -175,16 +175,15 @@
  <span class="nl">background</span><span class="p">:</span> <span class="n">-o-linear-gradient</span><span class="p">(</span><span class="nb">transparent</span><span class="p">,</span> <span class="nb">transparent</span><span class="p">);</span>
  <span class="nl">-webkit-background-clip</span><span class="p">:</span> <span class="nb">text</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <!--more-->
 
 <h1 id="textual-feelings">~textual feelings~</h1>
 
-<p><code class="highlighter-rouge">background-clip:text</code> is a handy CSS property but is only currently supported by webkit; when it falls through the results are pretty disastrous i.e. you will not see any text, only an image. This is because the text colour must be set to <code class="highlighter-rouge">transparent</code> in order for the newly text-clipped background to be visible through the text.</p>
+<p><code class="language-plaintext highlighter-rouge">background-clip:text</code> is a handy CSS property but is only currently supported by webkit; when it falls through the results are pretty disastrous i.e. you will not see any text, only an image. This is because the text colour must be set to <code class="language-plaintext highlighter-rouge">transparent</code> in order for the newly text-clipped background to be visible through the text.</p>
 
-<p>Luckily, <a href="http://nimbupani.com/using-background-clip-for-text-with-css-fallback.html">this person</a> figured out how to use <code class="highlighter-rouge">background-clip:text</code> while retaining a usable fallback.</p>
+<p>Luckily, <a href="http://nimbupani.com/using-background-clip-for-text-with-css-fallback.html">this person</a> figured out how to use <code class="language-plaintext highlighter-rouge">background-clip:text</code> while retaining a usable fallback.</p>
 
   </div>
 

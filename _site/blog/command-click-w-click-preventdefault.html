@@ -167,9 +167,9 @@
   <div class="prose" itemprop="articleBody">
       <p>I often command-click links in order to open them in a new tab. I find it very irritating when a site’s JS usurps that functionality.</p>
 
-<p>It turns out that click events have a boolean attribute – <code class="highlighter-rouge">event.metaKey</code> – that is <code class="highlighter-rouge">true</code> on command-click. So, you can <code class="highlighter-rouge">event.preventDefault()</code> your heart out and still easily retain the expected command-click behaviour.</p>
+<p>It turns out that click events have a boolean attribute – <code class="language-plaintext highlighter-rouge">event.metaKey</code> – that is <code class="language-plaintext highlighter-rouge">true</code> on command-click. So, you can <code class="language-plaintext highlighter-rouge">event.preventDefault()</code> your heart out and still easily retain the expected command-click behaviour.</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">$</span><span class="p">(</span><span class="s2">".something"</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">){</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">$</span><span class="p">(</span><span class="dl">"</span><span class="s2">.something</span><span class="dl">"</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">){</span>
     <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">event</span><span class="p">.</span><span class="nx">metaKey</span><span class="p">)</span> <span class="p">{</span>
         <span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
         <span class="c1">// etc</span>
@@ -177,8 +177,7 @@
         <span class="c1">//other stuff</span>
     <span class="p">}</span>
 <span class="p">})</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
   </div>
 

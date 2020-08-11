@@ -167,29 +167,26 @@
   <div class="prose" itemprop="articleBody">
       <p>So, obviously</p>
 
-<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="nt">transition</span><span class="o">:</span> <span class="nt">all</span> <span class="nt">1s</span> <span class="nt">ease</span><span class="o">;</span>
-</code></pre>
-</div>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">transition</span><span class="o">:</span> <span class="nt">all</span> <span class="err">1</span><span class="nt">s</span> <span class="nt">ease</span><span class="o">;</span>
+</code></pre></div></div>
 
 <p>and</p>
 
-<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="nt">transition</span><span class="o">:</span> <span class="nt">all</span> <span class="nt">1s</span> <span class="nt">linear</span><span class="o">;</span>
-</code></pre>
-</div>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">transition</span><span class="o">:</span> <span class="nt">all</span> <span class="err">1</span><span class="nt">s</span> <span class="nt">linear</span><span class="o">;</span>
+</code></pre></div></div>
 
 <p>but did you know</p>
 
-<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="nt">transition</span><span class="o">:</span> <span class="nt">all</span> <span class="nt">1s</span> <span class="nt">cubic-bezier</span><span class="o">(</span><span class="nt">0</span><span class="nc">.42</span><span class="o">,</span><span class="nt">0</span><span class="o">,</span><span class="nt">0</span><span class="nc">.58</span><span class="o">,</span><span class="nt">1</span><span class="o">);</span>
-</code></pre>
-</div>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">transition</span><span class="o">:</span> <span class="nt">all</span> <span class="err">1</span><span class="nt">s</span> <span class="nt">cubic-bezier</span><span class="o">(</span><span class="err">0</span><span class="o">.</span><span class="err">42</span><span class="o">,</span><span class="err">0</span><span class="o">,</span><span class="err">0</span><span class="o">.</span><span class="err">58</span><span class="o">,</span><span class="err">1</span><span class="o">);</span>
+</code></pre></div></div>
 
 <p>???</p>
 
 <!--more-->
 
-<p>The property <code class="highlighter-rouge">transition-timing-function</code> (used to determine the rate of change of the transitioned attribute, as a function of time) can take the following values:</p>
+<p>The property <code class="language-plaintext highlighter-rouge">transition-timing-function</code> (used to determine the rate of change of the transitioned attribute, as a function of time) can take the following values:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>ease
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ease
 linear
 ease-in
 ease-out
@@ -197,24 +194,21 @@ ease-in-out
 cubic-bezier(n,n,n,n)
 initial
 inherit
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>where</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>linear       is   cubic-bezier(0,0,1,1);
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>linear       is   cubic-bezier(0,0,1,1);
 ease         is   cubic-bezier(0.25,0.1,0.25,1);
 ease-in      is   cubic-bezier(0.42,0,1,1);
 ease-out     is   cubic-bezier(0,0,0.58,1);
 ease-in-out  is   cubic-bezier(0.42,0,0.58,1);
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Try using the value</p>
 
-<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="nt">transition-timing-function</span><span class="o">:</span> <span class="nt">cubic-bezier</span><span class="o">(</span><span class="nt">0</span><span class="o">,</span><span class="nt">0</span><span class="nc">.6</span><span class="o">,</span><span class="nt">1</span><span class="o">,</span><span class="nt">0</span><span class="o">);</span>
-</code></pre>
-</div>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">transition-timing-function</span><span class="o">:</span> <span class="nt">cubic-bezier</span><span class="o">(</span><span class="err">0</span><span class="o">,</span><span class="err">0</span><span class="o">.</span><span class="err">6</span><span class="o">,</span><span class="err">1</span><span class="o">,</span><span class="err">0</span><span class="o">);</span>
+</code></pre></div></div>
 
 <p>That one should be called…static-friction.</p>
 

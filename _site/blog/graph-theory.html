@@ -177,7 +177,7 @@
     </div>
   
   <div class="col-4 sm-width-full mt-1 border-top-thin ">
-    <p class="mb-3 py-2 bold h4"><time datetime="2014-09-03T20:45:12-04:00" itemprop="datePublished">Sep 4, 2014</time></p>
+    <p class="mb-3 py-2 bold h4"><time datetime="2014-09-03T20:45:12-04:00" itemprop="datePublished">Sep 3, 2014</time></p>
   </div>
   
   <div class="prose" itemprop="articleBody">
@@ -194,10 +194,9 @@
 
 <p>A graph (an abstract object – not to be confused with a representation of a graph!) is made up of two sets:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">vertices</span> <span class="o">=</span> <span class="p">{</span><span class="nx">v1</span><span class="p">,</span> <span class="nx">v2</span> <span class="p">...}</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">vertices</span> <span class="o">=</span> <span class="p">{</span><span class="nx">v1</span><span class="p">,</span> <span class="nx">v2</span> <span class="p">...}</span>
 <span class="nx">edges</span> <span class="o">=</span> <span class="p">{</span><span class="nx">e1</span><span class="p">,</span><span class="nx">e2</span><span class="p">,..}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>However, the edge set may be empty.
 Each edge is incident to exactly two vertices.</p>
@@ -211,21 +210,20 @@ Each edge is incident to exactly two vertices.</p>
 
 <h3 id="svg">SVG</h3>
 
-<p>The graph is created using <code class="highlighter-rouge">svg</code>, with one <code class="highlighter-rouge">path</code> element and five <code class="highlighter-rouge">circle</code> elements – one circle for each vertex. The segments of the path are all cubic bézier curves, à la <code class="highlighter-rouge">M0 100C55.2 100 100 55.2 100 0</code>, which I animated using javascript’s <code class="highlighter-rouge">requestAnimationFrame</code>.</p>
+<p>The graph is created using <code class="language-plaintext highlighter-rouge">svg</code>, with one <code class="language-plaintext highlighter-rouge">path</code> element and five <code class="language-plaintext highlighter-rouge">circle</code> elements – one circle for each vertex. The segments of the path are all cubic bézier curves, à la <code class="language-plaintext highlighter-rouge">M0 100C55.2 100 100 55.2 100 0</code>, which I animated using javascript’s <code class="language-plaintext highlighter-rouge">requestAnimationFrame</code>.</p>
 
 <h3 id="javascript">Javascript</h3>
 
 <p>I animate the graph by calling the following:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">animate</span><span class="p">({</span><span class="na">start</span><span class="p">:</span> <span class="nx">shape1</span><span class="p">,</span> <span class="na">end</span><span class="p">:</span> <span class="nx">shape2</span><span class="p">,</span> <span class="na">total_frames</span><span class="p">:</span><span class="mi">100</span><span class="p">});</span>
-</code></pre>
-</div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">animate</span><span class="p">({</span><span class="na">start</span><span class="p">:</span> <span class="nx">shape1</span><span class="p">,</span> <span class="na">end</span><span class="p">:</span> <span class="nx">shape2</span><span class="p">,</span> <span class="na">total_frames</span><span class="p">:</span><span class="mi">100</span><span class="p">});</span>
+</code></pre></div></div>
 
-<p>where <code class="highlighter-rouge">total_frames</code> is the number of frames I would like that animation to last, and <code class="highlighter-rouge">shape1/shape2</code> are arrays of coordinates, of the form <code class="highlighter-rouge">shape1 = [[67, 43], [64, -55],....]</code> etc.</p>
+<p>where <code class="language-plaintext highlighter-rouge">total_frames</code> is the number of frames I would like that animation to last, and <code class="language-plaintext highlighter-rouge">shape1/shape2</code> are arrays of coordinates, of the form <code class="language-plaintext highlighter-rouge">shape1 = [[67, 43], [64, -55],....]</code> etc.</p>
 
 <p>Here’s the meat of that function:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">animate</span><span class="p">(</span><span class="nx">object</span><span class="p">){</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">animate</span><span class="p">(</span><span class="nx">object</span><span class="p">){</span>
 	<span class="c1">//`start` and `end` are both arrays of coordinates</span>
 	<span class="kd">var</span> <span class="nx">start</span> <span class="o">=</span> <span class="nx">object</span><span class="p">.</span><span class="nx">start</span><span class="p">;</span>
 	<span class="kd">var</span> <span class="nx">end</span> <span class="o">=</span> <span class="nx">object</span><span class="p">.</span><span class="nx">end</span><span class="p">;</span>
@@ -235,12 +233,11 @@ Each edge is incident to exactly two vertices.</p>
 	<span class="nx">startAnimationLoop</span><span class="p">(</span><span class="nx">start</span><span class="p">,</span> <span class="nx">delta</span><span class="p">,</span> <span class="nx">total_frames</span><span class="p">);</span>
 
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>which calls</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">startAnimationLoop</span><span class="p">(</span><span class="nx">start</span><span class="p">,</span> <span class="nx">delta</span><span class="p">,</span> <span class="nx">max_count</span><span class="p">){</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">startAnimationLoop</span><span class="p">(</span><span class="nx">start</span><span class="p">,</span> <span class="nx">delta</span><span class="p">,</span> <span class="nx">max_count</span><span class="p">){</span>
 	<span class="kd">var</span> <span class="nx">currentPosition</span> <span class="o">=</span> <span class="nx">start</span><span class="p">;</span>
 	<span class="kd">var</span> <span class="nx">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 	<span class="kd">function</span> <span class="nx">loop</span><span class="p">(){</span>
@@ -253,12 +250,11 @@ Each edge is incident to exactly two vertices.</p>
 	<span class="p">}</span>
 	<span class="nx">requestAnimationFrame</span><span class="p">(</span><span class="nx">loop</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>and</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">determineDelta</span><span class="p">(</span><span class="nx">start</span><span class="p">,</span> <span class="nx">end</span><span class="p">,</span> <span class="nx">total_frames</span><span class="p">){</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">determineDelta</span><span class="p">(</span><span class="nx">start</span><span class="p">,</span> <span class="nx">end</span><span class="p">,</span> <span class="nx">total_frames</span><span class="p">){</span>
 	<span class="kd">var</span> <span class="nx">deltas</span> <span class="o">=</span> <span class="p">[];</span>
 	<span class="k">for</span><span class="p">(</span><span class="nx">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">start</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">){</span>
 		<span class="nx">deltas</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">[];</span>
@@ -267,13 +263,12 @@ Each edge is incident to exactly two vertices.</p>
 	<span class="p">}</span>
 	<span class="k">return</span> <span class="nx">deltas</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>which is simply determining which value to add to each point at each frame.
-The resultant value is the total change in position of each point (from start to end) divided by number of frames I want the animation to last. The function returns an array of values – one <code class="highlighter-rouge">delta[i] = [deltaX, deltaY]</code> for each point of the graph (including control points for cubic bézier curves).</p>
+The resultant value is the total change in position of each point (from start to end) divided by number of frames I want the animation to last. The function returns an array of values – one <code class="language-plaintext highlighter-rouge">delta[i] = [deltaX, deltaY]</code> for each point of the graph (including control points for cubic bézier curves).</p>
 
-<p>The rest isn’t too interesting. The function <code class="highlighter-rouge">draw(array)</code> simply turns the coordinates array into proper svg path syntax and then sets the “d” attribute of a path element; <code class="highlighter-rouge">getNextPosition(array,delta)</code> increments the values of the coordinates by the amount determined for each point in <code class="highlighter-rouge">determineDelta(start, end, total_frames)</code>.</p>
+<p>The rest isn’t too interesting. The function <code class="language-plaintext highlighter-rouge">draw(array)</code> simply turns the coordinates array into proper svg path syntax and then sets the “d” attribute of a path element; <code class="language-plaintext highlighter-rouge">getNextPosition(array,delta)</code> increments the values of the coordinates by the amount determined for each point in <code class="language-plaintext highlighter-rouge">determineDelta(start, end, total_frames)</code>.</p>
 
 <h2 id="that-circle">That Circle</h2>
 

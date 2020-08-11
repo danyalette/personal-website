@@ -167,7 +167,7 @@
   <div class="prose" itemprop="articleBody">
       <iframe src="/assets/iframes/anim.html" height="450" width="500" frameborder="0"></iframe>
 
-<p>I’m working on an animation library which specializes in animating between paths whose commands are different in number and type. Essentially, from a given set of paths, all paths’ commands are converted to cubic Bézier and then the paths with fewer subpaths or fewer commands are padded (with ’empty’ paths or commands e.g. <code class="highlighter-rouge">m0 0c0 0 0 0 0 0</code>).</p>
+<p>I’m working on an animation library which specializes in animating between paths whose commands are different in number and type. Essentially, from a given set of paths, all paths’ commands are converted to cubic Bézier and then the paths with fewer subpaths or fewer commands are padded (with ’empty’ paths or commands e.g. <code class="language-plaintext highlighter-rouge">m0 0c0 0 0 0 0 0</code>).</p>
 
 <p>The interesting part is the way in which the padding is interleaved with the preexisting commands. I’d like to eventually include several parameters to create fine grained control over the style of interleaving. I also think that adding some “noise” or an arc trajectory to the motion of the control points would produce an interesting result. We’ll see!</p>
 

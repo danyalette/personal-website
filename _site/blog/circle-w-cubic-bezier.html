@@ -175,11 +175,11 @@
 <p><a href="http://spencermortensen.com/articles/bezier-circle/">This paper</a> demonstrates an extremely accurate approximation of a circle using cubic bezier curves.</p>
 
 <p>It takes 4 curves, one for each 90° circle arc.
-As you can see above, I’ve implemented that approximation. The black dots represent the start (<code class="highlighter-rouge">P_0</code>) and end (<code class="highlighter-rouge">P_3</code>) of each segment, and the red dots represent the control points (<code class="highlighter-rouge">P_1</code> &amp; <code class="highlighter-rouge">P_2</code>).</p>
+As you can see above, I’ve implemented that approximation. The black dots represent the start (<code class="language-plaintext highlighter-rouge">P_0</code>) and end (<code class="language-plaintext highlighter-rouge">P_3</code>) of each segment, and the red dots represent the control points (<code class="language-plaintext highlighter-rouge">P_1</code> &amp; <code class="language-plaintext highlighter-rouge">P_2</code>).</p>
 
 <!--more-->
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">c</span> <span class="o">=</span> <span class="mf">0.551915024494</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">c</span> <span class="o">=</span> <span class="mf">0.551915024494</span>
 
 <span class="c1">// curve 1</span>
 <span class="nx">P_0</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="nx">P_1</span> <span class="o">=</span> <span class="p">(</span><span class="nx">c</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="nx">P_2</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nx">c</span><span class="p">),</span> <span class="nx">P_3</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
@@ -189,16 +189,14 @@ As you can see above, I’ve implemented that approximation. The black dots repr
 <span class="nx">P_0</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="nx">P_1</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="nx">c</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="nx">P_3</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="nx">c</span><span class="p">),</span> <span class="nx">P_4</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
 <span class="c1">// curve 4</span>
 <span class="nx">P_0</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="nx">P_1</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="nx">c</span><span class="p">),</span> <span class="nx">P_2</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="nx">c</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="nx">P_3</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>For a circle with a radius of 100, those relationships result in the following SVG path:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">d</span> <span class="o">=</span><span class="s2">"M0 100C55.1915 100 100 55.1915 100 0C100 -55.1915 55.1915 -100 0 -100C-55.1915 -100 -100 -55.1915 -100 0C-100 55.1915 -55.1915 100 0 100"</span>
-</code></pre>
-</div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">d</span> <span class="o">=</span><span class="dl">"</span><span class="s2">M0 100C55.1915 100 100 55.1915 100 0C100 -55.1915 55.1915 -100 0 -100C-55.1915 -100 -100 -55.1915 -100 0C-100 55.1915 -55.1915 100 0 100</span><span class="dl">"</span>
+</code></pre></div></div>
 
-<p>Note that the resultant circle is centered around <code class="highlighter-rouge">[0,0]</code>. So, if you’re planning on using this yourself, you’ll have to translate your path or modify your svg viewport in order to be able to see the segments that are in the negative quadrants. For instance, you might simply apply <code class="highlighter-rouge">transform="translate(100,100)</code> to your <code class="highlighter-rouge">&lt;path&gt;</code> elem.</p>
+<p>Note that the resultant circle is centered around <code class="language-plaintext highlighter-rouge">[0,0]</code>. So, if you’re planning on using this yourself, you’ll have to translate your path or modify your svg viewport in order to be able to see the segments that are in the negative quadrants. For instance, you might simply apply <code class="language-plaintext highlighter-rouge">transform="translate(100,100)</code> to your <code class="language-plaintext highlighter-rouge">&lt;path&gt;</code> elem.</p>
 
   </div>
 

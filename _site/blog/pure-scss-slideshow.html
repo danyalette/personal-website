@@ -161,7 +161,7 @@
     </div>
   
   <div class="col-4 sm-width-full mt-1 border-top-thin ">
-    <p class="mb-3 py-2 bold h4"><time datetime="2017-02-18T20:40:50-05:00" itemprop="datePublished">Feb 19, 2017</time></p>
+    <p class="mb-3 py-2 bold h4"><time datetime="2017-02-18T20:40:50-05:00" itemprop="datePublished">Feb 18, 2017</time></p>
   </div>
   
   <div class="prose" itemprop="articleBody">
@@ -180,11 +180,11 @@
 
 <!--more-->
 
-<div class="language-scss highlighter-rouge"><pre class="highlight"><code><span class="nv">$images</span><span class="p">:</span> <span class="s2">"/images/fun.jpg"</span><span class="o">,</span> <span class="s2">"/images/yay.jpg"</span><span class="o">,</span>  <span class="s2">"/images/wow.jpg"</span><span class="p">;</span>
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$images</span><span class="p">:</span> <span class="s2">"/images/fun.jpg"</span><span class="o">,</span> <span class="s2">"/images/yay.jpg"</span><span class="o">,</span>  <span class="s2">"/images/wow.jpg"</span><span class="p">;</span>
 <span class="nv">$slide_duration</span><span class="p">:</span> <span class="m">1s</span><span class="p">;</span>
 
-<span class="c1">//preload images
-</span><span class="nt">body</span><span class="nd">:before</span> <span class="p">{</span>
+<span class="c1">//preload images</span>
+<span class="nt">body</span><span class="nd">:before</span> <span class="p">{</span>
   <span class="nv">$urls</span><span class="p">:</span> <span class="sx">url('')</span><span class="p">;</span>
   <span class="k">@each</span> <span class="nv">$image</span> <span class="n">in</span> <span class="nv">$images</span> <span class="p">{</span>
     <span class="nv">$urls</span><span class="p">:</span> <span class="nv">$urls</span> <span class="o">+</span> <span class="sx">url(</span><span class="si">#{</span><span class="nv">$image</span><span class="si">}</span><span class="sx">)</span> <span class="p">;</span>
@@ -212,8 +212,7 @@
   <span class="nl">background-size</span><span class="p">:</span> <span class="n">cover</span><span class="p">;</span>
   <span class="nl">background-position</span><span class="p">:</span> <span class="nb">center</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
   </div>
 

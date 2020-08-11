@@ -191,20 +191,19 @@
 
 <p>To begin with, I rotated the images by, in turn, 90, 180, and 270 degrees.</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="o">...</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">...</span>
 
-<span class="n">data</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">dataset</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">28</span><span class="p">))</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">.</span><span class="n">data</span><span class="p">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">dataset</span><span class="p">.</span><span class="n">data</span><span class="p">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">28</span><span class="p">))</span>
 
-<span class="n">rotation</span> <span class="o">=</span> <span class="mi">1</span> <span class="c"># 90deg</span>
-<span class="c"># rotation = 2 # 180deg</span>
-<span class="c"># rotation = 3 # 270deg</span>
-
+<span class="n">rotation</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># 90deg
+# rotation = 2 # 180deg
+# rotation = 3 # 270deg
+</span>
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
-    <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">rot90</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">rotation</span><span class="p">)</span>
+    <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">rot90</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">rotation</span><span class="p">)</span>
 
-<span class="o">...</span>
-</code></pre>
-</div>
+<span class="p">...</span>
+</code></pre></div></div>
 
 <p>At each rotation, I ran LeNet for 30 epochs. As expected, those transformations did not appear to affect learning rate, because the transformation was applied uniformly across all data. In addition, these transformations will not affect any other attributes of the data, such as mean value over the whole image.</p>
 
@@ -221,22 +220,21 @@
 
 <p>I then tried playing around with the values in the image.</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="o">...</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">...</span>
 <span class="k">def</span> <span class="nf">transformData</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
-  <span class="k">return</span> <span class="n">data</span><span class="o">/</span><span class="mf">255.</span> <span class="c"># normal (values must, in any case, be converted from range 0-255 to range 0-1)</span>
-  <span class="c"># return 1 - (data/255.) # invert values</span>
-  <span class="c"># return data/(255. * 2) # fade image - reduce intensity by halving all values</span>
-  <span class="c"># return data &amp;gt; 127.5 # make values binary</span>
-
+  <span class="k">return</span> <span class="n">data</span><span class="o">/</span><span class="mf">255.</span> <span class="c1"># normal (values must, in any case, be converted from range 0-255 to range 0-1)
+</span>  <span class="c1"># return 1 - (data/255.) # invert values
+</span>  <span class="c1"># return data/(255. * 2) # fade image - reduce intensity by halving all values
+</span>  <span class="c1"># return data &amp;gt; 127.5 # make values binary
+</span>
 <span class="p">(</span><span class="n">trainData</span><span class="p">,</span> <span class="n">testData</span><span class="p">,</span> <span class="n">trainLabels</span><span class="p">,</span> <span class="n">testLabels</span><span class="p">)</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
-    <span class="n">transformData</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">dataset</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s">"int"</span><span class="p">),</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.33</span><span class="p">)</span>
-<span class="o">...</span>
-</code></pre>
-</div>
+    <span class="n">transformData</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">dataset</span><span class="p">.</span><span class="n">target</span><span class="p">.</span><span class="n">astype</span><span class="p">(</span><span class="s">"int"</span><span class="p">),</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.33</span><span class="p">)</span>
+<span class="p">...</span>
+</code></pre></div></div>
 
 <p>As in the case of uniform rotation across all data, these changes were applied uniformly to all data. So, we wouldn’t expect these alterations to have a substantial negative impact on the ability of the network to eventually converge. However, these alteration will have changed important underlying structures of the data such as the mean and variance of the values in any given image. To illustrate, applying these value/intensity transformations to one set of 5 randomly chosen images results in the following:</p>
 
-<div class="language-md highlighter-rouge"><pre class="highlight"><code><span class="gh">normal
+<div class="language-md highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gh">normal
 ------
 </span>mean: 0.119206682497
 variance: 0.0883226659517
@@ -255,8 +253,7 @@ variance: 0.0220806664879
 ------
 </span>mean: 0.880793317503
 variance: 0.0883226659517
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>As you can see below, the binary color and inverted color images get off to a slower start but soon catch up, after 5 epochs.</p>
 
@@ -289,18 +286,17 @@ variance: 0.0883226659517
 
 <p>Finally, I randomly rotated the images, both with and without the addition of an “indicator” line (a line of all 1s – pure white – added to the bottom of the image before applying the random rotation, to serve as an indicator of the “true” bottom of the image:</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="o">...</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">...</span>
 
-<span class="n">data</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">dataset</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">28</span><span class="p">))</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">.</span><span class="n">data</span><span class="p">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">dataset</span><span class="p">.</span><span class="n">data</span><span class="p">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">28</span><span class="p">))</span>
 
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
-    <span class="n">indicator</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">28</span><span class="p">)</span> <span class="o">*</span> <span class="mf">255.</span>
-    <span class="c"># data[i][27] = indicator.tolist() # add indicator</span>
-    <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">rot90</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+    <span class="n">indicator</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">28</span><span class="p">)</span> <span class="o">*</span> <span class="mf">255.</span>
+    <span class="c1"># data[i][27] = indicator.tolist() # add indicator
+</span>    <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">rot90</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
 
-<span class="o">...</span>
-</code></pre>
-</div>
+<span class="p">...</span>
+</code></pre></div></div>
 
 <p>Unsurprisingly, the worst performance of all the data modifications occurred as a result of randomly rotating the images. In this case, the transformation was not uniformly applied to each image. The addition of the indicator line had a substantial positive impact on the learning rate. However, interestingly, this positive effect was only observed after 5 epochs. Even so, neither modification was able to eventually converge to an accuracy similar to unmodified data, after 30 epochs.</p>
 

@@ -1,5 +1,84 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="https://danyalette.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://danyalette.com/" rel="alternate" type="text/html" /><updated>2019-09-28T17:45:52-04:00</updated><id>https://danyalette.com/</id><title type="html">Danya Lette</title><subtitle>Hi, I'm Danya Lette, a software developer living and working in Toronto. I love learning and building cool stuff.
-</subtitle><entry><title type="html">Heavy (But Not in Wait)</title><link href="https://danyalette.com/blog/heavy-but-not-in-wait" rel="alternate" type="text/html" title="Heavy (But Not in Wait)" /><published>2019-09-28T13:34:49-04:00</published><updated>2019-09-28T13:34:49-04:00</updated><id>https://danyalette.com/blog/heavy-but-not-in-wait</id><content type="html" xml:base="https://danyalette.com/blog/heavy-but-not-in-wait">&lt;p&gt;&lt;em&gt;Heavy (But Not in Wait)&lt;/em&gt; by &lt;strong&gt;L’Rain&lt;/strong&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="https://danyalette.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://danyalette.com/" rel="alternate" type="text/html" /><updated>2020-08-10T22:57:20-04:00</updated><id>https://danyalette.com/feed.xml</id><title type="html">Danya Lette</title><subtitle>Hi, I'm Danya Lette, a software developer living and working in Toronto. I love learning and building cool stuff.
+</subtitle><entry><title type="html">How to Organize a CS Research-a-Thon</title><link href="https://danyalette.com/blog/how-to-organize-a-research-a-thon" rel="alternate" type="text/html" title="How to Organize a CS Research-a-Thon" /><published>2020-08-10T21:46:00-04:00</published><updated>2020-08-10T21:46:00-04:00</updated><id>https://danyalette.com/blog/how-to-organize-a-research-a-thon</id><content type="html" xml:base="https://danyalette.com/blog/how-to-organize-a-research-a-thon">&lt;p&gt;When I first decided to organize a computer science research-a-thon, I had no idea where to begin. I expected to find plenty of useful info online from other unis and clubs. However, I found almost nothing; this event, apparently, has not been attempted before.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;p&gt;If you’re here because you’re considering running a similar event: do it! It’s worth the effort. Here’s some info you might find useful:&lt;/p&gt;
+
+&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#i-what-kinds-of-projects-did-students-work-on&quot; id=&quot;markdown-toc-i-what-kinds-of-projects-did-students-work-on&quot;&gt;I. What kinds of projects did students work on?&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#ii-how-did-you-structure-the-event&quot; id=&quot;markdown-toc-ii-how-did-you-structure-the-event&quot;&gt;II. How did you structure the event?&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#iii-who-is-this-event-for&quot; id=&quot;markdown-toc-iii-who-is-this-event-for&quot;&gt;III. Who is this event for?&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#iv-did-they-really-do-research&quot; id=&quot;markdown-toc-iv-did-they-really-do-research&quot;&gt;IV. Did they really “do research”?&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;i-what-kinds-of-projects-did-students-work-on&quot;&gt;I. What kinds of projects did students work on?&lt;/h2&gt;
+&lt;p&gt;We provided the participants with a list of projects that were proposed by faculty members, grad students, and undergrads. Be warned: collecting these project ideas required a good amount of legwork in the months preceding the event.&lt;/p&gt;
+
+&lt;p&gt;Our aim was to collect a highly diverse set of projects, in terms of: research area, required levels of background knowledge, open-endedness, solved/not solved, etc. Some disciplines are better suited to beginners than others, such as HCI, since novices will likely be more interested in doing projects that involve writing software or designing user interfaces.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Research Areas: Applied &amp;amp; Discrete Mathematics, Artificial Intelligence, Cognitive Science, Computational Biology, Computational Linguistics, Computer Graphics, Computer Science Education, Computer Systems &amp;amp; Networks, Data Science, Database Systems, Economics, Ethics and Society, Health &amp;amp; Assistive Technology, Human Computer Interaction, Knowledge Representation and Reasoning, Numerical Analysis, Programming Languages &amp;amp; Methodologies, Quantum Computing, Robotics, Social Networks, Software Engineering, Sustainability Informatics, Theoretical Computer Science.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Here are a few sample projects:&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;MIPS visualizer/simulator&lt;/b&gt;&lt;br /&gt;
+&lt;small&gt;(Computer Systems and Networks, Computer Science Education, Software Engineering)&lt;/small&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Implement a MIPS/Risc V architecture visualizer/simulator.
+Our goal is to help students visualize how assembly code is being executed, i.e. what values are stored
+in each register and which connections are used. For instance, you should highlight the wires that are in
+use and show the direction inputs and outputs are moving, etc. At present, students have to think
+about it in their mind. You might consider using Python combined with some web frameworks/tools to
+create an online simulator that’s interactive.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;b&gt;A Sequence of n Sets&lt;/b&gt;
+&lt;small&gt;(Applied and Discrete Math, Theoretical Computer Science)&lt;/small&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Consider a sequence of n sets, each containing a nonempty subset of {1, …, n}.
+Determine the complexity of the following:
+• Find a proper subset S of {1, …, n} such that the elements of S only occur in |S| sets in the sequence,
+or determine that no such subset exists.
+• Find a proper subset S of {1, …, n} such that there are |S| sets in the sequence that only contain
+elements of S or determine that no such subset exists.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;b&gt;Depth Perception&lt;/b&gt;&lt;br /&gt;
+&lt;small&gt;(HCI, Health and Assistive Technology)&lt;/small&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Design an assistive device to aid individuals driving cars who lack depth perception. Specify rigorously
+why think your device would be effective, and how you would evaluate the effectiveness of your device.
+You can specify implementation details if you’d like but that is not required.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;These three project descriptions were some of our shorter ones; some others had quite verbose descriptions, multi-part questions, included background readings or definitions, etc.&lt;/p&gt;
+
+&lt;p&gt;Faculty and grad students are the ideal source for these projects. However, you can find more ideas online. For instance,&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://a3nm.net/work/research/questions/&quot;&gt;open questions in theoretical computer science&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://physionet.org/about/challenge/&quot;&gt;bioinformatics challenges&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://courses.cs.washington.edu/courses/cse403/18sp/projects/project-ideas.html&quot;&gt;CS engineering projects&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Please feel free to reach out to me for more projects ideas. I have plenty floating around in my head :)&lt;/p&gt;
+
+&lt;h2 id=&quot;ii-how-did-you-structure-the-event&quot;&gt;II. How did you structure the event?&lt;/h2&gt;
+
+&lt;p&gt;The event was held over two days on a weekend. Each day was 9AM-5PM; we provided breakfast, lunch, and snacks. Students worked in self-selected groups that they formed on the first morning.&lt;/p&gt;
+
+&lt;p&gt;For more detailed day-of planning, &lt;a href=&quot;/assets/images/uploads/2020/research-a-thon-schedule-2020.png&quot;&gt;here’s the event schedule for 2020.&lt;/a&gt; We provided the students with Google Slides templates for their research proposals and final presentations, to give them an idea of what the content and structure should be. We also provided them with unstructured support throughout the day by walking around and chatting.&lt;/p&gt;
+
+&lt;h2 id=&quot;iii-who-is-this-event-for&quot;&gt;III. Who is this event for?&lt;/h2&gt;
+
+&lt;p&gt;The event was intended for all undergrads, with some bonus grad students in attendance operating as mentors. We found that first- and second-year students were, by far, the most interested. These students were curious about research but had not had the opportunity to pursue it formally, unlike some of their older peers. Many were unaware of the various research areas or diversity of research practices that exist in CS. To amend this, and to make the event more inclusive of novices, we started the first day with Research Village, a sort of club fair for research areas.&lt;/p&gt;
+
+&lt;h2 id=&quot;iv-did-they-really-do-research&quot;&gt;IV. Did they really “do research”?&lt;/h2&gt;
+
+&lt;p&gt;Research can mean a lot of different things. In addition, the research process has many parts, including background reading, planning, and discussing with peers. So, in that sense, every group accomplished at least some part of a research project. To my delight, during the two day period, many participants went much further; one group even appeared to have solved an open question in game theory that was posed by a faculty member.
+&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;
+Well, that’s all I have to share for now. Please feel free to get in touch with me if you have any questions: &lt;a href=&quot;mailto:danyalette@gmail.com&quot;&gt;danyalette@gmail.com&lt;/a&gt;&lt;/p&gt;</content><author><name>danya</name></author><summary type="html">When I first decided to organize a computer science research-a-thon, I had no idea where to begin. I expected to find plenty of useful info online from other unis and clubs. However, I found almost nothing; this event, apparently, has not been attempted before.</summary></entry><entry><title type="html">Heavy (But Not in Wait)</title><link href="https://danyalette.com/blog/heavy-but-not-in-wait" rel="alternate" type="text/html" title="Heavy (But Not in Wait)" /><published>2019-09-28T13:34:49-04:00</published><updated>2019-09-28T13:34:49-04:00</updated><id>https://danyalette.com/blog/heavy-but-not-in-wait</id><content type="html" xml:base="https://danyalette.com/blog/heavy-but-not-in-wait">&lt;p&gt;&lt;em&gt;Heavy (But Not in Wait)&lt;/em&gt; by &lt;strong&gt;L’Rain&lt;/strong&gt;
 &lt;!--more--&gt;&lt;/p&gt;
 &lt;audio style=&quot;display:inline&quot; src=&quot;/assets/music/heavy_but_not_in_wait.mp3&quot; controls=&quot;&quot; loop=&quot;&quot;&gt;&lt;/audio&gt;</content><author><name>danya</name></author><summary type="html">Heavy (But Not in Wait) by L’Rain</summary></entry><entry><title type="html">Migrating From Wordpress To Jekyll</title><link href="https://danyalette.com/blog/migrating-from-wordpress-to-jekyll" rel="alternate" type="text/html" title="Migrating From Wordpress To Jekyll" /><published>2017-06-15T21:46:00-04:00</published><updated>2017-06-15T21:46:00-04:00</updated><id>https://danyalette.com/blog/migrating-from-wordpress-to-jekyll</id><content type="html" xml:base="https://danyalette.com/blog/migrating-from-wordpress-to-jekyll">&lt;p&gt;When migrating from Wordpress to Jekyll, an obvious first step is exporting your data from Wordpress. Fortunately, there is a Wordpress plugin for that. Unfortunately, some features that we take for granted in Wordpress (such as featured images, and the &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;!--more--&amp;gt;&lt;/code&gt; tag) are not supported out-the-box by Jekyll and may require some extra fiddling.
 &lt;!--more--&gt;&lt;/p&gt;
@@ -787,52 +866,4 @@ Basically, when you mouse over, a raycaster is set from the camera position and 
   &lt;li&gt;there are more ways to implement theming than you think!&lt;/li&gt;
   &lt;li&gt;you may end up using all of them&lt;/li&gt;
   &lt;li&gt;but try not to&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>danya</name></author><summary type="html">I recently worked on an app that was intended to be themeable – a “white label” app that had a default look and default behaviour which were expected to be selectively overridden on a client-by-client basis. I definitely did not grasp the scope of this requirement before diving in. So, I figured I would share some of my experiences in case they can save anyone else some time.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://danyalette.com/assets/images/featured/the-cube-of-themeability-wide.png" /></entry><entry><title type="html">Pure Scss Slideshow</title><link href="https://danyalette.com/blog/pure-scss-slideshow" rel="alternate" type="text/html" title="Pure Scss Slideshow" /><published>2017-02-18T20:40:50-05:00</published><updated>2017-02-18T20:40:50-05:00</updated><id>https://danyalette.com/blog/pure-scss-slideshow</id><content type="html" xml:base="https://danyalette.com/blog/pure-scss-slideshow">&lt;p&gt;The performance of this snippet is not great in chrome, but nonetheless…&lt;/p&gt;
-
-&lt;p&gt;Here you go!&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;a href=&quot;https://gist.github.com/danyalette/0c32184b9a86a31e061c785e114f2528&quot; target=&quot;_blank&quot;&gt;gist&lt;/a&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;a href=&quot;https://codepen.io/danyalette/pen/RKmXGQ&quot; target=&quot;_blank&quot;&gt;codepen&lt;/a&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;!--more--&gt;
-
-&lt;div class=&quot;language-scss highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$images&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;/images/fun.jpg&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;/images/yay.jpg&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;/images/wow.jpg&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;$slide_duration&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;//preload images
-&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:before&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nv&quot;&gt;$urls&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;sx&quot;&gt;url('')&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;@each&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$image&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$images&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;nv&quot;&gt;$urls&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$urls&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;sx&quot;&gt;url(&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$image&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;none&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$urls&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;@keyframes&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;slideshow&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nv&quot;&gt;$current_percentage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;nv&quot;&gt;$increment&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$images&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;@each&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$image&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$images&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$current_percentage&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;background-image&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;sx&quot;&gt;url($image)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;nv&quot;&gt;$current_percentage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$current_percentage&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$increment&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;nc&quot;&gt;.slideshow-image&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;animation-name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;slideshow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;animation-timing-function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;step-end&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;animation-fill-mode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;forwards&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;animation-duration&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$slide_duration&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$images&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;animation-iteration-count&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;infinite&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-  &lt;span class=&quot;nl&quot;&gt;background-size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cover&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;background-position&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;center&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;</content><author><name>danya</name></author><summary type="html">The performance of this snippet is not great in chrome, but nonetheless…</summary></entry></feed>
+&lt;/ul&gt;</content><author><name>danya</name></author><summary type="html">I recently worked on an app that was intended to be themeable – a “white label” app that had a default look and default behaviour which were expected to be selectively overridden on a client-by-client basis. I definitely did not grasp the scope of this requirement before diving in. So, I figured I would share some of my experiences in case they can save anyone else some time.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://danyalette.com/assets/images/featured/the-cube-of-themeability-wide.png" /></entry></feed>

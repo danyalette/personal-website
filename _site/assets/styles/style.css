@@ -74,15 +74,19 @@ pre {
 code {
   color: #DC3918;
   font-size: 16px;
-  padding: 1px 4px; }
+  padding: 1px 0px; }
 
+.prose a {
+  text-decoration: underline dotted; }
+  .prose a:hover {
+    text-decoration: underline; }
 .prose p, .prose ol, .prose ul {
   font-size: 20px;
   margin-bottom: 1em;
   width: 100%; }
   @media (min-width: 52em) {
     .prose p, .prose ol, .prose ul {
-      width: 83.33333%; } }
+      width: 83.3333333333%; } }
 .prose ul, .prose ol {
   padding-left: 40px; }
 .prose li {
@@ -161,7 +165,7 @@ code {
 .no-underline {
   text-decoration: none !important; }
   .no-underline:hover {
-    text-decoration: no-underline !important; }
+    text-decoration: none !important; }
 
 .bold {
   font-weight: bold; }
@@ -226,37 +230,37 @@ code {
   max-width: 64em; }
 
 .col-1 {
-  width: 8.33333%; }
+  width: 8.3333333333%; }
 
 .col-2 {
-  width: 16.66667%; }
+  width: 16.6666666667%; }
 
 .col-3 {
   width: 25%; }
 
 .col-4 {
-  width: 33.33333%; }
+  width: 33.3333333333%; }
 
 .col-5 {
-  width: 41.66667%; }
+  width: 41.6666666667%; }
 
 .col-6 {
   width: 50%; }
 
 .col-7 {
-  width: 58.33333%; }
+  width: 58.3333333333%; }
 
 .col-8 {
-  width: 66.66667%; }
+  width: 66.6666666667%; }
 
 .col-9 {
   width: 75%; }
 
 .col-10 {
-  width: 83.33333%; }
+  width: 83.3333333333%; }
 
 .col-11 {
-  width: 91.66667%; }
+  width: 91.6666666667%; }
 
 .col-12 {
   width: 100%; }
@@ -469,10 +473,10 @@ code {
 
 .link-primary {
   font-weight: bold;
-  text-decoration: none; }
+  text-decoration: none !important; }
   .link-primary:hover {
     color: #E74727;
-    text-decoration: none; }
+    text-decoration: none !important; }
 
 a {
   color: #E74727; }

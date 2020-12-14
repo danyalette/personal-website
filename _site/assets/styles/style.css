@@ -569,6 +569,19 @@ article img {
   #markdown-toc ul, #markdown-toc li {
     margin: 0; }
 
+#homepage {
+  display: flex; }
+  @media (max-width: 700px) {
+    #homepage {
+      display: block;
+      text-align: center; }
+      #homepage img {
+        margin: auto; } }
+
+#homepage img {
+  max-width: 250px;
+  margin-right: 20px; }
+
 @media (min-width: 52em) {
   .prose p, .prose ol, .prose ul {
     width: 100%; } }

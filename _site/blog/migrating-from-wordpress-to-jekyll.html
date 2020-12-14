@@ -12,24 +12,11 @@
 
   
   
-  <link rel="stylesheet" href="https://danyalette.com/assets/styles/style.css">
-  <link rel="stylesheet" href="https://danyalette.com/assets/styles/highlight.css">
+  <link rel="stylesheet" href="http://localhost:4000/assets/styles/style.css">
+  <link rel="stylesheet" href="http://localhost:4000/assets/styles/highlight.css">
 
-  <link rel="canonical" href="https://danyalette.com/blog/migrating-from-wordpress-to-jekyll">
-  <link rel="alternate" type="application/rss+xml" title="Danya Lette" href="https://danyalette.com/feed.xml">
-
-  
-  <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-45608320-1', 'auto');
-  ga('send', 'pageview');
-
-</script>
-  
+  <link rel="canonical" href="http://localhost:4000/blog/migrating-from-wordpress-to-jekyll">
+  <link rel="alternate" type="application/rss+xml" title="Danya Lette" href="http://localhost:4000/feed.xml">
 
   
 
@@ -233,7 +220,7 @@ Move the pages and posts into your Jekyll project directory. Pages go in the pro
 
 <p>In order to resolve this, you’ll have to do a global search and replace. If you made the same change as I did regarding the location of the uploads directory, then you’d be searching for for <code class="language-plaintext highlighter-rouge">https://my-former-blog.com/wp-content/uploads/</code> and replacing it with <code class="language-plaintext highlighter-rouge">/assets/images/uploads/</code>.</p>
 
-<p>At this stage, you might choose to get a bit fancier and use liquid template variables in order to automatically prepend the configured <code class="language-plaintext highlighter-rouge">site.url</code> and <code class="language-plaintext highlighter-rouge">site.baseurl</code> to the paths. In this case, you’d be searching for <code class="language-plaintext highlighter-rouge">https://my-former-blog.com/wp-content/uploads/</code> and replacing with <code class="language-plaintext highlighter-rouge">https://danyalette.com/assets/images/uploads/</code> or something along those lines.</p>
+<p>At this stage, you might choose to get a bit fancier and use liquid template variables in order to automatically prepend the configured <code class="language-plaintext highlighter-rouge">site.url</code> and <code class="language-plaintext highlighter-rouge">site.baseurl</code> to the paths. In this case, you’d be searching for <code class="language-plaintext highlighter-rouge">https://my-former-blog.com/wp-content/uploads/</code> and replacing with <code class="language-plaintext highlighter-rouge">http://localhost:4000/assets/images/uploads/</code> or something along those lines.</p>
 
 <h2 id="missing-elements">Missing Elements</h2>
 
@@ -425,7 +412,7 @@ image: /assets/images/featured/lenet.png
 <div class="previous-next">
   
     <div class="previous">
-      <a class="no-underline border-top-thin py-1 block" href="https://danyalette.com/blog/getting-started-with-jekyll">
+      <a class="no-underline border-top-thin py-1 block" href="http://localhost:4000/blog/getting-started-with-jekyll">
         <span class="h5 bold text-accent">Previous</span>
         <p class="bold h3 link-primary mb-1">Getting Started With Jekyll</p>
         <p>When I decided to give Jekyll a shot, for my blog do-over, the first thing I did was take a...</p>
@@ -434,7 +421,7 @@ image: /assets/images/featured/lenet.png
     
     
     <div class="next">
-      <a class="no-underline border-top-thin py-1 block" href="https://danyalette.com/blog/heavy-but-not-in-wait">
+      <a class="no-underline border-top-thin py-1 block" href="http://localhost:4000/blog/heavy-but-not-in-wait">
         <span class="h5 bold text-accent">Next</span>
         <p class="bold h3 link-primary mb-1">Heavy (But Not in Wait)</p>
         <p>Heavy (But Not in Wait) by L’Rain
